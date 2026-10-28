@@ -1,0 +1,146 @@
+<!doctype html>
+<!-- Source for the social media images in social/. Rendered by tools/social/render.sh,
+     which opens this file once per asset as social.html?a=<name> at that asset's size. -->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@500&family=Geist+Mono:wght@400&family=Newsreader:opsz,wght@6..72,500&display=block">
+<style>
+  :root { --cream: #EEE9E3; --ink: #141413; --dark: #201F1D; --muted: rgba(20,20,19,.6); --green: #30D75D; }
+  html, body { margin: 0; overflow: hidden; background: var(--cream); color: var(--ink); -webkit-font-smoothing: antialiased; }
+  body { position: relative; box-sizing: border-box; }
+  canvas { position: absolute; inset: 0; }
+  .layer { position: absolute; inset: 0; box-sizing: border-box; display: flex; }
+  h1 { margin: 0; font-weight: 500; line-height: 0.96; }
+  h1 .sans { display: block; font-family: "Geist", sans-serif; letter-spacing: -0.055em; }
+  h1 .serif { display: block; font-family: "Newsreader", serif; letter-spacing: -0.035em; }
+  .mono { font: 400 18px/1.3 "Geist Mono", monospace; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); }
+  .sub { font: 500 34px/1.3 "Geist", sans-serif; letter-spacing: -0.02em; color: var(--muted); margin: 0; }
+  .logo { display: block; }
+  .dark { background: var(--dark); color: var(--cream); }
+  .dark .mono { color: rgba(238,233,227,.55); }
+</style>
+</head>
+<body>
+<script>
+// Pixel wordmark and mark, the same bitmaps as assets/logo.svg and favicon.svg.
+const WORDMARK = [[8,0,1],[0,1,3],[4,1,3],[8,1,2],[12,1,3],[16,1,2],[0,2,1],[2,2,1],[4,2,1],[6,2,1],[8,2,1],[10,2,1],[12,2,1],[14,2,1],[16,2,1],[18,2,1],[0,3,3],[5,3,2],[8,3,3],[12,3,3],[16,3,1],[18,3,1],[20,3,1],[4,4,2]];
+const wordmark = (w, color) => `<svg class="logo" width="${w}" height="${w * 5 / 21}" viewBox="0 0 21 5" shape-rendering="crispEdges" fill="${color}">${WORDMARK.map(([x, y, l]) => `<rect x="${x}" y="${y}" width="${l}" height="1"/>`).join("")}</svg>`;
+const mark = (s, color) => `<svg width="${s}" height="${s}" viewBox="0 0 3 3" shape-rendering="crispEdges" fill="${color}"><rect x="0" y="0" width="3" height="1"/><rect x="0" y="1" width="1" height="1"/><rect x="2" y="1" width="1" height="1"/><rect x="0" y="2" width="3" height="1"/></svg>`;
+const headline = (size) => `<h1 style="font-size:${size}px"><span class="sans">Inference,</span><span class="serif">in real time.</span></h1>`;
+
+// Dot-matrix field with the robot arm from the site's hero. `arm` is the box the arm
+// is drawn into ([x, y, size] in px); `fade` dims the field toward one side so text
+// on top stays readable; packets stream from `from` ([x, y] in px) into the scene.
+function field(W, H, { cell = 10, arm, chat, fade, from, ink = "20, 20, 19" } = {}) {
+  const c = document.createElement("canvas");
+  c.width = W * 2; c.height = H * 2; c.style.width = W + "px"; c.style.height = H + "px";
+  document.body.prepend(c);
+  const ctx = c.getContext("2d"); ctx.scale(2, 2);
+  const cols = Math.ceil(W / cell), rows = Math.ceil(H / cell);
+  const off = document.createElement("canvas"); off.width = cols; off.height = rows;
+  const o = off.getContext("2d");
+  let tip = null;
+  if (arm) {
+    const [ax, ay, as] = arm, k = as / cell / 100;
+    o.setTransform(k, 0, 0, k, ax / cell, ay / cell);
+    o.fillStyle = o.strokeStyle = "#000"; o.lineCap = "round";
+    const limb = (x1, y1, x2, y2, w) => { o.lineWidth = w; o.beginPath(); o.moveTo(x1, y1); o.lineTo(x2, y2); o.stroke(); };
+    const disc = (x, y, r) => { o.beginPath(); o.arc(x, y, r, 0, Math.PI * 2); o.fill(); };
+    o.fillRect(26, 86, 48, 6); o.fillRect(40, 74, 20, 12);
+    const a1 = -1.78, a2 = 1.62;
+    const x1 = 50 + 34 * Math.cos(a1), y1 = 72 + 34 * Math.sin(a1);
+    const x2 = x1 + 28 * Math.cos(a1 + a2), y2 = y1 + 28 * Math.sin(a1 + a2);
+    limb(50, 72, x1, y1, 8); limb(x1, y1, x2, y2, 6); disc(50, 72, 7); disc(x1, y1, 5.5);
+    const g = a1 + a2;
+    for (const s of [-1, 1]) {
+      const px = -Math.sin(g) * 3.4 * s, py = Math.cos(g) * 3.4 * s;
+      limb(x2 + px, y2 + py, x2 + px + 7 * Math.cos(g), y2 + py + 7 * Math.sin(g), 2.6);
+    }
+    tip = [(ax + (x2 + 9 * Math.cos(g)) * as / 100), (ay + (y2 + 9 * Math.sin(g)) * as / 100)];
+  }
+  // The chat scene from the site's hero: a speech bubble with its answer streamed in.
+  if (chat) {
+    const [ax, ay, as] = chat, k = as / cell / 100;
+    o.setTransform(k, 0, 0, k, ax / cell, ay / cell);
+    o.fillStyle = o.strokeStyle = "#000"; o.lineWidth = 4;
+    o.beginPath(); o.roundRect(12, 20, 76, 50, 9); o.stroke();
+    o.beginPath(); o.moveTo(24, 68); o.lineTo(19, 82); o.lineTo(38, 69); o.fill();
+    [56, 62, 40].forEach((w, i) => o.fillRect(22, 32 + i * 11, w, 5));
+    tip = [ax + 88 * as / 100, ay + 20 * as / 100];
+  }
+  const cov = o.getImageData(0, 0, cols, rows).data;
+  let seed = 7; const rnd = () => (seed = (seed * 16807) % 2147483647) / 2147483647;
+  for (let y = 0; y < rows; y++) for (let x = 0; x < cols; x++) {
+    const v = cov[(y * cols + x) * 4 + 3] / 255;
+    const px = x * cell + cell / 2, py = y * cell + cell / 2;
+    const f = fade ? fade(px, py) : 1;
+    if (v > 0.3) {
+      const s = Math.round(2 + (cell - 4) * Math.min(1, v));
+      ctx.fillStyle = `rgba(${ink}, ${0.55 + 0.4 * v})`;
+      ctx.fillRect(Math.round(px - s / 2), Math.round(py - s / 2), s, s);
+    } else {
+      ctx.fillStyle = `rgba(${ink}, ${(0.1 + 0.1 * rnd()) * f})`;
+      ctx.fillRect(Math.round(px - 1), Math.round(py - 1), 2, 2);
+    }
+  }
+  if (tip && from) {
+    ctx.fillStyle = "#30D75D";
+    const n = 7;
+    for (let i = 1; i < n; i++) {
+      const e = i / n, gx = Math.round((from[0] + (tip[0] - from[0]) * e) / cell), gy = Math.round((from[1] + (tip[1] - from[1]) * e) / cell);
+      const s = cell - 3;
+      ctx.globalAlpha = 0.35 + 0.65 * e;
+      ctx.fillRect(gx * cell + (cell - s) / 2, gy * cell + (cell - s) / 2, s, s);
+    }
+    ctx.globalAlpha = 1;
+  }
+}
+
+const A = new URLSearchParams(location.search).get("a") || "square";
+const SIZES = { "avatar-mark": [1080, 1080], "avatar-wordmark": [1080, 1080], "x-header": [1500, 500], "linkedin-banner": [1584, 396], "linkedin-cover": [1128, 191], "square": [1080, 1080], "story": [1080, 1920] };
+const [W, H] = SIZES[A];
+document.documentElement.style.width = document.body.style.width = W + "px";
+document.documentElement.style.height = document.body.style.height = H + "px";
+const layer = (style, html) => { const d = document.createElement("div"); d.className = "layer"; d.style.cssText = style; d.innerHTML = html; document.body.appendChild(d); };
+const fadeFromLeft = (start, end) => (x) => Math.max(0, Math.min(1, (x - start) / (end - start)));
+
+({
+  // Profile pictures: content sits inside the centre ~60% so a circle crop keeps it.
+  "avatar-mark": () => { document.body.classList.add("dark"); layer("align-items:center;justify-content:center", mark(420, "#EEE9E3")); },
+  "avatar-wordmark": () => layer("align-items:center;justify-content:center", wordmark(620, "#141413")),
+
+  // X: the phone app crops the left and right edges, puts buttons over the top corners
+  // and the profile picture over the bottom-left, so everything sits in the centre band
+  // (roughly x 320 to 1200, y 90 to 400).
+  "x-header": () => {
+    field(W, H, { cell: 10, chat: [870, 80, 330], fade: fadeFromLeft(640, 860), from: [1190, 70] });
+    layer("align-items:center;padding:0 0 40px 340px", headline(80));
+  },
+
+  // LinkedIn personal: the photo covers the left third, so the copy sits on the right.
+  "linkedin-banner": () => {
+    field(W, H, { cell: 10, chat: [430, 30, 350], fade: (x) => 1 - fadeFromLeft(800, 1060)(x) * 0.85, from: [40, 10] });
+    layer("flex-direction:column;justify-content:center;align-items:flex-end;text-align:right;padding:0 96px 0 0;gap:22px", headline(80) + `<p class="mono">Applied research for real-time inference · ogbon.com</p>`);
+  },
+
+  // LinkedIn company page: very short; the logo overlaps the left, copy on the right.
+  "linkedin-cover": () => {
+    field(W, H, { cell: 8, fade: (x) => 1 - fadeFromLeft(520, 760)(x) * 0.9 });
+    layer("align-items:center;justify-content:flex-end;padding:0 64px 0 0", `<h1 style="font-size:52px;display:flex;align-items:baseline;gap:.28em;white-space:nowrap"><span class="sans">Inference,</span><span class="serif">in real time.</span></h1>`);
+  },
+
+  "square": () => {
+    field(W, H, { cell: 12, chat: [470, 470, 560], fade: (x, y) => fadeFromLeft(360, 620)(x) * 0.6 + fadeFromLeft(360, 620)(y) * 0.4, from: [1070, 330] });
+    layer("flex-direction:column;justify-content:space-between;padding:80px 84px", `<div>${wordmark(150, "#141413")}</div><div style="display:flex;flex-direction:column;gap:32px;margin-bottom:auto;margin-top:96px">${headline(124)}<p class="sub" style="max-width:15em">Superfast, low-cost inference. Any model, answering in milliseconds.</p></div><p class="mono">ogbon.com</p>`);
+  },
+
+  // Stories: keep text clear of the top and bottom 250px where the app draws its UI.
+  "story": () => {
+    field(W, H, { cell: 12, chat: [300, 880, 700], fade: (x, y) => fadeFromLeft(820, 1060)(y), from: [1070, 860] });
+    layer("flex-direction:column;padding:260px 84px 260px", `${wordmark(150, "#141413")}<div style="margin-top:120px;display:flex;flex-direction:column;gap:36px">${headline(132)}<p class="sub" style="max-width:15em">Superfast, low-cost inference. Any model, answering in milliseconds.</p></div><p class="mono" style="margin-top:auto">Get early access · ogbon.com</p>`);
+  },
+})[A]();
+</script>
+</body>
+</html>

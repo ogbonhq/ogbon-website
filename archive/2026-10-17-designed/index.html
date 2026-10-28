@@ -1,0 +1,580 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ogbon · Computing research</title>
+  <meta name="description" content="Ogbon is an independent computing research company in Nigeria building VirtualGPU (VPU): turning thousands of ordinary CPU cores into one AI computing system.">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <link rel="canonical" href="https://ogbon.com/">
+  <meta name="theme-color" content="#EEE9E3">
+
+  <!-- Icons -->
+  <link rel="icon" href="/favicon.ico" sizes="32x32">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Ogbon">
+  <meta property="og:locale" content="en_GB">
+  <meta property="og:url" content="https://ogbon.com/">
+  <meta property="og:title" content="Ogbon · We’re building a GPU out of software">
+  <meta property="og:description" content="Meet VirtualGPU (VPU), our research into turning thousands of ordinary CPU cores into one powerful AI computing system.">
+  <meta property="og:image" content="https://ogbon.com/assets/og.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Ogbon: We’re building a GPU out of software.">
+
+  <!-- Twitter / X -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Ogbon · We’re building a GPU out of software">
+  <meta name="twitter:description" content="Meet VirtualGPU (VPU), our research into turning thousands of ordinary CPU cores into one powerful AI computing system.">
+  <meta name="twitter:image" content="https://ogbon.com/assets/og.png">
+  <meta name="twitter:image:alt" content="Ogbon: We’re building a GPU out of software.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500&family=Geist+Mono:wght@400&family=Newsreader:opsz,wght@6..72,400;6..72,500&display=swap">
+  <link rel="stylesheet" href="styles.css">
+  <script>document.documentElement.classList.add("js")</script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://ogbon.com/#organization",
+        "name": "Ogbon",
+        "url": "https://ogbon.com/",
+        "logo": { "@type": "ImageObject", "url": "https://ogbon.com/assets/icons/icon-512.png", "width": 512, "height": 512 },
+        "image": "https://ogbon.com/assets/og.png",
+        "slogan": "Compute is everywhere. Intelligence should be too.",
+        "description": "Independent computing research company researching how software can transform ordinary CPUs into high-performance AI computing systems.",
+        "location": { "@type": "Place", "address": { "@type": "PostalAddress", "addressCountry": "NG" } },
+        "knowsAbout": ["VirtualGPU (VPU)", "AI compilers", "Distributed execution", "Memory and communication", "Efficient computing", "AI inference on CPUs"]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://ogbon.com/#website",
+        "url": "https://ogbon.com/",
+        "name": "Ogbon",
+        "inLanguage": "en",
+        "publisher": { "@id": "https://ogbon.com/#organization" }
+      },
+      {
+        "@type": "WebPage",
+        "@id": "https://ogbon.com/#webpage",
+        "url": "https://ogbon.com/",
+        "name": "Ogbon · Computing research",
+        "description": "Ogbon is an independent computing research company in Nigeria building VirtualGPU (VPU): turning thousands of ordinary CPU cores into one AI computing system.",
+        "inLanguage": "en",
+        "isPartOf": { "@id": "https://ogbon.com/#website" },
+        "about": { "@id": "https://ogbon.com/#organization" },
+        "primaryImageOfPage": { "@type": "ImageObject", "url": "https://ogbon.com/assets/og.png", "width": 1200, "height": 630 }
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="nav" id="nav">
+    <div class="nav-inner">
+      <a class="nav-logo" href="#top" aria-label="Ogbon, back to top">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 21 5" shape-rendering="crispEdges" fill="currentColor" class="logo-svg" aria-hidden="true"><rect x="8" y="0" width="1" height="1"/><rect x="0" y="1" width="3" height="1"/><rect x="4" y="1" width="3" height="1"/><rect x="8" y="1" width="2" height="1"/><rect x="12" y="1" width="3" height="1"/><rect x="16" y="1" width="2" height="1"/><rect x="0" y="2" width="1" height="1"/><rect x="2" y="2" width="1" height="1"/><rect x="4" y="2" width="1" height="1"/><rect x="6" y="2" width="1" height="1"/><rect x="8" y="2" width="1" height="1"/><rect x="10" y="2" width="1" height="1"/><rect x="12" y="2" width="1" height="1"/><rect x="14" y="2" width="1" height="1"/><rect x="16" y="2" width="1" height="1"/><rect x="18" y="2" width="1" height="1"/><rect x="0" y="3" width="3" height="1"/><rect x="5" y="3" width="2" height="1"/><rect x="8" y="3" width="3" height="1"/><rect x="12" y="3" width="3" height="1"/><rect x="16" y="3" width="1" height="1"/><rect x="18" y="3" width="1" height="1"/><rect x="20" y="3" width="1" height="1"/><rect x="4" y="4" width="2" height="1"/></svg>
+      </a>
+      <nav aria-label="Primary">
+        <ul class="nav-links">
+          <li class="hide-xs"><a href="#research">Research</a></li>
+          <li><a href="#virtualgpu">VirtualGPU</a></li>
+          <li><a href="#careers">Careers</a></li>
+          <li><a class="pill pill-green" href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- Hero -->
+    <section class="hero" id="top">
+      <h1 class="hero-title">
+        <span class="line sans reveal">We’re building a GPU</span>
+        <span class="strip" aria-hidden="true">
+          <span class="strip-track">
+            <img src="assets/glyphs/chip.svg" alt="" width="13" height="13"><img src="assets/glyphs/cores.svg" alt="" width="13" height="13"><img src="assets/glyphs/network.svg" alt="" width="13" height="13"><img src="assets/glyphs/compiler.svg" alt="" width="13" height="13"><img src="assets/glyphs/memory.svg" alt="" width="13" height="13"><img src="assets/glyphs/mesh.svg" alt="" width="13" height="13"><img src="assets/glyphs/distribute.svg" alt="" width="13" height="13"><img src="assets/glyphs/matrix.svg" alt="" width="13" height="13"><img src="assets/glyphs/rack.svg" alt="" width="13" height="13"><img src="assets/glyphs/quantize.svg" alt="" width="13" height="13">
+            <img src="assets/glyphs/chip.svg" alt="" width="13" height="13"><img src="assets/glyphs/cores.svg" alt="" width="13" height="13"><img src="assets/glyphs/network.svg" alt="" width="13" height="13"><img src="assets/glyphs/compiler.svg" alt="" width="13" height="13"><img src="assets/glyphs/memory.svg" alt="" width="13" height="13"><img src="assets/glyphs/mesh.svg" alt="" width="13" height="13"><img src="assets/glyphs/distribute.svg" alt="" width="13" height="13"><img src="assets/glyphs/matrix.svg" alt="" width="13" height="13"><img src="assets/glyphs/rack.svg" alt="" width="13" height="13"><img src="assets/glyphs/quantize.svg" alt="" width="13" height="13">
+          </span>
+        </span>
+        <span class="line serif reveal">out of software.</span>
+      </h1>
+      <p class="hero-sub reveal">Meet VirtualGPU (VPU), our research into turning thousands of ordinary CPU cores into one powerful AI computing system.</p>
+      <div class="hero-actions reveal">
+        <a class="pill pill-dark" href="#research">Explore our research</a>
+        <a class="pill pill-line" href="#careers">Join the team</a>
+      </div>
+    </section>
+
+    <!-- In the news -->
+    <section class="dark news" id="news" aria-labelledby="news-title">
+      <div class="wrap news-head reveal">
+        <h2 class="label" id="news-title">The compute shortage, in the news</h2>
+        <p class="news-note">Headlines link to the original reporting</p>
+      </div>
+      <div class="reel" data-reel>
+        <ul class="reel-track">
+          <li class="clip" style="--c:#30D75D">
+            <a href="https://www.apollo.com/wealth/insights-news/insights/2026/06/growing-compute-shortage" target="_blank" rel="noopener noreferrer">
+              <span class="clip-meta"><span>Apollo</span><time datetime="2026-06-15">15 Jun 2026</time></span>
+              <span class="clip-head">The Growing Compute Shortage</span>
+              <span class="clip-src">Read on Apollo ↗</span>
+            </a>
+          </li>
+          <li class="clip" style="--c:#FFD23F">
+            <a href="https://techcrunch.com/2026/04/29/google-cloud-surpasses-20b-but-says-growth-was-capacity-constrained/" target="_blank" rel="noopener noreferrer">
+              <span class="clip-meta"><span>TechCrunch</span><time datetime="2026-04-29">29 Apr 2026</time></span>
+              <span class="clip-head">Google Cloud surpasses $20B, but says growth was capacity-constrained</span>
+              <span class="clip-src">Read on TechCrunch ↗</span>
+            </a>
+          </li>
+          <li class="clip" style="--c:#B9A7FF">
+            <a href="https://broadbandbreakfast.com/ai-compute-shortage-challenges-bubble-narrative/" target="_blank" rel="noopener noreferrer">
+              <span class="clip-meta"><span>Broadband Breakfast</span><time datetime="2026-04-21">21 Apr 2026</time></span>
+              <span class="clip-head">AI Compute Shortage Challenges ‘Bubble’ Narrative</span>
+              <span class="clip-src">Read on Broadband Breakfast ↗</span>
+            </a>
+          </li>
+          <li class="tile" aria-hidden="true" style="--g:url(assets/glyphs/rack.svg)"></li>
+          <li class="clip" style="--c:#FF8A4C">
+            <a href="https://www.bloomberg.com/news/articles/2025-10-29/microsoft-posts-azure-growth-that-fails-to-meet-investor-hopes" target="_blank" rel="noopener noreferrer">
+              <span class="clip-meta"><span>Bloomberg</span><time datetime="2025-10-29">29 Oct 2025</time></span>
+              <span class="clip-head">Microsoft Data Center Crunch Persists Despite Heavy Spending</span>
+              <span class="clip-src">Read on Bloomberg ↗</span>
+            </a>
+          </li>
+          <li class="clip" style="--c:#7DC8FF">
+            <a href="https://www.bloomberg.com/news/articles/2025-10-09/microsoft-forecasts-show-data-center-crunch-persisting-into-2026" target="_blank" rel="noopener noreferrer">
+              <span class="clip-meta"><span>Bloomberg</span><time datetime="2025-10-09">9 Oct 2025</time></span>
+              <span class="clip-head">Microsoft Forecasts Show Data Center Crunch Persisting Into 2026</span>
+              <span class="clip-src">Read on Bloomberg ↗</span>
+            </a>
+          </li>
+          <li class="tile" aria-hidden="true" style="--g:url(assets/glyphs/chip.svg)"></li>
+          <li class="clip" style="--c:#FF9FCB">
+            <a href="https://techcrunch.com/2025/02/27/openai-ceo-sam-altman-says-the-company-is-out-of-gpus/" target="_blank" rel="noopener noreferrer">
+              <span class="clip-meta"><span>TechCrunch</span><time datetime="2025-02-27">27 Feb 2025</time></span>
+              <span class="clip-head">OpenAI CEO Sam Altman says the company is ‘out of GPUs’</span>
+              <span class="clip-src">Read on TechCrunch ↗</span>
+            </a>
+          </li>
+          <li class="clip" style="--c:#A7E8C9">
+            <a href="https://datacenterknowledge.com/cloud/microsoft-cloud-growth-constrained-by-data-center-shortage" target="_blank" rel="noopener noreferrer">
+              <span class="clip-meta"><span>Bloomberg</span><time datetime="2025-01-30">30 Jan 2025</time></span>
+              <span class="clip-head">Microsoft Cloud Growth Constrained by Data Center Shortage</span>
+              <span class="clip-src">Read on Data Center Knowledge ↗</span>
+            </a>
+          </li>
+          <li class="tile" aria-hidden="true" style="--g:url(assets/glyphs/memory.svg)"></li>
+          <li class="clip" style="--c:#FF6A5C">
+            <a href="https://www.nytimes.com/2023/08/16/technology/ai-gpu-chips-shortage.html" target="_blank" rel="noopener noreferrer">
+              <span class="clip-meta"><span>The New York Times</span><time datetime="2023-08-16">16 Aug 2023</time></span>
+              <span class="clip-head">The Desperate Hunt for the A.I. Boom’s Most Indispensable Prize</span>
+              <span class="clip-src">Read on The New York Times ↗</span>
+            </a>
+          </li>
+          <li class="clip" style="--c:#C8F25C">
+            <a href="https://www.deeplearning.ai/the-batch/all-about-nvidia-gpu-shortage" target="_blank" rel="noopener noreferrer">
+              <span class="clip-meta"><span>The Batch · DeepLearning.AI</span><time datetime="2023-08-16">16 Aug 2023</time></span>
+              <span class="clip-head">All About Nvidia’s GPU Shortage</span>
+              <span class="clip-src">Read on The Batch ↗</span>
+            </a>
+          </li>
+          <li class="tile" aria-hidden="true" style="--g:url(assets/glyphs/cores.svg)"></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 01 Thesis -->
+    <section class="dark manifesto" id="thesis" aria-labelledby="thesis-title">
+      <div class="wrap narrow">
+        <img class="mark reveal" src="assets/glyphs/cores.svg" alt="" width="52" height="52">
+        <p class="label reveal">01 / Our thesis</p>
+        <h2 class="manifesto-title reveal" id="thesis-title">The world doesn’t have a computing shortage. <em>It has a computing efficiency problem.</em></h2>
+        <p class="manifesto-body reveal"><strong>Billions of CPU cores already exist across the world.</strong></p>
+        <p class="manifesto-body reveal">Meanwhile, artificial intelligence increasingly depends on expensive, specialized GPUs.</p>
+        <p class="manifesto-body reveal"><strong>We believe there’s another way.</strong></p>
+        <p class="manifesto-body reveal">What if we could unlock the computing power we already have, rather than always building more specialized hardware?</p>
+        <p class="manifesto-body reveal">At Ogbon, we’re researching how software can transform ordinary CPUs into <strong>high-performance AI computing systems.</strong></p>
+      </div>
+    </section>
+
+    <!-- 02 VirtualGPU -->
+    <section class="dark challenge" id="virtualgpu" aria-labelledby="virtualgpu-title">
+      <div class="wrap">
+        <div class="split-head">
+          <p class="label reveal">02 / Introducing VirtualGPU (VPU)</p>
+          <div>
+            <h2 class="h2 reveal" id="virtualgpu-title">One virtual accelerator. <em>Thousands of CPU cores.</em></h2>
+            <div class="vgpu-intro reveal">
+              <p>VirtualGPU (VPU) is our proposed software-defined AI computing architecture.</p>
+              <p>It combines distributed CPU resources into a unified execution environment designed for demanding AI workloads.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="section-head reveal">
+          <h3 class="label">Our first research challenge</h3>
+        </div>
+
+        <div class="equation reveal" role="img" aria-label="1,000 CPU cores, an arrow, 1 NVIDIA H100">
+          <div class="term">
+            <div class="cores" id="cores" aria-hidden="true"></div>
+            <p class="num">1,000</p>
+            <p class="cap">CPU cores</p>
+          </div>
+          <div class="op" aria-hidden="true">
+            <svg viewBox="0 0 9 7" shape-rendering="crispEdges" fill="currentColor"><rect x="5" y="0" width="1" height="1"/><rect x="6" y="1" width="1" height="1"/><rect x="7" y="2" width="1" height="1"/><rect x="0" y="3" width="9" height="1"/><rect x="7" y="4" width="1" height="1"/><rect x="6" y="5" width="1" height="1"/><rect x="5" y="6" width="1" height="1"/></svg>
+          </div>
+          <div class="term">
+            <div class="gpu" aria-hidden="true"><span>H100</span></div>
+            <p class="num serif">1</p>
+            <p class="cap">NVIDIA H100</p>
+          </div>
+        </div>
+
+        <div class="challenge-copy">
+          <p class="lead reveal">We’re investigating whether 1,000 commodity CPU cores can deliver the aggregate AI inference throughput of one NVIDIA H100 GPU, at a lower total cost.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 03 Research -->
+    <section class="dark research" id="research" aria-labelledby="research-title">
+      <div class="wrap">
+        <div class="split-head">
+          <p class="label reveal">03 / The science</p>
+          <h2 class="h2 reveal" id="research-title">Rethinking how computers <em>work together.</em></h2>
+        </div>
+        <ol class="areas">
+          <li class="area reveal">
+            <span class="area-icon" style="--g:url(assets/glyphs/compiler.svg)"></span>
+            <span class="area-num">01</span>
+            <h3>AI Compilers</h3>
+            <p>Making AI models execute more efficiently on ordinary processors.</p>
+          </li>
+          <li class="area reveal">
+            <span class="area-icon" style="--g:url(assets/glyphs/network.svg)"></span>
+            <span class="area-num">02</span>
+            <h3>Distributed Execution</h3>
+            <p>Making thousands of CPU cores work together as one logical computing system.</p>
+          </li>
+          <li class="area reveal">
+            <span class="area-icon" style="--g:url(assets/glyphs/memory.svg)"></span>
+            <span class="area-num">03</span>
+            <h3>Memory &amp; Communication</h3>
+            <p>Reducing the overhead of moving information between processors.</p>
+          </li>
+          <li class="area reveal">
+            <span class="area-icon" style="--g:url(assets/glyphs/quantize.svg)"></span>
+            <span class="area-num">04</span>
+            <h3>Efficient Computing</h3>
+            <p>Exploring new ways to reduce the computational cost of artificial intelligence.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- 04 Careers -->
+    <section class="light careers" id="careers" aria-labelledby="careers-title">
+      <div class="wrap">
+        <div class="split-head">
+          <p class="label reveal">04 / Join the research</p>
+          <div>
+            <h2 class="h2 reveal" id="careers-title">Help us build something <em>that doesn’t exist yet.</em></h2>
+            <div class="careers-intro reveal">
+              <p>We’re assembling a founding team of exceptional engineers and researchers in Nigeria.</p>
+              <p>We’re looking for people who enjoy difficult problems, question conventional approaches, and want to push the boundaries of computing.</p>
+              <p>You don’t need a PhD or experience at a major technology company.</p>
+              <p>You need curiosity, strong technical ability, and the willingness to experiment.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="roles">
+          <div class="roles-head" aria-hidden="true">
+            <span>Open positions</span><span>Location</span><span>Employment</span><span></span>
+          </div>
+
+          <div class="role reveal" id="role-head-of-engineering-and-research">
+            <details>
+            <summary>
+              <h3 class="role-title">Head of Engineering &amp; Research</h3>
+              <span class="role-meta">Nigeria</span>
+              <span class="role-meta">Full-time</span>
+              <span class="role-toggle" aria-hidden="true"></span>
+            </summary>
+            <div class="role-body">
+              <p class="role-summary">Lead Ogbon’s technical research, develop the computing architecture, manage experiments, and guide the engineering team.</p>
+              <div class="role-cols">
+                <div>
+                  <h4>Responsibilities</h4>
+                  <ul>
+                    <li>Set the research agenda and turn the 1,000-core target into a sequence of testable milestones.</li>
+                    <li>Design the overall architecture across compilation, scheduling, and distributed execution.</li>
+                    <li>Define how experiments are run, measured, and reported so results can be trusted and reproduced.</li>
+                    <li>Hire, mentor, and lead the founding engineering and research team.</li>
+                    <li>Make hard technical tradeoffs, including deciding when an approach should be abandoned.</li>
+                  </ul>
+                </div>
+                <div>
+                  <h4>Requirements</h4>
+                  <ul>
+                    <li>Deep experience building performance-critical systems: compilers, runtimes, databases, operating systems, or HPC.</li>
+                    <li>A strong grasp of computer architecture: caches, SIMD, memory bandwidth, and interconnects.</li>
+                    <li>A record of leading technically ambitious projects from idea to working system.</li>
+                    <li>Rigour about measurement and honesty about negative results.</li>
+                    <li>The ability to explain complex ideas clearly to engineers and non-specialists.</li>
+                  </ul>
+                </div>
+              </div>
+              <a class="pill pill-dark" data-apply="Head of Engineering &amp; Research" href="#contact">Apply for this role</a>
+            </div>
+          </details>
+            <a class="pill pill-line pill-sm role-apply" data-apply="Head of Engineering &amp; Research" href="#contact">Apply</a>
+          </div>
+
+          <div class="role reveal" id="role-senior-cpp-engineer">
+            <details>
+            <summary>
+              <h3 class="role-title">Senior C++ Engineer</h3>
+              <span class="role-meta">Nigeria</span>
+              <span class="role-meta">Full-time</span>
+              <span class="role-toggle" aria-hidden="true"></span>
+            </summary>
+            <div class="role-body">
+              <p class="role-summary">Build high-performance software and optimise AI model execution on CPUs.</p>
+              <div class="role-cols">
+                <div>
+                  <h4>Responsibilities</h4>
+                  <ul>
+                    <li>Write and optimise the kernels and runtime that execute model operations on CPUs.</li>
+                    <li>Profile hot paths and remove bottlenecks in compute, memory access, and threading.</li>
+                    <li>Use SIMD instruction sets such as AVX2, AVX-512, and NEON where they make a measurable difference.</li>
+                    <li>Build benchmarks and tests that keep performance from regressing.</li>
+                    <li>Work with research engineers to turn ideas into fast, correct code.</li>
+                  </ul>
+                </div>
+                <div>
+                  <h4>Requirements</h4>
+                  <ul>
+                    <li>Strong modern C++ (17 or later) and a solid understanding of what the compiler generates.</li>
+                    <li>Experience with profiling tools such as perf or VTune.</li>
+                    <li>A clear understanding of CPU caches, memory layout, and multithreading.</li>
+                    <li>Experience with numerical or high-performance code is a strong plus.</li>
+                    <li>Comfort reading assembly when needed.</li>
+                  </ul>
+                </div>
+              </div>
+              <a class="pill pill-dark" data-apply="Senior C++ Engineer" href="#contact">Apply for this role</a>
+            </div>
+          </details>
+            <a class="pill pill-line pill-sm role-apply" data-apply="Senior C++ Engineer" href="#contact">Apply</a>
+          </div>
+
+          <div class="role reveal" id="role-senior-backend-engineer-distributed-systems">
+            <details>
+            <summary>
+              <h3 class="role-title">Senior Backend Engineer <span class="role-sub">Distributed Systems</span></h3>
+              <span class="role-meta">Nigeria</span>
+              <span class="role-meta">Full-time</span>
+              <span class="role-toggle" aria-hidden="true"></span>
+            </summary>
+            <div class="role-body">
+              <p class="role-summary">Develop distributed systems that coordinate AI workloads across multiple CPU servers.</p>
+              <div class="role-cols">
+                <div>
+                  <h4>Responsibilities</h4>
+                  <ul>
+                    <li>Design the coordination layer that splits AI workloads across many CPU servers.</li>
+                    <li>Build scheduling, partitioning, and data-transfer systems with minimal overhead.</li>
+                    <li>Handle failures, stragglers, and network variability without losing throughput.</li>
+                    <li>Instrument the system so latency and throughput can be understood end to end.</li>
+                    <li>Contribute to decisions on protocols, serialisation, and networking.</li>
+                  </ul>
+                </div>
+                <div>
+                  <h4>Requirements</h4>
+                  <ul>
+                    <li>Experience building distributed systems in production or research settings.</li>
+                    <li>Strong programming ability in C++, Rust, Go, or a similar systems language.</li>
+                    <li>A solid grasp of networking fundamentals and bandwidth and latency tradeoffs.</li>
+                    <li>Familiarity with consensus, replication, or distributed scheduling.</li>
+                    <li>Clear thinking about correctness under concurrency.</li>
+                  </ul>
+                </div>
+              </div>
+              <a class="pill pill-dark" data-apply="Senior Backend Engineer (Distributed Systems)" href="#contact">Apply for this role</a>
+            </div>
+          </details>
+            <a class="pill pill-line pill-sm role-apply" data-apply="Senior Backend Engineer (Distributed Systems)" href="#contact">Apply</a>
+          </div>
+
+          <div class="role reveal" id="role-systems-engineer-linux-and-performance">
+            <details>
+            <summary>
+              <h3 class="role-title">Systems Engineer <span class="role-sub">Linux &amp; Performance</span></h3>
+              <span class="role-meta">Nigeria</span>
+              <span class="role-meta">Full-time</span>
+              <span class="role-toggle" aria-hidden="true"></span>
+            </summary>
+            <div class="role-body">
+              <p class="role-summary">Optimise Linux, CPU performance, memory usage, and parallel execution.</p>
+              <div class="role-cols">
+                <div>
+                  <h4>Responsibilities</h4>
+                  <ul>
+                    <li>Tune Linux for compute-heavy workloads: scheduling, NUMA, huge pages, and interrupts.</li>
+                    <li>Measure and optimise memory usage, cache behaviour, and parallel execution.</li>
+                    <li>Build tooling that profiles experiments across many machines.</li>
+                    <li>Investigate performance anomalies down to the kernel and hardware level.</li>
+                    <li>Document findings so the rest of the team can build on them.</li>
+                  </ul>
+                </div>
+                <div>
+                  <h4>Requirements</h4>
+                  <ul>
+                    <li>Deep Linux knowledge, including kernel-level performance concepts.</li>
+                    <li>Experience with perf, eBPF, flame graphs, or similar tooling.</li>
+                    <li>An understanding of NUMA, CPU topology, and the memory hierarchy.</li>
+                    <li>Systems programming and scripting ability in C, C++, Rust, Python, or shell.</li>
+                    <li>Patience and curiosity for problems nobody has documented yet.</li>
+                  </ul>
+                </div>
+              </div>
+              <a class="pill pill-dark" data-apply="Systems Engineer (Linux &amp; Performance)" href="#contact">Apply for this role</a>
+            </div>
+          </details>
+            <a class="pill pill-line pill-sm role-apply" data-apply="Systems Engineer (Linux &amp; Performance)" href="#contact">Apply</a>
+          </div>
+
+          <div class="role reveal" id="role-ai-ml-research-engineer">
+            <details>
+            <summary>
+              <h3 class="role-title">AI/ML Research Engineer</h3>
+              <span class="role-meta">Nigeria</span>
+              <span class="role-meta">Full-time</span>
+              <span class="role-toggle" aria-hidden="true"></span>
+            </summary>
+            <div class="role-body">
+              <p class="role-summary">Research efficient AI architectures, model optimisation, quantisation, and CPU inference.</p>
+              <div class="role-cols">
+                <div>
+                  <h4>Responsibilities</h4>
+                  <ul>
+                    <li>Research model architectures and techniques suited to CPU inference.</li>
+                    <li>Run experiments in quantisation, sparsity, pruning, and distillation.</li>
+                    <li>Measure accuracy and performance tradeoffs rigorously.</li>
+                    <li>Work with compiler and systems engineers to make research results run fast.</li>
+                    <li>Follow the research literature and reproduce promising results.</li>
+                  </ul>
+                </div>
+                <div>
+                  <h4>Requirements</h4>
+                  <ul>
+                    <li>A strong understanding of how modern neural networks work, especially transformers.</li>
+                    <li>Experience with PyTorch, JAX, or a similar framework.</li>
+                    <li>Hands-on experience with model optimisation techniques such as quantisation.</li>
+                    <li>Solid foundations in linear algebra and numerical methods.</li>
+                    <li>The ability to design clean experiments and report results honestly.</li>
+                  </ul>
+                </div>
+              </div>
+              <a class="pill pill-dark" data-apply="AI/ML Research Engineer" href="#contact">Apply for this role</a>
+            </div>
+          </details>
+            <a class="pill pill-line pill-sm role-apply" data-apply="AI/ML Research Engineer" href="#contact">Apply</a>
+          </div>
+
+          <div class="role reveal" id="role-infrastructure-engineer">
+            <details>
+            <summary>
+              <h3 class="role-title">Infrastructure Engineer</h3>
+              <span class="role-meta">Nigeria</span>
+              <span class="role-meta">Full-time</span>
+              <span class="role-toggle" aria-hidden="true"></span>
+            </summary>
+            <div class="role-body">
+              <p class="role-summary">Build and manage Linux servers, computing clusters, deployment systems, and research infrastructure.</p>
+              <div class="role-cols">
+                <div>
+                  <h4>Responsibilities</h4>
+                  <ul>
+                    <li>Build and operate the Linux servers and clusters used for research.</li>
+                    <li>Automate provisioning, configuration, and deployment.</li>
+                    <li>Maintain monitoring, logging, and experiment-tracking infrastructure.</li>
+                    <li>Keep the research environment reliable, reproducible, and secure.</li>
+                    <li>Plan hardware and network capacity with the research team.</li>
+                  </ul>
+                </div>
+                <div>
+                  <h4>Requirements</h4>
+                  <ul>
+                    <li>Experience administering Linux servers at scale.</li>
+                    <li>Familiarity with infrastructure-as-code tools such as Ansible or Terraform.</li>
+                    <li>Networking knowledge: switching, routing, and diagnosing throughput problems.</li>
+                    <li>Experience with monitoring stacks such as Prometheus and Grafana.</li>
+                    <li>A strong preference for automation over manual work.</li>
+                  </ul>
+                </div>
+              </div>
+              <a class="pill pill-dark" data-apply="Infrastructure Engineer" href="#contact">Apply for this role</a>
+            </div>
+          </details>
+            <a class="pill pill-line pill-sm role-apply" data-apply="Infrastructure Engineer" href="#contact">Apply</a>
+          </div>
+        </div>
+
+        <div class="roles-more reveal">
+          <a class="pill pill-dark" href="#role-head-of-engineering-and-research" data-open-roles>Explore open positions</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Closing -->
+    <section class="dark closing" id="contact" aria-labelledby="closing-title">
+      <div class="wrap narrow">
+        <h2 class="closing-title reveal" id="closing-title">
+          <span class="sans">The GPU is software.</span>
+          <span class="serif">That’s the future we’re researching.</span>
+        </h2>
+        <div class="closing-foot reveal">
+          <p class="domain">OGBON.COM</p>
+          <p class="tagline">Compute is everywhere. Intelligence should be too.</p>
+          <a class="mail" data-email href="#contact">Email us</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap footer-inner">
+      <div class="footer-brand">
+        <a class="footer-logo" href="#top" aria-label="Ogbon, back to top"><img src="assets/logo-light.svg" alt="ogbon." width="63" height="15"></a>
+        <p>An independent computing research company.</p>
+      </div>
+      <ul class="footer-links">
+        <li><a href="#research">Research</a></li>
+        <li><a href="#virtualgpu">VirtualGPU</a></li>
+        <li><a href="#careers">Careers</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <p class="copy">© 2026 Ogbon.</p>
+    </div>
+  </footer>
+
+  <script src="script.js" defer></script>
+</body>
+</html>

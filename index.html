@@ -1,0 +1,397 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ogbon · Real-time inference</title>
+  <meta name="description" content="Run any model faster and cheaper, on the device, on-premise or in our cloud. One API, answers in milliseconds.">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <link rel="canonical" href="https://ogbon.com/">
+  <meta name="theme-color" content="#EEE9E3">
+
+  <!-- Icons -->
+  <link rel="icon" href="/favicon.ico" sizes="32x32">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Ogbon">
+  <meta property="og:locale" content="en_GB">
+  <meta property="og:url" content="https://ogbon.com/">
+  <meta property="og:title" content="Ogbon · Real-time inference">
+  <meta property="og:description" content="Run any model faster and cheaper, on the device, on-premise or in our cloud. One API, answers in milliseconds.">
+  <meta property="og:image" content="https://ogbon.com/assets/og.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Ogbon: Inference, in real time.">
+
+  <!-- Twitter / X -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Ogbon · Real-time inference">
+  <meta name="twitter:description" content="Run any model faster and cheaper, on the device, on-premise or in our cloud. One API, answers in milliseconds.">
+  <meta name="twitter:image" content="https://ogbon.com/assets/og.png">
+  <meta name="twitter:image:alt" content="Ogbon: Inference, in real time.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500&family=Geist+Mono:wght@400&family=Newsreader:opsz,wght@6..72,400;6..72,500&display=swap">
+  <link rel="stylesheet" href="styles.css?v=20261027-18">
+  <script>document.documentElement.classList.add("js")</script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://ogbon.com/#organization",
+        "name": "Ogbon",
+        "url": "https://ogbon.com/",
+        "logo": { "@type": "ImageObject", "url": "https://ogbon.com/assets/icons/icon-512.png", "width": 512, "height": 512 },
+        "image": "https://ogbon.com/assets/og.png",
+        "slogan": "Inference, in real time.",
+        "description": "Applied research lab building superfast, low-cost real-time inference, on the edge and in the cloud, with physical AI and edge vision as first verticals.",
+        "email": "hello@ogbon.com",
+        "location": [
+          { "@type": "Place", "address": { "@type": "PostalAddress", "addressLocality": "Lagos", "addressCountry": "NG" } },
+          { "@type": "Place", "address": { "@type": "PostalAddress", "addressLocality": "London", "addressCountry": "GB" } }
+        ],
+        "knowsAbout": ["Real-time inference", "Efficient inference", "GPU kernels", "Quantisation", "Distillation", "Edge AI", "Physical AI"]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://ogbon.com/#website",
+        "url": "https://ogbon.com/",
+        "name": "Ogbon",
+        "inLanguage": "en",
+        "publisher": { "@id": "https://ogbon.com/#organization" }
+      },
+      {
+        "@type": "WebPage",
+        "@id": "https://ogbon.com/#webpage",
+        "url": "https://ogbon.com/",
+        "name": "Ogbon · Real-time inference",
+        "description": "Run any model faster and cheaper, on the device, on-premise or in our cloud. One API, answers in milliseconds.",
+        "inLanguage": "en",
+        "isPartOf": { "@id": "https://ogbon.com/#website" },
+        "about": { "@id": "https://ogbon.com/#organization" },
+        "primaryImageOfPage": { "@type": "ImageObject", "url": "https://ogbon.com/assets/og.png", "width": 1200, "height": 630 }
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="nav" id="nav">
+    <div class="nav-inner">
+      <a class="nav-logo" href="#top" aria-label="Ogbon, back to top">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 21 5" shape-rendering="crispEdges" fill="currentColor" class="logo-svg" aria-hidden="true"><rect x="8" y="0" width="1" height="1"/><rect x="0" y="1" width="3" height="1"/><rect x="4" y="1" width="3" height="1"/><rect x="8" y="1" width="2" height="1"/><rect x="12" y="1" width="3" height="1"/><rect x="16" y="1" width="2" height="1"/><rect x="0" y="2" width="1" height="1"/><rect x="2" y="2" width="1" height="1"/><rect x="4" y="2" width="1" height="1"/><rect x="6" y="2" width="1" height="1"/><rect x="8" y="2" width="1" height="1"/><rect x="10" y="2" width="1" height="1"/><rect x="12" y="2" width="1" height="1"/><rect x="14" y="2" width="1" height="1"/><rect x="16" y="2" width="1" height="1"/><rect x="18" y="2" width="1" height="1"/><rect x="0" y="3" width="3" height="1"/><rect x="5" y="3" width="2" height="1"/><rect x="8" y="3" width="3" height="1"/><rect x="12" y="3" width="3" height="1"/><rect x="16" y="3" width="1" height="1"/><rect x="18" y="3" width="1" height="1"/><rect x="20" y="3" width="1" height="1"/><rect x="4" y="4" width="2" height="1"/></svg>
+      </a>
+      <nav aria-label="Primary">
+        <ul class="nav-links">
+          <li class="hide-xs"><a href="#product">Product</a></li>          <li><a href="compare.html">Compare</a></li>
+          <li class="hide-xs"><a href="#pricing">Pricing</a></li>
+          <li class="hide-xs"><a href="research.html">Research</a></li>
+          <li class="hide-xs"><a href="team.html">Team</a></li>
+          <li><a class="pill pill-green" href="https://my.ogbon.com">Log in</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- Hero -->
+    <section class="hero" id="top">
+      <div class="hero-inner">
+        <div class="hero-copy">
+          <h1 class="hero-title">
+            <span class="line sans reveal">Inference,</span>
+            <span class="line serif reveal">in real time.</span>
+          </h1>
+          <p class="hero-sub reveal">Run any model faster and cheaper, on the device, on&#8209;premise or in our cloud. One API, answers in&nbsp;milliseconds.</p>
+          <div class="hero-actions reveal">
+            <a class="pill pill-dark" data-email="Early access" href="#contact">Get early access</a>
+            <a class="pill pill-line" href="compare.html">Compare speeds</a>
+          </div>
+        </div>
+        <div class="hero-art" aria-hidden="true">
+          <canvas class="machines" data-machines></canvas>
+        </div>
+      </div>
+    </section>
+
+    <!-- 01 Problem -->
+    <section class="dark research" id="problem" aria-labelledby="problem-title">
+      <div class="wrap">
+        <div class="split-head">
+          <p class="label reveal">01 / The problem</p>
+          <h2 class="h2 reveal" id="problem-title">Your users feel <em>every millisecond.</em></h2>
+        </div>
+        <ul class="uses uses-dark">
+          <li class="use reveal">
+            <span class="use-icon" style="--g:url(assets/glyphs/network.svg)"></span>
+            <h3>Slow replies</h3>
+            <p>Distant servers, long&nbsp;queues.</p>
+          </li>
+          <li class="use reveal">
+            <span class="use-icon" style="--g:url(assets/glyphs/matrix.svg)"></span>
+            <h3>Rising bills</h3>
+            <p>Full price on every&nbsp;call.</p>
+          </li>
+          <li class="use reveal">
+            <span class="use-icon" style="--g:url(assets/glyphs/mesh.svg)"></span>
+            <h3>Dropped links</h3>
+            <p>Products stall&nbsp;offline.</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 02 Product -->
+    <section class="light fleets" id="product" aria-labelledby="product-title">
+      <div class="wrap">
+        <div class="split-head">
+          <p class="label reveal">02 / The product</p>
+          <div>
+            <h2 class="h2 reveal" id="product-title">Switch in <em>one line.</em></h2>
+            <div class="careers-intro reveal">
+              <p>Point your code at Ogbon and set a latency budget. We decide, per request, where it&nbsp;runs.</p>
+            </div>
+          </div>
+        </div>
+        <div class="codeblock product-code reveal" aria-label="Example code">
+          <div class="codeblock-bar"><span></span><span></span><span></span><p>app.py</p></div>
+          <pre><code><span class="k">from</span> ogbon <span class="k">import</span> Ogbon
+
+<span class="c"># Device, on-prem or cloud</span>
+client = Ogbon(route=<span class="s">"auto"</span>)
+
+reply = client.chat(
+    <span class="c"># Any open model</span>
+    model=<span class="s">"llama-3.1-8b"</span>,
+    messages=history,
+    <span class="c"># Met, or we fall back</span>
+    max_latency_ms=<span class="s">50</span>,
+)</code></pre>
+        </div>
+      </div>
+    </section>
+
+    <!-- 03 Deploy -->
+    <section class="dark research" id="deploy" aria-labelledby="deploy-title">
+      <div class="wrap">
+        <div class="split-head">
+          <p class="label reveal">03 / Deploy anywhere</p>
+          <div>
+            <h2 class="h2 reveal" id="deploy-title">Each request runs <em>where it is fastest.</em></h2>
+            <div class="vgpu-intro reveal">
+              <p>If the link drops, it falls back to the device. Your product never&nbsp;stalls.</p>
+            </div>
+          </div>
+        </div>
+        <ul class="uses uses-dark">
+          <li class="use reveal">
+            <span class="use-icon" style="--g:url(assets/glyphs/chip.svg)"></span>
+            <h3>Device</h3>
+            <p>Private, fast, and works&nbsp;offline.</p>
+          </li>
+          <li class="use reveal">
+            <span class="use-icon" style="--g:url(assets/glyphs/rack.svg)"></span>
+            <h3>On&#8209;premise</h3>
+            <p>Your servers, your data.</p>
+          </li>
+          <li class="use reveal">
+            <span class="use-icon" style="--g:url(assets/glyphs/network.svg)"></span>
+            <h3>Ogbon cloud</h3>
+            <p>Large models, close to your&nbsp;users.</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 04 Use cases -->
+    <section class="light fleets" id="use-cases" aria-labelledby="use-cases-title">
+      <div class="wrap">
+        <div class="split-head">
+          <p class="label reveal">04 / Use cases</p>
+          <h2 class="h2 reveal" id="use-cases-title">Built for every <em>real&#8209;time workload.</em></h2>
+        </div>
+        <ul class="uses">
+          <li class="use reveal">
+            <span class="use-icon" style="--g:url(assets/glyphs/network.svg)"></span>
+            <h3>Chat and assistants</h3>
+            <p>Faster answers, lower&nbsp;cost.</p>
+          </li>
+          <li class="use reveal">
+            <span class="use-icon" style="--g:url(assets/glyphs/compiler.svg)"></span>
+            <h3>Coding</h3>
+            <p>Completions as you&nbsp;type.</p>
+          </li>
+          <li class="use reveal">
+            <span class="use-icon" style="--g:url(assets/glyphs/matrix.svg)"></span>
+            <h3>Voice</h3>
+            <p>Conversation without the&nbsp;pause.</p>
+          </li>
+          <li class="use reveal">
+            <span class="use-icon" style="--g:url(assets/glyphs/distribute.svg)"></span>
+            <h3>Agents</h3>
+            <p>Multi&#8209;step work in&nbsp;seconds.</p>
+          </li>
+          <li class="use reveal">
+            <span class="use-icon" style="--g:url(assets/glyphs/mesh.svg)"></span>
+            <h3>Vision</h3>
+            <p>Video understood frame by&nbsp;frame.</p>
+          </li>
+          <li class="use reveal">
+            <span class="use-icon" style="--g:url(assets/glyphs/cores.svg)"></span>
+            <h3>Physical AI</h3>
+            <p>Machines that act in real&nbsp;time.</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 05 Pricing -->
+    <section class="dark research" id="pricing" aria-labelledby="pricing-title">
+      <div class="wrap">
+        <div class="split-head">
+          <p class="label reveal">05 / Pricing</p>
+          <h2 class="h2 reveal" id="pricing-title">Pay for speed, <em>not idle GPUs.</em></h2>
+        </div>
+        <ol class="areas">
+          <li class="area reveal">
+            <span class="area-icon" style="--g:url(assets/glyphs/compiler.svg)"></span>
+            <span class="area-num">Developer</span>
+            <h3>Usage&#8209;based</h3>
+            <p>Per token. Pay only for what you&nbsp;run.</p>
+          </li>
+          <li class="area reveal">
+            <span class="area-icon" style="--g:url(assets/glyphs/rack.svg)"></span>
+            <span class="area-num">Scale</span>
+            <h3>Committed capacity</h3>
+            <p>Monthly, with a latency&nbsp;SLA.</p>
+          </li>
+          <li class="area reveal">
+            <span class="area-icon" style="--g:url(assets/glyphs/memory.svg)"></span>
+            <span class="area-num">Enterprise</span>
+            <h3>On&#8209;premise licence</h3>
+            <p>Annual. Your data stays with&nbsp;you.</p>
+          </li>
+          <li class="area reveal">
+            <span class="area-icon" style="--g:url(assets/glyphs/cores.svg)"></span>
+            <span class="area-num">Devices</span>
+            <h3>Per device</h3>
+            <p>Monthly pricing for fleets of&nbsp;machines.</p>
+          </li>
+        </ol>
+        <div class="roles-more reveal">
+          <a class="pill pill-dark" data-email="Pricing" href="#contact">Get pricing</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 06 Control -->
+    <section class="light fleets" id="control" aria-labelledby="control-title">
+      <div class="wrap">
+        <div class="split-head">
+          <p class="label reveal">06 / Control</p>
+          <h2 class="h2 reveal" id="control-title">Your data, <em>your rules.</em></h2>
+        </div>
+        <ul class="uses">
+          <li class="use reveal">
+            <span class="use-icon" style="--g:url(assets/glyphs/memory.svg)"></span>
+            <h3>Private by option</h3>
+            <p>Run fully on&#8209;device or&nbsp;on&#8209;premise.</p>
+          </li>
+          <li class="use reveal">
+            <span class="use-icon" style="--g:url(assets/glyphs/distribute.svg)"></span>
+            <h3>Never stalls</h3>
+            <p>Falls back when the link&nbsp;drops.</p>
+          </li>
+          <li class="use reveal">
+            <span class="use-icon" style="--g:url(assets/glyphs/quantize.svg)"></span>
+            <h3>Latency SLA</h3>
+            <p>On Scale and Enterprise&nbsp;plans.</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 07 Get started -->
+    <section class="dark research" id="start" aria-labelledby="start-title">
+      <div class="wrap">
+        <div class="split-head">
+          <p class="label reveal">07 / Get started</p>
+          <h2 class="h2 reveal" id="start-title">Live in <em>three steps.</em></h2>
+        </div>
+        <ol class="areas areas-3">
+          <li class="area reveal">
+            <span class="area-num">01</span>
+            <h3>Bring one model</h3>
+            <p>The one that hurts most&nbsp;today.</p>
+          </li>
+          <li class="area reveal">
+            <span class="area-num">02</span>
+            <h3>We benchmark it</h3>
+            <p>On your own&nbsp;traffic.</p>
+          </li>
+          <li class="area reveal">
+            <span class="area-num">03</span>
+            <h3>Go live</h3>
+            <p>With a latency SLA, then expand.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- Closing -->
+    <section class="dark closing" id="contact" aria-labelledby="closing-title">
+      <div class="wrap narrow">
+        <h2 class="closing-title reveal" id="closing-title">
+          <span class="sans">Make it answer</span>
+          <span class="serif">in real time.</span>
+        </h2>
+        <p class="closing-lead reveal">Join the developer preview. Bring one model and we’ll show you the&nbsp;difference.</p>
+        <div class="closing-cta reveal">
+          <a class="pill pill-dark" data-email="Early access" href="#contact">Get early access</a>
+          <a class="pill pill-line" data-email="Hello" href="#contact">Talk to us</a>
+        </div>
+        <div class="closing-foot reveal">
+          <p class="domain">OGBON.COM</p>
+          <p class="tagline">Real&#8209;time inference for every workload.</p>
+          <a class="mail" data-email href="#contact">Email us</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap footer-inner">
+      <div class="footer-brand">
+        <a class="footer-logo" href="#top" aria-label="Ogbon, back to top"><img src="assets/logo-light.svg" alt="ogbon." width="63" height="15"></a>
+        <p>Ogbon · real&#8209;time inference.</p>
+        <ul class="footer-social">
+          <li><a href="https://x.com/ogbonhq" target="_blank" rel="noopener noreferrer" aria-label="Ogbon on X"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a></li>
+          <li><a href="https://www.linkedin.com/company/ogbonhq" target="_blank" rel="noopener noreferrer" aria-label="Ogbon on LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 1 1 0-4.125 2.062 2.062 0 0 1 0 4.125zM7.119 20.452H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a></li>
+          <li><a href="https://github.com/ogbonhq" target="_blank" rel="noopener noreferrer" aria-label="Ogbon on GitHub"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.385-1.335-1.755-1.335-1.755-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></a></li>
+          <li><a href="https://www.instagram.com/ogbonhq" target="_blank" rel="noopener noreferrer" aria-label="Ogbon on Instagram"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" stroke="none"/></svg></a></li>
+        </ul>
+      </div>
+      <ul class="footer-links">
+        <li><a href="#product">Product</a></li>        <li><a href="compare.html">Compare</a></li>
+        <li><a href="#pricing">Pricing</a></li>
+        <li><a href="research.html">Research</a></li>
+        <li><a href="team.html">Team</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <p class="copy">© 2026 Ogbon.</p>
+    </div>
+  </footer>
+
+  <script src="script.js?v=20261027-2" defer></script>
+</body>
+</html>

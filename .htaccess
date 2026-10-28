@@ -1,0 +1,18 @@
+# Pages are revalidated on every visit so a deploy shows up straight away.
+# styles.css and script.js keep the host's long cache: index.html links them with ?v=,
+# so bump that version when either file changes.
+<IfModule mod_headers.c>
+  <FilesMatch "\.(html|xml|txt|webmanifest)$">
+    Header set Cache-Control "no-cache"
+  </FilesMatch>
+</IfModule>
+
+# One canonical host: www.ogbon.com redirects to ogbon.com.
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteCond %{HTTP_HOST} ^www\.ogbon\.com$ [NC]
+  RewriteRule ^ https://ogbon.com%{REQUEST_URI} [R=301,L]
+
+  # Careers moved into the team page.
+  RewriteRule ^careers\.html$ /team.html#careers [R=301,NE,L]
+</IfModule>
