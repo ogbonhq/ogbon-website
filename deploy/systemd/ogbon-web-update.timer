@@ -1,0 +1,10 @@
+# At boot and every 5 minutes: the VM pulls new images instead of being pushed to (no open ports).
+[Unit]
+Description=Ogbon website: deploy the latest image at boot and every 5 minutes
+
+[Timer]
+OnBootSec=20s
+OnUnitInactiveSec=5min
+
+[Install]
+WantedBy=timers.target

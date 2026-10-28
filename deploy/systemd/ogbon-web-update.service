@@ -1,0 +1,12 @@
+# Pull the latest site image and converge the web VM on it (deploy/ogbon-web-update.sh).
+[Unit]
+Description=Ogbon website: deploy the latest image
+After=network-online.target docker.service
+Wants=network-online.target docker.service
+
+[Service]
+Type=oneshot
+# Optional: OGBON_WEB_IMAGE=ghcr.io/ogbonhq/ogbon-website:sha-<short> pins an older version (rollback).
+EnvironmentFile=-/etc/ogbon-web/update.env
+ExecStart=/usr/local/bin/ogbon-web-update
+TimeoutStartSec=600

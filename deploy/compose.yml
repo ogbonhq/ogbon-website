@@ -1,0 +1,31 @@
+# The web VM (ogbon-web): the site and the tunnel for ogbon.com, www.ogbon.com and
+# web-staging.ogbon.com. Nothing listens on a public port: nginx is on 127.0.0.1:8092 and only
+# cloudflared reaches it. Both use the host network so a new nginx can start next to the old one on
+# the same port during a deploy (reuseport, see ogbon-web-update.sh).
+name: ogbon-web
+
+x-logging: &logging
+  driver: json-file
+  options: {max-size: 10m, max-file: "5"}
+
+services:
+  web:
+    image: ${OGBON_WEB_IMAGE:-ghcr.io/ogbonhq/ogbon-website:main}
+    network_mode: host
+    restart: unless-stopped
+    read_only: true
+    tmpfs: [/tmp, /var/cache/nginx]
+    stop_grace_period: 30s
+    logging: *logging
+
+  # Ingress rules (all hostnames -> 127.0.0.1:8092) in /etc/ogbon-web/cloudflared/config.yml.
+  cloudflared:
+    image: cloudflare/cloudflared:${CLOUDFLARED_VERSION:-2026.10.0}
+    network_mode: host
+    restart: unless-stopped
+    logging: *logging
+    command: ["tunnel", "--no-autoupdate", "--config", "/etc/cloudflared/config.yml", "run"]
+    volumes:
+      - /etc/ogbon-web/cloudflared:/etc/cloudflared:ro
+    depends_on:
+      web: {condition: service_healthy}

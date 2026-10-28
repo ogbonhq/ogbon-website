@@ -21,8 +21,16 @@ Update `lastmod` in `sitemap.xml` when content changes.
 
 ## Deploy
 
-Caching: the host caches `styles.css` and `script.js` in browsers for 7 days, so `index.html` links them as `styles.css?v=…` and `script.js?v=…`. Bump that version whenever either file changes, or returning visitors see old styles on the new page. `.htaccess` makes pages revalidate on every visit and redirects www to the bare domain (www still needs an SSL certificate from the host before that works over https).
+Push to `main` and it goes live. Work on `dev` (the default branch), then fast-forward or PR `dev` → `main`.
 
-`./deploy.sh` uploads the site to ogbon.com over FTPS; `./deploy.sh upload index.html` uploads only the files you name. The login comes from `~/.netrc`. `./deploy.sh list` shows the remote folder.
+- CI (`.github/workflows/ci.yml`) builds the nginx image (`Dockerfile`, `nginx.conf`), runs it and checks every page, asset, redirect and header (`tests/smoke.sh`), then pushes `ghcr.io/ogbonhq/ogbon-website:<branch>` and `:sha-<short>` (public package).
+- The GCP VM `ogbon-web` (europe-west8-c, e2-small) pulls `:main` at boot and every 5 minutes (`deploy/ogbon-web-update.sh`, systemd timer `ogbon-web-update.timer`) and swaps nginx without dropping requests. So a push to `main` is live about 5-8 minutes later. To deploy at once: `gcloud compute ssh ogbon-web --zone europe-west8-c --command "sudo systemctl start ogbon-web-update"`.
+- No open ports: Cloudflare (DNS, TLS, cache) reaches nginx on `127.0.0.1:8092` through the cloudflared tunnel `ogbon-web` (ogbon.com, www.ogbon.com). Everything on the VM is in `deploy/` (`compose.yml`, the updater, `install.sh` for a new VM).
+- Only the site files are in the image; `tools/`, `archive/`, `social/`, `index.launch.html`, this README and the deploy scripts are not served (the `Dockerfile` lists what is).
+- To check a deploy: `REMOTE=1 bash tests/smoke.sh https://ogbon.com` (Git Bash).
 
-Vercel also works: point it at this folder, no framework preset. `.vercelignore` keeps `tools/`, `archive/`, `deploy.sh` and this README out of that deploy.
+Caching (`nginx.conf`, same rules the old `.htaccess` had): pages (`.html .xml .txt .webmanifest`) revalidate on every visit; everything else, including `styles.css` and `script.js`, is cached in browsers for 7 days, so `index.html` links them as `styles.css?v=…` and `script.js?v=…`. Bump that version whenever either file changes, or returning visitors see old styles on the new page. www redirects to the bare domain, `/careers.html` to `/team.html#careers`.
+
+Rollback: to an older version, revert the commit on `main` (CI redeploys), or pin an image on the VM: `echo OGBON_WEB_IMAGE=ghcr.io/ogbonhq/ogbon-website:sha-<short> | sudo tee /etc/ogbon-web/update.env` then `sudo systemctl start ogbon-web-update` (delete the file to follow `main` again). To the old host, in Cloudflare DNS for ogbon.com set `ogbon.com` back to an A record `199.188.201.77` (proxied) and `www` to a CNAME to `ogbon.com` (proxied); the Namecheap hosting plan is kept for mail.
+
+Emergency fallback only: `./deploy.sh` still uploads the site to the old Namecheap hosting over FTPS (login from `~/.netrc`; `./deploy.sh upload index.html` uploads only the files you name, `./deploy.sh list` shows the remote folder). It is not live unless DNS is rolled back as above. `.htaccess` is for that host only.
