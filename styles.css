@@ -812,3 +812,94 @@ em {
   .vision-stats { grid-template-columns: 1fr; gap: 10px; }
   .vision-stats > div { display: flex; align-items: baseline; gap: 12px; }
 }
+
+/* ---------- Lab homepage: releases, platform points, ogbon-1 model card ---------- */
+.pill-cream { background: var(--cream); color: var(--ink); }
+.pill-cream:hover { background: #fff; }
+
+.releases { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-left: 272px; }
+.release {
+  display: flex; flex-direction: column;
+  padding: clamp(28px, 3vw, 40px);
+  border: 1px solid var(--line-light); border-radius: 20px;
+  background: rgba(255, 255, 255, 0.42);
+}
+.release-model { background: var(--dark); color: var(--on-dark); border-color: var(--dark); }
+.release-status {
+  align-self: flex-start;
+  display: inline-flex; align-items: center; gap: 8px;
+  font: 400 12px/1 var(--mono); letter-spacing: 0.04em; text-transform: uppercase;
+  padding: 7px 10px; border: 1px solid currentColor; border-radius: 999px;
+  color: var(--muted-dark);
+}
+.release-status::before { content: ""; width: 7px; height: 7px; background: currentColor; }
+.release-status.is-live { color: var(--ink); border-color: var(--green); background: rgba(48, 215, 93, 0.14); }
+.release-status.is-live::before { background: var(--green); }
+.release-name { margin-top: clamp(40px, 5vw, 64px); font-size: clamp(32px, 3.6vw, 48px); line-height: 1; letter-spacing: -0.05em; }
+.mono-name { font-family: var(--mono); font-weight: 400; letter-spacing: -0.06em; }
+.release-body { margin-top: 16px; color: var(--muted-light); max-width: 26em; }
+.release-model .release-body { color: var(--muted-dark); }
+.release-facts { margin-top: 28px; border-top: 1px solid var(--line-light); }
+.release-model .release-facts { border-color: var(--line-dark); }
+.release-facts li {
+  display: flex; align-items: center; gap: 12px;
+  padding: 12px 0; border-bottom: 1px solid var(--line-light);
+  font: 400 14px/1.3 var(--mono); letter-spacing: 0.01em;
+}
+.release-model .release-facts li { border-color: var(--line-dark); }
+.release-facts li::before { content: ""; flex: none; width: 5px; height: 5px; background: var(--green); }
+.release-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: auto; padding-top: 32px; }
+
+.platform-points { margin: clamp(56px, 7vw, 88px) 0 0 272px; }
+#platform .roles-more, #research .roles-more { display: flex; flex-wrap: wrap; gap: 10px; }
+#platform .roles-more { margin-left: 272px; }
+
+.modelcard {
+  margin-left: 272px; max-width: 820px;
+  background: var(--dark); color: var(--on-dark);
+  border-radius: 20px; overflow: hidden;
+}
+.modelcard-head {
+  display: flex; align-items: flex-end; justify-content: space-between; gap: 24px; flex-wrap: wrap;
+  padding: clamp(28px, 4vw, 48px);
+  background-image: radial-gradient(rgba(238, 233, 227, 0.16) 1px, transparent 1.2px);
+  background-size: 12px 12px;
+  border-bottom: 1px solid var(--line-dark);
+}
+.modelcard-name { font: 400 clamp(56px, 9vw, 120px)/0.9 var(--mono); letter-spacing: -0.07em; }
+.modelcard-status {
+  display: inline-flex; align-items: center; gap: 10px;
+  font: 400 12px/1 var(--mono); letter-spacing: 0.04em; text-transform: uppercase; color: var(--muted-dark);
+  padding: 8px 12px; border: 1px solid var(--line-dark); border-radius: 999px; background: var(--dark);
+}
+.modelcard-status i { width: 8px; height: 8px; background: var(--green); animation: blink 1.6s steps(2, start) infinite; }
+@keyframes blink { to { visibility: hidden; } }
+.modelcard-rows > div {
+  display: grid; grid-template-columns: 180px minmax(0, 1fr); gap: 24px;
+  padding: 16px clamp(28px, 4vw, 48px); border-bottom: 1px solid var(--line-dark);
+}
+.modelcard-rows dt { font: 400 13px/1.6 var(--mono); letter-spacing: 0.04em; text-transform: uppercase; color: var(--muted-dark); }
+.modelcard-rows dd { margin: 0; }
+.modelcard-foot {
+  display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap;
+  padding: clamp(24px, 3vw, 32px) clamp(28px, 4vw, 48px);
+}
+.modelcard-foot p { color: var(--muted-dark); }
+.modelcard .pill-dark { background: var(--cream); color: var(--ink); }
+.modelcard .pill-dark:hover { background: #fff; }
+#join .hero-actions { margin-top: 32px; }
+
+@media (max-width: 960px) {
+  .releases, .platform-points, #platform .roles-more, .modelcard { margin-left: 0; }
+  #research .areas-3 { grid-template-columns: 1fr; }
+}
+@media (max-width: 760px) {
+  .releases { grid-template-columns: 1fr; }
+  .modelcard-rows > div { grid-template-columns: 1fr; gap: 4px; }
+}
+@media (max-width: 480px) {
+  .areas-3 { grid-template-columns: 1fr; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .modelcard-status i { animation: none; }
+}
