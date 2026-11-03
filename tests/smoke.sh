@@ -33,7 +33,7 @@ WEEK='^cache-control: public, max-age=604800$'
 SECURITY=('^strict-transport-security: max-age=31536000' '^x-content-type-options: nosniff$'
           '^referrer-policy: strict-origin-when-cross-origin$' '^x-frame-options: SAMEORIGIN$')
 
-for p in / /index.html /compare.html /research.html /team.html /team; do
+for p in / /index.html /compare.html /research.html; do
   expect "$p" 200 "${PAGE[@]}" "${SECURITY[@]}"
 done
 for p in /styles.css?v=1 /script.js?v=1 /compare.js /vision.js /favicon.ico /favicon.svg /apple-touch-icon.png; do
@@ -49,7 +49,9 @@ fi
 expect /sitemap.xml 200 '^content-type: (text|application)/xml' '^cache-control: no-cache$'
 expect /site.webmanifest 200 '^content-type: application/manifest\+json' '^cache-control: no-cache$'
 
-expect /careers.html 301 '^location: (https://[^/]+)?/team\.html#careers$'
+for p in /team.html /team /careers.html; do
+  expect "$p" 301 '^location: (https://[^/]+)?/$'
+done
 expect /nope 404 '^content-type: text/html' '^cache-control: no-cache$'
 grep -q 'Page not found' <(curl -s $SMOKE_CURL_ARGS "$BASE/nope") || { echo "FAIL /nope: not the 404 page"; fail=1; }
 for p in /README.md /deploy.sh /.htaccess /.vercelignore /Dockerfile /nginx.conf /index.launch.html \
@@ -59,7 +61,7 @@ done
 
 if [ "$REMOTE" = 0 ]; then
   CURL_ARGS=(-H 'Host: www.ogbon.com')
-  expect '/team.html?x=1' 301 '^location: https://ogbon\.com/team\.html\?x=1$'
+  expect '/research.html?x=1' 301 '^location: https://ogbon\.com/research\.html\?x=1$'
   CURL_ARGS=(-H 'Accept-Encoding: gzip')
   expect /styles.css 200 '^content-encoding: gzip$'
   CURL_ARGS=()

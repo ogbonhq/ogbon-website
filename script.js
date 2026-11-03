@@ -317,11 +317,6 @@ window.addEventListener("hashchange", openRoleFromHash);
   document.addEventListener("visibilitychange", () => (document.hidden ? stop() : start()));
 })();
 
-// Roles live on team.html: old links such as /#role-senior-cpp-engineer still land on the role.
-if (location.hash.startsWith("#role-") && !document.getElementById(location.hash.slice(1)) && !location.pathname.endsWith("team.html")) {
-  location.replace("team.html" + location.hash);
-}
-
 // Paragraphs longer than six lines are past what text-wrap: balance handles, so [data-balance]
 // ones are evened out here: the box narrows until one step more would add a line, which leaves
 // every line, the last one included, about the same length.

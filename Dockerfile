@@ -7,7 +7,7 @@ COPY nginx.conf /etc/nginx/nginx.conf
 
 WORKDIR /usr/share/nginx/html
 RUN rm -f index.html 50x.html
-COPY index.html compare.html research.html team.html 404.html \
+COPY index.html compare.html research.html 404.html \
      styles.css script.js compare.js vision.js \
      favicon.ico favicon.svg apple-touch-icon.png site.webmanifest robots.txt sitemap.xml ./
 COPY assets/ assets/
