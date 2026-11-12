@@ -111,16 +111,16 @@ const openRoleFromHash = () => {
 openRoleFromHash();
 window.addEventListener("hashchange", openRoleFromHash);
 
-// Hero: machines drawn as a dot matrix. Each scene is painted at grid resolution on a
-// small offscreen canvas; every cell's coverage becomes a dot. Scenes dissolve into one
-// another cell by cell, and green packets stream in from the top corner (the cloud).
+// Hero: ogbon-1 at work on a codebase, drawn as a dot matrix. Each scene is painted at grid
+// resolution on a small offscreen canvas; every cell's coverage becomes a dot. Scenes dissolve
+// into one another cell by cell, and green packets stream in from the top corner (the model).
 (() => {
   const canvas = document.querySelector("[data-machines]");
   if (!canvas) return;
   const ctx = canvas.getContext("2d");
   const off = document.createElement("canvas");
   const octx = off.getContext("2d", { willReadFrequently: true });
-  const INK = "20, 20, 19", GREEN = "#30D75D";
+  const INK = "238, 233, 227", GREEN = "#30D75D";
   const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   // Scenes draw in a 100x100 box and return the point packets stream to.
@@ -130,104 +130,105 @@ window.addEventListener("hashchange", openRoleFromHash);
   };
   const disc = (c, x, y, r) => { c.beginPath(); c.arc(x, y, r, 0, Math.PI * 2); c.fill(); };
 
-  const arm = (c, t) => {
-    c.fillRect(26, 86, 48, 6);
-    c.fillRect(40, 74, 20, 12);
-    const a1 = -1.95 + 0.38 * Math.sin(t * 2.4);
-    const a2 = 1.35 + 0.55 * Math.sin(t * 2.4 + 1.1);
-    const x1 = 50 + 34 * Math.cos(a1), y1 = 72 + 34 * Math.sin(a1);
-    const x2 = x1 + 28 * Math.cos(a1 + a2), y2 = y1 + 28 * Math.sin(a1 + a2);
-    limb(c, 50, 72, x1, y1, 8); limb(c, x1, y1, x2, y2, 6);
-    disc(c, 50, 72, 7); disc(c, x1, y1, 5.5);
-    const g = a1 + a2, open = 2.6 + 1.6 * Math.sin(t * 4.8);
-    for (const s of [-1, 1]) {
-      const px = -Math.sin(g) * open * s, py = Math.cos(g) * open * s;
-      limb(c, x2 + px, y2 + py, x2 + px + 7 * Math.cos(g), y2 + py + 7 * Math.sin(g), 2.6);
-    }
-    return [x2, y2];
-  };
-
-  // Edge security: a wall-mounted camera panning, with its field of view.
-  const camera = (c, t) => {
-    c.fillRect(14, 20, 6, 30);
-    c.fillRect(14, 31, 18, 4);
-    const pan = 0.22 * Math.sin(t * 1.8);
-    c.save(); c.translate(32, 33); c.rotate(0.28 + pan);
-    c.beginPath(); c.roundRect(0, -7, 34, 14, 3); c.fill();
-    c.fillRect(30, -9, 8, 18);
-    c.globalAlpha = 0.28;
-    c.beginPath(); c.moveTo(38, 0); c.lineTo(80, -22); c.lineTo(80, 26); c.closePath(); c.fill();
-    c.globalAlpha = 1;
-    c.restore();
-    c.fillRect(8, 88, 84, 2);
-    // A figure walking through the frame.
-    const x = 52 + 18 * Math.sin(t * 1.4);
-    disc(c, x, 62, 3.6);
-    limb(c, x, 66, x, 78, 4.4);
-    limb(c, x, 78, x - 3 + 2 * Math.sin(t * 10), 88, 2.6); limb(c, x, 78, x + 3 - 2 * Math.sin(t * 10), 88, 2.6);
-    const ex = 32 + 38 * Math.cos(0.28 + pan), ey = 33 + 38 * Math.sin(0.28 + pan);
-    return [ex, ey];
-  };
-
   // How far through its turn on screen a scene is (0 to 1), for things that build up.
   const progress = (t, span) => Math.min(1, (t % HOLD) / span);
+  const ease = (k) => k * k * (3 - 2 * k);
 
-  // Chat: a reply streaming into a speech bubble, one token run at a time.
-  const chat = (c, t) => {
-    c.lineWidth = 4;
-    c.beginPath(); c.roundRect(12, 20, 76, 50, 9); c.stroke();
-    c.beginPath(); c.moveTo(24, 68); c.lineTo(19, 82); c.lineTo(38, 69); c.fill();
-    let left = progress(t, 0.6) * 158;
-    [56, 62, 40].forEach((w, i) => {
-      const d = Math.max(0, Math.min(w, left)); left -= w;
-      if (d > 0) c.fillRect(22, 32 + i * 11, d, 5);
-    });
-    return [88, 20];
-  };
-
-  // Coding: an editor typing indented lines, with a blinking cursor.
-  const code = (c, t) => {
+  // An editor window and the code lines inside it, as [indent, width] rows.
+  const ROWS = [[18, 40], [24, 30], [24, 46], [30, 26], [24, 38], [18, 20]];
+  const editor = (c) => {
     c.lineWidth = 3.5;
     c.beginPath(); c.roundRect(10, 16, 80, 68, 5); c.stroke();
     c.fillRect(10, 16, 80, 9);
-    const rows = [[18, 30], [24, 36], [24, 22], [30, 28], [24, 18], [18, 10]];
-    let left = progress(t, 0.8) * rows.reduce((s, [, w]) => s + w, 0), cursor = [18, 32];
+  };
+
+  // Scan: a bar sweeps down the file and marks the lines with problems in the gutter.
+  const scan = (c, t) => {
+    editor(c);
+    ROWS.forEach(([x, w], i) => c.fillRect(x, 32 + i * 8, w, 4));
+    const y = 29 + progress(t, 1.8) * 50;
+    for (const i of [2, 4]) if (y > 34 + i * 8) disc(c, 14, 34 + i * 8, 2.4);
+    c.globalAlpha = 0.4; c.fillRect(12, y, 76, 3); c.globalAlpha = 1;
+    return [88, y];
+  };
+
+  // Find: a magnifying glass moves across the code and stops on a bug.
+  const find = (c, t) => {
+    c.globalAlpha = 0.5;
+    ROWS.concat(ROWS.slice(0, 2)).forEach(([x, w], i) => c.fillRect(x - 6, 18 + i * 8, w + 12, 4));
+    c.globalAlpha = 1;
+    const e = ease(progress(t, 1.4)), cx = 30 + 30 * e, cy = 30 + 24 * e;
+    c.save();
+    c.globalCompositeOperation = "destination-out"; disc(c, cx, cy, 13);
+    c.restore();
+    c.lineWidth = 4; c.beginPath(); c.arc(cx, cy, 13, 0, Math.PI * 2); c.stroke();
+    limb(c, cx + 9.5, cy + 9.5, cx + 22, cy + 22, 6.5);
+    if (e > 0.9) {
+      c.beginPath(); c.ellipse(60, 54, 4.2, 5.6, 0, 0, Math.PI * 2); c.fill();
+      for (const s of [-1, 1]) for (const dy of [-3, 1, 5]) limb(c, 60 + 3 * s, 54 + dy, 60 + 7.5 * s, 52.5 + dy + Math.sin(t * 14 + dy) * 0.8, 1.8);
+    }
+    return [cx, cy];
+  };
+
+  // Patch: a diff, with the bad line taken out and the fix typed in below it.
+  const patch = (c, t) => {
+    editor(c);
+    const rows = [[24, 40], [24, 30], [24, 44], [24, 36], [24, 26], [24, 34]];
+    let cursor = [24, 56];
     rows.forEach(([x, w], i) => {
-      const d = Math.max(0, Math.min(w, left)); left -= w;
-      if (d > 0) { c.fillRect(x, 32 + i * 8, d, 4); cursor = [x + d + 2, 32 + i * 8]; }
+      const y = 32 + i * 8;
+      if (i === 2) {
+        c.fillRect(14, y + 0.8, 6, 2.4);
+        c.globalAlpha = 0.4; c.fillRect(x, y, w, 4); c.globalAlpha = 1;
+      } else if (i === 3) {
+        c.fillRect(14, y + 0.8, 6, 2.4); c.fillRect(15.8, y - 1, 2.4, 6);
+        const d = progress(t, 1) * w;
+        if (d > 0) c.fillRect(x, y, d, 4);
+        cursor = [x + d + 2, y];
+        if (Math.floor(t * 2.5) % 2) c.fillRect(cursor[0], y - 1, 3, 6);
+      } else c.fillRect(x, y, w, 4);
     });
-    if (Math.floor(t * 2.5) % 2) c.fillRect(cursor[0], cursor[1] - 1, 3, 6);
     return cursor;
   };
 
-  // Voice: a waveform answering as it speaks.
-  const voice = (c, t) => {
-    for (let i = 0; i < 11; i++) {
-      const env = Math.sin(Math.PI * (i + 0.5) / 11);
-      const h = 6 + 46 * env * Math.abs(Math.sin(t * 9 + i * 0.7));
-      c.fillRect(16 + i * 6.4, 50 - h / 2, 4, h);
-    }
-    return [50, 22];
-  };
-
-  // Agents: a plan of steps, each finishing in turn.
-  const agents = (c, t) => {
-    const nodes = [[20, 30], [50, 20], [80, 38], [62, 70], [28, 74]];
-    const active = Math.min(nodes.length - 1, Math.floor(progress(t, 1) * nodes.length));
-    nodes.forEach(([x, y], i) => {
-      if (i < nodes.length - 1) {
+  // Merge: the fix branches off, gets its commits and merges back as a pull request.
+  const merge = (c, t) => {
+    const main = [[30, 14], [30, 86]];
+    const steps = [[30, 24], [66, 38], [66, 62], [30, 76]];
+    limb(c, main[0][0], main[0][1], main[1][0], main[1][1], 4);
+    const active = Math.min(steps.length - 1, Math.floor(progress(t, 1.6) * steps.length));
+    steps.forEach(([x, y], i) => {
+      if (i < steps.length - 1) {
         c.globalAlpha = i < active ? 1 : 0.4;
-        limb(c, x, y, nodes[i + 1][0], nodes[i + 1][1], 2.6);
+        limb(c, x, y, steps[i + 1][0], steps[i + 1][1], 4);
         c.globalAlpha = 1;
       }
       if (i <= active) disc(c, x, y, 7);
-      else { c.lineWidth = 2.6; c.beginPath(); c.arc(x, y, 6, 0, Math.PI * 2); c.stroke(); }
+      else { c.lineWidth = 3; c.beginPath(); c.arc(x, y, 6, 0, Math.PI * 2); c.stroke(); }
     });
-    return nodes[active];
+    return steps[active];
   };
 
-  // One scene per vertical on the homepage: chat, coding, voice, agents, vision, physical AI.
-  const scenes = [chat, code, voice, agents, camera, arm];
+  // Secured: a shield, with a check drawing in.
+  const shield = (c, t) => {
+    c.lineWidth = 5; c.lineJoin = "round";
+    c.beginPath();
+    c.moveTo(50, 12); c.lineTo(80, 22); c.lineTo(80, 46);
+    c.quadraticCurveTo(80, 74, 50, 88); c.quadraticCurveTo(20, 74, 20, 46);
+    c.lineTo(20, 22); c.closePath(); c.stroke();
+    const pts = [[36, 50], [46, 61], [65, 39]];
+    let left = progress(t, 0.9) * 44, end = pts[0];
+    for (let i = 0; i < 2 && left > 0; i++) {
+      const [x1, y1] = pts[i], [x2, y2] = pts[i + 1], len = Math.hypot(x2 - x1, y2 - y1), k = Math.min(1, left / len);
+      end = [x1 + (x2 - x1) * k, y1 + (y2 - y1) * k];
+      limb(c, x1, y1, end[0], end[1], 7);
+      left -= len;
+    }
+    return end;
+  };
+
+  // The loop ogbon-1 runs on a codebase: scan, find, patch, merge, secured.
+  const scenes = [scan, find, patch, merge, shield];
   const HOLD = 3.2, FADE = 0.35;
   let cols = 0, rows = 0, cell = 10, noise = [], twinkle = [], packets = [], lastSpawn = 0;
 
@@ -287,7 +288,7 @@ window.addEventListener("hashchange", openRoleFromHash);
         }
       }
     }
-    // Packets: from the top-right corner to the machine, snapped to the grid.
+    // Packets: from the top-right corner to where the work is happening, snapped to the grid.
     const target = next && mix > 0.5 ? next.target : cur.target;
     if (!reduce && t - lastSpawn > 0.07) {
       lastSpawn = t;

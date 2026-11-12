@@ -2,14 +2,10 @@
 *
 !nginx.conf
 !index.html
-!compare.html
 !research.html
-!team.html
 !404.html
 !styles.css
 !script.js
-!compare.js
-!vision.js
 !favicon.ico
 !favicon.svg
 !apple-touch-icon.png

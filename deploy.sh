@@ -21,7 +21,7 @@ BASE="ftp://$HOST${REMOTE_DIR:+/$REMOTE_DIR}"
 CURL="curl --netrc --ssl-reqd --tls-max 1.2 --silent --show-error --fail"
 
 # Designed site: the page, its stylesheet and script, icons, logos, glyphs and the share image.
-FILES=".htaccess index.html compare.html research.html styles.css script.js compare.js vision.js favicon.ico favicon.svg apple-touch-icon.png site.webmanifest robots.txt sitemap.xml assets/logo.svg assets/logo-light.svg assets/og.png $(find assets/icons assets/glyphs assets/vision assets/logos -type f ! -name '.*' | sort)"
+FILES=".htaccess index.html research.html styles.css script.js favicon.ico favicon.svg apple-touch-icon.png site.webmanifest robots.txt sitemap.xml assets/logo.svg assets/logo-light.svg assets/og.png $(find assets/icons assets/glyphs assets/logos -type f ! -name '.*' | sort)"
 
 case "${1:-upload}" in
   list)

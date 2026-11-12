@@ -33,10 +33,10 @@ WEEK='^cache-control: public, max-age=604800$'
 SECURITY=('^strict-transport-security: max-age=31536000' '^x-content-type-options: nosniff$'
           '^referrer-policy: strict-origin-when-cross-origin$' '^x-frame-options: SAMEORIGIN$')
 
-for p in / /index.html /compare.html /research.html; do
+for p in / /index.html /research.html; do
   expect "$p" 200 "${PAGE[@]}" "${SECURITY[@]}"
 done
-for p in /styles.css?v=1 /script.js?v=1 /compare.js /vision.js /favicon.ico /favicon.svg /apple-touch-icon.png; do
+for p in /styles.css?v=1 /script.js?v=1 /favicon.ico /favicon.svg /apple-touch-icon.png; do
   expect "$p" 200 "$WEEK"
 done
 while read -r f; do expect "/$f" 200 "$WEEK"; done < <(find assets -type f ! -name '.*' | sort)
@@ -49,7 +49,7 @@ fi
 expect /sitemap.xml 200 '^content-type: (text|application)/xml' '^cache-control: no-cache$'
 expect /site.webmanifest 200 '^content-type: application/manifest\+json' '^cache-control: no-cache$'
 
-for p in /team.html /team /careers.html; do
+for p in /team.html /team /careers.html /compare.html /compare; do
   expect "$p" 301 '^location: (https://[^/]+)?/$'
 done
 expect /nope 404 '^content-type: text/html' '^cache-control: no-cache$'

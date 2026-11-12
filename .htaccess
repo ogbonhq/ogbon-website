@@ -13,6 +13,6 @@
   RewriteCond %{HTTP_HOST} ^www\.ogbon\.com$ [NC]
   RewriteRule ^ https://ogbon.com%{REQUEST_URI} [R=301,L]
 
-  # The team and careers pages were removed.
-  RewriteRule ^(team|careers)(\.html)?$ / [R=301,L]
+  # The team, careers and compare pages were removed.
+  RewriteRule ^(team|careers|compare)(\.html)?$ / [R=301,L]
 </IfModule>
