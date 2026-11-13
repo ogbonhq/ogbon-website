@@ -1,7 +1,7 @@
 {
   "name": "Ogbon",
   "short_name": "Ogbon",
-  "description": "Applied AI research lab building fast, low-cost models for code security.",
+  "description": "Applied AI research lab focusing models on improving and securing existing software.",
   "start_url": "/",
   "scope": "/",
   "display": "browser",
