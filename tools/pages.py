@@ -10,7 +10,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "tools"))
 import legal  # noqa: E402
-CSS_V = "20261126-28"
+CSS_V = "20261126-29"
 JS_V = "20261126-4"
 OG_V = "9"
 SITE = "https://ogbon.com"
@@ -541,7 +541,7 @@ steps_html = "\n".join(
     for i, (h, p) in enumerate(steps, 1)
 )
 how = f"""    <div class="frame">
-      <section class="page-hero" aria-labelledby="page-title">
+      <section class="page-hero theme-purple" aria-labelledby="page-title">
         <div class="wrap">
           <h1 id="page-title">How Ogbon <span>works</span></h1>
           <p>It starts with a free security report. <br class="br-wide">After about an hour of setup, Ogbon runs in the&nbsp;background.</p>
@@ -701,7 +701,7 @@ plan_html = "\n".join(
     for r, a, b, c in plan_rows
 )
 pricing = f"""    <div class="frame">
-      <section class="page-hero" aria-labelledby="page-title">
+      <section class="page-hero theme-purple" aria-labelledby="page-title">
         <div class="wrap">
           <h1 id="page-title">Plans and <span>pricing</span></h1>
           <p>Every plan includes monitoring, cover and incident response. <br class="br-wide">Choose a plan based on your team&nbsp;size.</p>
@@ -762,7 +762,7 @@ timeline = [
 ]
 tl_html = "\n".join(f"              <tr><th scope=\"row\">{a}</th><td>{b}</td></tr>" for a, b in timeline)
 incident = f"""    <div class="frame">
-      <section class="page-hero" aria-labelledby="page-title">
+      <section class="page-hero theme-ink" aria-labelledby="page-title">
         <div class="wrap">
           <h1 id="page-title">Report an <span>incident</span></h1>
           <p>If you think something is wrong, contact us straight away, even if you're not sure it's an attack. Acting in the first hour makes the biggest&nbsp;difference.</p>
@@ -824,7 +824,7 @@ incident = f"""    <div class="frame">
 
 # ---------------------------------------------------------------- About
 about = f"""    <div class="frame">
-      <section class="page-hero" aria-labelledby="page-title">
+      <section class="page-hero theme-deep" aria-labelledby="page-title">
         <div class="wrap">
           <h1 id="page-title">About <span>Ogbon</span></h1>
           <p>We spent five years inside Africa's financial institutions. <br class="br-wide">Now we use what we learned to protect the&nbsp;organisations.</p>
@@ -878,7 +878,7 @@ about = f"""    <div class="frame">
 
 # ---------------------------------------------------------------- ogbon-1 for engineers
 ogbon1 = f"""    <div class="frame">
-      <section class="page-hero" aria-labelledby="page-title">
+      <section class="page-hero theme-ink" aria-labelledby="page-title">
         <div class="wrap">
           <h1 id="page-title">Find and fix security gaps <span>across your organisation</span></h1>
           <p>ogbon-1 is our 30B AI model built for security. It finds weak spots, spots attacks as they happen and prepares the fixes. It's included in every Ogbon plan: use it on your team's Mac and Windows laptops, across your code, cloud and&nbsp;servers.</p>
@@ -1014,7 +1014,7 @@ def legal_page(heading, intro, sections):
                 body.append(f"<p>{tbd(b)}</p>")
         parts.append(f'        <section id="s{i}" aria-labelledby="s{i}-h">\n          <h2 id="s{i}-h">{i}. {h}</h2>\n          ' + "\n          ".join(body) + "\n        </section>")
     return f"""    <div class="frame">
-      <section class="page-hero" aria-labelledby="page-title">
+      <section class="page-hero theme-purple" aria-labelledby="page-title">
         <div class="wrap">
           <h1 id="page-title">{heading}</h1>
           <p>Last updated {legal.UPDATED}</p>
@@ -1040,7 +1040,7 @@ privacy = legal_page("Privacy <span>policy</span>", legal.PRIVACY_INTRO, legal.P
 terms = legal_page("Terms of <span>service</span>", legal.TERMS_INTRO, legal.TERMS)
 
 notfound = """    <div class="frame">
-      <section class="page-hero" aria-labelledby="page-title">
+      <section class="page-hero theme-ink" aria-labelledby="page-title">
         <div class="wrap">
           <h1 id="page-title">Page not <span>found</span></h1>
           <p>There is nothing at this address.</p>
