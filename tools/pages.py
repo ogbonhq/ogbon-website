@@ -176,7 +176,7 @@ FAQ = [
     ("Is the cover an insurance policy?",
      "No. It's a warranty from Ogbon, backed by Casava, an insurer licensed by NAICOM. You'll get the full warranty terms before you sign."),
     ("Do you install anything on our laptops?",
-     "No. We connect read-only to your websites, apps, APIs, cloud and internal systems. Nothing is installed on staff devices."),
+     "Only if you turn on endpoint protection for laptops and servers. Everything else connects read-only to your websites, apps, APIs, cloud and internal systems."),
     ("What data can Ogbon see?",
      "Configuration and access settings from the cloud accounts and systems you connect, and the code repositories you choose. We don't read emails, chats or documents. Access is read-only and you can disconnect at any time."),
     ("How long does setup take?",
@@ -870,6 +870,18 @@ ogbon1 = f"""    <div class="frame">
           <li><span class="tick">{icon("check")}</span><span>Your website, app and APIs, tested from the outside <span class="abbr">DAST</span></span></li>
           <li><span class="tick">{icon("check")}</span><span>Risky settings in your cloud accounts <span class="abbr">CSPM</span></span></li>
           <li><span class="tick">{icon("check")}</span><span>Cloud accounts and roles with more access than they need <span class="abbr">CIEM</span></span></li>
+          <li><span class="tick">{icon("check")}</span><span>Kubernetes cluster settings <span class="abbr">KSPM</span></span></li>
+          <li><span class="tick">{icon("check")}</span><span>Where sensitive data lives and who can reach it <span class="abbr">DSPM</span></span></li>
+          <li><span class="tick">{icon("check")}</span><span>Servers and containers while they run <span class="abbr">CWPP</span></span></li>
+          <li><span class="tick">{icon("check")}</span><span>The AI tools and models your teams use <span class="abbr">AI-SPM</span></span></li>
+          <li><span class="tick">{icon("check")}</span><span>A full list of the software inside your apps <span class="abbr">SBOM</span></span></li>
+          <li><span class="tick">{icon("check")}</span><span>Container images, before they ship <span class="abbr">Image scan</span></span></li>
+          <li><span class="tick">{icon("check")}</span><span>Suspicious activity in your cloud <span class="abbr">CDR</span></span></li>
+          <li><span class="tick">{icon("check")}</span><span>Laptops and servers, watched for attacks <span class="abbr">EDR</span></span></li>
+          <li><span class="tick">{icon("check")}</span><span>Hijacked accounts and unusual logins <span class="abbr">ITDR / UEBA</span></span></li>
+          <li><span class="tick">{icon("check")}</span><span>USB drives and other devices on company machines <span class="abbr">Device control</span></span></li>
+          <li><span class="tick">{icon("check")}</span><span>Known attackers' addresses and methods <span class="abbr">Threat intel</span></span></li>
+          <li><span class="tick">{icon("check")}</span><span>Alerts from everywhere, joined into one incident <span class="abbr">Correlation</span></span></li>
         </ul>
       </div>
     </section>
