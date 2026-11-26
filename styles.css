@@ -396,3 +396,9 @@ main:has(> .frame:last-child) + .footer { margin-top: 8px; border-top: 0; }
 .cov-list div { display: grid; grid-template-columns: 104px minmax(0, 1fr); gap: 12px; align-items: baseline; padding: 12px 0; border-top: 1px solid var(--line); }
 .cov-list dt { font-size: 12px; font-weight: 600; letter-spacing: 0.04em; color: var(--blue); }
 .cov-list dd { margin: 0; font-size: 15px; line-height: 1.45; color: var(--text); }
+/* About story */
+.story .h2, .story-step .h2 { margin-bottom: 20px; }
+.story-step + .story-step { margin-top: clamp(56px, 7vw, 88px); }
+.story-photo img { width: 100%; height: auto; border-radius: 12px; display: block; }
+.story-photo figcaption { margin-top: 12px; font-size: 14px; color: var(--muted); }
+@media (max-width: 860px) { .story { grid-template-columns: 1fr; } }

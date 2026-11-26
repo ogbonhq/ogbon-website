@@ -10,7 +10,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "tools"))
 import legal  # noqa: E402
-CSS_V = "20261126-14"
+CSS_V = "20261126-15"
 JS_V = "20261126-2"
 OG_V = "9"
 SITE = "https://ogbon.com"
@@ -815,16 +815,39 @@ about = f"""    <div class="frame">
       <section class="page-hero" aria-labelledby="page-title">
         <div class="wrap">
           <h1 id="page-title">About <span>Ogbon</span></h1>
-          <p>Ogbon means wisdom in&nbsp;Yoruba.</p>
+          <p>We spent five years inside Africa's banks. Now we use what we learned to protect the organisations that move&nbsp;money.</p>
         </div>
       </section>
     </div>
 
     <section class="section">
-      <div class="wrap">
+      <div class="wrap split story">
         <div class="prose">
-          <p class="strong">Ogbon is a cybersecurity company based in Lagos. We help organisations find and fix the weaknesses attackers use, and we cover the financial loss if an attack still gets&nbsp;through.</p>
-          <p>Most organisations buy security and insurance separately. The security vendor doesn't pay when something goes wrong, and the insurer doesn't know how you're set up. Ogbon does both: we protect you, and we pay if an attack gets&nbsp;through.</p>
+          <p class="eyebrow">Where we started</p>
+          <h2 class="h2">We built Mono by getting inside Africa's <span>top&nbsp;banks</span></h2>
+          <p>Before Ogbon, we built Mono, the open banking API that lets apps connect to people's bank accounts. The banks had no APIs for this, so we reverse-engineered how Africa's top financial institutions really work: their internet banking, mobile apps, logins, one-time passwords, statements and&nbsp;payments.</p>
+          <p>Over five years we connected more than 100 banks and linked over 10 million accounts. Moniepoint, OPay, PalmPay, Flutterwave, PiggyVest and Credit Direct built on Mono, and Mono was later acquired by&nbsp;Flutterwave.</p>
+        </div>
+        <figure class="story-photo">
+          <img src="/assets/team/founders.webp" alt="Prakhar Singh and Abdulhamid Hassan at a table, painted portrait" width="1100" height="922" loading="lazy">
+          <figcaption>Prakhar Singh and Abdulhamid Hassan, Ogbon's&nbsp;founders</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="section section-tight">
+      <div class="wrap">
+        <div class="prose story-step">
+          <p class="eyebrow">What we learned</p>
+          <h2 class="h2">We saw where they <span>break</span></h2>
+          <p>To make those connections work, we had to understand every weak point: logins, sessions and APIs that trust too much, and systems nobody had looked at in years. We found the same gaps at bank after bank, and at the fintechs built on top of&nbsp;them.</p>
+          <p class="strong">No one has seen more of Africa's financial systems from the inside. That knowledge is what Ogbon is built&nbsp;on.</p>
+        </div>
+        <div class="prose story-step">
+          <p class="eyebrow">Why Ogbon</p>
+          <h2 class="h2">So we built the protection we <span>wished&nbsp;existed</span></h2>
+          <p>Most organisations buy security and insurance separately. The security vendor doesn't pay when something goes wrong, and the insurer doesn't know how you're set up. Ogbon does both. We check your systems every day, ogbon-1 helps your teams find and fix gaps, and if an attack still gets through, we pay for the loss, backed by&nbsp;Casava.</p>
+          <p>Ogbon is based in Lagos. Ogbon means wisdom in&nbsp;Yoruba.</p>
         </div>
         <div class="facts">
           <article class="card"><span class="badge">{icon("shield")}</span><h2 style="margin-top:18px">Partners</h2><p class="backed"><a href="https://casava.com/" target="_blank" rel="noopener" aria-label="Casava (opens in a new tab)"><img src="/assets/partners/casava.png" alt="Casava" width="112" height="27"></a></p><p>Our cover warranty is backed by Casava, an insurer licensed by NAICOM, and by a reinsurer. Investigations are carried out by our own experts.</p></article>
