@@ -69,7 +69,7 @@ def nav(current):
       </nav>
       <div class="nav-actions">
         <a class="nav-login" href="https://my.ogbon.com">Log in</a>
-        <a class="btn btn-primary btn-sm" href="https://my.ogbon.com">Get started</a>
+        <a class="btn btn-primary btn-sm" href="/report">Get started</a>
         <button class="nav-menu" type="button" aria-expanded="false" aria-controls="nav-panel" aria-label="Menu"><span></span><span></span></button>
       </div>
     </div>
@@ -718,8 +718,8 @@ pricing = f"""    <div class="frame">
             <tfoot>
               <tr>
                 <td></td>
-                <td><a class="btn btn-outline btn-sm" href="https://my.ogbon.com">Get started</a></td>
-                <td class="is-featured"><a class="btn btn-primary btn-sm" href="https://my.ogbon.com">Get started</a></td>
+                <td><a class="btn btn-outline btn-sm" href="/report">Get started</a></td>
+                <td class="is-featured"><a class="btn btn-primary btn-sm" href="/report">Get started</a></td>
                 <td><a class="btn btn-outline btn-sm" data-email="Sales: Scale plan" href="#contact">Contact sales</a></td>
               </tr>
             </tfoot>
