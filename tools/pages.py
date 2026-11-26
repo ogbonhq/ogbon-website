@@ -10,7 +10,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "tools"))
 import legal  # noqa: E402
-CSS_V = "20261126-12"
+CSS_V = "20261126-13"
 JS_V = "20261126-2"
 OG_V = "9"
 SITE = "https://ogbon.com"
@@ -857,6 +857,20 @@ ogbon1 = f"""    <div class="frame">
           <li class="card"><span class="badge badge-pink">{icon("key")}</span><h3>Finds vulnerabilities</h3><p>It looks for exposed secrets and API keys, injection flaws, broken login and access checks, outdated dependencies, and risky settings in your cloud accounts and systems.</p></li>
           <li class="card"><span class="badge badge-lilac">{icon("check")}</span><h3>Fixes them</h3><p>Ask Ogbon Harness to fix an issue and ogbon-1 prepares the change. Your team reviews it before it goes in.</p></li>
         </ol>
+      </div>
+    </section>
+
+    <section class="section section-tight" aria-labelledby="covers-title">
+      <div class="wrap">
+        <div class="head"><h2 class="h2" id="covers-title">What ogbon-1 <span>covers</span></h2></div>
+        <ul class="checks checks-2">
+          <li><span class="tick">{icon("check")}</span><span>Code flaws, like injection and broken access checks <span class="abbr">SAST</span></span></li>
+          <li><span class="tick">{icon("check")}</span><span>Open-source libraries with known vulnerabilities <span class="abbr">SCA</span></span></li>
+          <li><span class="tick">{icon("check")}</span><span>Passwords and API keys left in code <span class="abbr">Secrets</span></span></li>
+          <li><span class="tick">{icon("check")}</span><span>Your website, app and APIs, tested from the outside <span class="abbr">DAST</span></span></li>
+          <li><span class="tick">{icon("check")}</span><span>Risky settings in your cloud accounts <span class="abbr">CSPM</span></span></li>
+          <li><span class="tick">{icon("check")}</span><span>Cloud accounts and roles with more access than they need <span class="abbr">CIEM</span></span></li>
+        </ul>
       </div>
     </section>
 
