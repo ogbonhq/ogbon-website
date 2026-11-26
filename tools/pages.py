@@ -10,7 +10,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "tools"))
 import legal  # noqa: E402
-CSS_V = "20261126-16"
+CSS_V = "20261126-17"
 JS_V = "20261126-2"
 OG_V = "9"
 SITE = "https://ogbon.com"
@@ -532,7 +532,7 @@ how = f"""    <div class="frame">
       <section class="page-hero" aria-labelledby="page-title">
         <div class="wrap">
           <h1 id="page-title">How Ogbon <span>works</span></h1>
-          <p>Setup takes about an hour of your IT team's time.<br>After that, Ogbon runs in the&nbsp;background.</p>
+          <p>Setup takes about an hour of your IT team's time. <br class="br-wide">After that, Ogbon runs in the&nbsp;background.</p>
         </div>
       </section>
     </div>
@@ -692,7 +692,7 @@ pricing = f"""    <div class="frame">
       <section class="page-hero" aria-labelledby="page-title">
         <div class="wrap">
           <h1 id="page-title">Plans and <span>pricing</span></h1>
-          <p>Every plan includes monitoring, cover and incident response.<br>Choose a plan based on your team&nbsp;size.</p>
+          <p>Every plan includes monitoring, cover and incident response. <br class="br-wide">Choose a plan based on your team&nbsp;size.</p>
         </div>
       </section>
     </div>
@@ -815,7 +815,7 @@ about = f"""    <div class="frame">
       <section class="page-hero" aria-labelledby="page-title">
         <div class="wrap">
           <h1 id="page-title">About <span>Ogbon</span></h1>
-          <p>We spent five years inside Africa's financial institutions.<br>Now we use what we learned to protect the&nbsp;organisations.</p>
+          <p>We spent five years inside Africa's financial institutions. <br class="br-wide">Now we use what we learned to protect the&nbsp;organisations.</p>
         </div>
       </section>
     </div>

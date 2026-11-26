@@ -114,6 +114,7 @@ p, li, dd, td { text-wrap: pretty; }
 /* Subpage hero: one blue panel. */
 .page-hero { background: var(--blue); color: #fff; border-radius: 16px; padding: clamp(64px, 9vw, 120px) clamp(24px, 5vw, 72px) clamp(56px, 7vw, 96px); }
 .page-hero .wrap { padding: 0; max-width: 860px; margin: 0; }
+@media (max-width: 720px) { .br-wide { display: none; } }
 .page-hero p { margin-top: 20px; max-width: 38em; font-size: clamp(17px, 1.4vw, 19px); color: rgba(255, 255, 255, 0.88); }
 
 /* ---------- Dashboard cards (UI drawn in HTML) ---------- */
