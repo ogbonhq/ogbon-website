@@ -382,6 +382,6 @@ main:has(> .frame:last-child) + .footer { margin-top: 8px; border-top: 0; }
 /* Insurer logo */
 .backed { display: flex; align-items: center; gap: 12px; margin-top: 24px; font-size: 14px; color: var(--muted); }
 .backed img { height: 24px; width: auto; display: block; }
-.backed-pill { display: inline-flex; background: #fff; color: var(--purple); border-radius: 999px; padding: 10px 18px; margin-top: 24px; }
+.backed-pill { display: inline-flex; align-self: flex-start; width: fit-content; background: #fff; color: var(--purple); border-radius: 999px; padding: 10px 18px; margin-top: 24px; }
 .page-hero .backed-pill { color: var(--purple); }
 .facts .backed { margin: 14px 0 10px; }

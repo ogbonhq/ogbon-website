@@ -10,7 +10,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "tools"))
 import legal  # noqa: E402
-CSS_V = "20261126-10"
+CSS_V = "20261126-11"
 JS_V = "20261126-2"
 OG_V = "9"
 SITE = "https://ogbon.com"
@@ -218,6 +218,7 @@ home = f"""    <div class="frame">
             <a class="btn btn-ghost-light" data-email="Sales" href="#contact">Contact sales</a>
           </div>
           <p class="hero-note"><a href="/report">Get a free security report</a> for your company in under 10&nbsp;minutes.</p>
+          <p class="backed backed-pill">Cover backed by <img src="/assets/partners/casava.png" alt="Casava" width="112" height="27"></p>
         </div>
         <div class="hero-side">
           <figure class="dash" aria-label="Example Ogbon dashboard">
