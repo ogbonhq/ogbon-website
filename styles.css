@@ -256,7 +256,7 @@ p, li, dd, td { text-wrap: pretty; }
 .prose p { font-size: clamp(17px, 1.4vw, 19px); line-height: 1.65; color: var(--muted); }
 .prose p + p { margin-top: 20px; }
 .prose .strong { color: var(--purple); font-weight: 500; }
-.facts { margin-top: clamp(48px, 6vw, 72px); display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+.facts { margin-top: clamp(48px, 6vw, 72px); display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
 .facts .card h2 { font-size: 18px; }
 .facts .card p { margin-top: 10px; }
 

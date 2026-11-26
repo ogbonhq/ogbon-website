@@ -10,7 +10,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "tools"))
 import legal  # noqa: E402
-CSS_V = "20261126-17"
+CSS_V = "20261126-18"
 JS_V = "20261126-2"
 OG_V = "9"
 SITE = "https://ogbon.com"
@@ -857,7 +857,6 @@ about = f"""    <div class="frame">
         </ol>
         <div class="facts">
           <article class="card"><span class="badge">{icon("shield")}</span><h2 style="margin-top:18px">Partners</h2><p class="backed"><a href="https://casava.com/" target="_blank" rel="noopener" aria-label="Casava (opens in a new tab)"><img src="/assets/partners/casava.png" alt="Casava" width="112" height="27"></a></p><p>Our cover warranty is backed by Casava, an insurer licensed by NAICOM, and by a reinsurer. Investigations are carried out by our own experts.</p></article>
-          <article class="card"><span class="badge badge-pink">{icon("list")}</span><h2 style="margin-top:18px">Team</h2><p>Ogbon was founded by Abdul and Prakhar. They previously founded Africa's biggest open banking infrastructure company, which was acquired by Flutterwave, Africa's most valuable fintech.</p></article>
           <article class="card"><span class="badge badge-lilac">{icon("chat")}</span><h2 style="margin-top:18px">Contact</h2><p><a class="link" href="mailto:secure@ogbon.com">secure@ogbon.com</a><br><a href="tel:+2347107144122">0710 714 4122</a><br>14B Grace Anjous Street, Lekki Phase 1, Lekki, Lagos&nbsp;State</p></article>
         </div>
       </div>
