@@ -270,7 +270,7 @@ home = f"""    <div class="frame">
           <article class="card"><span class="badge badge-pink">{icon("list")}</span><h3>Fix list</h3><p>We rank what needs fixing by how much money it puts at risk, and give your team clear steps for each&nbsp;item.</p></article>
           <article class="card"><span class="badge badge-grey">{icon("phone")}</span><h3>Incident response</h3><p>Report a problem on WhatsApp or from your dashboard at any time. A responder calls you back within an&nbsp;hour.</p></article>
           <article class="card"><span class="badge badge-lilac">{icon("shield")}</span><h3>Cover</h3><p>If an attack gets through while you're protected, we pay for the money lost, the investigation and the cost of getting back to&nbsp;work.</p></article>
-          <article class="card"><span class="badge badge-blue">{icon("code")}</span><h3>Code security</h3><p>Your engineering and IT teams get ogbon-1, our security model. It reviews each change and fixes flaws before they&nbsp;ship.</p><a class="link" href="/ogbon-1">About ogbon-1 {icon("arrow")}</a></article>
+          <article class="card"><span class="badge badge-blue">{icon("lock")}</span><h3>ogbon-1 security model</h3><p>Your engineering and IT teams get ogbon-1, our full-stack security model, as a desktop app and an API. It finds and fixes gaps across your code, cloud and&nbsp;systems.</p><a class="link" href="/ogbon-1">About ogbon-1 {icon("arrow")}</a></article>
         </div>
       </div>
     </section>
