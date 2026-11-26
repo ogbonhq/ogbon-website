@@ -111,6 +111,7 @@ def page(slug, title, desc, body, robots="index, follow", ld=""):
   <title>{t}</title>
   <meta name="description" content="{d}">
   <meta name="robots" content="{robots}">
+  <meta name="google-site-verification" content="TMQezal_UH2JRRQMls634qto7pwaackCmYipcE6Nakg">
   <link rel="canonical" href="{url}">
   <meta name="theme-color" content="#FFFFFF">
   <link rel="icon" href="/favicon.ico" sizes="32x32">
