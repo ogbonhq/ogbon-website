@@ -10,7 +10,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "tools"))
 import legal  # noqa: E402
-CSS_V = "20261126-21"
+CSS_V = "20261126-22"
 JS_V = "20261126-3"
 OG_V = "9"
 SITE = "https://ogbon.com"
@@ -38,14 +38,9 @@ NAV = [
     ("/about", "About"),
 ]
 FOOTER = [
-    ("/how-it-works", "How it works"),
-    ("/ogbon-1", "ogbon-1"),
-    ("/cover", "Cover"),
-    ("/pricing", "Pricing"),
-    ("/incident", "Report an incident"),
-    ("/about", "About"),
-    ("/privacy", "Privacy"),
-    ("/terms", "Terms"),
+    ("Product", [("/how-it-works", "How it works"), ("/ogbon-1", "ogbon-1"), ("/cover", "Cover"), ("/pricing", "Pricing")]),
+    ("Company", [("/about", "About"), ("/report", "Free security report"), ("/incident", "Report an incident")]),
+    ("Legal", [("/privacy", "Privacy"), ("/terms", "Terms")]),
 ]
 LEGAL = (
     "Ogbon is not an insurer, and the cover in Ogbon plans is not an insurance policy. It is a warranty from "
@@ -77,19 +72,26 @@ def nav(current):
 
 
 def footer():
-    links = "\n".join(f'          <li><a href="{h}">{l}</a></li>' for h, l in FOOTER)
+    cols = "\n".join(
+        f"""        <nav class="footer-col" aria-label="{t}">
+          <h2>{t}</h2>
+          <ul>
+{chr(10).join(f'            <li><a href="{h}">{l}</a></li>' for h, l in items)}
+          </ul>
+        </nav>"""
+        for t, items in FOOTER
+    )
     return f"""  <footer class="footer">
     <div class="wrap">
       <div class="footer-top">
         <div class="footer-brand">
-          <a class="nav-logo" href="/" aria-label="Ogbon home">{LOGO}</a>
           <p>{TAGLINE}</p>
+          <p class="footer-contact"><a href="mailto:secure@ogbon.com">secure@ogbon.com</a><br><a href="tel:+2347107144122">0710 714 4122</a></p>
           {SOCIAL}
         </div>
-        <ul class="footer-links">
-{links}
-        </ul>
+{cols}
       </div>
+      <a class="footer-mark" href="/" aria-label="Ogbon home">{LOGO}</a>
       <div class="footer-legal">
         <p>{tbd(LEGAL)}</p>
         <p>© 2026 Ogbon Security Limited. Lagos, Nigeria.</p>

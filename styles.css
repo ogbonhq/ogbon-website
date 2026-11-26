@@ -291,12 +291,18 @@ p, li, dd, td { text-wrap: pretty; }
 .footer { padding: clamp(56px, 7vw, 88px) 0 40px; border-top: 1px solid var(--line); margin-top: clamp(72px, 9vw, 120px); }
 /* Pages that end on the blue call-to-action panel need no rule above the footer. */
 main:has(> .frame:last-child) + .footer { margin-top: 8px; border-top: 0; }
-.footer-top { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 40px; align-items: start; }
-.footer-brand p { margin-top: 16px; color: var(--muted); }
-.footer-links { display: flex; flex-wrap: wrap; gap: 10px 28px; font-size: 15px; }
-.footer-links a { color: var(--muted); }
-.footer-links a:hover { color: var(--purple); }
-.footer-legal { margin-top: 48px; padding-top: 24px; border-top: 1px solid var(--line); display: grid; gap: 10px; font-size: 13px; line-height: 1.6; color: var(--faint); max-width: 72em; }
+.footer-top { display: grid; grid-template-columns: minmax(0, 1.4fr) repeat(3, minmax(0, 1fr)); gap: 40px; align-items: start; }
+.footer-brand p { color: var(--muted); }
+.footer-brand .footer-contact { margin-top: 14px; font-size: 15px; line-height: 1.7; }
+.footer-contact a { color: var(--muted); }
+.footer-contact a:hover { color: var(--purple); }
+.footer-col h2 { font-family: var(--body); font-size: 13px; font-weight: 500; letter-spacing: 0.04em; text-transform: uppercase; color: var(--faint); }
+.footer-col ul { list-style: none; padding: 0; margin: 16px 0 0; display: grid; gap: 12px; font-size: 15px; }
+.footer-col a { color: var(--muted); }
+.footer-col a:hover { color: var(--purple); }
+.footer-mark { display: block; margin-top: clamp(56px, 8vw, 104px); color: var(--purple); }
+.footer-mark svg { display: block; width: 100%; height: auto; }
+.footer-legal { margin-top: clamp(32px, 4vw, 48px); padding-top: 24px; border-top: 1px solid var(--line); display: grid; gap: 10px; font-size: 13px; line-height: 1.6; color: var(--faint); }
 .footer-social { display: flex; gap: 8px; margin-top: 20px; }
 .footer-social a { display: grid; place-items: center; width: 36px; height: 36px; border-radius: 8px; color: var(--muted); background: var(--grey); }
 .footer-social a:hover { color: var(--purple); background: var(--lav); }
@@ -325,7 +331,8 @@ main:has(> .frame:last-child) + .footer { margin-top: 8px; border-top: 0; }
   .cta-form { flex-direction: column; }
   .cta-form .btn { width: 100%; }
   .step { grid-template-columns: 1fr; gap: 16px; }
-  .footer-top { grid-template-columns: 1fr; }
+  .footer-top { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .footer-brand { grid-column: 1 / -1; }
   .hero-actions .btn { flex: 1 1 auto; }
   .faq details p { padding-right: 0; }
   .table th, .table td { padding: 14px 16px; }
@@ -405,3 +412,4 @@ main:has(> .frame:last-child) + .footer { margin-top: 8px; border-top: 0; }
 .form-done h2 { font-size: 22px; }
 .form-done p { margin-top: 10px; color: var(--muted); }
 .hero-actions .btn .icon { width: 18px; height: 18px; }
+@media (max-width: 480px) { .footer-top { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
