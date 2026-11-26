@@ -424,7 +424,8 @@ main:has(> .frame:last-child) + .footer { margin-top: 8px; border-top: 0; }
 .card-art svg [stroke] { vector-effect: non-scaling-stroke; }
 .card-art .soft { stroke: rgba(50, 10, 55, 0.3); }
 .card-art text { stroke: none; fill: rgba(50, 10, 55, 0.55); font: 400 9px/1 ui-monospace, SFMono-Regular, Menlo, monospace; letter-spacing: 0.04em; }
-@keyframes og-travel-x { 0%, 12% { transform: translateX(0); } 44%, 56% { transform: translateX(170px); } 88%, 100% { transform: translateX(340px); } }
+@keyframes og-travel-x { 0%, 12% { transform: translateX(0); } 44%, 56% { transform: translateX(90px); } 88%, 100% { transform: translateX(180px); } }
+@keyframes og-rise { 0%, 15% { transform: translateY(14px); opacity: 0.5; } 55%, 100% { transform: translateY(0); opacity: 1; } }
 @keyframes og-float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-7px); } }
 @keyframes og-leak { 0%, 20% { transform: translate(0, 0); opacity: 1; } 80%, 100% { transform: translate(14px, -30px); opacity: 0; } }
 @keyframes og-fade { 0%, 100% { opacity: 1; } 50% { opacity: 0.45; } }
@@ -432,6 +433,7 @@ main:has(> .frame:last-child) + .footer { margin-top: 8px; border-top: 0; }
 @keyframes og-draw { 0%, 20% { stroke-dashoffset: 60; } 60%, 100% { stroke-dashoffset: 0; } }
 .card-art .travel-x { animation: og-travel-x 6s ease-in-out infinite; }
 .card-art .float { animation: og-float 4s ease-in-out infinite; }
+.card-art .rise { animation: og-rise 4s ease-out infinite alternate; }
 .card-art .leak { animation: og-leak 3.6s ease-in infinite; }
 .card-art .fade { animation: og-fade 3.6s ease-in-out infinite; }
 .card-art .ping { transform-box: fill-box; transform-origin: center; animation: og-ping 3s ease-out infinite; }

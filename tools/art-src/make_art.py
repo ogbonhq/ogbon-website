@@ -42,14 +42,22 @@ def write(name, w, h, body):
 
 
 # Daily checks: three systems on a line; a blue check travels between them.
-write("checks", 640, 180, "\n".join([
-    box(150, 40, 44, 44, 30), box(320, 34, 44, 44, 36), box(490, 40, 44, 44, 30),
-    '<path class="soft" d="M150 142H490" stroke-dasharray="2 4"/>',
-    '<circle cx="150" cy="142" r="2.5" fill="#fff"/><circle cx="320" cy="142" r="2.5" fill="#fff"/><circle cx="490" cy="142" r="2.5" fill="#fff"/>',
-    '<g class="travel-x">' + box(150, 126, 12, 12, 9, accent=True) + "</g>",
-    '<text x="150" y="168" class="t" text-anchor="middle">website</text>',
-    '<text x="320" y="168" class="t" text-anchor="middle">api</text>',
-    '<text x="490" y="168" class="t" text-anchor="middle">cloud</text>',
+write("checks", 320, 180, "\n".join([
+    box(70, 44, 32, 32, 24), box(160, 38, 32, 32, 30), box(250, 44, 32, 32, 24),
+    '<path class="soft" d="M70 132H250" stroke-dasharray="2 4"/>',
+    '<circle cx="70" cy="132" r="2.5" fill="#fff"/><circle cx="160" cy="132" r="2.5" fill="#fff"/><circle cx="250" cy="132" r="2.5" fill="#fff"/>',
+    '<g class="travel-x">' + box(70, 117, 11, 11, 8, accent=True) + "</g>",
+    '<text x="70" y="158" class="t" text-anchor="middle">website</text>',
+    '<text x="160" y="158" class="t" text-anchor="middle">api</text>',
+    '<text x="250" y="158" class="t" text-anchor="middle">cloud</text>',
+]))
+
+# Security score: bars that rise as fixes land; the latest is blue.
+write("score", 320, 180, "\n".join([
+    '<path class="soft" d="M56 152H264"/>',
+    box(98, 112, 20, 20, 18), box(138, 100, 20, 20, 30), box(178, 86, 20, 20, 44),
+    '<g class="rise">' + box(218, 64, 20, 20, 66, accent=True) + "</g>",
+    '<path class="soft" d="M98 104L138 92L178 78L218 56" stroke-dasharray="2 4"/>',
 ]))
 
 # Fix list: three plates; the one that matters most is blue and lifts.

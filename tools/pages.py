@@ -10,7 +10,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "tools"))
 import legal  # noqa: E402
-CSS_V = "20261126-27"
+CSS_V = "20261126-28"
 JS_V = "20261126-4"
 OG_V = "9"
 SITE = "https://ogbon.com"
@@ -273,7 +273,8 @@ home = f"""    <div class="frame">
           <h2 class="h2" id="product-title">Everything you need to protect your organisation, <span class="nowrap">from website to code</span></h2>
         </div>
         <div class="cards">
-          <article class="card card-wide card-illus">{art("checks")}<h3>Daily checks</h3><p>Ogbon checks your websites, apps, APIs, cloud accounts and internal systems every day, from the outside like an attacker and from the inside with read-only&nbsp;access.</p></article>
+          <article class="card card-illus">{art("checks")}<h3>Daily checks</h3><p>Ogbon checks your websites, apps, APIs, cloud accounts and internal systems every day, from the outside like an attacker and from the inside with read-only&nbsp;access.</p></article>
+          <article class="card card-illus">{art("score")}<h3>Security score</h3><p>One score for your whole organisation, updated every day. It goes up as your team fixes issues, and organisations that fix more pay less at&nbsp;renewal.</p></article>
           <article class="card card-illus">{art("fixlist")}<h3>Fix list</h3><p>We rank what needs fixing by how much money it puts at risk, and give your team clear steps for each&nbsp;item.</p></article>
           <article class="card card-illus">{art("response")}<h3>Incident response</h3><p>Report a problem on WhatsApp or from your dashboard at any time. A responder calls you back within an&nbsp;hour.</p></article>
           <article class="card card-illus">{art("cover")}<h3>Cover</h3><p>If an attack gets through while you're protected, we pay for the money lost, the investigation and the cost of getting back to&nbsp;work.</p></article>

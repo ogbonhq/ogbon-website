@@ -1,0 +1,8 @@
+<svg viewBox="0 0 320 180" fill="none" stroke="currentColor" stroke-width="1" stroke-linejoin="round" aria-hidden="true">
+<path class="soft" d="M56 152H264"/>
+<g><path d="M98.0,112.0 L115.3,122.0 L98.0,132.0 L80.7,122.0Z" fill="#fff"/><path d="M80.7,122.0 L98.0,132.0 L98.0,150.0 L80.7,140.0Z" fill="#F7F5F8"/><path d="M98.0,132.0 L115.3,122.0 L115.3,140.0 L98.0,150.0Z" fill="#EFECF1"/></g>
+<g><path d="M138.0,100.0 L155.3,110.0 L138.0,120.0 L120.7,110.0Z" fill="#fff"/><path d="M120.7,110.0 L138.0,120.0 L138.0,150.0 L120.7,140.0Z" fill="#F7F5F8"/><path d="M138.0,120.0 L155.3,110.0 L155.3,140.0 L138.0,150.0Z" fill="#EFECF1"/></g>
+<g><path d="M178.0,86.0 L195.3,96.0 L178.0,106.0 L160.7,96.0Z" fill="#fff"/><path d="M160.7,96.0 L178.0,106.0 L178.0,150.0 L160.7,140.0Z" fill="#F7F5F8"/><path d="M178.0,106.0 L195.3,96.0 L195.3,140.0 L178.0,150.0Z" fill="#EFECF1"/></g>
+<g class="rise"><g><path d="M218.0,64.0 L235.3,74.0 L218.0,84.0 L200.7,74.0Z" fill="#5A95F2" stroke="none"/><path d="M200.7,74.0 L218.0,84.0 L218.0,150.0 L200.7,140.0Z" fill="#1362DD" stroke="none"/><path d="M218.0,84.0 L235.3,74.0 L235.3,140.0 L218.0,150.0Z" fill="#0E4CB0" stroke="none"/></g></g>
+<path class="soft" d="M98 104L138 92L178 78L218 56" stroke-dasharray="2 4"/>
+</svg>
