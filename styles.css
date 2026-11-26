@@ -413,3 +413,4 @@ main:has(> .frame:last-child) + .footer { margin-top: 8px; border-top: 0; }
 .form-error { font-size: 14px; color: #b42318; }
 .form-done h2 { font-size: 22px; }
 .form-done p { margin-top: 10px; color: var(--muted); }
+.hero-actions .btn .icon { width: 18px; height: 18px; }

@@ -10,7 +10,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "tools"))
 import legal  # noqa: E402
-CSS_V = "20261126-19"
+CSS_V = "20261126-20"
 JS_V = "20261126-3"
 OG_V = "9"
 SITE = "https://ogbon.com"
@@ -26,7 +26,7 @@ def tbd(text):
 
 
 def icon(name, cls="icon"):
-    return f'<svg class="{cls}" aria-hidden="true"><use href="/assets/icons.svg#{name}"/></svg>'
+    return f'<svg class="{cls}" aria-hidden="true"><use href="/assets/icons.svg?v={CSS_V}#{name}"/></svg>'
 
 
 # Links are absolute so the 404 page works at any depth.
@@ -872,9 +872,10 @@ ogbon1 = f"""    <div class="frame">
       <section class="page-hero" aria-labelledby="page-title">
         <div class="wrap">
           <h1 id="page-title">Find and fix security gaps <span>across your organisation</span></h1>
-          <p>Every Ogbon plan gives your engineering and IT teams ogbon-1, our 30B security model. Use it across your code, cloud and systems, in Ogbon Harness, our desktop app, or through the&nbsp;API.</p>
+          <p>Every Ogbon plan includes ogbon-1, our 30B security model. Use it on your team's Mac and Windows laptops, across your code, cloud and servers, or through the&nbsp;API.</p>
           <div class="hero-actions">
-            <a class="btn btn-light" href="https://my.ogbon.com">Download Ogbon Harness</a>
+            <a class="btn btn-light" href="https://my.ogbon.com">{icon("apple")}Download for Mac</a>
+            <a class="btn btn-light" href="https://my.ogbon.com">{icon("windows")}Download for Windows</a>
             <a class="btn btn-ghost-light" href="https://my.ogbon.com">Get an API key</a>
           </div>
         </div>
@@ -885,10 +886,22 @@ ogbon1 = f"""    <div class="frame">
       <div class="wrap">
         <div class="head"><h2 class="h2" id="does-title">What <span>ogbon-1 does</span></h2></div>
         <ol class="cards cards-3">
-          <li class="card"><span class="badge">{icon("list")}</span><h3>Reviews every change</h3><p>Connect GitHub, GitLab or Bitbucket and ogbon-1 checks each pull request for security issues before it's merged.</p></li>
-          <li class="card"><span class="badge badge-pink">{icon("key")}</span><h3>Finds vulnerabilities</h3><p>It looks for exposed secrets and API keys, injection flaws, broken login and access checks, outdated dependencies, and risky settings in your cloud accounts and systems.</p></li>
-          <li class="card"><span class="badge badge-lilac">{icon("check")}</span><h3>Fixes them</h3><p>Ask Ogbon Harness to fix an issue and ogbon-1 prepares the change. Your team reviews it before it goes in.</p></li>
+          <li class="card"><span class="badge">{icon("monitor")}</span><h3>Finds gaps everywhere</h3><p>It checks your apps, cloud accounts, servers, laptops and build pipelines for weak spots an attacker could use, like exposed keys, risky settings and accounts with too much&nbsp;access.</p></li>
+          <li class="card"><span class="badge badge-pink">{icon("shield")}</span><h3>Spots attacks as they happen</h3><p>It watches for hijacked accounts, unusual logins and suspicious activity on your systems and devices, and joins related alerts into one incident for your&nbsp;team.</p></li>
+          <li class="card"><span class="badge badge-lilac">{icon("check")}</span><h3>Fixes them</h3><p>ogbon-1 prepares the fix, from a cloud setting to a code change or a device policy. Your team approves it before it goes&nbsp;in.</p></li>
         </ol>
+      </div>
+    </section>
+
+    <section class="section section-tight" aria-labelledby="where-title">
+      <div class="wrap">
+        <div class="head"><h2 class="h2" id="where-title">One model, wherever your <span>teams&nbsp;work</span></h2></div>
+        <div class="cards cards-4">
+          <article class="card"><span class="badge">{icon("monitor")}</span><h3>Staff laptops</h3><p>Install the Ogbon app on Mac and Windows to protect company laptops from attacks and risky devices.</p></article>
+          <article class="card"><span class="badge badge-pink">{icon("code")}</span><h3>Engineers</h3><p>Ogbon Harness, our desktop app, finds and fixes security issues while your engineers&nbsp;build.</p></article>
+          <article class="card"><span class="badge badge-lilac">{icon("globe")}</span><h3>Cloud and servers</h3><p>Connect AWS, Google Cloud, Azure and Kubernetes with read-only access. ogbon-1 checks them every&nbsp;day.</p></article>
+          <article class="card"><span class="badge badge-grey">{icon("plug")}</span><h3>CI and your tools</h3><p>Call the Ogbon API from your build pipeline or your own tools to check every release before it&nbsp;ships.</p></article>
+        </div>
       </div>
     </section>
 
@@ -943,7 +956,7 @@ ogbon1 = f"""    <div class="frame">
       <div class="wrap split">
         <div>
           <h2 class="h2" id="score-title">Part of your <span>risk score</span></h2>
-          <p class="lead">What ogbon-1 finds goes on the same fix list as the rest of your security, with the naira it puts at risk. Your founders see the effect on the dashboard; your engineering and IT teams see the details in Harness and in their pull requests.</p>
+          <p class="lead">What ogbon-1 finds goes on the same fix list as the rest of your security, with the naira it puts at risk. Your founders see the effect on the dashboard; your engineering and IT teams see the details in the Ogbon app.</p>
         </div>
         <div class="panel">
           <figure class="dash" aria-label="Example Ogbon fix list">
@@ -1069,7 +1082,7 @@ PAGES = [
      "If you think something is wrong, contact Ogbon straight away, even if you're not sure it's an attack. Available 24 hours a day, 7 days a week.",
      incident, "index, follow", ""),
     ("ogbon-1.html", "ogbon-1: AI security for engineering and IT teams · Ogbon",
-     "ogbon-1 is Ogbon's 30B security model. It reviews code, finds vulnerabilities and fixes them, in Ogbon Harness or through the Ogbon API.",
+     "ogbon-1 is Ogbon's 30B security model. It finds and fixes security gaps across your apps, cloud, servers and laptops, on Mac and Windows or through the Ogbon API.",
      ogbon1, "index, follow", ""),
     ("privacy.html", "Privacy policy · Ogbon",
      "How Ogbon Security Limited collects, uses and protects personal data, and your rights under the Nigeria Data Protection Act 2023.",
