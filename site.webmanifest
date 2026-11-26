@@ -1,7 +1,7 @@
 {
   "name": "Ogbon",
   "short_name": "Ogbon",
-  "description": "Cybersecurity with cover built in, for businesses in Nigeria.",
+  "description": "Cybersecurity with cover built in, for organisations in Nigeria.",
   "start_url": "/",
   "scope": "/",
   "display": "browser",

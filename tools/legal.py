@@ -101,7 +101,7 @@ PRIVACY = [
         "complain to the Nigeria Data Protection Commission.",
     ]),
     ("Children", [
-        "Ogbon is a service for businesses. It isn't meant for anyone under 18, and we don't knowingly collect their "
+        "Ogbon is a service for organisations. It isn't meant for anyone under 18, and we don't knowingly collect their "
         "data.",
     ]),
     ("Changes to this policy", [
@@ -125,11 +125,11 @@ TERMS = [
         "Only ask for a report on a domain your company owns or that you have permission to check. We check only "
         "information that is already public and don't access your systems.",
         "The expected loss figures in a report are estimates, based on what we can see from outside and the typical "
-        "cost of attacks on businesses like yours. They are not a quote, an offer of cover or a promise that nothing "
+        "cost of attacks on organisations like yours. They are not a quote, an offer of cover or a promise that nothing "
         "else is wrong.",
     ]),
     ("Your account", [
-        "Ogbon is for businesses. The person who signs up must have the authority to accept these terms for the "
+        "Ogbon is for organisations. The person who signs up must have the authority to accept these terms for the "
         "company. Keep your account details accurate and your logins safe. You are responsible for what happens under "
         "your account.",
     ]),

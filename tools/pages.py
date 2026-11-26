@@ -186,7 +186,7 @@ FAQ = [
     ("Can we keep our code on our own servers?",
      "Yes. ogbon-1 runs on a single GPU, so you can host it yourself and your code never leaves your network. We never use customer code to train our models."),
     ("Do you cover money stolen through hacked accounts or leaked API keys?",
-     "Yes, up to your plan's limit. It's one of the most common ways businesses that move money lose it, so it's included in every plan."),
+     "Yes, up to your plan's limit. It's one of the most common ways organisations that move money lose it, so it's included in every plan."),
     ("What if we can't fix something in time?",
      "Tell us before the due date and we'll agree a new date or another fix. Your cover is only affected if a critical issue is left open past its due date without telling us."),
     ("How quickly are claims paid?",
@@ -212,7 +212,7 @@ home = f"""    <div class="frame">
       <section class="hero" aria-labelledby="hero-title">
         <div class="hero-main">
           <h1 id="hero-title">Cybersecurity with <span>cover built&nbsp;in</span></h1>
-          <p class="hero-sub">Ogbon helps businesses in Nigeria stay safe from cyber attacks. We monitor your laptops, email, cloud accounts and websites, show your team what to fix, and pay for the loss if an attacker still gets&nbsp;through.</p>
+          <p class="hero-sub">Ogbon helps organisations in Nigeria stay safe from cyber attacks. We monitor your laptops, email, cloud accounts and websites, show your team what to fix, and pay for the loss if an attacker still gets&nbsp;through.</p>
           <div class="hero-actions">
             <a class="btn btn-light" href="https://my.ogbon.com">Get started</a>
             <a class="btn btn-ghost-light" data-email="Sales" href="#contact">Contact sales</a>
@@ -242,7 +242,7 @@ home = f"""    <div class="frame">
     </div>
 
     <!-- Customer logos: add once there are customers who agree to be named.
-         Line above the logos: "Used by fintechs, lenders and growing businesses across Nigeria" -->
+         Line above the logos: "Used by fintechs, lenders and growing organisations across Nigeria" -->
 
     <section class="section" aria-labelledby="attacks-title">
       <div class="wrap">
@@ -262,7 +262,7 @@ home = f"""    <div class="frame">
     <section class="section section-tight" id="product" aria-labelledby="product-title">
       <div class="wrap">
         <div class="head">
-          <h2 class="h2" id="product-title">Everything you need to protect your business, <span class="nowrap">from website to code</span></h2>
+          <h2 class="h2" id="product-title">Everything you need to protect your organisation, <span class="nowrap">from website to code</span></h2>
         </div>
         <div class="cards">
           <article class="card"><span class="badge">{icon("monitor")}</span><h3>Monitoring</h3><p>Ogbon checks your domains, websites, email setup and cloud accounts every day, and every company laptop through the security tool you already&nbsp;use.</p></article>
@@ -325,8 +325,8 @@ home = f"""    <div class="frame">
         <div class="cards">
           <article class="card">
             <span class="badge badge-lilac">{icon("naira")}</span>
-            <h2 class="h2" id="who-title" style="margin-top:18px">Built for businesses that move money</h2>
-            <p class="lead">Ogbon is built for fintechs, lenders, microfinance banks, payment companies and growing businesses with 20 to 500 staff. If you hold customer money or customer data, Ogbon is for&nbsp;you.</p>
+            <h2 class="h2" id="who-title" style="margin-top:18px">Built for organisations that move money</h2>
+            <p class="lead">Ogbon is built for fintechs, banks, lenders, microfinance banks, payment companies, enterprises and government agencies. If you hold customer money or customer data, Ogbon is for&nbsp;you.</p>
             <ul class="tags" aria-label="Who uses Ogbon">
               <li>Fintechs</li><li>Lenders</li><li>Microfinance banks</li><li>Payment companies</li><li>20 to 500 staff</li>
             </ul>
@@ -390,7 +390,7 @@ home_ld = f"""
         "contactPoint": {{ "@type": "ContactPoint", "contactType": "incident response", "telephone": "+234 710 714 4122", "email": "secure@ogbon.com", "areaServed": "NG", "availableLanguage": "en", "hoursAvailable": {{ "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"], "opens": "00:00", "closes": "23:59" }} }},
         "logo": "{SITE}/assets/icons/icon-512.png",
         "slogan": "{TAGLINE}",
-        "description": "Ogbon helps businesses in Nigeria stay safe from cyber attacks, and pays for the loss if an attacker still gets through.",
+        "description": "Ogbon helps organisations in Nigeria stay safe from cyber attacks, and pays for the loss if an attacker still gets through.",
         "email": "secure@ogbon.com",
         "telephone": "+234 710 714 4122",
         "address": {{ "@type": "PostalAddress", "streetAddress": "14B Grace Anjous Street, Lekki Phase 1", "addressLocality": "Lekki", "addressRegion": "Lagos State", "addressCountry": "NG" }}
@@ -820,8 +820,8 @@ about = f"""    <div class="frame">
     <section class="section">
       <div class="wrap">
         <div class="prose">
-          <p class="strong">Ogbon is a cybersecurity company based in Lagos. We help businesses find and fix the weaknesses attackers use, and we cover the financial loss if an attack still gets&nbsp;through.</p>
-          <p>Until now, businesses in Nigeria have bought security tools and insurance separately. Security vendors don't pay when their tools fail, and insurers rarely know enough about a company's setup to price cyber cover well. Ogbon does both, so the company protecting you is also the one that pays if something goes&nbsp;wrong.</p>
+          <p class="strong">Ogbon is a cybersecurity company based in Lagos. We help organisations find and fix the weaknesses attackers use, and we cover the financial loss if an attack still gets&nbsp;through.</p>
+          <p>Until now, organisations in Nigeria have bought security tools and insurance separately. Security vendors don't pay when their tools fail, and insurers rarely know enough about a company's setup to price cyber cover well. Ogbon does both, so the company protecting you is also the one that pays if something goes&nbsp;wrong.</p>
         </div>
         <div class="facts">
           <article class="card"><span class="badge">{icon("shield")}</span><h2 style="margin-top:18px">Partners</h2><p>Our cover warranty is backed by a partner insurer licensed by NAICOM, and by a reinsurer. We keep both names confidential. A full insurance policy will follow once we hold a broker or managing agent licence. Investigations are carried out by our own experts.</p></article>
@@ -970,7 +970,7 @@ notfound = """    <div class="frame">
 
 PAGES = [
     ("index.html", "Ogbon · Cybersecurity with cyber cover in Nigeria",
-     "Ogbon helps businesses in Nigeria stay safe from cyber attacks, shows your team what to fix, and pays for the loss if an attacker still gets through.",
+     "Ogbon helps organisations in Nigeria stay safe from cyber attacks, shows your team what to fix, and pays for the loss if an attacker still gets through.",
      home, "index, follow", home_ld),
     ("report.html", "Free cybersecurity report for your company · Ogbon",
      "Find out what attackers can see about your company from the outside, and what it could cost you. It takes under 10 minutes and nothing gets installed.",
@@ -997,7 +997,7 @@ PAGES = [
      "The terms for using ogbon.com, the free security report and Ogbon's services, from Ogbon Security Limited.",
      terms, "index, follow", ""),
     ("about.html", "About Ogbon · Cybersecurity company in Lagos",
-     "Ogbon is a cybersecurity company in Lagos. We help businesses fix the weaknesses attackers use, and cover the loss if an attack still gets through.",
+     "Ogbon is a cybersecurity company in Lagos. We help organisations fix the weaknesses attackers use, and cover the loss if an attack still gets through.",
      about, "index, follow", ""),
     ("report-results.html", "Your security report · Ogbon",
      "Your Ogbon security report.", results, "noindex, nofollow", ""),
