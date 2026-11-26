@@ -1046,7 +1046,7 @@ notfound = """    <div class="frame">
 
 PAGES = [
     ("index.html", "Ogbon · Modern cybersecurity with cyber cover for Africa",
-     "Ogbon helps organisations in Nigeria stay safe from cyber attacks, shows your team what to fix, and pays for the loss if an attacker still gets through.",
+     "Ogbon keeps African organisations safe from cyber attacks. We check your systems daily, show you what to fix, and pay for the loss if an attack gets through.",
      home, "index, follow", home_ld),
     ("report.html", "Free cybersecurity report for your company · Ogbon",
      "Find out what attackers can see about your company from the outside, and what it could cost you. It takes under 10 minutes and nothing gets installed.",
