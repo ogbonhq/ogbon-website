@@ -2,10 +2,42 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://ogbon.com/</loc>
-    <lastmod>2026-11-03</lastmod>
+    <lastmod>2026-11-26</lastmod>
   </url>
   <url>
-    <loc>https://ogbon.com/research.html</loc>
-    <lastmod>2026-10-28</lastmod>
+    <loc>https://ogbon.com/report</loc>
+    <lastmod>2026-11-26</lastmod>
+  </url>
+  <url>
+    <loc>https://ogbon.com/how-it-works</loc>
+    <lastmod>2026-11-26</lastmod>
+  </url>
+  <url>
+    <loc>https://ogbon.com/ogbon-1</loc>
+    <lastmod>2026-11-26</lastmod>
+  </url>
+  <url>
+    <loc>https://ogbon.com/cover</loc>
+    <lastmod>2026-11-26</lastmod>
+  </url>
+  <url>
+    <loc>https://ogbon.com/pricing</loc>
+    <lastmod>2026-11-26</lastmod>
+  </url>
+  <url>
+    <loc>https://ogbon.com/incident</loc>
+    <lastmod>2026-11-26</lastmod>
+  </url>
+  <url>
+    <loc>https://ogbon.com/about</loc>
+    <lastmod>2026-11-26</lastmod>
+  </url>
+  <url>
+    <loc>https://ogbon.com/privacy</loc>
+    <lastmod>2026-11-26</lastmod>
+  </url>
+  <url>
+    <loc>https://ogbon.com/terms</loc>
+    <lastmod>2026-11-26</lastmod>
   </url>
 </urlset>

@@ -2,7 +2,15 @@
 *
 !nginx.conf
 !index.html
-!research.html
+!report.html
+!how-it-works.html
+!cover.html
+!pricing.html
+!incident.html
+!about.html
+!ogbon-1.html
+!privacy.html
+!terms.html
 !404.html
 !styles.css
 !script.js

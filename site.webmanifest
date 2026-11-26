@@ -1,12 +1,12 @@
 {
   "name": "Ogbon",
   "short_name": "Ogbon",
-  "description": "Applied AI research lab focusing models on improving and securing existing software.",
+  "description": "Cybersecurity with insurance built in, for businesses in Nigeria.",
   "start_url": "/",
   "scope": "/",
   "display": "browser",
-  "background_color": "#0B0C0B",
-  "theme_color": "#0B0C0B",
+  "background_color": "#FFFFFF",
+  "theme_color": "#FFFFFF",
   "icons": [
     {
       "src": "/assets/icons/icon-192.png",

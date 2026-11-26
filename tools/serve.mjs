@@ -12,6 +12,8 @@ createServer(async (req, res) => {
   let path = normalize(decodeURIComponent(new URL(req.url, "http://x").pathname)).replace(/^(\.\.[/\\])+/, "");
   if (path.endsWith("/")) path += "index.html";
   try {
+    // Clean URLs, as nginx serves them: /pricing -> pricing.html.
+    if (!extname(path)) path += ".html";
     const body = await readFile(join(root, path));
     res.writeHead(200, { "content-type": types[extname(path)] || "application/octet-stream", "cache-control": "no-store" });
     res.end(body);

@@ -3,30 +3,23 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@500&family=Geist+Mono:wght@400&family=Newsreader:opsz,wght@6..72,500&display=block">
 <style>
-  html, body { margin: 0; width: 1200px; height: 630px; overflow: hidden; background: #0B0C0B; color: #EEE9E3; }
-  body { box-sizing: border-box; padding: 64px 72px; display: flex; flex-direction: column; justify-content: space-between; -webkit-font-smoothing: antialiased; }
-  .top, .bottom { display: flex; justify-content: space-between; align-items: center; }
-  .mono { font: 400 18px/1 "Geist Mono", monospace; letter-spacing: 0.06em; text-transform: uppercase; color: rgba(48,215,93,.9); }
-  .logo { width: 147px; height: 35px; }
-  h1 { margin: 0; font-weight: 500; font-size: 104px; line-height: 1.04; }
-  h1 .sans { display: block; font-family: "Geist", sans-serif; letter-spacing: -0.055em; }
-  h1 .serif { display: block; font-family: "Newsreader", serif; letter-spacing: -0.035em; }
-  .glyphs { display: flex; gap: 32px; }
-  .glyphs img { height: 52px; width: 52px; image-rendering: pixelated; filter: invert(1); opacity: .8; }
+  html, body { margin: 0; width: 1200px; height: 630px; overflow: hidden; }
+  body {
+    position: relative; display: grid; place-items: center;
+    background: linear-gradient(118deg, #C8C8FF 0%, #7D97F7 20%, #2F74E8 42%, #1362DD 60%, #0D45B8 80%, #2B0F5C 100%);
+  }
+  /* Soft diagonal light, like a lit glass surface. */
+  .streak { position: absolute; left: -40%; width: 180%; filter: blur(46px); transform: rotate(-22deg); }
+  .s1 { top: 150px; height: 150px; background: linear-gradient(90deg, transparent 5%, rgba(255,255,255,.42) 40%, rgba(200,200,255,.30) 60%, transparent 95%); }
+  .s2 { top: 330px; height: 90px; background: linear-gradient(90deg, transparent 20%, rgba(255,255,255,.20) 55%, transparent 90%); }
+  .s3 { top: -40px; height: 120px; background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,.30) 30%, transparent 70%); }
+  .shade { position: absolute; inset: 0; background: radial-gradient(120% 90% at 100% 100%, rgba(30,8,60,.45), transparent 60%); }
+  .logo { position: relative; width: 620px; height: auto; filter: drop-shadow(0 10px 30px rgba(20, 10, 60, .25)); }
 </style>
 </head>
 <body>
-  <div class="top">
-    <img class="logo" src="../assets/logo-light.svg" alt="">
-  </div>
-  <h1><span class="sans">Improve and secure</span><span class="serif">the software you run.</span></h1>
-  <div class="bottom">
-    <div class="glyphs">
-      <img src="../assets/glyphs/chip.svg" alt=""><img src="../assets/glyphs/cores.svg" alt=""><img src="../assets/glyphs/network.svg" alt=""><img src="../assets/glyphs/compiler.svg" alt="">
-    </div>
-    <span class="mono">ogbon-1 · Reviews, fixes and secures code</span>
-  </div>
+  <div class="streak s3"></div><div class="streak s1"></div><div class="streak s2"></div><div class="shade"></div>
+  <svg class="logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 21 5" shape-rendering="crispEdges" fill="#FFFFFF"><rect x="8" y="0" width="1" height="1"/><rect x="0" y="1" width="3" height="1"/><rect x="4" y="1" width="3" height="1"/><rect x="8" y="1" width="2" height="1"/><rect x="12" y="1" width="3" height="1"/><rect x="16" y="1" width="2" height="1"/><rect x="0" y="2" width="1" height="1"/><rect x="2" y="2" width="1" height="1"/><rect x="4" y="2" width="1" height="1"/><rect x="6" y="2" width="1" height="1"/><rect x="8" y="2" width="1" height="1"/><rect x="10" y="2" width="1" height="1"/><rect x="12" y="2" width="1" height="1"/><rect x="14" y="2" width="1" height="1"/><rect x="16" y="2" width="1" height="1"/><rect x="18" y="2" width="1" height="1"/><rect x="0" y="3" width="3" height="1"/><rect x="5" y="3" width="2" height="1"/><rect x="8" y="3" width="3" height="1"/><rect x="12" y="3" width="3" height="1"/><rect x="16" y="3" width="1" height="1"/><rect x="18" y="3" width="1" height="1"/><rect x="20" y="3" width="1" height="1"/><rect x="4" y="4" width="2" height="1"/></svg>
 </body>
 </html>
