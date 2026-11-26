@@ -14,7 +14,7 @@ CSS_V = "20261126-9"
 JS_V = "20261126-2"
 OG_V = "9"
 SITE = "https://ogbon.com"
-TAGLINE = "Cybersecurity with insurance built in."
+TAGLINE = "Cybersecurity with cover built in."
 
 LOGO = (ROOT / "tools/partials/logo.svg").read_text().strip()
 SOCIAL = (ROOT / "tools/partials/social.html").read_text().strip()
@@ -48,8 +48,9 @@ FOOTER = [
     ("/terms", "Terms"),
 ]
 LEGAL = (
-    "Ogbon is not an insurer. Cover included in Ogbon plans is provided under an agreement backed by a "
-    "partner insurer licensed by the National Insurance Commission (NAICOM). Terms, limits and exclusions apply."
+    "Ogbon is not an insurer, and the cover in Ogbon plans is not an insurance policy. It is a warranty from "
+    "Ogbon Security Limited, backed by a partner insurer licensed by the National Insurance Commission (NAICOM). "
+    "Terms, limits and exclusions apply."
 )
 
 
@@ -171,7 +172,9 @@ def cta(head="Start with a free security report",
 # ---------------------------------------------------------------- Home
 FAQ = [
     ("Is Ogbon an insurance company?",
-     "No. Ogbon is a cybersecurity company. The cover in every plan is backed by a partner insurer licensed by NAICOM. We manage your claim with you from start to finish."),
+     "No. Ogbon is a cybersecurity company. The cover in every plan is a warranty from Ogbon: if an attack gets through while you're protected, we pay for the loss, up to your plan's limit. Our promise is backed by a partner insurer licensed by NAICOM, and we manage your claim with you from start to finish."),
+    ("Is the cover an insurance policy?",
+     "Not today. It's a warranty from Ogbon, backed by a partner insurer. We plan to offer a full cyber insurance policy, arranged through licensed partners, once we hold a broker or managing agent licence. Existing customers will be able to move across."),
     ("Will Ogbon slow down our laptops?",
      "No. Ogbon connects to the security tool your laptops already run. If you don't have one, we'll install a light one that runs in the background."),
     ("What data can Ogbon see?",
@@ -208,7 +211,7 @@ faq_ld = ",\n".join(
 home = f"""    <div class="frame">
       <section class="hero" aria-labelledby="hero-title">
         <div class="hero-main">
-          <h1 id="hero-title">Cybersecurity with <span>insurance built&nbsp;in</span></h1>
+          <h1 id="hero-title">Cybersecurity with <span>cover built&nbsp;in</span></h1>
           <p class="hero-sub">Ogbon helps businesses in Nigeria stay safe from cyber attacks. We monitor your laptops, email, cloud accounts and websites, show your team what to fix, and pay for the loss if an attacker still gets&nbsp;through.</p>
           <div class="hero-actions">
             <a class="btn btn-light" href="https://my.ogbon.com">Get started</a>
@@ -611,7 +614,7 @@ cover = f"""    <div class="frame">
       <section class="page-hero" aria-labelledby="page-title">
         <div class="wrap">
           <h1 id="page-title">Cyber cover, included in <span>every&nbsp;plan</span></h1>
-          <p>If an attack gets through while you're protected by Ogbon, we pay for the loss. Cover is backed by a partner insurer licensed by&nbsp;NAICOM.</p>
+          <p>If an attack gets through while you're protected by Ogbon, we pay for the loss. Cover is a warranty from Ogbon, backed by a partner insurer licensed by&nbsp;NAICOM.</p>
         </div>
       </section>
     </div>
@@ -659,7 +662,7 @@ cover = f"""    <div class="frame">
 {basics_html}
         </ol>
         <div class="note"><span class="badge badge-blue">{icon("clock")}</span><p>If something falls behind, we'll tell you and give you time to fix it before it affects your&nbsp;cover.</p></div>
-        <p class="fine">Cover is subject to the terms of your agreement. You'll get the full policy wording before you&nbsp;sign.</p>
+        <p class="fine">Cover is a warranty under your Ogbon agreement, not an insurance policy. You'll get the full warranty terms before you&nbsp;sign.</p>
       </div>
     </section>
 {cta()}
@@ -821,7 +824,7 @@ about = f"""    <div class="frame">
           <p>Until now, businesses in Nigeria have bought security tools and insurance separately. Security vendors don't pay when their tools fail, and insurers rarely know enough about a company's setup to price cyber cover well. Ogbon does both, so the company protecting you is also the one that pays if something goes&nbsp;wrong.</p>
         </div>
         <div class="facts">
-          <article class="card"><span class="badge">{icon("shield")}</span><h2 style="margin-top:18px">Partners</h2><p>Cover is backed by a partner insurer licensed by NAICOM, and by a reinsurer. We keep both names confidential. Investigations are carried out by our own experts.</p></article>
+          <article class="card"><span class="badge">{icon("shield")}</span><h2 style="margin-top:18px">Partners</h2><p>Our cover warranty is backed by a partner insurer licensed by NAICOM, and by a reinsurer. We keep both names confidential. A full insurance policy will follow once we hold a broker or managing agent licence. Investigations are carried out by our own experts.</p></article>
           <article class="card"><span class="badge badge-pink">{icon("list")}</span><h2 style="margin-top:18px">Team</h2><p>Ogbon was founded by Abdul and Prakhar. They previously founded Africa's biggest open banking infrastructure company, which was acquired by Flutterwave, Africa's most valuable fintech.</p></article>
           <article class="card"><span class="badge badge-lilac">{icon("chat")}</span><h2 style="margin-top:18px">Contact</h2><p><a class="link" href="mailto:secure@ogbon.com">secure@ogbon.com</a><br><a href="tel:+2347107144122">0710 714 4122</a><br>14B Grace Anjous Street, Lekki Phase 1, Lekki, Lagos&nbsp;State</p></article>
         </div>
@@ -966,7 +969,7 @@ notfound = """    <div class="frame">
 """
 
 PAGES = [
-    ("index.html", "Ogbon · Cybersecurity and cyber insurance in Nigeria",
+    ("index.html", "Ogbon · Cybersecurity with cyber cover in Nigeria",
      "Ogbon helps businesses in Nigeria stay safe from cyber attacks, shows your team what to fix, and pays for the loss if an attacker still gets through.",
      home, "index, follow", home_ld),
     ("report.html", "Free cybersecurity report for your company · Ogbon",
@@ -975,7 +978,7 @@ PAGES = [
     ("how-it-works.html", "How Ogbon works · Cybersecurity and cover in one plan",
      "Setup takes about an hour of your IT team's time. Connect your tools, fix what matters, get covered, and get help when you need it.",
      how, "index, follow", ""),
-    ("cover.html", "Cyber insurance cover in every plan · Ogbon",
+    ("cover.html", "Cyber cover in every plan · Ogbon",
      "Cyber cover is included in every Ogbon plan. If an attack gets through while you're protected, we pay for the loss.",
      cover, "index, follow", ""),
     ("pricing.html", "Cybersecurity plans and pricing · Ogbon",
