@@ -247,8 +247,8 @@ home = f"""    <div class="frame">
     <section class="section" aria-labelledby="attacks-title">
       <div class="wrap">
         <div class="head">
-          <h2 class="h2" id="attacks-title">Four places attacks <span>usually&nbsp;start</span></h2>
-          <p class="lead lead-split"><strong>We check all four, every day.</strong> An attacker only needs one of them to reach customer data or move money.</p>
+          <h2 class="h2" id="attacks-title">Most attacks start with <span>something&nbsp;small</span></h2>
+          <p class="lead lead-split"><strong>Attackers start with your website and app.</strong> They look for one place that trusts them too much, then use it to reach customer data or move money.</p>
         </div>
         <ul class="cards cards-4" aria-label="Common ways in">
           <li class="card">{'<span class="badge badge-pink">' + icon("code") + '</span>'}<h3>APIs and integrations</h3><p>Public APIs and partner connections that expose more data or actions than they should.</p></li>
