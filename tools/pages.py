@@ -10,7 +10,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "tools"))
 import legal  # noqa: E402
-CSS_V = "20261126-9"
+CSS_V = "20261126-10"
 JS_V = "20261126-2"
 OG_V = "9"
 SITE = "https://ogbon.com"
@@ -49,7 +49,7 @@ FOOTER = [
 ]
 LEGAL = (
     "Ogbon is not an insurer, and the cover in Ogbon plans is not an insurance policy. It is a warranty from "
-    "Ogbon Security Limited, backed by a partner insurer licensed by the National Insurance Commission (NAICOM). "
+    "Ogbon Security Limited, backed by Casava, an insurer licensed by the National Insurance Commission (NAICOM). "
     "Terms, limits and exclusions apply."
 )
 
@@ -172,9 +172,9 @@ def cta(head="Start with a free security report",
 # ---------------------------------------------------------------- Home
 FAQ = [
     ("Is Ogbon an insurance company?",
-     "No. Ogbon is a cybersecurity company. The cover in every plan is a warranty from Ogbon: if an attack gets through while you're protected, we pay for the loss, up to your plan's limit. Our promise is backed by a partner insurer licensed by NAICOM, and we manage your claim with you from start to finish."),
+     "No. Ogbon is a cybersecurity company. The cover in every plan is a warranty from Ogbon: if an attack gets through while you're protected, we pay for the loss, up to your plan's limit. Our promise is backed by Casava, an insurer licensed by NAICOM, and we manage your claim with you from start to finish."),
     ("Is the cover an insurance policy?",
-     "Not today. It's a warranty from Ogbon, backed by a partner insurer. We plan to offer a full cyber insurance policy, arranged through licensed partners, once we hold a broker or managing agent licence. Existing customers will be able to move across."),
+     "Not today. It's a warranty from Ogbon, backed by Casava. We plan to offer a full cyber insurance policy, arranged through licensed partners, once we hold a broker or managing agent licence. Existing customers will be able to move across."),
     ("Do you install anything on our laptops?",
      "No. Ogbon focuses on where attacks start: your websites, apps, APIs, cloud and internal systems. We connect to them read-only and don't install anything on staff devices."),
     ("What data can Ogbon see?",
@@ -317,6 +317,7 @@ home = f"""    <div class="frame">
             <li><span class="tick">{icon("check")}</span>Incident responders from the first call</li>
           </ul>
           <a class="link" href="/cover">See what's covered {icon("arrow")}</a>
+          <p class="backed">Cover backed by <img src="/assets/partners/casava.png" alt="Casava" width="112" height="27"></p>
         </div>
       </div>
     </section>
@@ -615,7 +616,8 @@ cover = f"""    <div class="frame">
       <section class="page-hero" aria-labelledby="page-title">
         <div class="wrap">
           <h1 id="page-title">Cyber cover, included in <span>every&nbsp;plan</span></h1>
-          <p>If an attack gets through while you're protected by Ogbon, we pay for the loss. Cover is a warranty from Ogbon, backed by a partner insurer licensed by&nbsp;NAICOM.</p>
+          <p>If an attack gets through while you're protected by Ogbon, we pay for the loss. Cover is a warranty from Ogbon, backed by Casava, an insurer licensed by&nbsp;NAICOM.</p>
+          <p class="backed backed-pill">Cover backed by <img src="/assets/partners/casava.png" alt="Casava" width="112" height="27"></p>
         </div>
       </section>
     </div>
@@ -824,7 +826,7 @@ about = f"""    <div class="frame">
           <p>Until now, organisations in Nigeria have bought security tools and insurance separately. Security vendors don't pay when their tools fail, and insurers rarely know enough about a company's setup to price cyber cover well. Ogbon does both, so the company protecting you is also the one that pays if something goes&nbsp;wrong.</p>
         </div>
         <div class="facts">
-          <article class="card"><span class="badge">{icon("shield")}</span><h2 style="margin-top:18px">Partners</h2><p>Our cover warranty is backed by a partner insurer licensed by NAICOM, and by a reinsurer. We keep both names confidential. A full insurance policy will follow once we hold a broker or managing agent licence. Investigations are carried out by our own experts.</p></article>
+          <article class="card"><span class="badge">{icon("shield")}</span><h2 style="margin-top:18px">Partners</h2><p class="backed"><img src="/assets/partners/casava.png" alt="Casava" width="112" height="27"></p><p>Our cover warranty is backed by Casava, an insurer licensed by NAICOM, and by a reinsurer. A full insurance policy will follow once we hold a broker or managing agent licence. Investigations are carried out by our own experts.</p></article>
           <article class="card"><span class="badge badge-pink">{icon("list")}</span><h2 style="margin-top:18px">Team</h2><p>Ogbon was founded by Abdul and Prakhar. They previously founded Africa's biggest open banking infrastructure company, which was acquired by Flutterwave, Africa's most valuable fintech.</p></article>
           <article class="card"><span class="badge badge-lilac">{icon("chat")}</span><h2 style="margin-top:18px">Contact</h2><p><a class="link" href="mailto:secure@ogbon.com">secure@ogbon.com</a><br><a href="tel:+2347107144122">0710 714 4122</a><br>14B Grace Anjous Street, Lekki Phase 1, Lekki, Lagos&nbsp;State</p></article>
         </div>

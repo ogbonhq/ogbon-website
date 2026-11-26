@@ -49,7 +49,7 @@ PRIVACY = [
             "To produce your free report and reply to you about it. Our basis is your consent and our legitimate "
             "interest in answering requests.",
             "To provide monitoring, your fix list and incident response. Our basis is our contract with your company.",
-            "To provide your cover and handle claims, including giving the insurer that backs our warranty what it needs to assess "
+            "To provide your cover and handle claims, including giving Casava, the insurer that backs our warranty, what it needs to assess "
             "a claim. Our basis is our contract and our legal obligations.",
             "To bill you and keep tax records. Our basis is our contract and our legal obligations.",
             "To keep our service secure and prevent fraud. Our basis is our legitimate interests.",
@@ -63,7 +63,7 @@ PRIVACY = [
     ]),
     ("Who we share it with", [
         [
-            "The partner insurer and reinsurer that back our cover warranty, to handle claims.",
+            "Casava, the insurer that backs our cover warranty, and its reinsurer, to handle claims.",
             "Incident responders and investigators working on your incident.",
             "Companies that host our systems, send our emails and messages, and process payments for us. Our contracts "
             "with them require them to protect the data and use it only for us.",
@@ -143,7 +143,7 @@ TERMS = [
     ("Cover", [
         "Ogbon is not an insurer, and the cover in your plan is not an insurance policy. It is a warranty from Ogbon "
         "Security Limited: if a covered attack gets through while you're protected, we pay for the loss up to your "
-        "plan's limit. Our obligations under the warranty are backed by a partner insurer licensed by the National "
+        "plan's limit. Our obligations under the warranty are backed by Casava, an insurer licensed by the National "
         "Insurance Commission (NAICOM). Your Ogbon agreement sets out what is covered, the limits, the excess and the "
         "exclusions. You'll get the full warranty terms before you sign.",
         "To stay covered, keep the six basics in place, fix critical issues by their due date or agree a new date with "
