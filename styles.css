@@ -150,7 +150,10 @@ p, li, dd, td { text-wrap: pretty; }
 .head-left { margin-left: 0; text-align: left; }
 .h2 { font-size: clamp(30px, 3.4vw, 44px); line-height: 1.15; }
 .h2 span { color: var(--blue); }
+@media (min-width: 600px) { .h2 .nowrap { white-space: nowrap; } }
 .lead { margin-top: 18px; font-size: clamp(17px, 1.4vw, 19px); color: var(--muted); }
+.lead-split strong { color: var(--text); font-weight: 600; }
+.head .lead-split { max-width: 36em; margin-left: auto; margin-right: auto; }
 .eyebrow { display: inline-block; margin-bottom: 14px; font-size: 14px; font-weight: 500; color: var(--blue); }
 
 .cards { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }

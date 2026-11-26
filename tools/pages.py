@@ -10,7 +10,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "tools"))
 import legal  # noqa: E402
-CSS_V = "20261126-6"
+CSS_V = "20261126-9"
 JS_V = "20261126-2"
 OG_V = "9"
 SITE = "https://ogbon.com"
@@ -229,7 +229,7 @@ home = f"""    <div class="frame">
                 <li><span>Laptops<small>47 of 50 protected</small></span><span class="status status-ok">OK</span></li>
                 <li><span>Email<small>Two-step login off for 3 staff</small></span><span class="status status-warn">Fix</span></li>
                 <li><span>Cloud<small>3 accounts checked</small></span><span class="status status-ok">OK</span></li>
-                <li><span>Code<small>API key in a pull request</small></span><span class="status status-bad">Critical</span></li>
+                <li><span>App<small>Access check missing on 1 endpoint</small></span><span class="status status-bad">Critical</span></li>
                 <li><span>Website<small>Admin page open to the internet</small></span><span class="status status-warn">Fix</span></li>
               </ul>
             </div>
@@ -245,13 +245,13 @@ home = f"""    <div class="frame">
       <div class="wrap">
         <div class="head">
           <h2 class="h2" id="attacks-title">Most attacks start with <span>something&nbsp;small</span></h2>
-          <p class="lead">A staff password that was reused on another site. A secret API key pushed to a public GitHub repo. An admin dashboard left open to the internet. A director's SIM swapped and their banking app taken over. These are the gaps attackers use, and for a business that moves money, one of them can cost millions of&nbsp;naira.</p>
+          <p class="lead lead-split"><strong>Attackers start with your website and app.</strong> They look for one place that trusts them too much, then use it to reach customer data or move money.</p>
         </div>
         <ul class="cards cards-4" aria-label="Common ways in">
-          <li class="card">{'<span class="badge">' + icon("key") + '</span>'}<h3>Reused staff password</h3></li>
-          <li class="card">{'<span class="badge badge-pink">' + icon("code") + '</span>'}<h3>API key on public GitHub</h3></li>
-          <li class="card">{'<span class="badge badge-lilac">' + icon("globe") + '</span>'}<h3>Admin dashboard left open</h3></li>
-          <li class="card">{'<span class="badge badge-grey">' + icon("sim") + '</span>'}<h3>Director's SIM swapped</h3></li>
+          <li class="card">{'<span class="badge badge-pink">' + icon("code") + '</span>'}<h3>APIs and integrations</h3><p>Public APIs and partner connections that expose more data or actions than they should.</p></li>
+          <li class="card">{'<span class="badge">' + icon("naira") + '</span>'}<h3>Business logic</h3><p>Flaws in how your product handles money, limits and approvals. Scanners don't find these.</p></li>
+          <li class="card">{'<span class="badge badge-lilac">' + icon("key") + '</span>'}<h3>Identity and access</h3><p>Staff, service accounts and cloud roles with more access than they need.</p></li>
+          <li class="card">{'<span class="badge badge-grey">' + icon("globe") + '</span>'}<h3>Forgotten systems</h3><p>Old apps, test servers and subdomains your team no longer tracks.</p></li>
         </ul>
       </div>
     </section>
@@ -259,7 +259,7 @@ home = f"""    <div class="frame">
     <section class="section section-tight" id="product" aria-labelledby="product-title">
       <div class="wrap">
         <div class="head">
-          <h2 class="h2" id="product-title">Everything you need to protect your business, <span>from laptops to&nbsp;code</span></h2>
+          <h2 class="h2" id="product-title">Everything you need to protect your business, <span class="nowrap">from website to code</span></h2>
         </div>
         <div class="cards">
           <article class="card"><span class="badge">{icon("monitor")}</span><h3>Monitoring</h3><p>Ogbon checks your domains, websites, email setup and cloud accounts every day, and every company laptop through the security tool you already&nbsp;use.</p></article>
@@ -866,7 +866,7 @@ ogbon1 = f"""    <div class="frame">
             <div class="dash-top"><span class="dash-domain">Fix list</span><span class="status status-warn">3 open</span></div>
             <div class="dash-list" style="padding-top:12px">
               <ul>
-                <li><span>API key in a pull request<small>Code · ₦12,000,000 at risk</small></span><span class="status status-bad">Critical</span></li>
+                <li><span>Missing access check on an endpoint<small>Code · ₦12,000,000 at risk</small></span><span class="status status-bad">Critical</span></li>
                 <li><span>Two-step login off for finance staff<small>Email · ₦19,000,000 at risk</small></span><span class="status status-warn">Fix</span></li>
                 <li><span>Injection flaw in a search endpoint<small>Code · ₦8,500,000 at risk</small></span><span class="status status-warn">Fix</span></li>
               </ul>
