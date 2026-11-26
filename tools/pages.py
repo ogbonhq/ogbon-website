@@ -815,7 +815,7 @@ about = f"""    <div class="frame">
       <section class="page-hero" aria-labelledby="page-title">
         <div class="wrap">
           <h1 id="page-title">About <span>Ogbon</span></h1>
-          <p>We spent five years inside Africa's financial institutions. Now we use what we learned to protect the organisations that move&nbsp;money.</p>
+          <p>We spent five years inside Africa's financial institutions.<br>Now we use what we learned to protect the&nbsp;organisations.</p>
         </div>
       </section>
     </div>
