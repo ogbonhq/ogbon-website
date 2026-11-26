@@ -214,10 +214,9 @@ home = f"""    <div class="frame">
           <h1 id="hero-title">Cybersecurity with <span>cover built&nbsp;in</span></h1>
           <p class="hero-sub">Your engineers build with ogbon-1, which catches flaws before they ship. We check your websites, apps, APIs and cloud every day, and pay for the loss if an attacker still gets&nbsp;through.</p>
           <div class="hero-actions">
-            <a class="btn btn-light" href="https://my.ogbon.com">Get started</a>
+            <a class="btn btn-light" href="/report">Get free security report</a>
             <a class="btn btn-ghost-light" data-email="Sales" href="#contact">Contact sales</a>
           </div>
-          <p class="hero-note"><a href="/report">Get a free security report</a> for your company in under 10&nbsp;minutes.</p>
           <p class="backed backed-pill">Cover backed by <img src="/assets/partners/casava.png" alt="Casava" width="112" height="27"></p>
         </div>
         <div class="hero-side">
