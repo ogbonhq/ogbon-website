@@ -878,7 +878,6 @@ ogbon1 = f"""    <div class="frame">
           <div class="hero-actions">
             <a class="btn btn-light" href="https://my.ogbon.com">{icon("apple")}Download for Mac</a>
             <a class="btn btn-light" href="https://my.ogbon.com">{icon("windows")}Download for Windows</a>
-            <a class="btn btn-ghost-light" href="https://my.ogbon.com">Get an API key</a>
           </div>
         </div>
       </section>
