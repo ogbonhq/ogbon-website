@@ -37,3 +37,33 @@ window.matchMedia("(min-width: 961px)").addEventListener("change", (e) => { if (
 const domainField = document.querySelector("#report-form [name=domain]");
 const domain = new URLSearchParams(location.search).get("domain");
 if (domainField && domain) domainField.value = domain.trim().replace(/^https?:\/\//, "").replace(/\/.*$/, "");
+
+// The report form sends to Formspree in the background and shows a thank-you in place of the form.
+const reportForm = document.getElementById("report-form");
+if (reportForm) {
+  const error = reportForm.querySelector(".form-error");
+  const button = reportForm.querySelector("button[type=submit]");
+  reportForm.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    error.hidden = true;
+    button.disabled = true;
+    button.textContent = "Sending...";
+    try {
+      const res = await fetch(reportForm.action, { method: "POST", body: new FormData(reportForm), headers: { Accept: "application/json" } });
+      if (!res.ok) throw new Error(String(res.status));
+      const email = reportForm.querySelector("[name=email]").value;
+      const done = document.createElement("div");
+      done.className = "form-card form-done";
+      done.setAttribute("role", "status");
+      done.tabIndex = -1;
+      done.innerHTML = "<h2>Thanks, we've got your request</h2><p></p>";
+      done.querySelector("p").textContent = `We'll email your report to ${email}. If you have questions, write to ${CONTACT_EMAIL}.`;
+      reportForm.replaceWith(done);
+      done.focus();
+    } catch {
+      error.hidden = false;
+      button.disabled = false;
+      button.textContent = "Get my report";
+    }
+  });
+}

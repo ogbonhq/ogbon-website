@@ -10,8 +10,8 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "tools"))
 import legal  # noqa: E402
-CSS_V = "20261126-18"
-JS_V = "20261126-2"
+CSS_V = "20261126-19"
+JS_V = "20261126-3"
 OG_V = "9"
 SITE = "https://ogbon.com"
 TAGLINE = "Cybersecurity with cover built in."
@@ -420,7 +420,9 @@ report = f"""    <div class="frame">
 
     <section class="section">
       <div class="wrap report-grid">
-        <form class="form form-card" id="report-form" action="https://my.ogbon.com/report" method="post">
+        <form class="form form-card" id="report-form" action="https://formspree.io/f/mqpqjwzn" method="post">
+          <input type="hidden" name="_subject" value="Free security report request">
+          <div class="hp" aria-hidden="true"><label for="f-gotcha">Leave this empty</label><input id="f-gotcha" name="_gotcha" type="text" tabindex="-1" autocomplete="off"></div>
           <div class="field">
             <label for="f-domain">Company domain</label>
             <input id="f-domain" name="domain" type="text" inputmode="url" placeholder="yourcompany.com" required>
@@ -454,6 +456,7 @@ report = f"""    <div class="frame">
             </div>
           </div>
           <button class="btn btn-primary" type="submit">Get my report</button>
+          <p class="form-error" role="alert" hidden>Something went wrong. Please try again, or email us at secure@ogbon.com.</p>
           <p class="form-note">{icon("lock")}<span>We only check information that is already public. We don't access your systems. See our <a href="/terms">terms</a> and <a href="/privacy">privacy&nbsp;policy</a>.</span></p>
         </form>
         <div>

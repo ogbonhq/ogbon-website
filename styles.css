@@ -407,3 +407,9 @@ main:has(> .frame:last-child) + .footer { margin-top: 8px; border-top: 0; }
 .story-photo { margin-top: 32px; }
 .story-photo img { width: 100%; height: auto; border-radius: 12px; display: block; }
 .story-photo figcaption { margin-top: 12px; font-size: 14px; color: var(--muted); }
+
+/* Report form */
+.hp { position: absolute; left: -10000px; width: 1px; height: 1px; overflow: hidden; }
+.form-error { font-size: 14px; color: #b42318; }
+.form-done h2 { font-size: 22px; }
+.form-done p { margin-top: 10px; color: var(--muted); }
