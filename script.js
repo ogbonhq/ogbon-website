@@ -19,7 +19,7 @@ const panel = document.createElement("div");
 panel.className = "nav-panel";
 panel.id = "nav-panel";
 panel.hidden = true;
-const links = [...nav.querySelectorAll(".nav-links a, .nav-login")];
+const links = [...nav.querySelectorAll(".nav-links a")];
 panel.innerHTML = `<ul>${links.map((a) => `<li>${a.outerHTML.replace(/ aria-current="page"/, "")}</li>`).join("")}</ul>`;
 nav.appendChild(panel);
 const setMenu = (open) => {

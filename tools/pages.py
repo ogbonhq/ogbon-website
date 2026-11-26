@@ -10,8 +10,8 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "tools"))
 import legal  # noqa: E402
-CSS_V = "20261126-22"
-JS_V = "20261126-3"
+CSS_V = "20261126-23"
+JS_V = "20261126-4"
 OG_V = "9"
 SITE = "https://ogbon.com"
 TAGLINE = "Cybersecurity with cover built in."
@@ -63,7 +63,6 @@ def nav(current):
           <a class="nav-incident" href="/incident"{inc}>Report an incident</a>
       </nav>
       <div class="nav-actions">
-        <a class="nav-login" href="https://my.ogbon.com">Log in</a>
         <a class="btn btn-primary btn-sm" href="/report">Get started</a>
         <button class="nav-menu" type="button" aria-expanded="false" aria-controls="nav-panel" aria-label="Menu"><span></span><span></span></button>
       </div>
