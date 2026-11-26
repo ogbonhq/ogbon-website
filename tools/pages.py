@@ -225,7 +225,7 @@ home = f"""    <div class="frame">
             <div class="dash-top"><span class="dash-domain">yourcompany.com</span><span class="status status-ok">Cover active</span></div>
             <div class="dash-stats">
               <div class="dash-stat"><p>Security score</p><b>72 / 100</b></div>
-              <div class="dash-stat"><p>Expected loss this year</p><b>₦48m</b></div>
+              <div class="dash-stat"><p>Covered up to</p><b>₦75m</b></div>
             </div>
             <div class="dash-list">
               <p>Today's checks</p>
