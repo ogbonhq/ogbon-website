@@ -1045,7 +1045,7 @@ notfound = """    <div class="frame">
 """
 
 PAGES = [
-    ("index.html", "Ogbon · Cybersecurity with cyber cover in Nigeria",
+    ("index.html", "Ogbon · Modern cybersecurity with cyber cover for Africa",
      "Ogbon helps organisations in Nigeria stay safe from cyber attacks, shows your team what to fix, and pays for the loss if an attacker still gets through.",
      home, "index, follow", home_ld),
     ("report.html", "Free cybersecurity report for your company · Ogbon",
