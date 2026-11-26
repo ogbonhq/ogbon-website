@@ -1,14 +1,6 @@
-<svg viewBox="0 0 240 140" fill="none" stroke="currentColor" stroke-width="1" aria-hidden="true">
-  <defs><linearGradient id="id-k" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#B18CFF"/><stop offset="1" stop-color="#1362DD"/></linearGradient></defs>
-  <circle class="ping" cx="62" cy="70" r="34" stroke="#B18CFF"/>
-  <circle cx="62" cy="70" r="34" fill="#F3EDFF" stroke="none"/>
-  <circle cx="52" cy="60" r="12" stroke="url(#id-k)" stroke-width="5"/>
-  <path d="M60 68l20 20M72 80l6-6M77 85l6-6" stroke="url(#id-k)" stroke-width="5" stroke-linecap="round"/>
-  <rect x="108" y="26" width="122" height="22" rx="11" fill="#fff"/>
-  <text x="120" y="40" class="t">ada · staff</text>
-  <rect class="glow-soft" x="104" y="56" width="130" height="30" rx="15" fill="#FFE3E3" stroke="none"/>
-  <rect x="108" y="60" width="122" height="22" rx="11" fill="#fff" stroke="#F0586E"/>
-  <text x="120" y="74" class="t">intern → <tspan class="r-t">admin</tspan></text>
-  <rect x="108" y="94" width="122" height="22" rx="11" fill="#fff"/>
-  <text x="120" y="108" class="t">svc-backup · read</text>
+<svg viewBox="0 0 240 140" fill="none" stroke="currentColor" stroke-width="1" stroke-linejoin="round" aria-hidden="true">
+<g><path d="M62.0,40.0 L70.7,45.0 L41.2,62.0 L32.6,57.0Z" fill="#fff"/><path d="M32.6,57.0 L41.2,62.0 L41.2,118.0 L32.6,113.0Z" fill="#F7F5F8"/><path d="M41.2,62.0 L70.7,45.0 L70.7,101.0 L41.2,118.0Z" fill="#EFECF1"/></g>
+<g><path d="M120.0,40.0 L128.7,45.0 L99.2,62.0 L90.6,57.0Z" fill="#fff"/><path d="M90.6,57.0 L99.2,62.0 L99.2,118.0 L90.6,113.0Z" fill="#F7F5F8"/><path d="M99.2,62.0 L128.7,45.0 L128.7,101.0 L99.2,118.0Z" fill="#EFECF1"/></g>
+<g class="float"><g><path d="M178.0,32.0 L186.7,37.0 L157.2,54.0 L148.6,49.0Z" fill="#5A95F2" stroke="none"/><path d="M148.6,49.0 L157.2,54.0 L157.2,118.0 L148.6,113.0Z" fill="#1362DD" stroke="none"/><path d="M157.2,54.0 L186.7,37.0 L186.7,101.0 L157.2,118.0Z" fill="#0E4CB0" stroke="none"/></g></g>
+<path class="soft" d="M20 120H220"/>
 </svg>

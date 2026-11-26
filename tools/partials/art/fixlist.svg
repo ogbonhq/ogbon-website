@@ -1,21 +1,5 @@
-<svg viewBox="0 0 320 180" fill="none" stroke="currentColor" stroke-width="1" aria-hidden="true">
-  <rect class="glow-soft" x="26" y="18" width="268" height="46" rx="9" fill="#FFE3E3" stroke="none"/>
-  <rect x="30" y="22" width="260" height="38" rx="6" fill="#fff" stroke="#F0586E"/>
-  <rect x="42" y="35" width="12" height="12" rx="2" stroke="#F0586E"/>
-  <text x="64" y="38" class="t">Admin page open to the internet</text>
-  <rect x="64" y="44" width="50" height="12" rx="3" fill="#FFE3E3" stroke="none"/><text x="89" y="52.5" class="t r-t" text-anchor="middle">critical</text>
-  <text x="120" y="52.5" class="t m">fix by Fri</text>
-  <text x="278" y="45" class="t r-t" text-anchor="end">₦12.0m</text>
-  <rect x="30" y="70" width="260" height="38" rx="6" fill="#fff"/>
-  <rect x="42" y="83" width="12" height="12" rx="2"/>
-  <text x="64" y="86" class="t">Two-step login off: cloud admin</text>
-  <rect x="64" y="92" width="34" height="12" rx="3" fill="#FFF1D6" stroke="none"/><text x="81" y="100.5" class="t o-t" text-anchor="middle">high</text>
-  <text x="104" y="100.5" class="t m">fix by Mon</text>
-  <text x="278" y="93" class="t o-t" text-anchor="end">₦8.5m</text>
-  <rect x="30" y="118" width="260" height="38" rx="6" fill="#F4FBF6" stroke="#9AD8B0"/>
-  <rect x="42" y="131" width="12" height="12" rx="2" fill="#17924D" stroke="none"/>
-  <path class="draw w-s" d="M44.5 137l3 3 5-6" stroke-width="1.5"/>
-  <text x="64" y="134" class="t m">Old TLS on api.acme.ng</text>
-  <rect x="64" y="140" width="38" height="12" rx="3" fill="#E3F6EA" stroke="none"/><text x="83" y="148.5" class="t g-t" text-anchor="middle">fixed</text>
-  <text x="278" y="141" class="t g-t" text-anchor="end">saved ₦3.1m</text>
+<svg viewBox="0 0 320 180" fill="none" stroke="currentColor" stroke-width="1" stroke-linejoin="round" aria-hidden="true">
+<g><path d="M160.0,96.0 L220.6,131.0 L160.0,166.0 L99.4,131.0Z" fill="#fff"/><path d="M99.4,131.0 L160.0,166.0 L160.0,174.0 L99.4,139.0Z" fill="#F7F5F8"/><path d="M160.0,166.0 L220.6,131.0 L220.6,139.0 L160.0,174.0Z" fill="#EFECF1"/></g>
+<g><path d="M160.0,72.0 L220.6,107.0 L160.0,142.0 L99.4,107.0Z" fill="#fff"/><path d="M99.4,107.0 L160.0,142.0 L160.0,150.0 L99.4,115.0Z" fill="#F7F5F8"/><path d="M160.0,142.0 L220.6,107.0 L220.6,115.0 L160.0,150.0Z" fill="#EFECF1"/></g>
+<g class="float"><g><path d="M160.0,40.0 L220.6,75.0 L160.0,110.0 L99.4,75.0Z" fill="#5A95F2" stroke="none"/><path d="M99.4,75.0 L160.0,110.0 L160.0,118.0 L99.4,83.0Z" fill="#1362DD" stroke="none"/><path d="M160.0,110.0 L220.6,75.0 L220.6,83.0 L160.0,118.0Z" fill="#0E4CB0" stroke="none"/></g></g>
 </svg>

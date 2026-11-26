@@ -1,20 +1,9 @@
-<svg viewBox="0 0 320 180" fill="none" stroke="currentColor" stroke-width="1" aria-hidden="true">
-  <defs><linearGradient id="md-r" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#fff"/><stop offset="1" stop-color="#EBEBFF"/></linearGradient></defs>
-  <rect x="22" y="36" width="116" height="74" rx="5" fill="#320A37" stroke="none"/>
-  <path d="M12 116H148L140 125H20Z" fill="#fff"/>
-  <text x="34" y="54" class="t l-t">ogbon-1</text>
-  <text x="34" y="70" class="t w2">&gt; 3 gaps found</text>
-  <text x="34" y="84" class="t gl-t">&gt; fixes ready</text>
-  <rect class="blink" x="34" y="92" width="6" height="10" fill="#C8C8FF" stroke="none"/>
-  <path class="a flow" d="M138 73H200"/>
-  <circle class="travel" cx="142" cy="73" r="3" fill="#1362DD" stroke="none"/>
-  <rect x="200" y="26" width="100" height="28" rx="4" fill="url(#md-r)"/>
-  <rect x="200" y="60" width="100" height="28" rx="4" fill="url(#md-r)"/>
-  <rect x="200" y="94" width="100" height="28" rx="4" fill="url(#md-r)"/>
-  <path d="M212 40H256M212 74H256M212 108H256" stroke="#B9A9C2"/>
-  <circle class="glow" cx="274" cy="40" r="2.5" fill="#3CC27A" stroke="none"/><circle cx="286" cy="40" r="2.5" fill="#3CC27A" stroke="none"/>
-  <circle cx="274" cy="74" r="2.5" fill="#3CC27A" stroke="none"/><circle class="glow" cx="286" cy="74" r="2.5" fill="#1362DD" stroke="none"/>
-  <circle cx="274" cy="108" r="2.5" fill="#3CC27A" stroke="none"/><circle class="glow d2" cx="286" cy="108" r="2.5" fill="#3CC27A" stroke="none"/>
-  <text x="80" y="152" class="t m" text-anchor="middle">Mac · Windows</text>
-  <text x="250" y="152" class="t m" text-anchor="middle">cloud · servers</text>
+<svg viewBox="0 0 320 180" fill="none" stroke="currentColor" stroke-width="1" stroke-linejoin="round" aria-hidden="true">
+<path d="M28 114L66 92V48L28 70Z" fill="#fff"/>
+<g><path d="M66.0,92.0 L118.0,122.0 L79.9,144.0 L27.9,114.0Z" fill="#fff"/><path d="M27.9,114.0 L79.9,144.0 L79.9,150.0 L27.9,120.0Z" fill="#F7F5F8"/><path d="M79.9,144.0 L118.0,122.0 L118.0,128.0 L79.9,150.0Z" fill="#EFECF1"/></g>
+<g><path d="M254.0,84.0 L288.6,104.0 L254.0,124.0 L219.4,104.0Z" fill="#fff"/><path d="M219.4,104.0 L254.0,124.0 L254.0,144.0 L219.4,124.0Z" fill="#F7F5F8"/><path d="M254.0,124.0 L288.6,104.0 L288.6,124.0 L254.0,144.0Z" fill="#EFECF1"/></g>
+<g><path d="M254.0,64.0 L288.6,84.0 L254.0,104.0 L219.4,84.0Z" fill="#fff"/><path d="M219.4,84.0 L254.0,104.0 L254.0,124.0 L219.4,104.0Z" fill="#F7F5F8"/><path d="M254.0,104.0 L288.6,84.0 L288.6,104.0 L254.0,124.0Z" fill="#EFECF1"/></g>
+<g><path d="M254.0,44.0 L288.6,64.0 L254.0,84.0 L219.4,64.0Z" fill="#fff"/><path d="M219.4,64.0 L254.0,84.0 L254.0,104.0 L219.4,84.0Z" fill="#F7F5F8"/><path d="M254.0,84.0 L288.6,64.0 L288.6,84.0 L254.0,104.0Z" fill="#EFECF1"/></g>
+<path class="soft" d="M108 100L148 86M176 86L216 100" stroke-dasharray="2 4"/>
+<g class="float"><g><path d="M162.0,64.0 L181.1,75.0 L162.0,86.0 L142.9,75.0Z" fill="#5A95F2" stroke="none"/><path d="M142.9,75.0 L162.0,86.0 L162.0,108.0 L142.9,97.0Z" fill="#1362DD" stroke="none"/><path d="M162.0,86.0 L181.1,75.0 L181.1,97.0 L162.0,108.0Z" fill="#0E4CB0" stroke="none"/></g></g>
 </svg>

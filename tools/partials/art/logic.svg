@@ -1,12 +1,12 @@
-<svg viewBox="0 0 240 140" fill="none" stroke="currentColor" stroke-width="1" aria-hidden="true">
-  <rect x="24" y="16" width="192" height="108" rx="6" fill="#fff"/>
-  <text x="38" y="38" class="t m">Transfer</text>
-  <text x="38" y="58" class="t big">₦500,000</text>
-  <text x="38" y="84" class="t m">daily limit ₦200,000</text>
-  <rect x="38" y="92" width="164" height="8" rx="4" fill="#F1EEF3" stroke="none"/>
-  <rect class="grow" x="38" y="92" width="164" height="8" rx="4" fill="#F0586E" stroke="none"/>
-  <path d="M104 88V104" stroke="#320A37" stroke-width="1.5"/>
-  <rect x="124" y="27" width="84" height="18" rx="9" fill="#FFE3E3" stroke="#F0586E"/>
-  <text x="166" y="39" class="t r-t" text-anchor="middle">limit skipped</text>
-  <text x="38" y="116" class="t m">approved by: <tspan class="r-t">nobody</tspan></text>
+<svg viewBox="0 0 240 140" fill="none" stroke="currentColor" stroke-width="1" stroke-linejoin="round" aria-hidden="true">
+<path class="soft" d="M30 58H210" stroke-dasharray="4 4"/>
+<g><path d="M70.0,92.0 L90.8,104.0 L70.0,116.0 L49.2,104.0Z" fill="#fff"/><path d="M49.2,104.0 L70.0,116.0 L70.0,126.0 L49.2,114.0Z" fill="#F7F5F8"/><path d="M70.0,116.0 L90.8,104.0 L90.8,114.0 L70.0,126.0Z" fill="#EFECF1"/></g>
+<g><path d="M70.0,82.0 L90.8,94.0 L70.0,106.0 L49.2,94.0Z" fill="#fff"/><path d="M49.2,94.0 L70.0,106.0 L70.0,116.0 L49.2,104.0Z" fill="#F7F5F8"/><path d="M70.0,106.0 L90.8,94.0 L90.8,104.0 L70.0,116.0Z" fill="#EFECF1"/></g>
+<g><path d="M120.0,92.0 L140.8,104.0 L120.0,116.0 L99.2,104.0Z" fill="#fff"/><path d="M99.2,104.0 L120.0,116.0 L120.0,126.0 L99.2,114.0Z" fill="#F7F5F8"/><path d="M120.0,116.0 L140.8,104.0 L140.8,114.0 L120.0,126.0Z" fill="#EFECF1"/></g>
+<g><path d="M120.0,82.0 L140.8,94.0 L120.0,106.0 L99.2,94.0Z" fill="#fff"/><path d="M99.2,94.0 L120.0,106.0 L120.0,116.0 L99.2,104.0Z" fill="#F7F5F8"/><path d="M120.0,106.0 L140.8,94.0 L140.8,104.0 L120.0,116.0Z" fill="#EFECF1"/></g>
+<g><path d="M120.0,72.0 L140.8,84.0 L120.0,96.0 L99.2,84.0Z" fill="#fff"/><path d="M99.2,84.0 L120.0,96.0 L120.0,106.0 L99.2,94.0Z" fill="#F7F5F8"/><path d="M120.0,96.0 L140.8,84.0 L140.8,94.0 L120.0,106.0Z" fill="#EFECF1"/></g>
+<g><path d="M170.0,92.0 L190.8,104.0 L170.0,116.0 L149.2,104.0Z" fill="#fff"/><path d="M149.2,104.0 L170.0,116.0 L170.0,126.0 L149.2,114.0Z" fill="#F7F5F8"/><path d="M170.0,116.0 L190.8,104.0 L190.8,114.0 L170.0,126.0Z" fill="#EFECF1"/></g>
+<g><path d="M170.0,82.0 L190.8,94.0 L170.0,106.0 L149.2,94.0Z" fill="#fff"/><path d="M149.2,94.0 L170.0,106.0 L170.0,116.0 L149.2,104.0Z" fill="#F7F5F8"/><path d="M170.0,106.0 L190.8,94.0 L190.8,104.0 L170.0,116.0Z" fill="#EFECF1"/></g>
+<g><path d="M170.0,72.0 L190.8,84.0 L170.0,96.0 L149.2,84.0Z" fill="#fff"/><path d="M149.2,84.0 L170.0,96.0 L170.0,106.0 L149.2,94.0Z" fill="#F7F5F8"/><path d="M170.0,96.0 L190.8,84.0 L190.8,94.0 L170.0,106.0Z" fill="#EFECF1"/></g>
+<g class="float"><g><path d="M170.0,40.0 L190.8,52.0 L170.0,64.0 L149.2,52.0Z" fill="#5A95F2" stroke="none"/><path d="M149.2,52.0 L170.0,64.0 L170.0,74.0 L149.2,62.0Z" fill="#1362DD" stroke="none"/><path d="M170.0,64.0 L190.8,52.0 L190.8,62.0 L170.0,74.0Z" fill="#0E4CB0" stroke="none"/></g></g>
 </svg>

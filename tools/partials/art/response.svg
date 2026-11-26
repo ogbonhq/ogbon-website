@@ -1,21 +1,8 @@
-<svg viewBox="0 0 320 180" fill="none" stroke="currentColor" stroke-width="1" aria-hidden="true">
-  <defs><linearGradient id="rs-b" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#5B93F0"/><stop offset="1" stop-color="#1362DD"/></linearGradient></defs>
-  <circle class="ping" cx="160" cy="84" r="70" stroke="#1362DD"/>
-  <circle class="ping d2" cx="160" cy="84" r="70" stroke="#1362DD"/>
-  <circle class="a" cx="160" cy="84" r="58" stroke-dasharray="2 5" opacity=".6"/>
-  <rect x="132" y="26" width="56" height="112" rx="10" fill="#fff"/>
-  <path d="M152 34H168"/>
-  <rect x="140" y="46" width="40" height="70" rx="3" fill="#EBEBFF" stroke="none"/>
-  <path class="a" d="M150 84c4-8 16-8 20 0M146 78c7-13 21-13 28 0" stroke-width="1.4"/>
-  <circle cx="160" cy="90" r="2.4" fill="#1362DD" stroke="none"/>
-  <rect x="204" y="34" width="104" height="36" rx="8" fill="url(#rs-b)" stroke="none"/>
-  <text x="214" y="50" class="t w">Responder</text>
-  <text x="214" y="63" class="t w2">calling you now</text>
-  <circle class="glow" cx="296" cy="46" r="3" fill="#7CF0A8" stroke="none"/>
-  <rect x="6" y="96" width="118" height="36" rx="8" fill="#E7F8EE" stroke="#7FD3A0"/>
-  <text x="16" y="112" class="t g-t">WhatsApp</text>
-  <text x="16" y="125" class="t">odd login at 2am</text>
-  <rect x="120" y="150" width="80" height="18" rx="9" fill="#fff" stroke="#1362DD"/>
-  <text x="152" y="162" class="t a-t" text-anchor="middle">00<tspan class="blink">:</tspan>42</text>
-  <circle class="glow" cx="183" cy="159" r="3" fill="#F0586E" stroke="none"/>
+<svg viewBox="0 0 320 180" fill="none" stroke="currentColor" stroke-width="1" stroke-linejoin="round" aria-hidden="true">
+<circle class="soft" cx="160" cy="90" r="70"/>
+<circle class="soft" cx="160" cy="90" r="46"/>
+<circle class="ping" cx="160" cy="90" r="22" stroke="#1362DD"/>
+<path class="soft" d="M20 150L118 104" stroke-dasharray="2 4"/>
+<circle cx="20" cy="150" r="4" fill="#fff"/>
+<circle cx="160" cy="90" r="14" fill="#1362DD" stroke="none"/>
 </svg>
