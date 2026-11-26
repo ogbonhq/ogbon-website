@@ -1,0 +1,17 @@
+<svg viewBox="0 0 320 180" fill="none" stroke="currentColor" stroke-width="1" aria-hidden="true">
+  <circle class="a" cx="160" cy="84" r="62" stroke-dasharray="2 5"/>
+  <circle class="a" cx="160" cy="84" r="84" stroke-dasharray="2 7" opacity=".6"/>
+  <rect x="132" y="26" width="56" height="112" rx="10" fill="#fff"/>
+  <path d="M152 34H168"/>
+  <rect x="140" y="46" width="40" height="70" rx="3"/>
+  <path class="a" d="M150 84c4-8 16-8 20 0M146 78c7-13 21-13 28 0"/>
+  <circle class="a" cx="160" cy="90" r="2"/>
+  <rect x="204" y="34" width="102" height="36" rx="6" fill="#fff"/>
+  <text x="214" y="50" class="t">Responder</text>
+  <text x="214" y="63" class="t a-t">calling you now</text>
+  <rect x="6" y="96" width="118" height="36" rx="6" fill="#fff"/>
+  <text x="16" y="112" class="t">WhatsApp</text>
+  <text x="16" y="125" class="t m">odd login at 2am</text>
+  <rect class="a" x="120" y="150" width="80" height="18" rx="9" fill="#fff"/>
+  <text x="160" y="162" class="t a-t" text-anchor="middle">00:42</text>
+</svg>

@@ -10,7 +10,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "tools"))
 import legal  # noqa: E402
-CSS_V = "20261126-24"
+CSS_V = "20261126-25"
 JS_V = "20261126-4"
 OG_V = "9"
 SITE = "https://ogbon.com"
@@ -18,6 +18,11 @@ TAGLINE = "Cybersecurity with cover built in."
 
 LOGO = (ROOT / "tools/partials/logo.svg").read_text().strip()
 SOCIAL = (ROOT / "tools/partials/social.html").read_text().strip()
+
+
+def art(name):
+    """A line illustration for a card, from tools/partials/art."""
+    return '<div class="card-art">' + (ROOT / f"tools/partials/art/{name}.svg").read_text().strip() + "</div>"
 
 
 def tbd(text):
@@ -267,11 +272,11 @@ home = f"""    <div class="frame">
           <h2 class="h2" id="product-title">Everything you need to protect your organisation, <span class="nowrap">from website to code</span></h2>
         </div>
         <div class="cards">
-          <article class="card card-wide"><span class="badge">{icon("monitor")}</span><div><h3>Daily checks</h3><p>Ogbon checks your websites, apps, APIs, cloud accounts and internal systems every day, from the outside like an attacker and from the inside with read-only&nbsp;access.</p></div></article>
-          <article class="card"><span class="badge badge-pink">{icon("list")}</span><h3>Fix list</h3><p>We rank what needs fixing by how much money it puts at risk, and give your team clear steps for each&nbsp;item.</p></article>
-          <article class="card"><span class="badge badge-grey">{icon("phone")}</span><h3>Incident response</h3><p>Report a problem on WhatsApp or from your dashboard at any time. A responder calls you back within an&nbsp;hour.</p></article>
-          <article class="card"><span class="badge badge-lilac">{icon("shield")}</span><h3>Cover</h3><p>If an attack gets through while you're protected, we pay for the money lost, the investigation and the cost of getting back to&nbsp;work.</p></article>
-          <article class="card"><span class="badge badge-blue">{icon("lock")}</span><h3>ogbon-1 security model</h3><p>Your engineering and IT teams get ogbon-1, our full-stack security model, as a desktop app and an API. It finds and fixes gaps across your code, cloud and&nbsp;systems.</p><a class="link" href="/ogbon-1">About ogbon-1 {icon("arrow")}</a></article>
+          <article class="card card-wide card-illus">{art("checks")}<h3>Daily checks</h3><p>Ogbon checks your websites, apps, APIs, cloud accounts and internal systems every day, from the outside like an attacker and from the inside with read-only&nbsp;access.</p></article>
+          <article class="card card-illus">{art("fixlist")}<h3>Fix list</h3><p>We rank what needs fixing by how much money it puts at risk, and give your team clear steps for each&nbsp;item.</p></article>
+          <article class="card card-illus">{art("response")}<h3>Incident response</h3><p>Report a problem on WhatsApp or from your dashboard at any time. A responder calls you back within an&nbsp;hour.</p></article>
+          <article class="card card-illus">{art("cover")}<h3>Cover</h3><p>If an attack gets through while you're protected, we pay for the money lost, the investigation and the cost of getting back to&nbsp;work.</p></article>
+          <article class="card card-illus">{art("model")}<h3>ogbon-1 security model</h3><p>Your engineering and IT teams get ogbon-1, our 30B security model. It finds and fixes gaps across your laptops, code, cloud and&nbsp;systems.</p><a class="link" href="/ogbon-1">About ogbon-1 {icon("arrow")}</a></article>
         </div>
       </div>
     </section>

@@ -1,0 +1,17 @@
+<svg viewBox="0 0 320 180" fill="none" stroke="currentColor" stroke-width="1" aria-hidden="true">
+  <rect x="22" y="36" width="116" height="74" rx="5" fill="#fff"/>
+  <path d="M12 116H148L140 125H20Z" fill="#fff"/>
+  <text x="34" y="56" class="t a-t">ogbon-1</text>
+  <text x="34" y="72" class="t m">&gt; 3 gaps found</text>
+  <text x="34" y="86" class="t m">&gt; fixes ready</text>
+  <rect class="a" x="34" y="93" width="44" height="10" rx="2"/>
+  <path class="a" d="M138 73H200" stroke-dasharray="3 4"/>
+  <circle class="a" cx="169" cy="73" r="5" fill="#fff"/>
+  <rect x="200" y="26" width="100" height="28" rx="4" fill="#fff"/>
+  <rect x="200" y="60" width="100" height="28" rx="4" fill="#fff"/>
+  <rect x="200" y="94" width="100" height="28" rx="4" fill="#fff"/>
+  <path d="M212 40H256M212 74H256M212 108H256"/>
+  <circle cx="286" cy="40" r="2.5"/><circle class="a" cx="286" cy="74" r="2.5"/><circle cx="286" cy="108" r="2.5"/>
+  <text x="80" y="152" class="t m" text-anchor="middle">Mac · Windows</text>
+  <text x="250" y="152" class="t m" text-anchor="middle">cloud · servers</text>
+</svg>

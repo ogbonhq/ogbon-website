@@ -1,0 +1,18 @@
+<svg viewBox="0 0 320 180" fill="none" stroke="currentColor" stroke-width="1" aria-hidden="true">
+  <rect class="a" x="30" y="22" width="260" height="38" rx="6" fill="#fff"/>
+  <rect class="a" x="42" y="35" width="12" height="12" rx="2"/>
+  <text x="64" y="38" class="t">Admin page open to the internet</text>
+  <text x="64" y="52" class="t m">critical · fix by Fri</text>
+  <text x="278" y="45" class="t a-t" text-anchor="end">₦12.0m</text>
+  <rect x="30" y="70" width="260" height="38" rx="6" fill="#fff"/>
+  <rect x="42" y="83" width="12" height="12" rx="2"/>
+  <text x="64" y="86" class="t">Two-step login off: cloud admin</text>
+  <text x="64" y="100" class="t m">high · fix by Mon</text>
+  <text x="278" y="93" class="t" text-anchor="end">₦8.5m</text>
+  <rect x="30" y="118" width="260" height="38" rx="6" fill="#fff"/>
+  <rect x="42" y="131" width="12" height="12" rx="2"/>
+  <path d="M44.5 137l3 3 5-6"/>
+  <text x="64" y="134" class="t m">Old TLS on api.acme.ng</text>
+  <text x="64" y="148" class="t m">fixed · checked</text>
+  <text x="278" y="141" class="t m" text-anchor="end">₦3.1m</text>
+</svg>

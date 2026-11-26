@@ -1,0 +1,10 @@
+<svg viewBox="0 0 320 180" fill="none" stroke="currentColor" stroke-width="1" aria-hidden="true">
+  <path d="M160 16c26 14 46 19 62 19v54c0 41-28 62-62 74-34-12-62-33-62-74V35c16 0 36-5 62-19z" fill="#fff"/>
+  <path class="a" d="M160 34c19 10 34 14 46 14v42c0 30-20 46-46 55-26-9-46-25-46-55V48c12 0 27-4 46-14z" stroke-dasharray="3 4"/>
+  <path class="a" d="M144 90l11 11 22-24" stroke-width="1.5"/>
+  <path d="M98 62H62M222 112H258" stroke-dasharray="3 4"/>
+  <rect x="8" y="50" width="54" height="24" rx="12" fill="#fff"/>
+  <text x="35" y="66" class="t" text-anchor="middle">active</text>
+  <rect class="a" x="258" y="100" width="56" height="24" rx="12" fill="#fff"/>
+  <text x="286" y="116" class="t a-t" text-anchor="middle">₦75m</text>
+</svg>
