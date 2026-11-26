@@ -452,10 +452,10 @@ main:has(> .frame:last-child) + .footer { margin-top: 8px; border-top: 0; }
 }
 .hero-main::after, .page-hero::after {
   content: ""; position: absolute; z-index: -1; pointer-events: none; width: 16px; height: 16px;
-  left: calc(round(down, calc(100% - 216px), 54px) + 18px); top: 72px; background: #fff;
-  box-shadow: -108px 162px 0 var(--lilac), 54px 108px 0 var(--lilac), 108px -54px 0 #fff;
+  left: calc(round(down, calc(100% - 162px), 54px) + 18px); top: 18px; background: #fff;
+  box-shadow: 54px 54px 0 var(--lilac), -108px 0 0 var(--lilac), -54px 54px 0 rgba(255, 255, 255, 0.7);
 }
 .page-hero.theme-purple { background: var(--purple); }
 .page-hero.theme-ink { background: #1E0821; }
 .page-hero.theme-deep { background: #0B3E95; }
-@media (max-width: 720px) { .hero-main::after, .page-hero::after { display: none; } }
+@media (max-width: 1023px) { .hero-main::after, .page-hero::after { display: none; } }

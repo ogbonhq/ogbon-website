@@ -10,7 +10,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "tools"))
 import legal  # noqa: E402
-CSS_V = "20261126-29"
+CSS_V = "20261126-30"
 JS_V = "20261126-4"
 OG_V = "9"
 SITE = "https://ogbon.com"
