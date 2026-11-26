@@ -175,10 +175,10 @@ FAQ = [
      "No. Ogbon is a cybersecurity company. The cover in every plan is a warranty from Ogbon: if an attack gets through while you're protected, we pay for the loss, up to your plan's limit. Our promise is backed by a partner insurer licensed by NAICOM, and we manage your claim with you from start to finish."),
     ("Is the cover an insurance policy?",
      "Not today. It's a warranty from Ogbon, backed by a partner insurer. We plan to offer a full cyber insurance policy, arranged through licensed partners, once we hold a broker or managing agent licence. Existing customers will be able to move across."),
-    ("Will Ogbon slow down our laptops?",
-     "No. Ogbon connects to the security tool your laptops already run. If you don't have one, we'll install a light one that runs in the background."),
+    ("Do you install anything on our laptops?",
+     "No. Ogbon focuses on where attacks start: your websites, apps, APIs, cloud and internal systems. We connect to them read-only and don't install anything on staff devices."),
     ("What data can Ogbon see?",
-     "Settings, device health, login rules, and the code repositories you choose to connect. We don't read emails, chats or documents. Access is read-only and you can disconnect at any time."),
+     "Configuration and access settings from the cloud accounts and systems you connect, and the code repositories you choose. We don't read emails, chats or documents. Access is read-only and you can disconnect at any time."),
     ("How long does setup take?",
      "About an hour of your IT team's time. Most companies are covered within a week."),
     ("What is ogbon-1?",
@@ -212,7 +212,7 @@ home = f"""    <div class="frame">
       <section class="hero" aria-labelledby="hero-title">
         <div class="hero-main">
           <h1 id="hero-title">Cybersecurity with <span>cover built&nbsp;in</span></h1>
-          <p class="hero-sub">Ogbon helps organisations in Nigeria stay safe from cyber attacks. We monitor your laptops, email, cloud accounts and websites, show your team what to fix, and pay for the loss if an attacker still gets&nbsp;through.</p>
+          <p class="hero-sub">Ogbon helps organisations in Nigeria stay safe from cyber attacks. We check your websites, apps, APIs, cloud and internal systems, where attacks start, show your team what to fix, and pay for the loss if an attacker still gets&nbsp;through.</p>
           <div class="hero-actions">
             <a class="btn btn-light" href="https://my.ogbon.com">Get started</a>
             <a class="btn btn-ghost-light" data-email="Sales" href="#contact">Contact sales</a>
@@ -229,11 +229,11 @@ home = f"""    <div class="frame">
             <div class="dash-list">
               <p>Today's checks</p>
               <ul>
-                <li><span>Laptops<small>47 of 50 protected</small></span><span class="status status-ok">OK</span></li>
-                <li><span>Email<small>Two-step login off for 3 staff</small></span><span class="status status-warn">Fix</span></li>
-                <li><span>Cloud<small>3 accounts checked</small></span><span class="status status-ok">OK</span></li>
-                <li><span>App<small>Access check missing on 1 endpoint</small></span><span class="status status-bad">Critical</span></li>
                 <li><span>Website<small>Admin page open to the internet</small></span><span class="status status-warn">Fix</span></li>
+                <li><span>App<small>Access check missing on 1 endpoint</small></span><span class="status status-bad">Critical</span></li>
+                <li><span>API<small>Partner API returns full account records</small></span><span class="status status-warn">Fix</span></li>
+                <li><span>Cloud<small>3 accounts checked</small></span><span class="status status-ok">OK</span></li>
+                <li><span>Code<small>12 repositories checked</small></span><span class="status status-ok">OK</span></li>
               </ul>
             </div>
           </figure>
@@ -265,7 +265,7 @@ home = f"""    <div class="frame">
           <h2 class="h2" id="product-title">Everything you need to protect your organisation, <span class="nowrap">from website to code</span></h2>
         </div>
         <div class="cards">
-          <article class="card"><span class="badge">{icon("monitor")}</span><h3>Monitoring</h3><p>Ogbon checks your domains, websites, email setup and cloud accounts every day, and every company laptop through the security tool you already&nbsp;use.</p></article>
+          <article class="card"><span class="badge">{icon("monitor")}</span><h3>Monitoring</h3><p>Ogbon checks your websites, apps, APIs, cloud accounts and internal systems every day, from the outside like an attacker and from the inside with read-only&nbsp;access.</p></article>
           <article class="card"><span class="badge badge-pink">{icon("list")}</span><h3>Fix list</h3><p>We rank what needs fixing by how much money it puts at risk, and give your team clear steps for each&nbsp;item.</p></article>
           <article class="card"><span class="badge badge-lilac">{icon("shield")}</span><h3>Cover</h3><p>If an attack gets through while you're protected, we pay for the money lost, the investigation and the cost of getting back to&nbsp;work.</p></article>
           <article class="card"><span class="badge badge-grey">{icon("phone")}</span><h3>Incident response</h3><p>Report a problem on WhatsApp or from your dashboard at any time. A responder calls you back within an&nbsp;hour.</p></article>
@@ -288,7 +288,7 @@ home = f"""    <div class="frame">
             <div class="loss-fix">
               <span class="badge">{icon("lock")}</span>
               <div>
-                <p>Turn on two-step login for finance and ops staff</p>
+                <p>Turn on two-step login for cloud and admin accounts</p>
                 <span class="loss-save">Reduces expected loss by ₦19,000,000</span>
               </div>
             </div>
@@ -301,7 +301,7 @@ home = f"""    <div class="frame">
       <div class="wrap split">
         <div class="panel panel-pink">
           <ul class="flow" aria-label="How cover works">
-            <li><span class="badge">{icon("monitor")}</span><span>Daily checks<small>Laptops, email, cloud and websites</small></span></li>
+            <li><span class="badge">{icon("monitor")}</span><span>Daily checks<small>Websites, apps, APIs, cloud and code</small></span></li>
             <li><span class="badge badge-pink">{icon("phone")}</span><span>Responder on the line<small>Within an hour of your report</small></span></li>
             <li><span class="badge badge-lilac">{icon("naira")}</span><span>Loss paid<small>Up to your plan's limit</small></span></li>
           </ul>
@@ -516,9 +516,9 @@ results = f"""    <div class="frame">
 
 # ---------------------------------------------------------------- How it works
 steps = [
-    ("Connect your tools", "Add your domains, then connect Google Workspace or Microsoft 365, your cloud accounts on AWS, Google Cloud or Azure, your laptop security tool, and your code on GitHub, GitLab or Bitbucket. All access is read-only."),
+    ("Connect your tools", "Add your domains and apps, then connect your cloud accounts on AWS, Google Cloud or Azure, your code on GitHub, GitLab or Bitbucket, and the internal systems you want covered. All access is read-only."),
     ("Fix what matters", "Ogbon lists the five to ten fixes that protect the most money, with clear steps for each. When your team makes a fix, Ogbon checks it automatically and your score updates."),
-    ("Get covered", "Once the basics are in place, including two-step login, laptop protection, payout approvals and backups, your cover starts the next day. Your dashboard shows your cover status at all times."),
+    ("Get covered", "Once the basics are in place, including two-step login on admin accounts, payout approvals and backups, your cover starts the next day. Your dashboard shows your cover status at all times."),
     ("Get help when you need it", "Report an incident from your dashboard or on WhatsApp, at any time of day. A responder calls back within an hour, helps contain the attack and brings in investigators. Then we handle your claim."),
 ]
 steps_html = "\n".join(
@@ -541,7 +541,7 @@ how = f"""    <div class="frame">
         </ol>
         <div class="note">
           <span class="badge badge-blue">{icon("plug")}</span>
-          <p>Ogbon works with Microsoft Defender, CrowdStrike and SentinelOne. If you don't use any of them yet, we'll set you&nbsp;up.</p>
+          <p>Ogbon connects to AWS, Google Cloud, Azure, GitHub, GitLab and Bitbucket. For systems that can't be reached from outside, ogbon-1 can run on your own&nbsp;servers.</p>
         </div>
       </div>
     </section>
@@ -602,9 +602,9 @@ excl = [
 ]
 excl_html = "\n".join(f'            <li><span class="tick tick-x">{icon("x")}</span>{e}</li>' for e in excl)
 basics = [
-    "Ogbon is connected to your email, cloud and laptop tools",
-    "Two-step login is on for all email and admin accounts",
-    "At least 95% of company laptops have security software running",
+    "Ogbon is connected to your websites, apps, APIs, cloud and code",
+    "Two-step login is on for all admin and cloud accounts",
+    "No critical issue is left open past its due date",
     "Payouts above your set limit need two approvals",
     "Backups are kept where attackers can't change them, and tested every quarter",
     "Incidents are reported to us within 72 hours",
@@ -674,10 +674,9 @@ NO = '<span class="no" aria-label="Not included">·</span>'
 plan_rows = [
     ("Total cover per year", "₦25m", "₦75m", "₦200m"),
     ("Daily monitoring and fix list", YES, YES, YES),
-    ("Email, cloud and laptop checks", YES, YES, YES),
+    ("Website, app, API and cloud checks", YES, YES, YES),
     ("ogbon-1 and Ogbon Harness for engineers", YES, YES, YES),
     ("Incident response, 24/7", YES, YES, YES),
-    ("Phishing tests and staff training", NO, YES, YES),
     ("Audit evidence for CBN and NDPA", NO, YES, YES),
     ("Named security adviser", NO, NO, YES),
 ]
@@ -870,7 +869,7 @@ ogbon1 = f"""    <div class="frame">
             <div class="dash-list" style="padding-top:12px">
               <ul>
                 <li><span>Missing access check on an endpoint<small>Code · ₦12,000,000 at risk</small></span><span class="status status-bad">Critical</span></li>
-                <li><span>Two-step login off for finance staff<small>Email · ₦19,000,000 at risk</small></span><span class="status status-warn">Fix</span></li>
+                <li><span>Two-step login off for cloud admins<small>Cloud · ₦19,000,000 at risk</small></span><span class="status status-warn">Fix</span></li>
                 <li><span>Injection flaw in a search endpoint<small>Code · ₦8,500,000 at risk</small></span><span class="status status-warn">Fix</span></li>
               </ul>
             </div>

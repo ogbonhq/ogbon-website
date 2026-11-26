@@ -19,7 +19,7 @@ PRIVACY = [
     ("Who we are", [
         "Ogbon Security Limited is a cybersecurity company registered in Nigeria. We decide how personal data is used "
         "on this website, for free security reports, and when we sell to and bill our customers.",
-        "When we work inside a customer's email, cloud, laptop or code tools, the customer decides what we process and "
+        "When we work inside a customer's cloud accounts, code or other systems, the customer decides what we process and "
         "why. In that case the customer is the data controller and we process the data on its behalf, under our "
         "agreement with it.",
         CONTACT,
@@ -35,8 +35,8 @@ PRIVACY = [
         [
             "Names, work emails and phone numbers of the people who use your account.",
             "Billing details.",
-            "Settings, device health and login rules from the tools you connect, and the code repositories you choose "
-            "to connect.",
+            "Configuration, access settings and login rules from the systems you connect, and the code repositories "
+            "you choose to connect.",
             "What you tell us about an incident or a claim.",
         ],
         "When you contact us by email, phone or WhatsApp, we keep what you send us.",
@@ -150,7 +150,7 @@ TERMS = [
         "us before it passes, and report incidents to us within 72 hours.",
     ]),
     ("Connecting your tools", [
-        "When you connect your email, cloud, laptop or code tools, you give us read-only access to them. Only connect "
+        "When you connect your cloud accounts, code or other systems, you give us read-only access to them. Only connect "
         "tools your company has the right to share with us. You can disconnect at any time, but staying connected is "
         "one of the basics your cover depends on.",
     ]),
