@@ -522,10 +522,11 @@ results = f"""    <div class="frame">
 
 # ---------------------------------------------------------------- How it works
 steps = [
-    ("Connect your tools", "Add your domains and apps, then connect your cloud accounts on AWS, Google Cloud or Azure, your code on GitHub, GitLab or Bitbucket, and the internal systems you want covered. All access is read-only."),
-    ("Fix what matters", "Ogbon lists the five to ten fixes that protect the most money, with clear steps for each. When your team makes a fix, Ogbon checks it automatically and your score updates."),
-    ("Get covered", "Once the basics are in place, including two-step login on admin accounts, payout approvals and backups, your cover starts the next day. Your dashboard shows your cover status at all times."),
-    ("Get help when you need it", "Report an incident from your dashboard or on WhatsApp, at any time of day. A responder calls back within an hour, helps contain the attack and brings in investigators. Then we handle your claim."),
+    ("Get your free security report", "Tell us your company domain. We check what attackers can see from outside and show you your biggest risks and what they could cost, in naira. Our team then walks you through it and recommends a&nbsp;plan."),
+    ("Connect your systems", "Connect your cloud accounts on AWS, Google Cloud or Azure, your code, and the internal systems you want covered, with read-only access. Install the Ogbon app on staff laptops, on Mac or Windows. Setup takes about an&nbsp;hour."),
+    ("Fix what matters", "Ogbon lists the fixes that protect the most money. ogbon-1 prepares each fix, from a cloud setting to a code change, and your team approves it. Your score updates as you&nbsp;go."),
+    ("Get covered", "Once the basics are in place, including two-step login on admin accounts, payout approvals and backups, your cover starts the next day, backed by&nbsp;Casava."),
+    ("We keep watch", "Ogbon checks your systems every day and spots attacks as they happen. Report a problem on WhatsApp or from your dashboard at any time. A responder calls back within an hour, and we handle your&nbsp;claim."),
 ]
 steps_html = "\n".join(
     f"""          <li class="step"><span class="step-num">{i}</span><div><h2>{h}</h2><p>{p}</p></div></li>"""
@@ -535,7 +536,7 @@ how = f"""    <div class="frame">
       <section class="page-hero" aria-labelledby="page-title">
         <div class="wrap">
           <h1 id="page-title">How Ogbon <span>works</span></h1>
-          <p>Setup takes about an hour of your IT team's time. <br class="br-wide">After that, Ogbon runs in the&nbsp;background.</p>
+          <p>It starts with a free security report. <br class="br-wide">After about an hour of setup, Ogbon runs in the&nbsp;background.</p>
         </div>
       </section>
     </div>
@@ -547,7 +548,7 @@ how = f"""    <div class="frame">
         </ol>
         <div class="note">
           <span class="badge badge-blue">{icon("plug")}</span>
-          <p>Ogbon connects to AWS, Google Cloud, Azure, GitHub, GitLab and Bitbucket. For systems that can't be reached from outside, ogbon-1 can run on your own&nbsp;servers.</p>
+          <p>Ogbon connects to AWS, Google Cloud, Azure, Kubernetes, GitHub, GitLab and Bitbucket, and runs on Mac and Windows laptops. For systems that can't be reached from outside, ogbon-1 can run on your own&nbsp;servers.</p>
         </div>
       </div>
     </section>
@@ -1050,7 +1051,7 @@ PAGES = [
      "Find out what attackers can see about your company from the outside, and what it could cost you. It takes under 10 minutes and nothing gets installed.",
      report, "index, follow", ""),
     ("how-it-works.html", "How Ogbon works · Cybersecurity and cover in one plan",
-     "Setup takes about an hour of your IT team's time. Connect your tools, fix what matters, get covered, and get help when you need it.",
+     "It starts with a free security report. Then connect your systems, fix what matters, get covered, and Ogbon keeps watch every day.",
      how, "index, follow", ""),
     ("cover.html", "Cyber cover in every plan · Ogbon",
      "Cyber cover is included in every Ogbon plan. If an attack gets through while you're protected, we pay for the loss.",
