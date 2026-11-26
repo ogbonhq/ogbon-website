@@ -63,13 +63,13 @@
         "@type": "FAQPage",
         "mainEntity": [
           {"@type": "Question", "name": "Is Ogbon an insurance company?", "acceptedAnswer": {"@type": "Answer", "text": "No. Ogbon is a cybersecurity company. The cover in every plan is a warranty from Ogbon: if an attack gets through while you're protected, we pay for the loss, up to your plan's limit. Our promise is backed by Casava, an insurer licensed by NAICOM, and we manage your claim with you from start to finish."}},
-          {"@type": "Question", "name": "Is the cover an insurance policy?", "acceptedAnswer": {"@type": "Answer", "text": "Not today. It's a warranty from Ogbon, backed by Casava. We plan to offer a full cyber insurance policy, arranged through licensed partners, once we hold a broker or managing agent licence. Existing customers will be able to move across."}},
-          {"@type": "Question", "name": "Do you install anything on our laptops?", "acceptedAnswer": {"@type": "Answer", "text": "No. Ogbon focuses on where attacks start: your websites, apps, APIs, cloud and internal systems. We connect to them read-only and don't install anything on staff devices."}},
+          {"@type": "Question", "name": "Is the cover an insurance policy?", "acceptedAnswer": {"@type": "Answer", "text": "No. It's a warranty from Ogbon, backed by Casava, an insurer licensed by NAICOM. You'll get the full warranty terms before you sign."}},
+          {"@type": "Question", "name": "Do you install anything on our laptops?", "acceptedAnswer": {"@type": "Answer", "text": "No. We connect read-only to your websites, apps, APIs, cloud and internal systems. Nothing is installed on staff devices."}},
           {"@type": "Question", "name": "What data can Ogbon see?", "acceptedAnswer": {"@type": "Answer", "text": "Configuration and access settings from the cloud accounts and systems you connect, and the code repositories you choose. We don't read emails, chats or documents. Access is read-only and you can disconnect at any time."}},
           {"@type": "Question", "name": "How long does setup take?", "acceptedAnswer": {"@type": "Answer", "text": "About an hour of your IT team's time. Most companies are covered within a week."}},
           {"@type": "Question", "name": "What is ogbon-1?", "acceptedAnswer": {"@type": "Answer", "text": "ogbon-1 is Ogbon's own 30B security model. It reviews code, finds vulnerabilities and fixes them. Your engineers use it through Ogbon Harness or the Ogbon API, and it's included in every plan."}},
           {"@type": "Question", "name": "Can we keep our code on our own servers?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. ogbon-1 runs on a single GPU, so you can host it yourself and your code never leaves your network. We never use customer code to train our models."}},
-          {"@type": "Question", "name": "Do you cover money stolen through hacked accounts or leaked API keys?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, up to your plan's limit. It's one of the most common ways organisations that move money lose it, so it's included in every plan."}},
+          {"@type": "Question", "name": "Do you cover money stolen through hacked accounts or leaked API keys?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, up to your plan's limit, on every plan."}},
           {"@type": "Question", "name": "What if we can't fix something in time?", "acceptedAnswer": {"@type": "Answer", "text": "Tell us before the due date and we'll agree a new date or another fix. Your cover is only affected if a critical issue is left open past its due date without telling us."}},
           {"@type": "Question", "name": "How quickly are claims paid?", "acceptedAnswer": {"@type": "Answer", "text": "We aim to decide within 15 working days of getting all documents, and to pay within 5 working days of approval."}},
           {"@type": "Question", "name": "Does Ogbon help with CBN and NDPA compliance?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Growth and Scale plans include audit evidence mapped to the CBN risk-based cybersecurity framework and the Nigeria Data Protection Act."}}
@@ -140,8 +140,8 @@
     <section class="section" aria-labelledby="attacks-title">
       <div class="wrap">
         <div class="head">
-          <h2 class="h2" id="attacks-title">Most attacks start with <span>something&nbsp;small</span></h2>
-          <p class="lead lead-split"><strong>Attackers start with your website and app.</strong> They look for one place that trusts them too much, then use it to reach customer data or move&nbsp;money.</p>
+          <h2 class="h2" id="attacks-title">Four places attacks <span>usually&nbsp;start</span></h2>
+          <p class="lead lead-split"><strong>We check all four, every day.</strong> An attacker only needs one of them to reach customer data or move&nbsp;money.</p>
         </div>
         <ul class="cards cards-4" aria-label="Common ways in">
           <li class="card"><span class="badge badge-pink"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#code"/></svg></span><h3>APIs and&nbsp;integrations</h3><p>Public APIs and partner connections that expose more data or actions than they&nbsp;should.</p></li>
@@ -171,7 +171,7 @@
       <div class="wrap split">
         <div>
           <h2 class="h2" id="naira-title">See your risk <span>in&nbsp;naira</span></h2>
-          <p class="lead">Ogbon turns technical findings into a number your founders and board can act on: how much an attack could cost you this year, and how much each fix brings&nbsp;that&nbsp;down.</p>
+          <p class="lead">Every finding comes with a naira amount: what it could cost you this year, and how much fixing&nbsp;it&nbsp;saves.</p>
           <a class="btn btn-primary" href="/report">Get your free&nbsp;report</a>
         </div>
         <div class="panel">
@@ -201,7 +201,7 @@
           </ul>
         </div>
         <div>
-          <h2 class="h2" id="covered-title">Cover for the losses that <span>hurt&nbsp;most</span></h2>
+          <h2 class="h2" id="covered-title">What the cover <span>pays&nbsp;for</span></h2>
           <ul class="checks">
             <li><span class="tick"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#check"/></svg></span>Money stolen after attackers take over your accounts, systems or API&nbsp;keys</li>
             <li><span class="tick"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#check"/></svg></span>Ransomware investigation and&nbsp;recovery</li>
@@ -223,13 +223,13 @@
             <h2 class="h2" id="who-title" style="margin-top:18px">Built for organisations that move&nbsp;money</h2>
             <p class="lead">Ogbon is built for fintechs, banks, lenders, microfinance banks, payment companies, enterprises and government agencies. If you hold customer money or customer data, Ogbon is&nbsp;for&nbsp;you.</p>
             <ul class="tags" aria-label="Who uses Ogbon">
-              <li>Fintechs</li><li>Lenders</li><li>Microfinance&nbsp;banks</li><li>Payment&nbsp;companies</li><li>20 to 500&nbsp;staff</li>
+              <li>Banks</li><li>Fintechs</li><li>Lenders</li><li>Payment&nbsp;companies</li><li>Enterprises</li><li>Government</li>
             </ul>
           </article>
           <article class="card">
             <span class="badge badge-pink"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#shield"/></svg></span>
-            <h2 class="h2" style="margin-top:18px">We get paid to keep you&nbsp;safe</h2>
-            <p class="lead">Most insurers price cover from a questionnaire and only hear from you when something goes wrong. Ogbon checks your security every day, so we can price cover fairly and help you fix problems early. The more you fix, the less you pay&nbsp;at&nbsp;renewal.</p>
+            <h2 class="h2" style="margin-top:18px">Priced on how secure you&nbsp;are</h2>
+            <p class="lead">Insurers usually price cyber cover from a yearly questionnaire. We check your systems every day, so your price reflects how you're really set up. Fix more, and you pay less&nbsp;at&nbsp;renewal.</p>
           </article>
         </div>
       </div>
@@ -260,11 +260,11 @@
           </details>
           <details>
             <summary>Is the cover an insurance&nbsp;policy?<svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#plus"/></svg></summary>
-            <p>Not today. It's a warranty from Ogbon, backed by Casava. We plan to offer a full cyber insurance policy, arranged through licensed partners, once we hold a broker or managing agent licence. Existing customers will be able to move&nbsp;across.</p>
+            <p>No. It's a warranty from Ogbon, backed by Casava, an insurer licensed by NAICOM. You'll get the full warranty terms before you&nbsp;sign.</p>
           </details>
           <details>
             <summary>Do you install anything on our&nbsp;laptops?<svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#plus"/></svg></summary>
-            <p>No. Ogbon focuses on where attacks start: your websites, apps, APIs, cloud and internal systems. We connect to them read-only and don't install anything on staff&nbsp;devices.</p>
+            <p>No. We connect read-only to your websites, apps, APIs, cloud and internal systems. Nothing is installed on staff&nbsp;devices.</p>
           </details>
           <details>
             <summary>What data can Ogbon&nbsp;see?<svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#plus"/></svg></summary>
@@ -284,7 +284,7 @@
           </details>
           <details>
             <summary>Do you cover money stolen through hacked accounts or leaked API&nbsp;keys?<svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#plus"/></svg></summary>
-            <p>Yes, up to your plan's limit. It's one of the most common ways organisations that move money lose it, so it's included in every&nbsp;plan.</p>
+            <p>Yes, up to your plan's limit, on every&nbsp;plan.</p>
           </details>
           <details>
             <summary>What if we can't fix something in&nbsp;time?<svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#plus"/></svg></summary>

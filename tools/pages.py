@@ -174,9 +174,9 @@ FAQ = [
     ("Is Ogbon an insurance company?",
      "No. Ogbon is a cybersecurity company. The cover in every plan is a warranty from Ogbon: if an attack gets through while you're protected, we pay for the loss, up to your plan's limit. Our promise is backed by Casava, an insurer licensed by NAICOM, and we manage your claim with you from start to finish."),
     ("Is the cover an insurance policy?",
-     "Not today. It's a warranty from Ogbon, backed by Casava. We plan to offer a full cyber insurance policy, arranged through licensed partners, once we hold a broker or managing agent licence. Existing customers will be able to move across."),
+     "No. It's a warranty from Ogbon, backed by Casava, an insurer licensed by NAICOM. You'll get the full warranty terms before you sign."),
     ("Do you install anything on our laptops?",
-     "No. Ogbon focuses on where attacks start: your websites, apps, APIs, cloud and internal systems. We connect to them read-only and don't install anything on staff devices."),
+     "No. We connect read-only to your websites, apps, APIs, cloud and internal systems. Nothing is installed on staff devices."),
     ("What data can Ogbon see?",
      "Configuration and access settings from the cloud accounts and systems you connect, and the code repositories you choose. We don't read emails, chats or documents. Access is read-only and you can disconnect at any time."),
     ("How long does setup take?",
@@ -186,7 +186,7 @@ FAQ = [
     ("Can we keep our code on our own servers?",
      "Yes. ogbon-1 runs on a single GPU, so you can host it yourself and your code never leaves your network. We never use customer code to train our models."),
     ("Do you cover money stolen through hacked accounts or leaked API keys?",
-     "Yes, up to your plan's limit. It's one of the most common ways organisations that move money lose it, so it's included in every plan."),
+     "Yes, up to your plan's limit, on every plan."),
     ("What if we can't fix something in time?",
      "Tell us before the due date and we'll agree a new date or another fix. Your cover is only affected if a critical issue is left open past its due date without telling us."),
     ("How quickly are claims paid?",
@@ -247,8 +247,8 @@ home = f"""    <div class="frame">
     <section class="section" aria-labelledby="attacks-title">
       <div class="wrap">
         <div class="head">
-          <h2 class="h2" id="attacks-title">Most attacks start with <span>something&nbsp;small</span></h2>
-          <p class="lead lead-split"><strong>Attackers start with your website and app.</strong> They look for one place that trusts them too much, then use it to reach customer data or move money.</p>
+          <h2 class="h2" id="attacks-title">Four places attacks <span>usually&nbsp;start</span></h2>
+          <p class="lead lead-split"><strong>We check all four, every day.</strong> An attacker only needs one of them to reach customer data or move money.</p>
         </div>
         <ul class="cards cards-4" aria-label="Common ways in">
           <li class="card">{'<span class="badge badge-pink">' + icon("code") + '</span>'}<h3>APIs and integrations</h3><p>Public APIs and partner connections that expose more data or actions than they should.</p></li>
@@ -278,7 +278,7 @@ home = f"""    <div class="frame">
       <div class="wrap split">
         <div>
           <h2 class="h2" id="naira-title">See your risk <span>in&nbsp;naira</span></h2>
-          <p class="lead">Ogbon turns technical findings into a number your founders and board can act on: how much an attack could cost you this year, and how much each fix brings that&nbsp;down.</p>
+          <p class="lead">Every finding comes with a naira amount: what it could cost you this year, and how much fixing it&nbsp;saves.</p>
           <a class="btn btn-primary" href="/report">Get your free report</a>
         </div>
         <div class="panel">
@@ -308,7 +308,7 @@ home = f"""    <div class="frame">
           </ul>
         </div>
         <div>
-          <h2 class="h2" id="covered-title">Cover for the losses that <span>hurt&nbsp;most</span></h2>
+          <h2 class="h2" id="covered-title">What the cover <span>pays&nbsp;for</span></h2>
           <ul class="checks">
             <li><span class="tick">{icon("check")}</span>Money stolen after attackers take over your accounts, systems or API keys</li>
             <li><span class="tick">{icon("check")}</span>Ransomware investigation and recovery</li>
@@ -330,13 +330,13 @@ home = f"""    <div class="frame">
             <h2 class="h2" id="who-title" style="margin-top:18px">Built for organisations that move money</h2>
             <p class="lead">Ogbon is built for fintechs, banks, lenders, microfinance banks, payment companies, enterprises and government agencies. If you hold customer money or customer data, Ogbon is for&nbsp;you.</p>
             <ul class="tags" aria-label="Who uses Ogbon">
-              <li>Fintechs</li><li>Lenders</li><li>Microfinance banks</li><li>Payment companies</li><li>20 to 500 staff</li>
+              <li>Banks</li><li>Fintechs</li><li>Lenders</li><li>Payment companies</li><li>Enterprises</li><li>Government</li>
             </ul>
           </article>
           <article class="card">
             <span class="badge badge-pink">{icon("shield")}</span>
-            <h2 class="h2" style="margin-top:18px">We get paid to keep you safe</h2>
-            <p class="lead">Most insurers price cover from a questionnaire and only hear from you when something goes wrong. Ogbon checks your security every day, so we can price cover fairly and help you fix problems early. The more you fix, the less you pay at&nbsp;renewal.</p>
+            <h2 class="h2" style="margin-top:18px">Priced on how secure you are</h2>
+            <p class="lead">Insurers usually price cyber cover from a yearly questionnaire. We check your systems every day, so your price reflects how you're really set up. Fix more, and you pay less at&nbsp;renewal.</p>
           </article>
         </div>
       </div>
@@ -823,10 +823,10 @@ about = f"""    <div class="frame">
       <div class="wrap">
         <div class="prose">
           <p class="strong">Ogbon is a cybersecurity company based in Lagos. We help organisations find and fix the weaknesses attackers use, and we cover the financial loss if an attack still gets&nbsp;through.</p>
-          <p>Until now, organisations in Nigeria have bought security tools and insurance separately. Security vendors don't pay when their tools fail, and insurers rarely know enough about a company's setup to price cyber cover well. Ogbon does both, so the company protecting you is also the one that pays if something goes&nbsp;wrong.</p>
+          <p>Most organisations buy security and insurance separately. The security vendor doesn't pay when something goes wrong, and the insurer doesn't know how you're set up. Ogbon does both: we protect you, and we pay if an attack gets&nbsp;through.</p>
         </div>
         <div class="facts">
-          <article class="card"><span class="badge">{icon("shield")}</span><h2 style="margin-top:18px">Partners</h2><p class="backed"><a href="https://casava.com/" target="_blank" rel="noopener" aria-label="Casava (opens in a new tab)"><img src="/assets/partners/casava.png" alt="Casava" width="112" height="27"></a></p><p>Our cover warranty is backed by Casava, an insurer licensed by NAICOM, and by a reinsurer. A full insurance policy will follow once we hold a broker or managing agent licence. Investigations are carried out by our own experts.</p></article>
+          <article class="card"><span class="badge">{icon("shield")}</span><h2 style="margin-top:18px">Partners</h2><p class="backed"><a href="https://casava.com/" target="_blank" rel="noopener" aria-label="Casava (opens in a new tab)"><img src="/assets/partners/casava.png" alt="Casava" width="112" height="27"></a></p><p>Our cover warranty is backed by Casava, an insurer licensed by NAICOM, and by a reinsurer. Investigations are carried out by our own experts.</p></article>
           <article class="card"><span class="badge badge-pink">{icon("list")}</span><h2 style="margin-top:18px">Team</h2><p>Ogbon was founded by Abdul and Prakhar. They previously founded Africa's biggest open banking infrastructure company, which was acquired by Flutterwave, Africa's most valuable fintech.</p></article>
           <article class="card"><span class="badge badge-lilac">{icon("chat")}</span><h2 style="margin-top:18px">Contact</h2><p><a class="link" href="mailto:secure@ogbon.com">secure@ogbon.com</a><br><a href="tel:+2347107144122">0710 714 4122</a><br>14B Grace Anjous Street, Lekki Phase 1, Lekki, Lagos&nbsp;State</p></article>
         </div>
