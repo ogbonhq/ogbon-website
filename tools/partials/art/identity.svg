@@ -1,0 +1,14 @@
+<svg viewBox="0 0 240 140" fill="none" stroke="currentColor" stroke-width="1" aria-hidden="true">
+  <defs><linearGradient id="id-k" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#B18CFF"/><stop offset="1" stop-color="#1362DD"/></linearGradient></defs>
+  <circle class="ping" cx="62" cy="70" r="34" stroke="#B18CFF"/>
+  <circle cx="62" cy="70" r="34" fill="#F3EDFF" stroke="none"/>
+  <circle cx="52" cy="60" r="12" stroke="url(#id-k)" stroke-width="5"/>
+  <path d="M60 68l20 20M72 80l6-6M77 85l6-6" stroke="url(#id-k)" stroke-width="5" stroke-linecap="round"/>
+  <rect x="108" y="26" width="122" height="22" rx="11" fill="#fff"/>
+  <text x="120" y="40" class="t">ada · staff</text>
+  <rect class="glow-soft" x="104" y="56" width="130" height="30" rx="15" fill="#FFE3E3" stroke="none"/>
+  <rect x="108" y="60" width="122" height="22" rx="11" fill="#fff" stroke="#F0586E"/>
+  <text x="120" y="74" class="t">intern → <tspan class="r-t">admin</tspan></text>
+  <rect x="108" y="94" width="122" height="22" rx="11" fill="#fff"/>
+  <text x="120" y="108" class="t">svc-backup · read</text>
+</svg>

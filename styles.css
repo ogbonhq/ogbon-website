@@ -424,4 +424,38 @@ main:has(> .frame:last-child) + .footer { margin-top: 8px; border-top: 0; }
 .card-art .a { stroke: var(--blue); }
 .card-art text { stroke: none; fill: var(--purple); font: 400 9px/1 ui-monospace, SFMono-Regular, Menlo, monospace; letter-spacing: 0.02em; }
 .card-art text.m { fill: rgba(50, 10, 55, 0.6); }
-.card-art text.a-t { fill: var(--blue); }
+.card-art text.a-t, .card-art tspan.a-t { fill: var(--blue); }
+.card-art-sm { height: 150px; }
+.card-art .w { fill: #fff; }
+.card-art .w2 { fill: rgba(255, 255, 255, 0.82); }
+.card-art .w-s { stroke: #fff; }
+.card-art .g-t { fill: #17924D; }
+.card-art .r-t { fill: #D8344E; }
+.card-art .o-t { fill: #B86E00; }
+.card-art .l-t { fill: #C8C8FF; }
+.card-art .gl-t { fill: #7CF0A8; }
+.card-art text.big { font: 600 18px/1 var(--head); fill: var(--purple); letter-spacing: -0.01em; }
+/* Illustration motion */
+@keyframes og-dash { to { stroke-dashoffset: -16; } }
+@keyframes og-spin { to { transform: rotate(360deg); } }
+@keyframes og-ping { 0% { transform: scale(0.75); opacity: 0.7; } 100% { transform: scale(1.3); opacity: 0; } }
+@keyframes og-blink { 50% { opacity: 0; } }
+@keyframes og-glow { 50% { opacity: 0.35; } }
+@keyframes og-scan { from { transform: translateY(0); } to { transform: translateY(100px); } }
+@keyframes og-draw { 0%, 15% { stroke-dashoffset: 60; } 55%, 100% { stroke-dashoffset: 0; } }
+@keyframes og-travel { 0% { transform: translateX(0); opacity: 0; } 15%, 85% { opacity: 1; } 100% { transform: translateX(54px); opacity: 0; } }
+@keyframes og-grow { 0%, 10% { transform: scaleX(0.05); } 70%, 100% { transform: scaleX(1); } }
+.card-art .flow { stroke-dasharray: 4 4; animation: og-dash 1s linear infinite; }
+.card-art .spin { transform-box: view-box; transform-origin: 320px 90px; animation: og-spin 14s linear infinite; }
+.card-art svg[viewBox="0 0 320 180"] .spin { transform-origin: 160px 88px; }
+.card-art .spin.slow { animation-duration: 22s; }
+.card-art .ping { transform-box: fill-box; transform-origin: center; animation: og-ping 2.6s ease-out infinite; }
+.card-art .d2 { animation-delay: 1.3s; }
+.card-art .blink { animation: og-blink 1.1s steps(1) infinite; }
+.card-art .glow { animation: og-glow 2.2s ease-in-out infinite; }
+.card-art .glow-soft { animation: og-glow 3s ease-in-out infinite; }
+.card-art .scan { animation: og-scan 2.8s ease-in-out infinite alternate; }
+.card-art .draw { stroke-dasharray: 60; animation: og-draw 3.2s ease-out infinite; }
+.card-art .travel { animation: og-travel 1.6s linear infinite; }
+.card-art .grow { transform-box: fill-box; transform-origin: left center; animation: og-grow 3.4s ease-out infinite; }
+@media (prefers-reduced-motion: reduce) { .card-art * { animation: none !important; } }

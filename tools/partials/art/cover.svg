@@ -1,10 +1,17 @@
 <svg viewBox="0 0 320 180" fill="none" stroke="currentColor" stroke-width="1" aria-hidden="true">
-  <path d="M160 16c26 14 46 19 62 19v54c0 41-28 62-62 74-34-12-62-33-62-74V35c16 0 36-5 62-19z" fill="#fff"/>
-  <path class="a" d="M160 34c19 10 34 14 46 14v42c0 30-20 46-46 55-26-9-46-25-46-55V48c12 0 27-4 46-14z" stroke-dasharray="3 4"/>
-  <path class="a" d="M144 90l11 11 22-24" stroke-width="1.5"/>
-  <path d="M98 62H62M222 112H258" stroke-dasharray="3 4"/>
-  <rect x="8" y="50" width="54" height="24" rx="12" fill="#fff"/>
-  <text x="35" y="66" class="t" text-anchor="middle">active</text>
-  <rect class="a" x="258" y="100" width="56" height="24" rx="12" fill="#fff"/>
-  <text x="286" y="116" class="t a-t" text-anchor="middle">₦75m</text>
+  <defs>
+    <linearGradient id="cv-s" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#7FA9F5"/><stop offset="1" stop-color="#1362DD"/></linearGradient>
+    <radialGradient id="cv-h" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#1362DD" stop-opacity=".22"/><stop offset="1" stop-color="#1362DD" stop-opacity="0"/></radialGradient>
+  </defs>
+  <circle class="glow" cx="160" cy="88" r="86" fill="url(#cv-h)" stroke="none"/>
+  <g class="spin slow"><circle cx="160" cy="88" r="74" stroke="#C8C8FF" stroke-dasharray="1 6"/><circle cx="160" cy="14" r="3.5" fill="#1362DD" stroke="none"/><circle cx="234" cy="88" r="3" fill="#F0586E" stroke="none"/></g>
+  <path d="M160 16c26 14 46 19 62 19v54c0 41-28 62-62 74-34-12-62-33-62-74V35c16 0 36-5 62-19z" fill="url(#cv-s)" stroke="none"/>
+  <path d="M160 34c19 10 34 14 46 14v42c0 30-20 46-46 55-26-9-46-25-46-55V48c12 0 27-4 46-14z" stroke="#fff" stroke-opacity=".55" stroke-dasharray="3 4"/>
+  <path class="draw" d="M142 90l12 12 24-26" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M98 62H66M222 112H256" stroke-dasharray="3 4" opacity=".5"/>
+  <rect x="2" y="50" width="64" height="24" rx="12" fill="#E3F6EA" stroke="#3CC27A"/>
+  <circle class="glow" cx="14" cy="62" r="3" fill="#17924D" stroke="none"/>
+  <text x="40" y="66" class="t g-t" text-anchor="middle">active</text>
+  <rect x="256" y="100" width="58" height="24" rx="12" fill="#1362DD" stroke="none"/>
+  <text x="285" y="116" class="t w" text-anchor="middle">₦75m</text>
 </svg>

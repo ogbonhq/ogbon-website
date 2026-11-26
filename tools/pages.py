@@ -10,7 +10,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "tools"))
 import legal  # noqa: E402
-CSS_V = "20261126-25"
+CSS_V = "20261126-26"
 JS_V = "20261126-4"
 OG_V = "9"
 SITE = "https://ogbon.com"
@@ -20,9 +20,10 @@ LOGO = (ROOT / "tools/partials/logo.svg").read_text().strip()
 SOCIAL = (ROOT / "tools/partials/social.html").read_text().strip()
 
 
-def art(name):
+def art(name, size=""):
     """A line illustration for a card, from tools/partials/art."""
-    return '<div class="card-art">' + (ROOT / f"tools/partials/art/{name}.svg").read_text().strip() + "</div>"
+    cls = "card-art" + (f" card-art-{size}" if size else "")
+    return f'<div class="{cls}">' + (ROOT / f"tools/partials/art/{name}.svg").read_text().strip() + "</div>"
 
 
 def tbd(text):
@@ -258,10 +259,10 @@ home = f"""    <div class="frame">
           <p class="lead lead-split"><strong>Attackers start with your website and app.</strong> They look for one place that trusts them too much, then use it to reach customer data or move money.</p>
         </div>
         <ul class="cards cards-4" aria-label="Common ways in">
-          <li class="card">{'<span class="badge badge-pink">' + icon("code") + '</span>'}<h3>APIs and integrations</h3><p>Public APIs and partner connections that expose more data or actions than they should.</p></li>
-          <li class="card">{'<span class="badge">' + icon("naira") + '</span>'}<h3>Business logic</h3><p>Flaws in how your product handles money, limits and approvals. Scanners don't find these.</p></li>
-          <li class="card">{'<span class="badge badge-lilac">' + icon("key") + '</span>'}<h3>Identity and access</h3><p>Staff, service accounts and cloud roles with more access than they need.</p></li>
-          <li class="card">{'<span class="badge badge-grey">' + icon("globe") + '</span>'}<h3>Forgotten systems</h3><p>Old apps, test servers and subdomains your team no longer tracks.</p></li>
+          <li class="card card-illus">{art("apis", "sm")}<h3>APIs and integrations</h3><p>Public APIs and partner connections that expose more data or actions than they should.</p></li>
+          <li class="card card-illus">{art("logic", "sm")}<h3>Business logic</h3><p>Flaws in how your product handles money, limits and approvals. Scanners don't find these.</p></li>
+          <li class="card card-illus">{art("identity", "sm")}<h3>Identity and access</h3><p>Staff, service accounts and cloud roles with more access than they need.</p></li>
+          <li class="card card-illus">{art("forgotten", "sm")}<h3>Forgotten systems</h3><p>Old apps, test servers and subdomains your team no longer tracks.</p></li>
         </ul>
       </div>
     </section>

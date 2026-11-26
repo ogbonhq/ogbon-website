@@ -1,0 +1,13 @@
+<svg viewBox="0 0 240 140" fill="none" stroke="currentColor" stroke-width="1" aria-hidden="true">
+  <rect x="24" y="16" width="192" height="108" rx="6" fill="#fff"/>
+  <path d="M24 22a6 6 0 0 1 6-6h180a6 6 0 0 1 6 6v12H24z" fill="#EBEBFF"/>
+  <text x="34" y="29" class="t">GET /v1/users/42</text>
+  <rect x="180" y="20" width="28" height="12" rx="3" fill="#E3F6EA" stroke="none"/><text x="194" y="29" class="t g-t" text-anchor="middle">200</text>
+  <text x="36" y="52" class="t m">{</text>
+  <text x="46" y="66" class="t">"name": <tspan class="a-t">"Ada O."</tspan>,</text>
+  <rect class="glow" x="40" y="72" width="164" height="16" rx="3" fill="#FFE3E3" stroke="none"/>
+  <text x="46" y="83" class="t">"bvn": <tspan class="r-t">"22190483..."</tspan>,</text>
+  <text x="46" y="100" class="t">"balance": <tspan class="a-t">482000</tspan></text>
+  <text x="36" y="114" class="t m">}</text>
+  <rect x="148" y="104" width="60" height="14" rx="7" fill="#F0586E" stroke="none"/><text x="178" y="113.5" class="t w" text-anchor="middle">too much</text>
+</svg>

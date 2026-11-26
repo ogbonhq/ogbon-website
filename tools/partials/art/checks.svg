@@ -1,22 +1,35 @@
 <svg viewBox="0 0 640 180" fill="none" stroke="currentColor" stroke-width="1" aria-hidden="true">
+  <defs>
+    <linearGradient id="ck-node" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#5B93F0"/><stop offset="1" stop-color="#1362DD"/></linearGradient>
+    <linearGradient id="ck-scan" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1362DD" stop-opacity="0"/><stop offset="1" stop-color="#1362DD" stop-opacity=".35"/></linearGradient>
+    <linearGradient id="ck-sweep" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#1362DD" stop-opacity="0"/><stop offset="1" stop-color="#1362DD" stop-opacity=".28"/></linearGradient>
+    <clipPath id="ck-win"><rect x="41" y="49" width="168" height="100"/></clipPath>
+  </defs>
   <rect x="40" y="30" width="170" height="120" rx="6" fill="#fff"/>
+  <path d="M40 36a6 6 0 0 1 6-6h158a6 6 0 0 1 6 6v12H40z" fill="#EBEBFF"/>
   <path d="M40 48H210"/>
-  <circle cx="51" cy="39" r="2.5"/><circle cx="60" cy="39" r="2.5"/><circle cx="69" cy="39" r="2.5"/>
+  <circle cx="51" cy="39" r="2.5" fill="#FF8A8A" stroke="none"/><circle cx="60" cy="39" r="2.5" fill="#F5C34B" stroke="none"/><circle cx="69" cy="39" r="2.5" fill="#3CC27A" stroke="none"/>
   <text x="84" y="42" class="t">acme.ng</text>
   <path d="M56 66H150M56 80H186M56 94H126"/>
-  <rect x="56" y="108" width="62" height="26" rx="3"/><rect x="128" y="108" width="62" height="26" rx="3"/>
-  <path class="a" d="M210 90H270" stroke-dasharray="3 4"/>
-  <circle class="a" cx="320" cy="90" r="52" stroke-dasharray="2 5"/>
-  <circle cx="320" cy="90" r="34" fill="#fff"/>
-  <path class="a" d="M320 56a34 34 0 0 1 34 34"/>
-  <text x="320" y="94" class="t" text-anchor="middle">ogbon</text>
-  <path class="a" d="M370 90H404V52H440M404 90V128H440" stroke-dasharray="3 4"/>
+  <rect x="56" y="108" width="62" height="26" rx="3" fill="#EBEBFF"/><rect x="128" y="108" width="62" height="26" rx="3"/>
+  <g clip-path="url(#ck-win)"><rect class="scan" x="41" y="30" width="168" height="20" fill="url(#ck-scan)" stroke="none"/></g>
+  <path class="a flow" d="M210 90H270"/>
+  <g class="spin"><circle class="a" cx="320" cy="90" r="52" stroke-dasharray="2 5"/><path d="M320 90L320 38A52 52 0 0 1 368 70Z" fill="url(#ck-sweep)" stroke="none"/></g>
+  <circle class="ping" cx="320" cy="90" r="34" stroke="#1362DD" opacity=".5"/>
+  <circle cx="320" cy="90" r="34" fill="url(#ck-node)" stroke="none"/>
+  <text x="320" y="94" class="t w" text-anchor="middle">ogbon</text>
+  <path class="a flow" d="M370 90H404V52H440M404 90V128H440"/>
   <rect x="440" y="28" width="168" height="48" rx="6" fill="#fff"/>
-  <text x="454" y="48" class="t">AWS · eu-west-1</text>
-  <text x="454" y="64" class="t m">38 resources · read-only</text>
+  <rect x="440" y="28" width="5" height="48" rx="2" fill="#F5A524" stroke="none"/>
+  <text x="456" y="48" class="t">AWS · eu-west-1</text>
+  <text x="456" y="64" class="t m">38 resources · read-only</text>
+  <circle class="glow" cx="594" cy="44" r="3.5" fill="#3CC27A" stroke="none"/>
   <rect x="440" y="104" width="168" height="48" rx="6" fill="#fff"/>
-  <text x="454" y="124" class="t">api.acme.ng/v2</text>
-  <text x="454" y="140" class="t m">GET /accounts  200</text>
-  <rect class="a" x="264" y="154" width="112" height="18" rx="9" fill="#fff"/>
-  <text x="320" y="166" class="t a-t" text-anchor="middle">checked today 06:00</text>
+  <rect x="440" y="104" width="5" height="48" rx="2" fill="#B18CFF" stroke="none"/>
+  <text x="456" y="124" class="t">api.acme.ng/v2</text>
+  <text x="456" y="140" class="t m">GET /accounts</text>
+  <rect x="566" y="131" width="30" height="13" rx="3" fill="#E3F6EA" stroke="none"/><text x="581" y="140.5" class="t g-t" text-anchor="middle">200</text>
+  <rect x="250" y="154" width="140" height="18" rx="9" fill="#E3F6EA" stroke="#3CC27A"/>
+  <circle class="glow" cx="263" cy="163" r="3" fill="#17924D" stroke="none"/>
+  <text x="327" y="166" class="t g-t" text-anchor="middle">checked today 06:00</text>
 </svg>

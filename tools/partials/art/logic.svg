@@ -1,0 +1,12 @@
+<svg viewBox="0 0 240 140" fill="none" stroke="currentColor" stroke-width="1" aria-hidden="true">
+  <rect x="24" y="16" width="192" height="108" rx="6" fill="#fff"/>
+  <text x="38" y="38" class="t m">Transfer</text>
+  <text x="38" y="58" class="t big">₦500,000</text>
+  <text x="38" y="84" class="t m">daily limit ₦200,000</text>
+  <rect x="38" y="92" width="164" height="8" rx="4" fill="#F1EEF3" stroke="none"/>
+  <rect class="grow" x="38" y="92" width="164" height="8" rx="4" fill="#F0586E" stroke="none"/>
+  <path d="M104 88V104" stroke="#320A37" stroke-width="1.5"/>
+  <rect x="124" y="27" width="84" height="18" rx="9" fill="#FFE3E3" stroke="#F0586E"/>
+  <text x="166" y="39" class="t r-t" text-anchor="middle">limit skipped</text>
+  <text x="38" y="116" class="t m">approved by: <tspan class="r-t">nobody</tspan></text>
+</svg>
