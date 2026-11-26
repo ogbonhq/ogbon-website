@@ -189,7 +189,7 @@ TERMS = [
         "the law doesn't allow us to limit.",
     ]),
     ("Cancelling", [
-        "You can cancel at the end of any billing period. [Refund terms for unused cover.] We may end or pause your "
+        "You can cancel at the end of any billing period. We don't refund cover you haven't used. We may end or pause your "
         "account if you don't pay or seriously break these terms. When your account ends, your cover ends, and we "
         "delete your data as described in our privacy policy.",
     ]),

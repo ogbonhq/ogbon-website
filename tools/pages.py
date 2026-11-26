@@ -194,7 +194,7 @@ FAQ = [
     ("Does Ogbon help with CBN and NDPA compliance?",
      "Yes. Growth and Scale plans include audit evidence mapped to the CBN risk-based cybersecurity framework and the Nigeria Data Protection Act."),
     ("Can we cancel?",
-     "Yes, at the end of any billing period. [Confirm refund terms for unused cover.]"),
+     "Yes, at the end of any billing period. We don't refund cover you haven't used."),
 ]
 
 faq_html = "\n".join(
@@ -914,7 +914,7 @@ review = client.chat.completions.create(
 )
 print(review.choices[0].message.content)</code></pre>
         </figure>
-        <p class="api-link"><a class="link" href="#api-docs">Read the API docs {icon("arrow")}</a> {tbd("[API docs URL]")}</p>
+        <p class="api-link"><a class="link" href="https://docs.ogbon.com">Read the API docs {icon("arrow")}</a></p>
       </div>
     </section>
 {cta()}
