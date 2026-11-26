@@ -182,7 +182,7 @@ FAQ = [
     ("How long does setup take?",
      "About an hour of your IT team's time. Most companies are covered within a week."),
     ("What is ogbon-1?",
-     "ogbon-1 is Ogbon's own 30B security model. It reviews code, finds vulnerabilities and fixes them. Your engineering and IT teams use it through Ogbon Harness or the Ogbon API, and it's included in every plan."),
+     "ogbon-1 is Ogbon's own 30B security model. It finds and fixes security problems across your code, cloud and systems. Your engineering and IT teams use it through Ogbon Harness or the Ogbon API, and it's included in every plan."),
     ("Can we keep our code on our own servers?",
      "Yes. ogbon-1 runs on a single GPU, so you can host it yourself and your code never leaves your network. We never use customer code to train our models."),
     ("Do you cover money stolen through hacked accounts or leaked API keys?",
@@ -839,8 +839,8 @@ about = f"""    <div class="frame">
 ogbon1 = f"""    <div class="frame">
       <section class="page-hero" aria-labelledby="page-title">
         <div class="wrap">
-          <h1 id="page-title">Find and fix vulnerabilities <span>in your own code</span></h1>
-          <p>Every Ogbon plan gives your engineering and IT teams ogbon-1, our 30B security model. Use it in Ogbon Harness, our desktop app, or call it from your own tools with the Ogbon API.</p>
+          <h1 id="page-title">Find and fix security gaps <span>across your organisation</span></h1>
+          <p>Every Ogbon plan gives your engineering and IT teams ogbon-1, our 30B security model. Use it across your security work, from code and cloud settings to the systems you run, in Ogbon Harness, our desktop app, or through the Ogbon API.</p>
           <div class="hero-actions">
             <a class="btn btn-light" href="https://my.ogbon.com">Download Ogbon Harness</a>
             <a class="btn btn-ghost-light" href="https://my.ogbon.com">Get an API key</a>
@@ -854,8 +854,8 @@ ogbon1 = f"""    <div class="frame">
         <div class="head"><h2 class="h2" id="does-title">What <span>ogbon-1 does</span></h2></div>
         <ol class="cards cards-3">
           <li class="card"><span class="badge">{icon("list")}</span><h3>Reviews every change</h3><p>Connect GitHub, GitLab or Bitbucket and ogbon-1 checks each pull request for security issues before it's merged.</p></li>
-          <li class="card"><span class="badge badge-pink">{icon("key")}</span><h3>Finds vulnerabilities</h3><p>It scans your repositories for exposed secrets and API keys, injection flaws, broken login and access checks, and outdated dependencies with known issues.</p></li>
-          <li class="card"><span class="badge badge-lilac">{icon("check")}</span><h3>Fixes them</h3><p>Ask Ogbon Harness to fix an issue and ogbon-1 edits the files. Your engineers review every change before it goes in.</p></li>
+          <li class="card"><span class="badge badge-pink">{icon("key")}</span><h3>Finds vulnerabilities</h3><p>It looks for exposed secrets and API keys, injection flaws, broken login and access checks, outdated dependencies, and risky settings in your cloud accounts and systems.</p></li>
+          <li class="card"><span class="badge badge-lilac">{icon("check")}</span><h3>Fixes them</h3><p>Ask Ogbon Harness to fix an issue and ogbon-1 prepares the change. Your team reviews it before it goes in.</p></li>
         </ol>
       </div>
     </section>
@@ -864,7 +864,7 @@ ogbon1 = f"""    <div class="frame">
       <div class="wrap split">
         <div>
           <h2 class="h2" id="score-title">Part of your <span>risk score</span></h2>
-          <p class="lead">What ogbon-1 finds in your code goes on the same fix list as the rest of your security, with the naira it puts at risk. Your founders see the effect on the dashboard; your engineering and IT teams see the details in Harness and in their pull requests.</p>
+          <p class="lead">What ogbon-1 finds goes on the same fix list as the rest of your security, with the naira it puts at risk. Your founders see the effect on the dashboard; your engineering and IT teams see the details in Harness and in their pull requests.</p>
         </div>
         <div class="panel">
           <figure class="dash" aria-label="Example Ogbon fix list">
