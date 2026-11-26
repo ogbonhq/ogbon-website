@@ -872,7 +872,7 @@ ogbon1 = f"""    <div class="frame">
       <section class="page-hero" aria-labelledby="page-title">
         <div class="wrap">
           <h1 id="page-title">Find and fix security gaps <span>across your organisation</span></h1>
-          <p>Every Ogbon plan gives your engineering and IT teams ogbon-1, our 30B security model. Use it across your security work, from code and cloud settings to the systems you run, in Ogbon Harness, our desktop app, or through the Ogbon API.</p>
+          <p>Every Ogbon plan gives your engineering and IT teams ogbon-1, our 30B security model. Use it across your code, cloud and systems, in Ogbon Harness, our desktop app, or through the&nbsp;API.</p>
           <div class="hero-actions">
             <a class="btn btn-light" href="https://my.ogbon.com">Download Ogbon Harness</a>
             <a class="btn btn-ghost-light" href="https://my.ogbon.com">Get an API key</a>
