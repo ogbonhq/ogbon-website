@@ -531,7 +531,7 @@ how = f"""    <div class="frame">
       <section class="page-hero" aria-labelledby="page-title">
         <div class="wrap">
           <h1 id="page-title">How Ogbon <span>works</span></h1>
-          <p>Setup takes about an hour of your IT team's time. After that, Ogbon runs in the&nbsp;background.</p>
+          <p>Setup takes about an hour of your IT team's time.<br>After that, Ogbon runs in the&nbsp;background.</p>
         </div>
       </section>
     </div>
