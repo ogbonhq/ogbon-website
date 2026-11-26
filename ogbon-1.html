@@ -30,7 +30,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Manrope:wght@500;600&display=swap">
-  <link rel="stylesheet" href="/styles.css?v=20261126-13">
+  <link rel="stylesheet" href="/styles.css?v=20261126-14">
 </head>
 <body>
   <a class="skip" href="#main">Skip to&nbsp;content</a>
@@ -81,26 +81,47 @@
     <section class="section section-tight" aria-labelledby="covers-title">
       <div class="wrap">
         <div class="head"><h2 class="h2" id="covers-title">What ogbon-1 <span>covers</span></h2></div>
-        <ul class="checks checks-2">
-          <li><span class="tick"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#check"/></svg></span><span>Code flaws, like injection and broken access checks <span class="abbr">SAST</span></span></li>
-          <li><span class="tick"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#check"/></svg></span><span>Open-source libraries with known vulnerabilities <span class="abbr">SCA</span></span></li>
-          <li><span class="tick"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#check"/></svg></span><span>Passwords and API keys left in code <span class="abbr">Secrets</span></span></li>
-          <li><span class="tick"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#check"/></svg></span><span>Your website, app and APIs, tested from the outside <span class="abbr">DAST</span></span></li>
-          <li><span class="tick"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#check"/></svg></span><span>Risky settings in your cloud accounts <span class="abbr">CSPM</span></span></li>
-          <li><span class="tick"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#check"/></svg></span><span>Cloud accounts and roles with more access than they need <span class="abbr">CIEM</span></span></li>
-          <li><span class="tick"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#check"/></svg></span><span>Kubernetes cluster settings <span class="abbr">KSPM</span></span></li>
-          <li><span class="tick"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#check"/></svg></span><span>Where sensitive data lives and who can reach it <span class="abbr">DSPM</span></span></li>
-          <li><span class="tick"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#check"/></svg></span><span>Servers and containers while they run <span class="abbr">CWPP</span></span></li>
-          <li><span class="tick"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#check"/></svg></span><span>The AI tools and models your teams use <span class="abbr">AI-SPM</span></span></li>
-          <li><span class="tick"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#check"/></svg></span><span>A full list of the software inside your apps <span class="abbr">SBOM</span></span></li>
-          <li><span class="tick"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#check"/></svg></span><span>Container images, before they ship <span class="abbr">Image&nbsp;scan</span></span></li>
-          <li><span class="tick"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#check"/></svg></span><span>Suspicious activity in your cloud <span class="abbr">CDR</span></span></li>
-          <li><span class="tick"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#check"/></svg></span><span>Laptops and servers, watched for attacks <span class="abbr">EDR</span></span></li>
-          <li><span class="tick"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#check"/></svg></span><span>Hijacked accounts and unusual logins <span class="abbr">ITDR /&nbsp;UEBA</span></span></li>
-          <li><span class="tick"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#check"/></svg></span><span>USB drives and other devices on company machines <span class="abbr">Device&nbsp;control</span></span></li>
-          <li><span class="tick"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#check"/></svg></span><span>Known attackers' addresses and methods <span class="abbr">Threat&nbsp;intel</span></span></li>
-          <li><span class="tick"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#check"/></svg></span><span>Alerts from everywhere, joined into one incident <span class="abbr">Correlation</span></span></li>
-        </ul>
+        <div class="cov-grid">
+          <article class="card cov">
+            <span class="badge badge-blue"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#code"/></svg></span>
+            <h3>Code and&nbsp;apps</h3>
+            <p>Before and after you&nbsp;ship</p>
+            <dl class="cov-list">
+              <div><dt>SAST</dt><dd>Code flaws, like injection and broken access checks</dd></div>
+              <div><dt>SCA</dt><dd>Open-source libraries with known vulnerabilities</dd></div>
+              <div><dt>Secrets</dt><dd>Passwords and API keys left in code</dd></div>
+              <div><dt>SBOM</dt><dd>A full list of the software inside your apps</dd></div>
+              <div><dt>DAST</dt><dd>Your website, app and APIs, tested from the outside</dd></div>
+              <div><dt>Image scan</dt><dd>Container images, before they ship</dd></div>
+            </dl>
+          </article>
+          <article class="card cov">
+            <span class="badge"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#lock"/></svg></span>
+            <h3>Cloud and&nbsp;data</h3>
+            <p>Your cloud and who can access&nbsp;it</p>
+            <dl class="cov-list">
+              <div><dt>CSPM</dt><dd>Risky settings in your cloud accounts</dd></div>
+              <div><dt>KSPM</dt><dd>Kubernetes cluster settings</dd></div>
+              <div><dt>CIEM</dt><dd>Accounts and roles with more access than they need</dd></div>
+              <div><dt>DSPM</dt><dd>Where sensitive data lives and who can reach it</dd></div>
+              <div><dt>CWPP</dt><dd>Servers and containers while they run</dd></div>
+              <div><dt>AI-SPM</dt><dd>The AI tools and models your teams use</dd></div>
+            </dl>
+          </article>
+          <article class="card cov">
+            <span class="badge badge-pink"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#shield"/></svg></span>
+            <h3>Attacks and&nbsp;response</h3>
+            <p>Spot and stop attacks as they&nbsp;happen</p>
+            <dl class="cov-list">
+              <div><dt>CDR</dt><dd>Suspicious activity in your cloud</dd></div>
+              <div><dt>EDR</dt><dd>Laptops and servers, watched for attacks</dd></div>
+              <div><dt>ITDR / UEBA</dt><dd>Hijacked accounts and unusual logins</dd></div>
+              <div><dt>Device control</dt><dd>USB drives and other devices on company machines</dd></div>
+              <div><dt>Threat intel</dt><dd>Known attackers' addresses and methods</dd></div>
+              <div><dt>Correlation</dt><dd>Alerts from everywhere, joined into one incident</dd></div>
+            </dl>
+          </article>
+        </div>
       </div>
     </section>
 

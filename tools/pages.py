@@ -10,7 +10,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "tools"))
 import legal  # noqa: E402
-CSS_V = "20261126-13"
+CSS_V = "20261126-14"
 JS_V = "20261126-2"
 OG_V = "9"
 SITE = "https://ogbon.com"
@@ -863,26 +863,47 @@ ogbon1 = f"""    <div class="frame">
     <section class="section section-tight" aria-labelledby="covers-title">
       <div class="wrap">
         <div class="head"><h2 class="h2" id="covers-title">What ogbon-1 <span>covers</span></h2></div>
-        <ul class="checks checks-2">
-          <li><span class="tick">{icon("check")}</span><span>Code flaws, like injection and broken access checks <span class="abbr">SAST</span></span></li>
-          <li><span class="tick">{icon("check")}</span><span>Open-source libraries with known vulnerabilities <span class="abbr">SCA</span></span></li>
-          <li><span class="tick">{icon("check")}</span><span>Passwords and API keys left in code <span class="abbr">Secrets</span></span></li>
-          <li><span class="tick">{icon("check")}</span><span>Your website, app and APIs, tested from the outside <span class="abbr">DAST</span></span></li>
-          <li><span class="tick">{icon("check")}</span><span>Risky settings in your cloud accounts <span class="abbr">CSPM</span></span></li>
-          <li><span class="tick">{icon("check")}</span><span>Cloud accounts and roles with more access than they need <span class="abbr">CIEM</span></span></li>
-          <li><span class="tick">{icon("check")}</span><span>Kubernetes cluster settings <span class="abbr">KSPM</span></span></li>
-          <li><span class="tick">{icon("check")}</span><span>Where sensitive data lives and who can reach it <span class="abbr">DSPM</span></span></li>
-          <li><span class="tick">{icon("check")}</span><span>Servers and containers while they run <span class="abbr">CWPP</span></span></li>
-          <li><span class="tick">{icon("check")}</span><span>The AI tools and models your teams use <span class="abbr">AI-SPM</span></span></li>
-          <li><span class="tick">{icon("check")}</span><span>A full list of the software inside your apps <span class="abbr">SBOM</span></span></li>
-          <li><span class="tick">{icon("check")}</span><span>Container images, before they ship <span class="abbr">Image scan</span></span></li>
-          <li><span class="tick">{icon("check")}</span><span>Suspicious activity in your cloud <span class="abbr">CDR</span></span></li>
-          <li><span class="tick">{icon("check")}</span><span>Laptops and servers, watched for attacks <span class="abbr">EDR</span></span></li>
-          <li><span class="tick">{icon("check")}</span><span>Hijacked accounts and unusual logins <span class="abbr">ITDR / UEBA</span></span></li>
-          <li><span class="tick">{icon("check")}</span><span>USB drives and other devices on company machines <span class="abbr">Device control</span></span></li>
-          <li><span class="tick">{icon("check")}</span><span>Known attackers' addresses and methods <span class="abbr">Threat intel</span></span></li>
-          <li><span class="tick">{icon("check")}</span><span>Alerts from everywhere, joined into one incident <span class="abbr">Correlation</span></span></li>
-        </ul>
+        <div class="cov-grid">
+          <article class="card cov">
+            <span class="badge badge-blue">{icon("code")}</span>
+            <h3>Code and apps</h3>
+            <p>Before and after you ship</p>
+            <dl class="cov-list">
+              <div><dt>SAST</dt><dd>Code flaws, like injection and broken access checks</dd></div>
+              <div><dt>SCA</dt><dd>Open-source libraries with known vulnerabilities</dd></div>
+              <div><dt>Secrets</dt><dd>Passwords and API keys left in code</dd></div>
+              <div><dt>SBOM</dt><dd>A full list of the software inside your apps</dd></div>
+              <div><dt>DAST</dt><dd>Your website, app and APIs, tested from the outside</dd></div>
+              <div><dt>Image scan</dt><dd>Container images, before they ship</dd></div>
+            </dl>
+          </article>
+          <article class="card cov">
+            <span class="badge">{icon("lock")}</span>
+            <h3>Cloud and data</h3>
+            <p>Your cloud and who can access it</p>
+            <dl class="cov-list">
+              <div><dt>CSPM</dt><dd>Risky settings in your cloud accounts</dd></div>
+              <div><dt>KSPM</dt><dd>Kubernetes cluster settings</dd></div>
+              <div><dt>CIEM</dt><dd>Accounts and roles with more access than they need</dd></div>
+              <div><dt>DSPM</dt><dd>Where sensitive data lives and who can reach it</dd></div>
+              <div><dt>CWPP</dt><dd>Servers and containers while they run</dd></div>
+              <div><dt>AI-SPM</dt><dd>The AI tools and models your teams use</dd></div>
+            </dl>
+          </article>
+          <article class="card cov">
+            <span class="badge badge-pink">{icon("shield")}</span>
+            <h3>Attacks and response</h3>
+            <p>Spot and stop attacks as they happen</p>
+            <dl class="cov-list">
+              <div><dt>CDR</dt><dd>Suspicious activity in your cloud</dd></div>
+              <div><dt>EDR</dt><dd>Laptops and servers, watched for attacks</dd></div>
+              <div><dt>ITDR / UEBA</dt><dd>Hijacked accounts and unusual logins</dd></div>
+              <div><dt>Device control</dt><dd>USB drives and other devices on company machines</dd></div>
+              <div><dt>Threat intel</dt><dd>Known attackers' addresses and methods</dd></div>
+              <div><dt>Correlation</dt><dd>Alerts from everywhere, joined into one incident</dd></div>
+            </dl>
+          </article>
+        </div>
       </div>
     </section>
 
