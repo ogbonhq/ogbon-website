@@ -972,7 +972,7 @@ notfound = """    <div class="frame">
 
 PAGES = [
     ("index.html", "Ogbon · Cybersecurity with cyber cover in Nigeria",
-     "Ogbon reviews your code as you build and checks your systems every day once you're live, and pays for the loss if an attacker still gets through.",
+     "Ogbon helps organisations in Nigeria stay safe from cyber attacks, shows your team what to fix, and pays for the loss if an attacker still gets through.",
      home, "index, follow", home_ld),
     ("report.html", "Free cybersecurity report for your company · Ogbon",
      "Find out what attackers can see about your company from the outside, and what it could cost you. It takes under 10 minutes and nothing gets installed.",
