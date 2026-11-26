@@ -262,14 +262,14 @@ home = f"""    <div class="frame">
     <section class="section section-tight" id="product" aria-labelledby="product-title">
       <div class="wrap">
         <div class="head">
-          <h2 class="h2" id="product-title">Everything you need to protect your organisation, <span class="nowrap">from website to code</span></h2>
+          <h2 class="h2" id="product-title">Protected while you build, <span class="nowrap">and once you're live</span></h2>
         </div>
         <div class="cards">
-          <article class="card"><span class="badge">{icon("monitor")}</span><h3>Monitoring</h3><p>Ogbon checks your websites, apps, APIs, cloud accounts and internal systems every day, from the outside like an attacker and from the inside with read-only&nbsp;access.</p></article>
+          <article class="card card-wide"><span class="badge badge-blue">{icon("code")}</span><div><h3>While you build: code security</h3><p>Every engineer gets ogbon-1, our security model. It reviews each pull request, finds vulnerabilities and fixes them before they ship, in every application you build or&nbsp;run.</p><a class="link" href="/ogbon-1">ogbon-1 for engineers {icon("arrow")}</a></div></article>
+          <article class="card"><span class="badge">{icon("monitor")}</span><h3>Once you're live: daily checks</h3><p>Ogbon checks your websites, apps, APIs, cloud accounts and internal systems every day, from the outside like an attacker and from the inside with read-only&nbsp;access.</p></article>
           <article class="card"><span class="badge badge-pink">{icon("list")}</span><h3>Fix list</h3><p>We rank what needs fixing by how much money it puts at risk, and give your team clear steps for each&nbsp;item.</p></article>
-          <article class="card"><span class="badge badge-lilac">{icon("shield")}</span><h3>Cover</h3><p>If an attack gets through while you're protected, we pay for the money lost, the investigation and the cost of getting back to&nbsp;work.</p></article>
           <article class="card"><span class="badge badge-grey">{icon("phone")}</span><h3>Incident response</h3><p>Report a problem on WhatsApp or from your dashboard at any time. A responder calls you back within an&nbsp;hour.</p></article>
-          <article class="card card-wide"><span class="badge badge-blue">{icon("code")}</span><div><h3>Code security</h3><p>Your engineers get ogbon-1, our security model, to review code, find vulnerabilities and fix them in every application you build or run.</p><a class="link" href="/ogbon-1">ogbon-1 for engineers {icon("arrow")}</a></div></article>
+          <article class="card"><span class="badge badge-lilac">{icon("shield")}</span><h3>Cover</h3><p>If an attack gets through while you're protected, we pay for the money lost, the investigation and the cost of getting back to&nbsp;work.</p></article>
         </div>
       </div>
     </section>
@@ -301,7 +301,8 @@ home = f"""    <div class="frame">
       <div class="wrap split">
         <div class="panel panel-pink">
           <ul class="flow" aria-label="How cover works">
-            <li><span class="badge">{icon("monitor")}</span><span>Daily checks<small>Websites, apps, APIs, cloud and code</small></span></li>
+            <li><span class="badge badge-blue">{icon("code")}</span><span>Every change reviewed<small>ogbon-1 on each pull request</small></span></li>
+            <li><span class="badge">{icon("monitor")}</span><span>Daily checks<small>Websites, apps, APIs, cloud and internal systems</small></span></li>
             <li><span class="badge badge-pink">{icon("phone")}</span><span>Responder on the line<small>Within an hour of your report</small></span></li>
             <li><span class="badge badge-lilac">{icon("naira")}</span><span>Loss paid<small>Up to your plan's limit</small></span></li>
           </ul>
@@ -969,7 +970,7 @@ notfound = """    <div class="frame">
 
 PAGES = [
     ("index.html", "Ogbon · Cybersecurity with cyber cover in Nigeria",
-     "Ogbon helps organisations in Nigeria stay safe from cyber attacks, shows your team what to fix, and pays for the loss if an attacker still gets through.",
+     "Ogbon reviews your code as you build and checks your systems every day once you're live, and pays for the loss if an attacker still gets through.",
      home, "index, follow", home_ld),
     ("report.html", "Free cybersecurity report for your company · Ogbon",
      "Find out what attackers can see about your company from the outside, and what it could cost you. It takes under 10 minutes and nothing gets installed.",
