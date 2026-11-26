@@ -182,7 +182,7 @@ FAQ = [
     ("How long does setup take?",
      "About an hour of your IT team's time. Most companies are covered within a week."),
     ("What is ogbon-1?",
-     "ogbon-1 is Ogbon's own 30B security model. It reviews code, finds vulnerabilities and fixes them. Your engineers use it through Ogbon Harness or the Ogbon API, and it's included in every plan."),
+     "ogbon-1 is Ogbon's own 30B security model. It reviews code, finds vulnerabilities and fixes them. Your engineering and IT teams use it through Ogbon Harness or the Ogbon API, and it's included in every plan."),
     ("Can we keep our code on our own servers?",
      "Yes. ogbon-1 runs on a single GPU, so you can host it yourself and your code never leaves your network. We never use customer code to train our models."),
     ("Do you cover money stolen through hacked accounts or leaked API keys?",
@@ -265,7 +265,7 @@ home = f"""    <div class="frame">
           <h2 class="h2" id="product-title">Protected while you build, <span class="nowrap">and once you're live</span></h2>
         </div>
         <div class="cards">
-          <article class="card card-wide"><span class="badge badge-blue">{icon("code")}</span><div><h3>While you build: code security</h3><p>Every engineer gets ogbon-1, our security model. It reviews each pull request, finds vulnerabilities and fixes them before they ship, in every application you build or&nbsp;run.</p><a class="link" href="/ogbon-1">ogbon-1 for engineers {icon("arrow")}</a></div></article>
+          <article class="card card-wide"><span class="badge badge-blue">{icon("code")}</span><div><h3>While you build: code security</h3><p>Your engineering and IT teams get ogbon-1, our security model. It reviews each pull request, finds vulnerabilities and fixes them before they ship, in every application you build or&nbsp;run.</p><a class="link" href="/ogbon-1">About ogbon-1 {icon("arrow")}</a></div></article>
           <article class="card"><span class="badge">{icon("monitor")}</span><h3>Once you're live: daily checks</h3><p>Ogbon checks your websites, apps, APIs, cloud accounts and internal systems every day, from the outside like an attacker and from the inside with read-only&nbsp;access.</p></article>
           <article class="card"><span class="badge badge-pink">{icon("list")}</span><h3>Fix list</h3><p>We rank what needs fixing by how much money it puts at risk, and give your team clear steps for each&nbsp;item.</p></article>
           <article class="card"><span class="badge badge-grey">{icon("phone")}</span><h3>Incident response</h3><p>Report a problem on WhatsApp or from your dashboard at any time. A responder calls you back within an&nbsp;hour.</p></article>
@@ -678,7 +678,7 @@ plan_rows = [
     ("Total cover per year", "₦25m", "₦75m", "₦200m"),
     ("Daily monitoring and fix list", YES, YES, YES),
     ("Website, app, API and cloud checks", YES, YES, YES),
-    ("ogbon-1 and Ogbon Harness for engineers", YES, YES, YES),
+    ("ogbon-1 and Ogbon Harness for engineering and IT teams", YES, YES, YES),
     ("Incident response, 24/7", YES, YES, YES),
     ("Audit evidence for CBN and NDPA", NO, YES, YES),
     ("Named security adviser", NO, NO, YES),
@@ -840,7 +840,7 @@ ogbon1 = f"""    <div class="frame">
       <section class="page-hero" aria-labelledby="page-title">
         <div class="wrap">
           <h1 id="page-title">Find and fix vulnerabilities <span>in your own code</span></h1>
-          <p>Every Ogbon plan gives your engineering team ogbon-1, our 30B security model. Use it in Ogbon Harness, our desktop app, or call it from your own tools with the Ogbon API.</p>
+          <p>Every Ogbon plan gives your engineering and IT teams ogbon-1, our 30B security model. Use it in Ogbon Harness, our desktop app, or call it from your own tools with the Ogbon API.</p>
           <div class="hero-actions">
             <a class="btn btn-light" href="https://my.ogbon.com">Download Ogbon Harness</a>
             <a class="btn btn-ghost-light" href="https://my.ogbon.com">Get an API key</a>
@@ -864,7 +864,7 @@ ogbon1 = f"""    <div class="frame">
       <div class="wrap split">
         <div>
           <h2 class="h2" id="score-title">Part of your <span>risk score</span></h2>
-          <p class="lead">What ogbon-1 finds in your code goes on the same fix list as the rest of your security, with the naira it puts at risk. Your founders see the effect on the dashboard; your engineers see the details in Harness and in their pull requests.</p>
+          <p class="lead">What ogbon-1 finds in your code goes on the same fix list as the rest of your security, with the naira it puts at risk. Your founders see the effect on the dashboard; your engineering and IT teams see the details in Harness and in their pull requests.</p>
         </div>
         <div class="panel">
           <figure class="dash" aria-label="Example Ogbon fix list">
@@ -989,7 +989,7 @@ PAGES = [
     ("incident.html", "Report a cyber incident, 24/7 · Ogbon",
      "If you think something is wrong, contact Ogbon straight away, even if you're not sure it's an attack. Available 24 hours a day, 7 days a week.",
      incident, "index, follow", ""),
-    ("ogbon-1.html", "ogbon-1: AI code security for engineers · Ogbon",
+    ("ogbon-1.html", "ogbon-1: AI security for engineering and IT teams · Ogbon",
      "ogbon-1 is Ogbon's 30B security model. It reviews code, finds vulnerabilities and fixes them, in Ogbon Harness or through the Ogbon API.",
      ogbon1, "index, follow", ""),
     ("privacy.html", "Privacy policy · Ogbon",
