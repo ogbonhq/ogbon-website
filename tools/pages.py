@@ -10,7 +10,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "tools"))
 import legal  # noqa: E402
-CSS_V = "20261126-11"
+CSS_V = "20261126-12"
 JS_V = "20261126-2"
 OG_V = "9"
 SITE = "https://ogbon.com"
@@ -212,7 +212,7 @@ home = f"""    <div class="frame">
       <section class="hero" aria-labelledby="hero-title">
         <div class="hero-main">
           <h1 id="hero-title">Cybersecurity with <span>cover built&nbsp;in</span></h1>
-          <p class="hero-sub">Your engineers build with ogbon-1, which catches flaws before they ship. We check your websites, apps, APIs and cloud every day, and pay for the loss if an attacker still gets&nbsp;through.</p>
+          <p class="hero-sub">We check your websites, apps, APIs and cloud every day, show your team what to fix, and pay for the loss if an attacker still gets&nbsp;through.</p>
           <div class="hero-actions">
             <a class="btn btn-light" href="/report">Get free security report</a>
             <a class="btn btn-ghost-light" data-email="Sales" href="#contact">Contact sales</a>
@@ -262,14 +262,14 @@ home = f"""    <div class="frame">
     <section class="section section-tight" id="product" aria-labelledby="product-title">
       <div class="wrap">
         <div class="head">
-          <h2 class="h2" id="product-title">Protected while you build, <span class="nowrap">and once you're live</span></h2>
+          <h2 class="h2" id="product-title">Everything you need to protect your organisation, <span class="nowrap">from website to code</span></h2>
         </div>
         <div class="cards">
-          <article class="card card-wide"><span class="badge badge-blue">{icon("code")}</span><div><h3>While you build: code security</h3><p>Your engineering and IT teams get ogbon-1, our security model. It reviews each pull request, finds vulnerabilities and fixes them before they ship, in every application you build or&nbsp;run.</p><a class="link" href="/ogbon-1">About ogbon-1 {icon("arrow")}</a></div></article>
-          <article class="card"><span class="badge">{icon("monitor")}</span><h3>Once you're live: daily checks</h3><p>Ogbon checks your websites, apps, APIs, cloud accounts and internal systems every day, from the outside like an attacker and from the inside with read-only&nbsp;access.</p></article>
+          <article class="card card-wide"><span class="badge">{icon("monitor")}</span><div><h3>Daily checks</h3><p>Ogbon checks your websites, apps, APIs, cloud accounts and internal systems every day, from the outside like an attacker and from the inside with read-only&nbsp;access.</p></div></article>
           <article class="card"><span class="badge badge-pink">{icon("list")}</span><h3>Fix list</h3><p>We rank what needs fixing by how much money it puts at risk, and give your team clear steps for each&nbsp;item.</p></article>
           <article class="card"><span class="badge badge-grey">{icon("phone")}</span><h3>Incident response</h3><p>Report a problem on WhatsApp or from your dashboard at any time. A responder calls you back within an&nbsp;hour.</p></article>
           <article class="card"><span class="badge badge-lilac">{icon("shield")}</span><h3>Cover</h3><p>If an attack gets through while you're protected, we pay for the money lost, the investigation and the cost of getting back to&nbsp;work.</p></article>
+          <article class="card"><span class="badge badge-blue">{icon("code")}</span><h3>Code security</h3><p>Your engineering and IT teams get ogbon-1, our security model. It reviews each change and fixes flaws before they&nbsp;ship.</p><a class="link" href="/ogbon-1">About ogbon-1 {icon("arrow")}</a></article>
         </div>
       </div>
     </section>
@@ -301,8 +301,8 @@ home = f"""    <div class="frame">
       <div class="wrap split">
         <div class="panel panel-pink">
           <ul class="flow" aria-label="How cover works">
-            <li><span class="badge badge-blue">{icon("code")}</span><span>Every change reviewed<small>ogbon-1 on each pull request</small></span></li>
             <li><span class="badge">{icon("monitor")}</span><span>Daily checks<small>Websites, apps, APIs, cloud and internal systems</small></span></li>
+            <li><span class="badge badge-blue">{icon("code")}</span><span>Every change reviewed<small>ogbon-1 on each pull request</small></span></li>
             <li><span class="badge badge-pink">{icon("phone")}</span><span>Responder on the line<small>Within an hour of your report</small></span></li>
             <li><span class="badge badge-lilac">{icon("naira")}</span><span>Loss paid<small>Up to your plan's limit</small></span></li>
           </ul>

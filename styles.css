@@ -385,3 +385,4 @@ main:has(> .frame:last-child) + .footer { margin-top: 8px; border-top: 0; }
 .backed-pill { display: inline-flex; align-self: flex-start; width: fit-content; background: #fff; color: var(--purple); border-radius: 999px; padding: 10px 18px; margin-top: 24px; }
 .page-hero .backed-pill { color: var(--purple); }
 .facts .backed { margin: 14px 0 10px; }
+.card > .link { display: inline-flex; margin-top: 14px; }
