@@ -874,7 +874,7 @@ ogbon1 = f"""    <div class="frame">
       <section class="page-hero" aria-labelledby="page-title">
         <div class="wrap">
           <h1 id="page-title">Find and fix security gaps <span>across your organisation</span></h1>
-          <p>ogbon-1 is our 30B security model, included in every Ogbon plan. Use it on your team's Mac and Windows laptops, across your code, cloud and servers, or through the&nbsp;API.</p>
+          <p>ogbon-1 is our 30B AI model built for security. It finds weak spots, spots attacks as they happen and prepares the fixes. It's included in every Ogbon plan: use it on your team's Mac and Windows laptops, across your code, cloud and servers, or through the&nbsp;API.</p>
           <div class="hero-actions">
             <a class="btn btn-light" href="https://my.ogbon.com">{icon("apple")}Download for Mac</a>
             <a class="btn btn-light" href="https://my.ogbon.com">{icon("windows")}Download for Windows</a>
