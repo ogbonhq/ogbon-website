@@ -10,7 +10,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "tools"))
 import legal  # noqa: E402
-CSS_V = "20261126-20"
+CSS_V = "20261126-21"
 JS_V = "20261126-3"
 OG_V = "9"
 SITE = "https://ogbon.com"
@@ -989,26 +989,6 @@ ogbon1 = f"""    <div class="frame">
       </div>
     </section>
 
-    <section class="section section-tight" aria-labelledby="api-title">
-      <div class="wrap">
-        <div class="head head-left"><h2 class="h2" id="api-title">Review a diff from your CI pipeline with the <span>Ogbon API</span></h2></div>
-        <figure class="code" aria-label="Example: review a diff with the Ogbon API">
-          <div class="code-bar"><span></span><span></span><span></span><p>review.py</p></div>
-          <pre><code><span class="k">import</span> os, subprocess
-<span class="k">from</span> openai <span class="k">import</span> OpenAI
-
-diff = subprocess.run([<span class="s">"git"</span>, <span class="s">"diff"</span>, <span class="s">"origin/main...HEAD"</span>], capture_output=<span class="k">True</span>, text=<span class="k">True</span>).stdout
-
-client = OpenAI(base_url=<span class="s">"https://api.ogbon.com/v1"</span>, api_key=os.environ[<span class="s">"OGBON_API_KEY"</span>])
-review = client.chat.completions.create(
-    model=<span class="s">"ogbon-1"</span>,
-    messages=[{{<span class="s">"role"</span>: <span class="s">"user"</span>, <span class="s">"content"</span>: <span class="s">"Review this diff for security issues:\\n"</span> + diff}}],
-)
-print(review.choices[0].message.content)</code></pre>
-        </figure>
-        <p class="api-link"><a class="link" href="https://docs.ogbon.com">Read the API docs {icon("arrow")}</a></p>
-      </div>
-    </section>
 {cta()}
 """
 
