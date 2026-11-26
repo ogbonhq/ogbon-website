@@ -10,7 +10,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "tools"))
 import legal  # noqa: E402
-CSS_V = "20261126-23"
+CSS_V = "20261126-24"
 JS_V = "20261126-4"
 OG_V = "9"
 SITE = "https://ogbon.com"
@@ -874,7 +874,7 @@ ogbon1 = f"""    <div class="frame">
       <section class="page-hero" aria-labelledby="page-title">
         <div class="wrap">
           <h1 id="page-title">Find and fix security gaps <span>across your organisation</span></h1>
-          <p>ogbon-1 is our 30B AI model built for security. It finds weak spots, spots attacks as they happen and prepares the fixes. It's included in every Ogbon plan: use it on your team's Mac and Windows laptops and across your code, cloud and&nbsp;servers.</p>
+          <p>ogbon-1 is our 30B AI model built for security. It finds weak spots, spots attacks as they happen and prepares the fixes. It's included in every Ogbon plan: use it on your team's Mac and Windows laptops, across your code, cloud and&nbsp;servers.</p>
           <div class="hero-actions">
             <a class="btn btn-light" href="https://my.ogbon.com">{icon("apple")}Download for Mac</a>
             <a class="btn btn-light" href="https://my.ogbon.com">{icon("windows")}Download for Windows</a>
