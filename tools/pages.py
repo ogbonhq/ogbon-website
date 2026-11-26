@@ -217,7 +217,7 @@ home = f"""    <div class="frame">
             <a class="btn btn-light" href="/report">Get free security report</a>
             <a class="btn btn-ghost-light" data-email="Sales" href="#contact">Contact sales</a>
           </div>
-          <p class="backed backed-pill">Cover backed by <img src="/assets/partners/casava.png" alt="Casava" width="112" height="27"></p>
+          <p class="backed backed-pill">Cover backed by <a href="https://casava.com/" target="_blank" rel="noopener" aria-label="Casava (opens in a new tab)"><img src="/assets/partners/casava.png" alt="Casava" width="112" height="27"></a></p>
         </div>
         <div class="hero-side">
           <figure class="dash" aria-label="Example Ogbon dashboard">
@@ -317,7 +317,7 @@ home = f"""    <div class="frame">
             <li><span class="tick">{icon("check")}</span>Incident responders from the first call</li>
           </ul>
           <a class="link" href="/cover">See what's covered {icon("arrow")}</a>
-          <p class="backed">Cover backed by <img src="/assets/partners/casava.png" alt="Casava" width="112" height="27"></p>
+          <p class="backed">Cover backed by <a href="https://casava.com/" target="_blank" rel="noopener" aria-label="Casava (opens in a new tab)"><img src="/assets/partners/casava.png" alt="Casava" width="112" height="27"></a></p>
         </div>
       </div>
     </section>
@@ -617,7 +617,7 @@ cover = f"""    <div class="frame">
         <div class="wrap">
           <h1 id="page-title">Cyber cover, included in <span>every&nbsp;plan</span></h1>
           <p>If an attack gets through while you're protected by Ogbon, we pay for the loss. Cover is a warranty from Ogbon, backed by Casava, an insurer licensed by&nbsp;NAICOM.</p>
-          <p class="backed backed-pill">Cover backed by <img src="/assets/partners/casava.png" alt="Casava" width="112" height="27"></p>
+          <p class="backed backed-pill">Cover backed by <a href="https://casava.com/" target="_blank" rel="noopener" aria-label="Casava (opens in a new tab)"><img src="/assets/partners/casava.png" alt="Casava" width="112" height="27"></a></p>
         </div>
       </section>
     </div>
@@ -826,7 +826,7 @@ about = f"""    <div class="frame">
           <p>Until now, organisations in Nigeria have bought security tools and insurance separately. Security vendors don't pay when their tools fail, and insurers rarely know enough about a company's setup to price cyber cover well. Ogbon does both, so the company protecting you is also the one that pays if something goes&nbsp;wrong.</p>
         </div>
         <div class="facts">
-          <article class="card"><span class="badge">{icon("shield")}</span><h2 style="margin-top:18px">Partners</h2><p class="backed"><img src="/assets/partners/casava.png" alt="Casava" width="112" height="27"></p><p>Our cover warranty is backed by Casava, an insurer licensed by NAICOM, and by a reinsurer. A full insurance policy will follow once we hold a broker or managing agent licence. Investigations are carried out by our own experts.</p></article>
+          <article class="card"><span class="badge">{icon("shield")}</span><h2 style="margin-top:18px">Partners</h2><p class="backed"><a href="https://casava.com/" target="_blank" rel="noopener" aria-label="Casava (opens in a new tab)"><img src="/assets/partners/casava.png" alt="Casava" width="112" height="27"></a></p><p>Our cover warranty is backed by Casava, an insurer licensed by NAICOM, and by a reinsurer. A full insurance policy will follow once we hold a broker or managing agent licence. Investigations are carried out by our own experts.</p></article>
           <article class="card"><span class="badge badge-pink">{icon("list")}</span><h2 style="margin-top:18px">Team</h2><p>Ogbon was founded by Abdul and Prakhar. They previously founded Africa's biggest open banking infrastructure company, which was acquired by Flutterwave, Africa's most valuable fintech.</p></article>
           <article class="card"><span class="badge badge-lilac">{icon("chat")}</span><h2 style="margin-top:18px">Contact</h2><p><a class="link" href="mailto:secure@ogbon.com">secure@ogbon.com</a><br><a href="tel:+2347107144122">0710 714 4122</a><br>14B Grace Anjous Street, Lekki Phase 1, Lekki, Lagos&nbsp;State</p></article>
         </div>
