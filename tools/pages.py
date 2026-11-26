@@ -212,7 +212,7 @@ home = f"""    <div class="frame">
       <section class="hero" aria-labelledby="hero-title">
         <div class="hero-main">
           <h1 id="hero-title">Cybersecurity with <span>cover built&nbsp;in</span></h1>
-          <p class="hero-sub">Ogbon checks your websites, apps, APIs, cloud and internal systems, where attacks start. We show your team what to fix, and pay for the loss if an attacker still gets&nbsp;through.</p>
+          <p class="hero-sub">Your engineers build with ogbon-1, which catches flaws before they ship. We check your websites, apps, APIs and cloud every day, and pay for the loss if an attacker still gets&nbsp;through.</p>
           <div class="hero-actions">
             <a class="btn btn-light" href="https://my.ogbon.com">Get started</a>
             <a class="btn btn-ghost-light" data-email="Sales" href="#contact">Contact sales</a>
