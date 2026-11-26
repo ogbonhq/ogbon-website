@@ -692,7 +692,7 @@ pricing = f"""    <div class="frame">
       <section class="page-hero" aria-labelledby="page-title">
         <div class="wrap">
           <h1 id="page-title">Plans and <span>pricing</span></h1>
-          <p>Every plan includes monitoring, cover and incident response. Choose a plan based on your team&nbsp;size.</p>
+          <p>Every plan includes monitoring, cover and incident response.<br>Choose a plan based on your team&nbsp;size.</p>
         </div>
       </section>
     </div>
