@@ -60,6 +60,14 @@ write("score", 320, 180, "\n".join([
     '<path class="soft" d="M98 104L138 92L178 78L218 56" stroke-dasharray="2 4"/>',
 ]))
 
+# Pentest coverage: most systems untested; the few a yearly test covers are blue.
+cov = []
+for r in range(3):
+    for c in range(5):
+        x, y = 160 + (c - r) * 26, 36 + (c + r) * 15
+        cov.append(box(x, y, 24, 24, 8, accent=(r, c) in {(0, 2), (1, 3)}))
+write("coverage", 320, 180, "\n".join(cov))
+
 # Fix list: three plates; the one that matters most is blue and lifts.
 write("fixlist", 320, 180, "\n".join([
     box(160, 96, 70, 70, 8), box(160, 72, 70, 70, 8),

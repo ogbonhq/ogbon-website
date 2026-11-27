@@ -31,7 +31,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Manrope:wght@500;600&display=swap">
-  <link rel="stylesheet" href="/styles.css?v=20261126-30">
+  <link rel="stylesheet" href="/styles.css?v=20261126-31">
 </head>
 <body>
   <a class="skip" href="#main">Skip to&nbsp;content</a>
@@ -40,14 +40,22 @@
       <a class="nav-logo" href="/" aria-label="Ogbon home"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 21 5" shape-rendering="crispEdges" fill="currentColor" class="logo-svg" aria-hidden="true"><rect x="8" y="0" width="1" height="1"/><rect x="0" y="1" width="3" height="1"/><rect x="4" y="1" width="3" height="1"/><rect x="8" y="1" width="2" height="1"/><rect x="12" y="1" width="3" height="1"/><rect x="16" y="1" width="2" height="1"/><rect x="0" y="2" width="1" height="1"/><rect x="2" y="2" width="1" height="1"/><rect x="4" y="2" width="1" height="1"/><rect x="6" y="2" width="1" height="1"/><rect x="8" y="2" width="1" height="1"/><rect x="10" y="2" width="1" height="1"/><rect x="12" y="2" width="1" height="1"/><rect x="14" y="2" width="1" height="1"/><rect x="16" y="2" width="1" height="1"/><rect x="18" y="2" width="1" height="1"/><rect x="0" y="3" width="3" height="1"/><rect x="5" y="3" width="2" height="1"/><rect x="8" y="3" width="3" height="1"/><rect x="12" y="3" width="3" height="1"/><rect x="16" y="3" width="1" height="1"/><rect x="18" y="3" width="1" height="1"/><rect x="20" y="3" width="1" height="1"/><rect x="4" y="4" width="2" height="1"/></svg></a>
       <nav class="nav-links" aria-label="Primary">
           <a href="/how-it-works">How it&nbsp;works</a>
+          <div class="nav-dd">
+            <button class="nav-dd-btn" type="button" aria-expanded="false" aria-controls="nav-products">Products<svg aria-hidden="true" viewBox="0 0 12 12" width="12" height="12"><path d="M3 4.5l3 3 3-3" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+            <div class="nav-dd-menu" id="nav-products">
+            <a href="/pentesting"><b>Penetration&nbsp;testing</b><span>AI pentests, every finding&nbsp;proven</span></a>
+            <a href="/pentesting#attack-surface"><b>Attack surface&nbsp;management</b><span>Find every system you&nbsp;expose</span></a>
+            <a href="/pentesting#active-offense"><b>Active&nbsp;offense</b><span>Testing that never&nbsp;stops</span></a>
+            <a href="/cover"><b>Cover</b><span>We pay if an attack gets&nbsp;through</span></a>
+            </div>
+          </div>
           <a href="/ogbon-1">ogbon-1</a>
-          <a href="/cover">Cover</a>
           <a href="/pricing">Pricing</a>
           <a href="/about">About</a>
           <a class="nav-incident" href="/incident">Report an&nbsp;incident</a>
       </nav>
       <div class="nav-actions">
-        <a class="btn btn-primary btn-sm" href="/report">Get&nbsp;started</a>
+        <a class="btn btn-primary btn-sm" data-email="Book a demo" href="#contact">Get a&nbsp;demo</a>
         <button class="nav-menu" type="button" aria-expanded="false" aria-controls="nav-panel" aria-label="Menu"><span></span><span></span></button>
       </div>
     </div>
@@ -66,10 +74,10 @@
     <section class="section">
       <div class="wrap">
         <div class="cards cards-4">
-          <article class="card"><span class="badge"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg?v=20261126-30#key"/></svg></span><h3>Account&nbsp;takeover</h3><p>₦<mark class="tbd">[amount]</mark></p></article>
-          <article class="card"><span class="badge badge-pink"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg?v=20261126-30#lock"/></svg></span><h3>Ransomware</h3><p>₦<mark class="tbd">[amount]</mark></p></article>
-          <article class="card"><span class="badge badge-lilac"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg?v=20261126-30#file"/></svg></span><h3>Data&nbsp;breach</h3><p>₦<mark class="tbd">[amount]</mark></p></article>
-          <article class="card"><span class="badge badge-grey"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg?v=20261126-30#clock"/></svg></span><h3>Downtime</h3><p>₦<mark class="tbd">[amount]</mark></p></article>
+          <article class="card"><span class="badge"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg?v=20261126-31#key"/></svg></span><h3>Account&nbsp;takeover</h3><p>₦<mark class="tbd">[amount]</mark></p></article>
+          <article class="card"><span class="badge badge-pink"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg?v=20261126-31#lock"/></svg></span><h3>Ransomware</h3><p>₦<mark class="tbd">[amount]</mark></p></article>
+          <article class="card"><span class="badge badge-lilac"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg?v=20261126-31#file"/></svg></span><h3>Data&nbsp;breach</h3><p>₦<mark class="tbd">[amount]</mark></p></article>
+          <article class="card"><span class="badge badge-grey"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg?v=20261126-31#clock"/></svg></span><h3>Downtime</h3><p>₦<mark class="tbd">[amount]</mark></p></article>
         </div>
       </div>
     </section>
@@ -118,9 +126,10 @@
         <nav class="footer-col" aria-label="Product">
           <h2>Product</h2>
           <ul>
-            <li><a href="/how-it-works">How it&nbsp;works</a></li>
+            <li><a href="/pentesting">Penetration&nbsp;testing</a></li>
             <li><a href="/ogbon-1">ogbon-1</a></li>
             <li><a href="/cover">Cover</a></li>
+            <li><a href="/how-it-works">How it&nbsp;works</a></li>
             <li><a href="/pricing">Pricing</a></li>
           </ul>
         </nav>
@@ -148,6 +157,6 @@
     </div>
   </footer>
 
-  <script src="/script.js?v=20261126-4" defer></script>
+  <script src="/script.js?v=20261126-5" defer></script>
 </body>
 </html>

@@ -67,3 +67,13 @@ if (reportForm) {
     }
   });
 }
+
+// Products dropdown: opens on hover or focus, and on click for touch screens and keyboards.
+const dd = document.querySelector(".nav-dd");
+if (dd) {
+  const btn = dd.querySelector(".nav-dd-btn");
+  const setDd = (open) => { dd.classList.toggle("is-open", open); btn.setAttribute("aria-expanded", String(open)); };
+  btn.addEventListener("click", () => setDd(!dd.classList.contains("is-open")));
+  document.addEventListener("click", (e) => { if (!dd.contains(e.target)) setDd(false); });
+  document.addEventListener("keydown", (e) => { if (e.key === "Escape" && dd.classList.contains("is-open")) { setDd(false); btn.focus(); } });
+}

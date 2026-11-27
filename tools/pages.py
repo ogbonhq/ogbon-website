@@ -10,8 +10,8 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "tools"))
 import legal  # noqa: E402
-CSS_V = "20261126-30"
-JS_V = "20261126-4"
+CSS_V = "20261126-31"
+JS_V = "20261126-5"
 OG_V = "9"
 SITE = "https://ogbon.com"
 TAGLINE = "Cybersecurity with cover built in."
@@ -38,13 +38,19 @@ def icon(name, cls="icon"):
 # Links are absolute so the 404 page works at any depth.
 NAV = [
     ("/how-it-works", "How it works"),
+    ("products", "Products"),
     ("/ogbon-1", "ogbon-1"),
-    ("/cover", "Cover"),
     ("/pricing", "Pricing"),
     ("/about", "About"),
 ]
+PRODUCTS = [
+    ("/pentesting", "Penetration testing", "AI pentests, every finding proven"),
+    ("/pentesting#attack-surface", "Attack surface management", "Find every system you expose"),
+    ("/pentesting#active-offense", "Active offense", "Testing that never stops"),
+    ("/cover", "Cover", "We pay if an attack gets through"),
+]
 FOOTER = [
-    ("Product", [("/how-it-works", "How it works"), ("/ogbon-1", "ogbon-1"), ("/cover", "Cover"), ("/pricing", "Pricing")]),
+    ("Product", [("/pentesting", "Penetration testing"), ("/ogbon-1", "ogbon-1"), ("/cover", "Cover"), ("/how-it-works", "How it works"), ("/pricing", "Pricing")]),
     ("Company", [("/about", "About"), ("/report", "Free security report"), ("/incident", "Report an incident")]),
     ("Legal", [("/privacy", "Privacy"), ("/terms", "Terms")]),
 ]
@@ -56,10 +62,26 @@ LEGAL = (
 
 
 def nav(current):
-    links = "\n".join(
-        f'          <a href="{href}"{" aria-current=\"page\"" if href == "/" + current.removesuffix(".html") else ""}>{label}</a>'
-        for href, label in NAV
-    )
+    here = "/" + current.removesuffix(".html")
+
+    def link(href, label):
+        cur = ' aria-current="page"' if href == here else ""
+        return f'          <a href="{href}"{cur}>{label}</a>'
+
+    def products():
+        items = "\n".join(
+            f'            <a href="{h}"{" aria-current=\"page\"" if h == here else ""}><b>{l}</b><span>{d}</span></a>'
+            for h, l, d in PRODUCTS
+        )
+        active = " is-current" if here in {h for h, _, _ in PRODUCTS} else ""
+        return f"""          <div class="nav-dd{active}">
+            <button class="nav-dd-btn" type="button" aria-expanded="false" aria-controls="nav-products">Products<svg aria-hidden="true" viewBox="0 0 12 12" width="12" height="12"><path d="M3 4.5l3 3 3-3" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+            <div class="nav-dd-menu" id="nav-products">
+{items}
+            </div>
+          </div>"""
+
+    links = "\n".join(products() if href == "products" else link(href, label) for href, label in NAV)
     inc = ' aria-current="page"' if current == "incident.html" else ""
     return f"""  <header class="nav" id="nav">
     <div class="nav-inner">
@@ -69,7 +91,7 @@ def nav(current):
           <a class="nav-incident" href="/incident"{inc}>Report an incident</a>
       </nav>
       <div class="nav-actions">
-        <a class="btn btn-primary btn-sm" href="/report">Get started</a>
+        <a class="btn btn-primary btn-sm" data-email="Book a demo" href="#contact">Get a demo</a>
         <button class="nav-menu" type="button" aria-expanded="false" aria-controls="nav-panel" aria-label="Menu"><span></span><span></span></button>
       </div>
     </div>
@@ -876,6 +898,151 @@ about = f"""    <div class="frame">
 {cta()}
 """
 
+
+# ---------------------------------------------------------------- Penetration testing
+pt_steps = [
+    ("Map everything you expose", "Ogbon finds your websites, apps, APIs, cloud services and forgotten subdomains, including the ones your team no longer tracks. Each one goes on a live inventory."),
+    ("Attack it like a real attacker", "ogbon-1 runs the test: it explores each system, tries the ways in that attackers use in Nigeria and across Africa, and chains small flaws into real attack paths. It runs in hours, not weeks."),
+    ("Prove every finding", "Our security team checks each finding by hand before it reaches you. You get only real, exploitable issues, each with proof, the steps to reproduce it and the naira it puts at&nbsp;risk."),
+    ("Fix, then retest", "ogbon-1 prepares the fix and your team approves it. We retest straight away and close the finding when the fix holds. Your report and score update on their&nbsp;own."),
+]
+pt_steps_html = "\n".join(
+    f"""          <li class="step"><span class="step-num">{i}</span><div><h2>{h}</h2><p>{p}</p></div></li>"""
+    for i, (h, p) in enumerate(pt_steps, 1)
+)
+pt_scope = [
+    ("Web apps", "Logins, sessions, payments and the business rules behind them."),
+    ("APIs", "Partner and mobile APIs that return more data or do more than they&nbsp;should."),
+    ("Mobile apps", "Android and iOS apps, and the servers they talk&nbsp;to."),
+    ("Cloud", "AWS, Google Cloud and Azure: settings, roles and exposed&nbsp;services."),
+    ("Internal network", "What an attacker can reach once they are inside, tested&nbsp;safely."),
+    ("AI and LLM apps", "Chatbots and AI features: prompt injection, data leaks and unsafe&nbsp;actions."),
+]
+pt_scope_html = "\n".join(f'          <article class="card"><h3 style="margin-top:0">{h}</h3><p>{p}</p></article>' for h, p in pt_scope)
+
+pentesting = f"""    <div class="frame">
+      <section class="page-hero theme-ink" aria-labelledby="page-title">
+        <div class="wrap">
+          <h1 id="page-title">AI pentesting, <span>proven by&nbsp;people</span></h1>
+          <p>ogbon-1 attacks your websites, apps, APIs and cloud the way a real attacker would, every day. Our security team proves each finding is real before it reaches you, with the naira it puts at&nbsp;risk.</p>
+          <div class="hero-actions">
+            <a class="btn btn-light" data-email="Book a demo: penetration testing" href="#contact">Get a demo</a>
+            <a class="btn btn-ghost-light" href="/report">Get free security report</a>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <section class="section" aria-labelledby="gap-title">
+      <div class="wrap split">
+        <div>
+          <h2 class="h2" id="gap-title">Most of your systems have never been <span>tested</span></h2>
+          <p class="lead">A yearly pentest covers a few apps for a few weeks. Your team ships changes every day, and attackers test whatever you leave out. Ogbon tests all of it, all year, for less than a single traditional&nbsp;engagement.</p>
+        </div>
+        <div class="card card-illus" style="width:100%">{art("coverage")}<p style="margin-top:18px;color:var(--muted)">Systems a yearly pentest covers, against everything an attacker can&nbsp;reach.</p></div>
+      </div>
+    </section>
+
+    <section class="section section-tight" aria-labelledby="how-pt-title">
+      <div class="wrap">
+        <div class="head"><h2 class="h2" id="how-pt-title">How an Ogbon pentest <span>works</span></h2></div>
+        <ol class="steps">
+{pt_steps_html}
+        </ol>
+      </div>
+    </section>
+
+    <section class="section section-tight" aria-labelledby="proof-title">
+      <div class="wrap">
+        <div class="head"><h2 class="h2" id="proof-title">AI finds more. <span>People prove what&nbsp;matters.</span></h2></div>
+        <div class="cards">
+          <article class="card">
+            <h3 style="margin-top:0">AI scanner on its own</h3>
+            <ul class="checks" style="margin-top:18px">
+              <li><span class="tick tick-x">{icon("x")}</span>Thousands of alerts for your team to sort through</li>
+              <li><span class="tick tick-x">{icon("x")}</span>False alarms that waste engineering time</li>
+              <li><span class="tick tick-x">{icon("x")}</span>No proof that an issue can really be used</li>
+              <li><span class="tick tick-x">{icon("x")}</span>No idea what each issue could cost you</li>
+            </ul>
+          </article>
+          <article class="card">
+            <h3 style="margin-top:0">Ogbon</h3>
+            <ul class="checks" style="margin-top:18px">
+              <li><span class="tick">{icon("check")}</span>Only real, exploitable findings</li>
+              <li><span class="tick">{icon("check")}</span>Proof and steps to reproduce each one</li>
+              <li><span class="tick">{icon("check")}</span>Ranked by the naira each one puts at risk</li>
+              <li><span class="tick">{icon("check")}</span>A fix ready to approve, and a retest when it ships</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-tight" aria-labelledby="scope-title">
+      <div class="wrap">
+        <div class="head"><h2 class="h2" id="scope-title">What we <span>test</span></h2></div>
+        <div class="cards cards-3">
+{pt_scope_html}
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-tight" id="attack-surface" aria-labelledby="asm-title">
+      <div class="wrap split">
+        <div class="card card-illus" style="width:100%">{art("forgotten")}<p style="margin-top:18px;color:var(--muted)">The test server from 2019 that nobody remembers is often where an attack&nbsp;starts.</p></div>
+        <div>
+          <h2 class="h2" id="asm-title">Attack surface <span>management</span></h2>
+          <p class="lead">You can't protect what you don't know about. Ogbon keeps a live list of everything you expose to the internet: domains, subdomains, apps, APIs, cloud services and open ports. When something new appears, we test it the same&nbsp;day.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-tight" id="active-offense" aria-labelledby="offense-title">
+      <div class="wrap split">
+        <div>
+          <h2 class="h2" id="offense-title">Active <span>offense</span></h2>
+          <p class="lead">Attackers don't wait for your yearly test window, so neither do we. Active offense keeps the pentest running: every release, new system and new type of attack gets tested as it appears, and every fix is retested before we close&nbsp;it.</p>
+          <ul class="checks" style="margin-top:24px">
+            <li><span class="tick">{icon("check")}</span>Tests start when you ship, not when the calendar says</li>
+            <li><span class="tick">{icon("check")}</span>New attack methods tested across your systems within days</li>
+            <li><span class="tick">{icon("check")}</span>Patterns across findings, so the same mistake stops coming back</li>
+          </ul>
+        </div>
+        <div class="card card-illus" style="width:100%">{art("checks")}<p style="margin-top:18px;color:var(--muted)">Every system, checked every&nbsp;day.</p></div>
+      </div>
+    </section>
+
+    <section class="section section-tight" aria-labelledby="reports-title">
+      <div class="wrap">
+        <div class="head"><h2 class="h2" id="reports-title">Reports for your engineers, your board and your <span>regulators</span></h2></div>
+        <div class="cards cards-3">
+          <article class="card"><h3 style="margin-top:0">For engineers</h3><p>Each finding with proof, the steps to reproduce it and a fix ready to&nbsp;review.</p></article>
+          <article class="card"><h3 style="margin-top:0">For leadership</h3><p>Your risk in naira, how it is changing, and what your team fixed this&nbsp;month.</p></article>
+          <article class="card"><h3 style="margin-top:0">For auditors</h3><p>A record of every test, finding, fix and retest, ready for CBN, NDPC and PCI DSS&nbsp;reviews.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-tight" aria-labelledby="pt-cover-title">
+      <div class="wrap split">
+        <div>
+          <h2 class="h2" id="pt-cover-title">The only pentest that comes with <span>cover</span></h2>
+          <p class="lead">Every Ogbon plan includes cover backed by Casava. If an attack still gets through while you're protected, we pay for the money lost, the investigation and the cost of getting back to work. Fix more, and you pay less at&nbsp;renewal.</p>
+          <a class="link" href="/cover">How cover works {icon("arrow")}</a>
+        </div>
+        <div class="card card-illus" style="width:100%">{art("cover")}<p style="margin-top:18px;color:var(--muted)">Cover up to ₦200m a year, depending on your&nbsp;plan.</p></div>
+      </div>
+    </section>
+
+    <div class="frame">
+      <section class="cta" aria-labelledby="cta-title">
+        <h2 class="h2" id="cta-title">See an AI pentest on your own&nbsp;systems</h2>
+        <p>Book a 30-minute demo. We'll show you what ogbon-1 finds on your website and APIs, and how our team proves&nbsp;it.</p>
+        <div class="hero-actions" style="margin-top:32px"><a class="btn btn-light" data-email="Book a demo: penetration testing" href="#contact">Get a demo</a><a class="btn btn-ghost-light" href="/report">Get free security report</a></div>
+      </section>
+    </div>
+"""
+
 # ---------------------------------------------------------------- ogbon-1 for engineers
 ogbon1 = f"""    <div class="frame">
       <section class="page-hero theme-ink" aria-labelledby="page-title">
@@ -1078,6 +1245,9 @@ PAGES = [
     ("terms.html", "Terms of service · Ogbon",
      "The terms for using ogbon.com, the free security report and Ogbon's services, from Ogbon Security Limited.",
      terms, "index, follow", ""),
+    ("pentesting.html", "AI penetration testing, proven by people · Ogbon",
+     "Ogbon's AI pentesting tests your websites, apps, APIs and cloud every day. Our security team proves each finding, ranked by the naira it puts at risk.",
+     pentesting, "index, follow", ""),
     ("about.html", "About Ogbon · Cybersecurity company in Lagos",
      "Ogbon is a cybersecurity company in Lagos. We help organisations fix the weaknesses attackers use, and cover the loss if an attack still gets through.",
      about, "index, follow", ""),
