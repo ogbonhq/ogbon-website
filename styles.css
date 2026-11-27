@@ -102,6 +102,9 @@ p, li, dd, td { text-wrap: pretty; }
 }
 .hero-main h1, .page-hero h1 { font-size: clamp(34px, 5vw, 64px); line-height: 1.08; }
 .hero-main h1 span, .page-hero h1 span { color: var(--lilac); }
+/* Headline A/B test: the inline script on the homepage sets html[data-hv]; without it, A shows. */
+.hero-main h1 .hv { color: inherit; }
+html[data-hv="b"] .hv-a, html:not([data-hv="b"]) .hv-b { display: none; }
 .hero-sub { margin-top: 24px; max-width: 34em; font-size: clamp(17px, 1.4vw, 19px); line-height: 1.6; color: rgba(255, 255, 255, 0.88); }
 .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 36px; }
 .hero-note { margin-top: 20px; font-size: 15px; color: rgba(255, 255, 255, 0.82); }

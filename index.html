@@ -31,7 +31,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Manrope:wght@500;600&display=swap">
-  <link rel="stylesheet" href="/styles.css?v=20261126-31">
+  <link rel="stylesheet" href="/styles.css?v=20261127-1">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -113,7 +113,8 @@
     <div class="frame">
       <section class="hero" aria-labelledby="hero-title">
         <div class="hero-main">
-          <h1 id="hero-title">Cybersecurity with <span>cover&nbsp;built&nbsp;in</span></h1>
+          <script>/* Headline A/B test: pick a or b once per browser, before the headline paints. ?hv=a or ?hv=b forces one. */(function(){var k="ogbon_hv",v=new URLSearchParams(location.search).get("hv");try{if(v!=="a"&&v!=="b")v=localStorage.getItem(k)}catch(e){}if(v!=="a"&&v!=="b")v=Math.random()<.5?"a":"b";try{localStorage.setItem(k,v)}catch(e){}document.documentElement.dataset.hv=v})();</script>
+          <h1 id="hero-title"><span class="hv hv-a">Cybersecurity with <span>cover&nbsp;built&nbsp;in</span></span><span class="hv hv-b">Cyber cover with <span>security&nbsp;built&nbsp;in</span></span></h1>
           <p class="hero-sub">We check your websites, apps, APIs and cloud every day, show your team what to fix, and pay for the loss if an attacker still&nbsp;gets&nbsp;through.</p>
           <div class="hero-actions">
             <a class="btn btn-light" href="/report">Get free security&nbsp;report</a>
@@ -447,6 +448,6 @@
     </div>
   </footer>
 
-  <script src="/script.js?v=20261126-5" defer></script>
+  <script src="/script.js?v=20261127-1" defer></script>
 </body>
 </html>

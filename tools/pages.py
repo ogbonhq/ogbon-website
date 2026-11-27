@@ -10,8 +10,8 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "tools"))
 import legal  # noqa: E402
-CSS_V = "20261126-31"
-JS_V = "20261126-5"
+CSS_V = "20261127-1"
+JS_V = "20261127-1"
 OG_V = "9"
 SITE = "https://ogbon.com"
 TAGLINE = "Cybersecurity with cover built in."
@@ -241,7 +241,8 @@ faq_ld = ",\n".join(
 home = f"""    <div class="frame">
       <section class="hero" aria-labelledby="hero-title">
         <div class="hero-main">
-          <h1 id="hero-title">Cybersecurity with <span>cover built&nbsp;in</span></h1>
+          <script>/* Headline A/B test: pick a or b once per browser, before the headline paints. ?hv=a or ?hv=b forces one. */(function(){{var k="ogbon_hv",v=new URLSearchParams(location.search).get("hv");try{{if(v!=="a"&&v!=="b")v=localStorage.getItem(k)}}catch(e){{}}if(v!=="a"&&v!=="b")v=Math.random()<.5?"a":"b";try{{localStorage.setItem(k,v)}}catch(e){{}}document.documentElement.dataset.hv=v}})();</script>
+          <h1 id="hero-title"><span class="hv hv-a">Cybersecurity with <span>cover&nbsp;built&nbsp;in</span></span><span class="hv hv-b">Cyber cover with <span>security&nbsp;built&nbsp;in</span></span></h1>
           <p class="hero-sub">We check your websites, apps, APIs and cloud every day, show your team what to fix, and pay for the loss if an attacker still gets&nbsp;through.</p>
           <div class="hero-actions">
             <a class="btn btn-light" href="/report">Get free security report</a>

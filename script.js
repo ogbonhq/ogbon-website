@@ -49,7 +49,12 @@ if (reportForm) {
     button.disabled = true;
     button.textContent = "Sending...";
     try {
-      const res = await fetch(reportForm.action, { method: "POST", body: new FormData(reportForm), headers: { Accept: "application/json" } });
+      // Headline A/B test: record which homepage headline this browser saw (A, B, or none if it never saw the homepage).
+      const body = new FormData(reportForm);
+      let hv = null;
+      try { hv = localStorage.getItem("ogbon_hv"); } catch {}
+      body.append("headline", hv === "a" || hv === "b" ? hv.toUpperCase() : "none");
+      const res = await fetch(reportForm.action, { method: "POST", body, headers: { Accept: "application/json" } });
       if (!res.ok) throw new Error(String(res.status));
       const email = reportForm.querySelector("[name=email]").value;
       const done = document.createElement("div");
