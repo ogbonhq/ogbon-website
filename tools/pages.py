@@ -10,7 +10,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "tools"))
 import legal  # noqa: E402
-CSS_V = "20261127-2"
+CSS_V = "20261127-3"
 JS_V = "20261127-2"
 OG_V = "9"
 SITE = "https://ogbon.com"
@@ -51,7 +51,7 @@ PRODUCTS = [
 ]
 FOOTER = [
     ("Product", [("/pentesting", "Penetration testing"), ("/ogbon-1", "Security LLM"), ("/cover", "Cover"), ("/how-it-works", "How it works"), ("/pricing", "Pricing")]),
-    ("Company", [("/about", "About"), ("/report", "Free security report"), ("/incident", "Report an incident")]),
+    ("Company", [("/about", "About"), ("/report", "Free security report"), ("/incident", "Under attack?")]),
     ("Legal", [("/privacy", "Privacy"), ("/terms", "Terms")]),
 ]
 LEGAL = (
@@ -88,7 +88,7 @@ def nav(current):
       <a class="nav-logo" href="/" aria-label="Ogbon home">{LOGO}</a>
       <nav class="nav-links" aria-label="Primary">
 {links}
-          <a class="nav-incident" href="/incident"{inc}>Report an incident</a>
+          <a class="nav-incident" href="/incident"{inc}><svg class="nav-incident-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true"><path d="M12 2.5 20.5 7.25v9.5L12 21.5 3.5 16.75v-9.5Z"/><path d="M12 7.5v5.5"/><circle cx="12" cy="16.5" r="1" fill="currentColor" stroke="none"/></svg>Under attack?</a>
       </nav>
       <div class="nav-actions">
         <a class="btn btn-primary btn-sm" data-email="Book a demo" href="#contact">Get a demo</a>
@@ -794,8 +794,8 @@ tl_html = "\n".join(f"              <tr><th scope=\"row\">{a}</th><td>{b}</td></
 incident = f"""    <div class="frame">
       <section class="page-hero theme-ink" aria-labelledby="page-title">
         <div class="wrap">
-          <h1 id="page-title">Report an <span>incident</span></h1>
-          <p>If you think something is wrong, contact us straight away, even if you're not sure it's an attack. Acting in the first hour makes the biggest&nbsp;difference.</p>
+          <h1 id="page-title">Under <span>attack?</span></h1>
+          <p>Contact us now, even if you're not sure it's an&nbsp;attack.</p>
         </div>
       </section>
     </div>
@@ -1241,8 +1241,8 @@ PAGES = [
     ("pricing.html", "Cyber cover and security plans, pricing · Ogbon",
      "Every Ogbon plan includes cover, monitoring and incident response. Choose a plan based on your team size.",
      pricing, "index, follow", ""),
-    ("incident.html", "Report a cyber incident, 24/7 · Ogbon",
-     "If you think something is wrong, contact Ogbon straight away, even if you're not sure it's an attack. Available 24 hours a day, 7 days a week.",
+    ("incident.html", "Under attack? 24/7 emergency help · Ogbon",
+     "Under attack? Contact Ogbon now, even if you're not sure it's an attack. A responder calls you back within an hour, 24 hours a day, 7 days a week.",
      incident, "index, follow", ""),
     ("ogbon-1.html", "ogbon-1: AI security for engineering and IT teams · Ogbon",
      "ogbon-1 is Ogbon's 30B security model. It finds and fixes security gaps across your apps, cloud, servers and laptops, on Mac and Windows or through the Ogbon API.",
