@@ -39,7 +39,7 @@ def icon(name, cls="icon"):
 NAV = [
     ("/how-it-works", "How it works"),
     ("products", "Products"),
-    ("/ogbon-1", "ogbon-1"),
+    ("/ogbon-1", "Security LLM"),
     ("/pricing", "Pricing"),
     ("/about", "About"),
 ]
@@ -50,7 +50,7 @@ PRODUCTS = [
     ("/cover", "Cover", "We pay if an attack gets through"),
 ]
 FOOTER = [
-    ("Product", [("/pentesting", "Penetration testing"), ("/ogbon-1", "ogbon-1"), ("/cover", "Cover"), ("/how-it-works", "How it works"), ("/pricing", "Pricing")]),
+    ("Product", [("/pentesting", "Penetration testing"), ("/ogbon-1", "Security LLM"), ("/cover", "Cover"), ("/how-it-works", "How it works"), ("/pricing", "Pricing")]),
     ("Company", [("/about", "About"), ("/report", "Free security report"), ("/incident", "Report an incident")]),
     ("Legal", [("/privacy", "Privacy"), ("/terms", "Terms")]),
 ]
@@ -566,7 +566,7 @@ how = f"""    <div class="frame">
       <section class="page-hero theme-purple" aria-labelledby="page-title">
         <div class="wrap">
           <h1 id="page-title">How Ogbon <span>works</span></h1>
-          <p>It starts with a free security report. <br class="br-wide">After about an hour of setup, Ogbon runs in the&nbsp;background.</p>
+          <p>It starts with a free security report. After about an <br class="br-wide">hour of setup, Ogbon runs in the&nbsp;background.</p>
         </div>
       </section>
     </div>
@@ -849,7 +849,7 @@ about = f"""    <div class="frame">
       <section class="page-hero theme-deep" aria-labelledby="page-title">
         <div class="wrap">
           <h1 id="page-title">About <span>Ogbon</span></h1>
-          <p>We spent five years inside Africa's financial institutions. <br class="br-wide">Now we use what we learned to protect the&nbsp;organisations.</p>
+          <p>We spent five years inside Africa's financial institutions. <br class="br-wide">Now we use what we learned to protect&nbsp;organisations.</p>
         </div>
       </section>
     </div>
