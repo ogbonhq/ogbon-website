@@ -15,15 +15,6 @@ Copy rules: plain words, no em dashes, say organisations (not businesses), and c
 
 Update `lastmod` in `sitemap.xml` when content changes.
 
-## Headline A/B test (started 2026-11-27)
-
-The homepage shows one of two headlines, 50/50, chosen once per browser by a small inline script above the `<h1>` in `index.html` (and in `tools/pages.py`):
-
-- A: "Cybersecurity with cover built in"
-- B: "Cyber cover with security built in"
-
-The choice is kept in `localStorage` (`ogbon_hv`), not a cookie. When someone requests a free report, `script.js` adds a `headline` field (`A`, `B`, or `none` if they never saw the homepage) to the Formspree submission. To read the result, count report requests by `headline` in Formspree: visitors are split at random, so the counts compare directly. Add `?hv=a` or `?hv=b` to the homepage URL to see a given headline. To end the test, keep the winning `<span class="hv">` text as the plain `<h1>`, and remove the script and the `.hv` CSS rules.
-
 ## Deploy
 
 Push to `main` and it goes live. Work on `dev` (the default branch), then fast-forward or PR `dev` → `main`.

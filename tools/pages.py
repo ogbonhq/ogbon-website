@@ -10,11 +10,11 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "tools"))
 import legal  # noqa: E402
-CSS_V = "20261127-1"
-JS_V = "20261127-1"
+CSS_V = "20261127-2"
+JS_V = "20261127-2"
 OG_V = "9"
 SITE = "https://ogbon.com"
-TAGLINE = "Cybersecurity with cover built in."
+TAGLINE = "Cyber cover with security built in."
 
 LOGO = (ROOT / "tools/partials/logo.svg").read_text().strip()
 SOCIAL = (ROOT / "tools/partials/social.html").read_text().strip()
@@ -137,6 +137,14 @@ def page(slug, title, desc, body, robots="index, follow", ld=""):
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Google Tag Manager -->
+  <script async src="https://www.googletagmanager.com/gtm.js?id=GTM-KXWLL6LV"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){{dataLayer.push(arguments);}}
+    gtag('js', new Date());
+    dataLayer.push({{'gtm.start': new Date().getTime(), event: 'gtm.js'}});
+  </script>
   <title>{t}</title>
   <meta name="description" content="{d}">
   <meta name="robots" content="{robots}">
@@ -241,9 +249,8 @@ faq_ld = ",\n".join(
 home = f"""    <div class="frame">
       <section class="hero" aria-labelledby="hero-title">
         <div class="hero-main">
-          <script>/* Headline A/B test: pick a or b once per browser, before the headline paints. ?hv=a or ?hv=b forces one. */(function(){{var k="ogbon_hv",v=new URLSearchParams(location.search).get("hv");try{{if(v!=="a"&&v!=="b")v=localStorage.getItem(k)}}catch(e){{}}if(v!=="a"&&v!=="b")v=Math.random()<.5?"a":"b";try{{localStorage.setItem(k,v)}}catch(e){{}}document.documentElement.dataset.hv=v}})();</script>
-          <h1 id="hero-title"><span class="hv hv-a">Cybersecurity with <span>cover&nbsp;built&nbsp;in</span></span><span class="hv hv-b">Cyber cover with <span>security&nbsp;built&nbsp;in</span></span></h1>
-          <p class="hero-sub">We check your websites, apps, APIs and cloud every day, show your team what to fix, and pay for the loss if an attacker still gets&nbsp;through.</p>
+          <h1 id="hero-title">Cyber cover with <span>security&nbsp;built&nbsp;in</span></h1>
+          <p class="hero-sub">If an attacker gets through, we pay for the loss. To stop that happening, we check your websites, apps, APIs and cloud every day and show your team what&nbsp;to&nbsp;fix.</p>
           <div class="hero-actions">
             <a class="btn btn-light" href="/report">Get free security report</a>
             <a class="btn btn-ghost-light" data-email="Sales" href="#contact">Contact sales</a>
@@ -424,7 +431,7 @@ home_ld = f"""
         "contactPoint": {{ "@type": "ContactPoint", "contactType": "incident response", "telephone": "+234 710 714 4122", "email": "secure@ogbon.com", "areaServed": "NG", "availableLanguage": "en", "hoursAvailable": {{ "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"], "opens": "00:00", "closes": "23:59" }} }},
         "logo": "{SITE}/assets/icons/icon-512.png",
         "slogan": "{TAGLINE}",
-        "description": "Ogbon helps organisations in Nigeria stay safe from cyber attacks, and pays for the loss if an attacker still gets through.",
+        "description": "Ogbon pays for the loss when a cyber attack gets through, and checks the systems of organisations in Nigeria every day to keep attackers out.",
         "email": "secure@ogbon.com",
         "telephone": "+234 710 714 4122",
         "address": {{ "@type": "PostalAddress", "streetAddress": "14B Grace Anjous Street, Lekki Phase 1", "addressLocality": "Lekki", "addressRegion": "Lagos State", "addressCountry": "NG" }}
@@ -727,7 +734,7 @@ pricing = f"""    <div class="frame">
       <section class="page-hero theme-purple" aria-labelledby="page-title">
         <div class="wrap">
           <h1 id="page-title">Plans and <span>pricing</span></h1>
-          <p>Every plan includes monitoring, cover and incident response. <br class="br-wide">Choose a plan based on your team&nbsp;size.</p>
+          <p>Every plan includes cover, monitoring and incident response. <br class="br-wide">Choose a plan based on your team&nbsp;size.</p>
         </div>
       </section>
     </div>
@@ -1219,20 +1226,20 @@ notfound = """    <div class="frame">
 """
 
 PAGES = [
-    ("index.html", "Ogbon · Modern cybersecurity with cyber cover for Africa",
-     "Ogbon keeps African organisations safe from cyber attacks. We check your systems daily, show you what to fix, and pay for the loss if an attack gets through.",
+    ("index.html", "Ogbon · Cyber cover with cybersecurity built in, for Africa",
+     "Cyber cover for African organisations, with security built in. Ogbon pays for the loss if an attack gets through, and checks your systems every day so you know what to fix.",
      home, "index, follow", home_ld),
     ("report.html", "Free cybersecurity report for your company · Ogbon",
      "Find out what attackers can see about your company from the outside, and what it could cost you. It takes under 10 minutes and nothing gets installed.",
      report, "index, follow", ""),
-    ("how-it-works.html", "How Ogbon works · Cybersecurity and cover in one plan",
+    ("how-it-works.html", "How Ogbon works · Cover and cybersecurity in one plan",
      "It starts with a free security report. Then connect your systems, fix what matters, get covered, and Ogbon keeps watch every day.",
      how, "index, follow", ""),
     ("cover.html", "Cyber cover in every plan · Ogbon",
      "Cyber cover is included in every Ogbon plan. If an attack gets through while you're protected, we pay for the loss.",
      cover, "index, follow", ""),
-    ("pricing.html", "Cybersecurity plans and pricing · Ogbon",
-     "Every Ogbon plan includes monitoring, cover and incident response. Choose a plan based on your team size.",
+    ("pricing.html", "Cyber cover and security plans, pricing · Ogbon",
+     "Every Ogbon plan includes cover, monitoring and incident response. Choose a plan based on your team size.",
      pricing, "index, follow", ""),
     ("incident.html", "Report a cyber incident, 24/7 · Ogbon",
      "If you think something is wrong, contact Ogbon straight away, even if you're not sure it's an attack. Available 24 hours a day, 7 days a week.",

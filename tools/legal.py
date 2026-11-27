@@ -40,8 +40,9 @@ PRIVACY = [
             "What you tell us about an incident or a claim.",
         ],
         "When you contact us by email, phone or WhatsApp, we keep what you send us.",
-        "When you visit ogbon.com, our server records your IP address, browser and the pages you ask for. We don't use "
-        "advertising or analytics cookies. Our fonts load from Google Fonts, which receives your IP address.",
+        "When you visit ogbon.com, our server records your IP address, browser and the pages you ask for. We use "
+        "Google Analytics, through Google Tag Manager, to count visits and see how people use the site. It sets analytics "
+        "cookies in your browser and sends Google your IP address and the pages you visit. We don't use advertising cookies. Our fonts load from Google Fonts, which receives your IP address.",
         "We don't read emails, chats or documents in your systems.",
     ]),
     ("How we use it, and our legal basis", [
