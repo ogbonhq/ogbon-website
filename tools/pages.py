@@ -250,7 +250,7 @@ home = f"""    <div class="frame">
       <section class="hero" aria-labelledby="hero-title">
         <div class="hero-main">
           <h1 id="hero-title">Cyber cover with <span>security&nbsp;built&nbsp;in</span></h1>
-          <p class="hero-sub">If an attacker gets through, we pay for the loss. To stop that happening, we check your websites, apps, APIs and cloud every day and show your team what&nbsp;to&nbsp;fix.</p>
+          <p class="hero-sub">If an attacker gets through, we pay for the loss. To stop that happening, we check your websites, apps, APIs and cloud <br class="br-wide">every day and show your team what&nbsp;to&nbsp;fix.</p>
           <div class="hero-actions">
             <a class="btn btn-light" href="/report">Get free security report</a>
             <a class="btn btn-ghost-light" data-email="Sales" href="#contact">Contact sales</a>
