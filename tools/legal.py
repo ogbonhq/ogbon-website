@@ -2,7 +2,7 @@
 Each section is (heading, blocks); a block is a paragraph string or a list of bullet strings.
 Text in [brackets] is a placeholder and shows highlighted on the page."""
 
-UPDATED = "26 November 2026"
+UPDATED = "28 November 2026"
 
 CONTACT = (
     "Ogbon Security Limited, 14B Grace Anjous Street, Lekki Phase 1, Lekki, Lagos State. "
@@ -11,8 +11,8 @@ CONTACT = (
 
 PRIVACY_INTRO = (
     "This policy explains how Ogbon Security Limited (\"Ogbon\", \"we\") collects and uses personal data when you "
-    "visit ogbon.com, ask for a free security report, or use Ogbon, and the rights you have under the Nigeria Data "
-    "Protection Act 2023 (NDPA)."
+    "visit ogbon.com, ask for a free security report, or use Ogbon, and the rights you have under data protection law, "
+    "including the Nigeria Data Protection Act 2023 (NDPA), the UK GDPR and, in the European Union, the GDPR."
 )
 
 PRIVACY = [
@@ -27,7 +27,7 @@ PRIVACY = [
     ("What we collect", [
         "When you ask for a free security report:",
         [
-            "Your company domain, work email, number of staff and industry.",
+            "Your company domain, work email, number of staff, industry and country.",
             "Information about your domain that is already public, such as DNS and email settings, websites and "
             "services open to the internet, public code, and staff email addresses that appear in public data leaks.",
         ],
@@ -50,7 +50,7 @@ PRIVACY = [
             "To produce your free report and reply to you about it. Our basis is your consent and our legitimate "
             "interest in answering requests.",
             "To provide monitoring, your fix list and incident response. Our basis is our contract with your company.",
-            "To provide your cover and handle claims, including giving Casava, the insurer that backs our warranty, what it needs to assess "
+            "To provide your cover and handle claims, including giving the insurer that backs our warranty what it needs to assess "
             "a claim. Our basis is our contract and our legal obligations.",
             "To bill you and keep tax records. Our basis is our contract and our legal obligations.",
             "To keep our service secure and prevent fraud. Our basis is our legitimate interests.",
@@ -64,18 +64,21 @@ PRIVACY = [
     ]),
     ("Who we share it with", [
         [
-            "Casava, the insurer that backs our cover warranty, and its reinsurer, to handle claims.",
+            "The insurer that backs our cover warranty where you are, and its reinsurer, to handle claims. In Africa this is "
+            "Casava.",
             "Incident responders and investigators working on your incident.",
             "Companies that host our systems, send our emails and messages, and process payments for us. Our contracts "
             "with them require them to protect the data and use it only for us.",
-            "Regulators such as the Nigeria Data Protection Commission (NDPC), the police or a court, when the law "
+            "Regulators such as the Nigeria Data Protection Commission (NDPC) or the UK Information Commissioner's Office "
+            "(ICO), the police or a court, when the law "
             "requires it or when you ask us to help you report an incident.",
         ],
         "We don't sell personal data.",
     ]),
     ("Transfers outside Nigeria", [
-        "Some of the companies we use may store data outside Nigeria. When that happens we use a safeguard the NDPA "
-        "allows, such as a country with adequate protection, contract terms that protect the data, or your consent.",
+        "We and the companies we use may store data outside the country you're in. When that happens we use a "
+        "safeguard the law allows, such as a country with adequate protection, contract terms that protect the data, "
+        "or your consent.",
     ]),
     ("How long we keep it", [
         "We keep personal data only for as long as we need it for the purposes above, including the time it takes to "
@@ -85,11 +88,12 @@ PRIVACY = [
     ("How we protect it", [
         "We protect personal data with access controls, encryption and monitoring. Access to the tools you connect is "
         "read-only, and our staff can see customer data only when their work needs it.",
-        "If a breach of personal data is likely to put people at risk, we tell the NDPC within 72 hours of finding out, "
-        "and we tell the people affected when the risk to them is high.",
+        "If a breach of personal data is likely to put people at risk, we tell the regulator within the time the law "
+        "sets, which is 72 hours under the NDPA and the UK GDPR, and we tell the people affected when the risk to them "
+        "is high.",
     ]),
     ("Your rights", [
-        "Under the NDPA you can ask us to:",
+        "Depending on where you live, data protection law lets you ask us to:",
         [
             "Tell you what personal data we hold about you and give you a copy.",
             "Correct data that is wrong or incomplete.",
@@ -99,7 +103,7 @@ PRIVACY = [
         ],
         "Where we rely on your consent, you can withdraw it at any time. To use any of these rights, email "
         "secure@ogbon.com. We may need to confirm who you are first. If you're not happy with our reply, you can "
-        "complain to the Nigeria Data Protection Commission.",
+        "complain to the data protection regulator where you live, such as the NDPC in Nigeria or the ICO in the UK.",
     ]),
     ("Children", [
         "Ogbon is a service for organisations. It isn't meant for anyone under 18, and we don't knowingly collect their "
@@ -135,7 +139,8 @@ TERMS = [
         "your account.",
     ]),
     ("Plans and payment", [
-        "You pay the fees in your order form, in advance, for each billing period. Your price depends on your team "
+        "You pay the fees in your order form, in advance, for each billing period, in the currency the order form "
+        "sets: US dollars, pounds sterling or naira. Your price depends on your team "
         "size, industry and security score, and may change at renewal to reflect your score. Prices don't include VAT "
         "or other taxes unless the order form says so.",
         "If a payment is late, we'll tell you. If it stays unpaid, we may pause the service and your cover until it's "
@@ -144,8 +149,10 @@ TERMS = [
     ("Cover", [
         "Ogbon is not an insurer, and the cover in your plan is not an insurance policy. It is a warranty from Ogbon "
         "Security Limited: if a covered attack gets through while you're protected, we pay for the loss up to your "
-        "plan's limit. Our obligations under the warranty are backed by Casava, an insurer licensed by the National "
-        "Insurance Commission (NAICOM). Your Ogbon agreement sets out what is covered, the limits, the excess and the "
+        "plan's limit. For customers in Africa, our obligations under the warranty are backed by Casava, an insurer "
+        "licensed by the National Insurance Commission (NAICOM) in Nigeria. For customers in the US and UK, they will "
+        "be backed by insurers licensed in those countries. Your Ogbon agreement sets out what is covered, the limits, "
+        "the currency, the excess and the "
         "exclusions. You'll get the full warranty terms before you sign.",
         "To stay covered, keep the six basics in place, fix critical issues by their due date or agree a new date with "
         "us before it passes, and report incidents to us within 72 hours.",

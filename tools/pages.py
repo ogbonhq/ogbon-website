@@ -10,8 +10,8 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "tools"))
 import legal  # noqa: E402
-CSS_V = "20261127-3"
-JS_V = "20261127-2"
+CSS_V = "20261128-6"
+JS_V = "20261128-5"
 OG_V = "9"
 SITE = "https://ogbon.com"
 TAGLINE = "Cyber cover with security built in."
@@ -35,6 +35,28 @@ def icon(name, cls="icon"):
     return f'<svg class="{cls}" aria-hidden="true"><use href="/assets/icons.svg?v={CSS_V}#{name}"/></svg>'
 
 
+def region(africa, other):
+    """Text that differs by visitor region: Africa sees the first, everyone else the second.
+    The <html data-region> attribute (set from the visitor's country, see script.js) picks one with CSS."""
+    return f'<span class="r-africa">{africa}</span><span class="r-global">{other}</span>'
+
+
+def short_usd(v):
+    for div, suf in ((1e9, "bn"), (1e6, "m"), (1e3, "k")):
+        if v >= div:
+            return f"${v / div:g}{suf}"
+    return f"${v:g}"
+
+
+def money(usd, full=False, ngn=None):
+    """An amount set in US dollars. script.js shows it in the visitor's own currency (GBP in the UK, NGN in
+    Nigeria). Naira amounts are set separately (ngn), not converted: Nigerian plans keep their own limits."""
+    text = f"${usd:,.0f}" if full else short_usd(usd)
+    fmt = ' data-fmt="full"' if full else ""
+    naira = f' data-ngn="{ngn:g}"' if ngn else ""
+    return f'<span class="money" data-usd="{usd:g}"{naira}{fmt}>{text}</span>'
+
+
 # Links are absolute so the 404 page works at any depth.
 NAV = [
     ("/how-it-works", "How it works"),
@@ -52,13 +74,20 @@ PRODUCTS = [
 FOOTER = [
     ("Product", [("/pentesting", "Penetration testing"), ("/ogbon-1", "Security LLM"), ("/cover", "Cover"), ("/how-it-works", "How it works"), ("/pricing", "Pricing")]),
     ("Company", [("/about", "About"), ("/report", "Free security report"), ("/incident", "Under attack?")]),
-    ("Legal", [("/privacy", "Privacy"), ("/terms", "Terms")]),
+    ("Legal", [("/cover-terms", "Cover terms"), ("/privacy", "Privacy"), ("/terms", "Terms")]),
 ]
-LEGAL = (
+LEGAL_AFRICA = (
     "Ogbon is not an insurer, and the cover in Ogbon plans is not an insurance policy. It is a warranty from "
-    "Ogbon Security Limited, backed by Casava, an insurer licensed by the National Insurance Commission (NAICOM). "
+    "Ogbon Security Limited. For customers in Africa, the warranty is backed by Casava, an insurer licensed by the "
+    "National Insurance Commission (NAICOM) in Nigeria. Terms, limits and exclusions apply."
+)
+LEGAL_GLOBAL = (
+    "Ogbon is not an insurer, and the cover in Ogbon plans is not an insurance policy. It is a warranty from "
+    "Ogbon Security Limited. In the US and UK, it will be backed by insurers licensed in those countries. "
     "Terms, limits and exclusions apply."
 )
+BACKED = ('<p class="backed{cls} r-africa">Cover in Africa backed by <a href="https://casava.com/" target="_blank" rel="noopener" '
+          'aria-label="Casava (opens in a new tab)"><img src="/assets/partners/casava.png" alt="Casava" width="112" height="27"></a></p>')
 
 
 def nav(current):
@@ -113,15 +142,16 @@ def footer():
       <div class="footer-top">
         <div class="footer-brand">
           <p>{TAGLINE}</p>
-          <p class="footer-contact"><a href="mailto:secure@ogbon.com">secure@ogbon.com</a><br><a href="tel:+2347107144122">0710 714 4122</a></p>
+          <p class="footer-contact"><a href="mailto:secure@ogbon.com">secure@ogbon.com</a><span class="r-africa"><br><a href="tel:+2347107144122">+234 710 714 4122</a></span></p>
           {SOCIAL}
         </div>
 {cols}
       </div>
       <a class="footer-mark" href="/" aria-label="Ogbon home">{LOGO}</a>
       <div class="footer-legal">
-        <p>{tbd(LEGAL)}</p>
-        <p>© 2026 Ogbon Security Limited. Lagos, Nigeria.</p>
+        <p class="r-africa">{LEGAL_AFRICA}</p>
+        <p class="r-global">{LEGAL_GLOBAL}</p>
+        <p>© 2026 Ogbon Security Limited.</p>
       </div>
     </div>
   </footer>"""
@@ -133,7 +163,7 @@ def page(slug, title, desc, body, robots="index, follow", ld=""):
     d = html.escape(desc, quote=True)
     current = slug
     return f"""<!doctype html>
-<html lang="en-NG">
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -144,6 +174,9 @@ def page(slug, title, desc, body, robots="index, follow", ld=""):
     function gtag(){{dataLayer.push(arguments);}}
     gtag('js', new Date());
     dataLayer.push({{'gtm.start': new Date().getTime(), event: 'gtm.js'}});
+  </script>
+  <script>
+    try {{ var rg = new URLSearchParams(location.search).get("region") || localStorage.getItem("ogbon-region"); if (rg !== "africa" && rg !== "global") rg = (Intl.DateTimeFormat().resolvedOptions().timeZone || "").indexOf("Africa/") === 0 ? "africa" : "global"; document.documentElement.dataset.region = rg; }} catch (e) {{}}
   </script>
   <title>{t}</title>
   <meta name="description" content="{d}">
@@ -157,7 +190,7 @@ def page(slug, title, desc, body, robots="index, follow", ld=""):
   <link rel="manifest" href="/site.webmanifest">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Ogbon">
-  <meta property="og:locale" content="en_NG">
+  <meta property="og:locale" content="en_GB">
   <meta property="og:url" content="{url}">
   <meta property="og:title" content="{t}">
   <meta property="og:description" content="{d}">
@@ -210,9 +243,13 @@ def cta(head="Start with a free security report",
 # ---------------------------------------------------------------- Home
 FAQ = [
     ("Is Ogbon an insurance company?",
-     "No. Ogbon is a cybersecurity company. The cover in every plan is a warranty from Ogbon: if an attack gets through while you're protected, we pay for the loss, up to your plan's limit. Our promise is backed by Casava, an insurer licensed by NAICOM, and we manage your claim with you from start to finish."),
+     "No. Ogbon is a cybersecurity company. The cover in every plan is a warranty from Ogbon: if an attack gets through while you're protected, we pay for the loss, up to your plan's limit. We manage your claim with you from start to finish."),
     ("Is the cover an insurance policy?",
-     "No. It's a warranty from Ogbon, backed by Casava, an insurer licensed by NAICOM. You'll get the full warranty terms before you sign."),
+     ("No. It's a warranty from Ogbon, backed by Casava, an insurer licensed by NAICOM in Nigeria. You'll get the full warranty terms before you sign.",
+      "No. It's a warranty from Ogbon. In the US and UK it will be backed by insurers licensed in each country. You'll get the full warranty terms before you sign.")),
+    ("Which countries does Ogbon work in?",
+     ("The US, the UK and across Africa. Security work, ogbon-1 and incident response are the same everywhere. Cover for customers in Africa is backed by Casava.",
+      "The US and the UK. Security work, ogbon-1 and incident response start straight away. Cover will be backed by insurers licensed in each country. Contact sales for start dates.")),
     ("Do you install anything on our laptops?",
      "Only if you turn on endpoint protection for laptops and servers. Everything else connects read-only to your websites, apps, APIs, cloud and internal systems."),
     ("What data can Ogbon see?",
@@ -227,10 +264,16 @@ FAQ = [
      "Yes, up to your plan's limit, on every plan."),
     ("What if we can't fix something in time?",
      "Tell us before the due date and we'll agree a new date or another fix. Your cover is only affected if a critical issue is left open past its due date without telling us."),
+    ("Which currencies do you work in?",
+     ("US dollars, pounds sterling and naira. Your plan, cover limits and reports are set in the currency you choose.",
+      "US dollars and pounds sterling. Your plan, cover limits and reports are set in the currency you choose.")),
     ("How quickly are claims paid?",
-     "We aim to decide within 15 working days of getting all documents, and to pay within 5 working days of approval."),
-    ("Does Ogbon help with CBN and NDPA compliance?",
-     "Yes. Growth and Scale plans include audit evidence mapped to the CBN risk-based cybersecurity framework and the Nigeria Data Protection Act."),
+     "Small, clear claims are paid the same day: incident response costs, and confirmed losses up to [$10,000]. For larger claims we decide within 15 working days of getting all documents, and pay within 5 working days of approval. People decide every claim, and a person explains any refusal in writing."),
+    ("What is the security giveback?",
+     "If the part of your price that pays for cover isn't used for claims during the year, we give [20%] of it back as extra pentests, fixes or a discount at renewal. We earn more when you stay safe, so we have no reason to refuse a fair claim."),
+    ("Does Ogbon help with compliance?",
+     ("Yes. Growth and Scale plans include audit evidence mapped to SOC 2, ISO 27001, PCI DSS, GDPR and UK GDPR, the Nigeria Data Protection Act and the CBN risk-based cybersecurity framework.",
+      "Yes. Growth and Scale plans include audit evidence mapped to SOC 2, ISO 27001, PCI DSS, GDPR and UK GDPR.")),
     ("Can we cancel?",
      "Yes, at the end of any billing period. We don't refund cover you haven't used."),
 ]
@@ -238,12 +281,13 @@ FAQ = [
 faq_html = "\n".join(
     f"""          <details>
             <summary>{q}{icon("plus")}</summary>
-            <p>{tbd(a)}</p>
+            <p>{region(tbd(a[0]), tbd(a[1])) if isinstance(a, tuple) else tbd(a)}</p>
           </details>""" for q, a in FAQ
 )
+# Search engines get the version for everyone outside Africa.
 faq_ld = ",\n".join(
     "          " + json.dumps({"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}}, ensure_ascii=False)
-    for q, a in FAQ if "[" not in a
+    for q, a in ((q, a[1] if isinstance(a, tuple) else a) for q, a in FAQ) if "[" not in a
 )
 
 home = f"""    <div class="frame">
@@ -255,14 +299,14 @@ home = f"""    <div class="frame">
             <a class="btn btn-light" href="/report">Get free security report</a>
             <a class="btn btn-ghost-light" data-email="Sales" href="#contact">Contact sales</a>
           </div>
-          <p class="backed backed-pill">Cover backed by <a href="https://casava.com/" target="_blank" rel="noopener" aria-label="Casava (opens in a new tab)"><img src="/assets/partners/casava.png" alt="Casava" width="112" height="27"></a></p>
+          {BACKED.format(cls=" backed-pill")}
         </div>
         <div class="hero-side">
           <figure class="dash" aria-label="Example Ogbon dashboard">
             <div class="dash-top"><span class="dash-domain">yourcompany.com</span><span class="status status-ok">Cover active</span></div>
             <div class="dash-stats">
               <div class="dash-stat"><p>Security score</p><b>72 / 100</b></div>
-              <div class="dash-stat"><p>Covered up to</p><b>₦75m</b></div>
+              <div class="dash-stat"><p>Covered up to</p><b>{money(1_000_000, ngn=75_000_000)}</b></div>
             </div>
             <div class="dash-list">
               <p>Today's checks</p>
@@ -280,13 +324,13 @@ home = f"""    <div class="frame">
     </div>
 
     <!-- Customer logos: add once there are customers who agree to be named.
-         Line above the logos: "Used by fintechs, lenders and growing organisations across Nigeria" -->
+         Line above the logos: "Used by digital businesses" -->
 
     <section class="section" aria-labelledby="attacks-title">
       <div class="wrap">
         <div class="head">
           <h2 class="h2" id="attacks-title">Most attacks start with <span>something&nbsp;small</span></h2>
-          <p class="lead lead-split"><strong>Attackers start with your website and app.</strong> They look for one place that trusts them too much, then use it to reach customer data or move money.</p>
+          <p class="lead lead-split"><strong>Attackers start with your website and app.</strong> They look for one place that trusts them too much, then use it to reach customer data, money or the systems your business runs&nbsp;on.</p>
         </div>
         <ul class="cards cards-4" aria-label="Common ways in">
           <li class="card card-illus">{art("apis", "sm")}<h3>APIs and integrations</h3><p>Public APIs and partner connections that expose more data or actions than they should.</p></li>
@@ -306,7 +350,7 @@ home = f"""    <div class="frame">
           <article class="card card-illus">{art("checks")}<h3>Daily checks</h3><p>Ogbon checks your websites, apps, APIs, cloud accounts and internal systems every day, from the outside like an attacker and from the inside with read-only&nbsp;access.</p></article>
           <article class="card card-illus">{art("score")}<h3>Security score</h3><p>One score for your whole organisation, updated every day. It goes up as your team fixes issues, and organisations that fix more pay less at&nbsp;renewal.</p></article>
           <article class="card card-illus">{art("fixlist")}<h3>Fix list</h3><p>We rank what needs fixing by how much money it puts at risk, and give your team clear steps for each&nbsp;item.</p></article>
-          <article class="card card-illus">{art("response")}<h3>Incident response</h3><p>Report a problem on WhatsApp or from your dashboard at any time. A responder calls you back within an&nbsp;hour.</p></article>
+          <article class="card card-illus">{art("response")}<h3>Incident response</h3><p>Report a problem {region("on WhatsApp", "by email")} or from your dashboard at any time. A responder calls you back within an&nbsp;hour.</p></article>
           <article class="card card-illus">{art("cover")}<h3>Cover</h3><p>If an attack gets through while you're protected, we pay for the money lost, the investigation and the cost of getting back to&nbsp;work.</p></article>
           <article class="card card-illus">{art("model")}<h3>ogbon-1 security model</h3><p>Your engineering and IT teams get ogbon-1, our 30B security model. It finds and fixes gaps across your laptops, code, cloud and&nbsp;systems.</p><a class="link" href="/ogbon-1">About ogbon-1 {icon("arrow")}</a></article>
         </div>
@@ -316,19 +360,19 @@ home = f"""    <div class="frame">
     <section class="section section-tight" aria-labelledby="naira-title">
       <div class="wrap split">
         <div>
-          <h2 class="h2" id="naira-title">See your risk <span>in&nbsp;naira</span></h2>
-          <p class="lead">Every finding comes with a naira amount: what it could cost you this year, and how much fixing it&nbsp;saves.</p>
+          <h2 class="h2" id="naira-title">See your risk <span>as a&nbsp;cost</span></h2>
+          <p class="lead">Every finding comes with an amount in {region("dollars, pounds or naira", "dollars or pounds")}: what it could cost you this year, and how much fixing it&nbsp;saves.</p>
           <a class="btn btn-primary" href="/report">Get your free report</a>
         </div>
         <div class="panel">
           <figure class="loss" aria-label="Example from an Ogbon report">
             <p class="loss-label">Expected loss this year</p>
-            <p class="loss-num">₦48,000,000</p>
+            <p class="loss-num">{money(120_000, True, 48_000_000)}</p>
             <div class="loss-fix">
               <span class="badge">{icon("lock")}</span>
               <div>
                 <p>Turn on two-step login for cloud and admin accounts</p>
-                <span class="loss-save">Reduces expected loss by ₦19,000,000</span>
+                <span class="loss-save">Reduces expected loss by {money(45_000, True, 19_000_000)}</span>
               </div>
             </div>
           </figure>
@@ -343,7 +387,7 @@ home = f"""    <div class="frame">
             <li><span class="badge">{icon("monitor")}</span><span>Daily checks<small>Websites, apps, APIs, cloud and internal systems</small></span></li>
             <li><span class="badge badge-blue">{icon("code")}</span><span>Every change reviewed<small>ogbon-1 on each pull request</small></span></li>
             <li><span class="badge badge-pink">{icon("phone")}</span><span>Responder on the line<small>Within an hour of your report</small></span></li>
-            <li><span class="badge badge-lilac">{icon("naira")}</span><span>Loss paid<small>Up to your plan's limit</small></span></li>
+            <li><span class="badge badge-lilac">{icon("money")}</span><span>Loss paid<small>Small, clear claims the same day</small></span></li>
           </ul>
         </div>
         <div>
@@ -351,12 +395,12 @@ home = f"""    <div class="frame">
           <ul class="checks">
             <li><span class="tick">{icon("check")}</span>Money stolen after attackers take over your accounts, systems or API keys</li>
             <li><span class="tick">{icon("check")}</span>Ransomware investigation and recovery</li>
-            <li><span class="tick">{icon("check")}</span>Data breach response, including notifying customers and the NDPC</li>
+            <li><span class="tick">{icon("check")}</span>Data breach response, including notifying customers and data protection regulators</li>
             <li><span class="tick">{icon("check")}</span>Income lost while your systems are down</li>
             <li><span class="tick">{icon("check")}</span>Incident responders from the first call</li>
           </ul>
           <a class="link" href="/cover">See what's covered {icon("arrow")}</a>
-          <p class="backed">Cover backed by <a href="https://casava.com/" target="_blank" rel="noopener" aria-label="Casava (opens in a new tab)"><img src="/assets/partners/casava.png" alt="Casava" width="112" height="27"></a></p>
+          {BACKED.format(cls="")}
         </div>
       </div>
     </section>
@@ -365,17 +409,17 @@ home = f"""    <div class="frame">
       <div class="wrap">
         <div class="cards">
           <article class="card">
-            <span class="badge badge-lilac">{icon("naira")}</span>
-            <h2 class="h2" id="who-title" style="margin-top:18px">Built for organisations that move money</h2>
-            <p class="lead">Ogbon is built for fintechs, banks, lenders, microfinance banks, payment companies, enterprises and government agencies. If you hold customer money or customer data, Ogbon is for&nbsp;you.</p>
+            <span class="badge badge-lilac">{icon("money")}</span>
+            <h2 class="h2" id="who-title" style="margin-top:18px">Built for businesses that run online</h2>
+            <p class="lead">Ogbon is for any business that would lose money if its website, app or systems were attacked: software companies, online shops, marketplaces, fintechs, and healthcare and logistics companies, in {region("the US, the UK and across&nbsp;Africa", "the US and the&nbsp;UK")}.</p>
             <ul class="tags" aria-label="Who uses Ogbon">
-              <li>Banks</li><li>Fintechs</li><li>Lenders</li><li>Payment companies</li><li>Enterprises</li><li>Government</li>
+              <li>Software and SaaS</li><li>E-commerce</li><li>Marketplaces</li><li>Fintech</li><li>Healthcare</li><li>Logistics</li>
             </ul>
           </article>
           <article class="card">
             <span class="badge badge-pink">{icon("shield")}</span>
             <h2 class="h2" style="margin-top:18px">Priced on how secure you are</h2>
-            <p class="lead">Insurers usually price cyber cover from a yearly questionnaire. We check your systems every day, so your price reflects how you're really set up. Fix more, and you pay less at&nbsp;renewal.</p>
+            <p class="lead">Insurers usually price cyber cover from a yearly questionnaire. We check your systems every day, so your price reflects how you're really set up. Fix more, and you pay less at renewal. If you don't claim, part of your cover money comes back as security&nbsp;work.</p>
           </article>
         </div>
       </div>
@@ -384,13 +428,14 @@ home = f"""    <div class="frame">
     <section class="section section-tight" aria-labelledby="audit-title">
       <div class="wrap split">
         <div>
-          <h2 class="h2" id="audit-title">Ready for CBN and <span>NDPA&nbsp;audits</span></h2>
-          <p class="lead">Download evidence mapped to the CBN risk-based cybersecurity framework and the Nigeria Data Protection Act whenever an auditor asks for&nbsp;it.</p>
+          <h2 class="h2" id="audit-title">Ready for SOC 2, ISO 27001 and <span>GDPR&nbsp;audits</span></h2>
+          <p class="lead">Download evidence mapped to the frameworks your customers, auditors and regulators ask for, whenever they ask for&nbsp;it.</p>
         </div>
         <div class="panel">
           <ul class="flow" aria-label="Audit evidence">
-            <li><span class="badge">{icon("file")}</span><span>CBN risk-based cybersecurity framework<small>Evidence pack, ready to download</small></span></li>
-            <li><span class="badge badge-pink">{icon("file")}</span><span>Nigeria Data Protection Act<small>Evidence pack, ready to download</small></span></li>
+            <li><span class="badge">{icon("file")}</span><span>SOC 2 and ISO 27001<small>Evidence pack, ready to download</small></span></li>
+            <li><span class="badge badge-pink">{icon("file")}</span><span>{region("GDPR, UK GDPR and the Nigeria Data Protection Act", "GDPR and UK GDPR")}<small>Evidence pack, ready to download</small></span></li>
+            <li><span class="badge badge-lilac">{icon("file")}</span><span>{region("PCI DSS and the CBN cybersecurity framework", "PCI DSS")}<small>Evidence pack, ready to download</small></span></li>
           </ul>
         </div>
       </div>
@@ -417,7 +462,7 @@ home_ld = f"""
         "@id": "{SITE}/#website",
         "url": "{SITE}/",
         "name": "Ogbon",
-        "inLanguage": "en-NG",
+        "inLanguage": "en",
         "publisher": {{ "@id": "{SITE}/#organization" }}
       }},
       {{
@@ -426,14 +471,13 @@ home_ld = f"""
         "name": "Ogbon",
         "legalName": "Ogbon Security Limited",
         "url": "{SITE}/",
-        "areaServed": "NG",
+        "areaServed": ["US", "GB", "Africa"],
         "sameAs": ["https://x.com/ogbonhq", "https://www.linkedin.com/company/ogbonhq", "https://github.com/ogbonhq", "https://www.instagram.com/ogbonhq"],
-        "contactPoint": {{ "@type": "ContactPoint", "contactType": "incident response", "telephone": "+234 710 714 4122", "email": "secure@ogbon.com", "areaServed": "NG", "availableLanguage": "en", "hoursAvailable": {{ "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"], "opens": "00:00", "closes": "23:59" }} }},
+        "contactPoint": {{ "@type": "ContactPoint", "contactType": "incident response", "email": "secure@ogbon.com", "areaServed": ["US", "GB", "Africa"], "availableLanguage": "en", "hoursAvailable": {{ "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"], "opens": "00:00", "closes": "23:59" }} }},
         "logo": "{SITE}/assets/icons/icon-512.png",
         "slogan": "{TAGLINE}",
-        "description": "Ogbon pays for the loss when a cyber attack gets through, and checks the systems of organisations in Nigeria every day to keep attackers out.",
+        "description": "Ogbon pays for the loss when a cyber attack gets through, and checks the systems of digital businesses every day to keep attackers out.",
         "email": "secure@ogbon.com",
-        "telephone": "+234 710 714 4122",
         "address": {{ "@type": "PostalAddress", "streetAddress": "14B Grace Anjous Street, Lekki Phase 1", "addressLocality": "Lekki", "addressRegion": "Lagos State", "addressCountry": "NG" }}
       }},
       {{
@@ -485,13 +529,30 @@ report = f"""    <div class="frame">
               <label for="f-industry">Industry</label>
               <select id="f-industry" name="industry" required>
                 <option value="" disabled selected>Choose</option>
+                <option>Software or SaaS</option>
+                <option>E-commerce</option>
+                <option>Marketplace</option>
                 <option>Fintech</option>
-                <option>Lender</option>
-                <option>Microfinance bank</option>
-                <option>Payment company</option>
+                <option>Healthcare</option>
+                <option>Logistics</option>
+                <option>Media</option>
                 <option>Other</option>
               </select>
             </div>
+          </div>
+          <div class="field">
+            <label for="f-country">Country</label>
+            <select id="f-country" name="country" required>
+              <option value="" disabled selected>Choose</option>
+              <option>United States</option>
+              <option>United Kingdom</option>
+              <option class="r-africa">Nigeria</option>
+              <option class="r-africa">Kenya</option>
+              <option class="r-africa">South Africa</option>
+              <option class="r-africa">Ghana</option>
+              <option class="r-africa">Another country in Africa</option>
+              <option>Somewhere else</option>
+            </select>
           </div>
           <button class="btn btn-primary" type="submit">Get my report</button>
           <p class="form-error" role="alert" hidden>Something went wrong. Please try again, or email us at secure@ogbon.com.</p>
@@ -500,7 +561,7 @@ report = f"""    <div class="frame">
         <div>
           <h2>What's in your report</h2>
           <ol class="numbered" style="margin-top:24px">
-            <li>Expected loss for the year, in naira, broken down by account takeover, ransomware, data breach and&nbsp;downtime.</li>
+            <li>Expected loss for the year, in your currency, broken down by account takeover, ransomware, data breach and&nbsp;downtime.</li>
             <li>Your five biggest risks, such as exposed admin pages, staff passwords in public leaks, public code with secret keys, or email that can be&nbsp;faked.</li>
             <li>What to fix first, and how much each fix reduces your expected&nbsp;loss.</li>
           </ol>
@@ -514,7 +575,7 @@ results = f"""    <div class="frame">
       <section class="page-hero" aria-labelledby="page-title">
         <div class="wrap">
           <p style="margin-top:0">Security report for {tbd("[domain]")}</p>
-          <h1 id="page-title">Your expected loss this year is <span>₦{tbd("[amount]")}</span></h1>
+          <h1 id="page-title">Your expected loss this year is <span>{tbd("[amount]")}</span></h1>
         </div>
       </section>
     </div>
@@ -522,10 +583,10 @@ results = f"""    <div class="frame">
     <section class="section">
       <div class="wrap">
         <div class="cards cards-4">
-          <article class="card"><span class="badge">{icon("key")}</span><h3>Account takeover</h3><p>₦{tbd("[amount]")}</p></article>
-          <article class="card"><span class="badge badge-pink">{icon("lock")}</span><h3>Ransomware</h3><p>₦{tbd("[amount]")}</p></article>
-          <article class="card"><span class="badge badge-lilac">{icon("file")}</span><h3>Data breach</h3><p>₦{tbd("[amount]")}</p></article>
-          <article class="card"><span class="badge badge-grey">{icon("clock")}</span><h3>Downtime</h3><p>₦{tbd("[amount]")}</p></article>
+          <article class="card"><span class="badge">{icon("key")}</span><h3>Account takeover</h3><p>{tbd("[amount]")}</p></article>
+          <article class="card"><span class="badge badge-pink">{icon("lock")}</span><h3>Ransomware</h3><p>{tbd("[amount]")}</p></article>
+          <article class="card"><span class="badge badge-lilac">{icon("file")}</span><h3>Data breach</h3><p>{tbd("[amount]")}</p></article>
+          <article class="card"><span class="badge badge-grey">{icon("clock")}</span><h3>Downtime</h3><p>{tbd("[amount]")}</p></article>
         </div>
       </div>
     </section>
@@ -541,9 +602,9 @@ results = f"""    <div class="frame">
         <div>
           <h2 class="h2">What to fix first</h2>
           <ol class="numbered" style="margin-top:24px">
-            <li>{tbd("[fix]")} · reduces expected loss by ₦{tbd("[amount]")}</li>
-            <li>{tbd("[fix]")} · reduces expected loss by ₦{tbd("[amount]")}</li>
-            <li>{tbd("[fix]")} · reduces expected loss by ₦{tbd("[amount]")}</li>
+            <li>{tbd("[fix]")} · reduces expected loss by {tbd("[amount]")}</li>
+            <li>{tbd("[fix]")} · reduces expected loss by {tbd("[amount]")}</li>
+            <li>{tbd("[fix]")} · reduces expected loss by {tbd("[amount]")}</li>
           </ol>
         </div>
       </div>
@@ -560,11 +621,11 @@ results = f"""    <div class="frame">
 
 # ---------------------------------------------------------------- How it works
 steps = [
-    ("Get your free security report", "Tell us your company domain. We check what attackers can see from outside and show you your biggest risks and what they could cost, in naira. Our team then walks you through it and recommends a&nbsp;plan."),
+    ("Get your free security report", "Tell us your company domain. We check what attackers can see from outside and show you your biggest risks and what they could cost&nbsp;you. Your report comes with a price. On Starter and Growth you can sign up online straight away, or talk it through with our&nbsp;team."),
     ("Connect your systems", "Connect your cloud accounts on AWS, Google Cloud or Azure, your code, and the internal systems you want covered, with read-only access. Install the Ogbon app on staff laptops, on Mac or Windows. Setup takes about an&nbsp;hour."),
     ("Fix what matters", "Ogbon lists the fixes that protect the most money. ogbon-1 prepares each fix, from a cloud setting to a code change, and your team approves it. Your score updates as you&nbsp;go."),
-    ("Get covered", "Once the basics are in place, including two-step login on admin accounts, payout approvals and backups, your cover starts the next day, backed by&nbsp;Casava."),
-    ("We keep watch", "Ogbon checks your systems every day and spots attacks as they happen. Report a problem on WhatsApp or from your dashboard at any time. A responder calls back within an hour, and we handle your&nbsp;claim."),
+    ("Get covered", "Once the basics are in place, including two-step login on admin accounts, payment approvals and backups, your cover starts the next&nbsp;day."),
+    ("We keep watch", "Ogbon checks your systems every day and spots attacks as they happen. Report a problem " + region("on WhatsApp", "by email") + " or from your dashboard at any time. A responder calls back within an hour, and we handle your&nbsp;claim."),
 ]
 steps_html = "\n".join(
     f"""          <li class="step"><span class="step-num">{i}</span><div><h2>{h}</h2><p>{p}</p></div></li>"""
@@ -595,13 +656,13 @@ how = f"""    <div class="frame">
 
 # ---------------------------------------------------------------- Cover limits (cover and pricing pages)
 COVER_LIMITS = [
-    ("Total cover per year", "₦25m<small>about $17k</small>", "₦75m<small>about $50k</small>", "₦200m<small>about $133k</small>"),
-    ("Stolen funds (account takeover, leaked API keys)", "₦12.5m", "₦37.5m", "₦100m"),
-    ("Lost income while systems are down", "₦5m", "₦15m", "₦40m"),
+    ("Total cover per year", money(250_000, ngn=25e6), money(1_000_000, ngn=75e6), money(3_000_000, ngn=200e6)),
+    ("Stolen funds (account takeover, leaked API keys)", money(125_000, ngn=12.5e6), money(500_000, ngn=37.5e6), money(1_500_000, ngn=100e6)),
+    ("Lost income while systems are down", money(50_000, ngn=5e6), money(200_000, ngn=15e6), money(600_000, ngn=40e6)),
     ("Ransomware, data breach, legal and notification costs", "Up to the full limit", "Up to the full limit", "Up to the full limit"),
-    ("Customer pays first (excess)", "₦1m", "₦2.5m", "₦7.5m"),
+    ("Customer pays first (excess)", money(10_000, ngn=1e6), money(25_000, ngn=2.5e6), money(75_000, ngn=7.5e6)),
     ("Incident response in the first 72 hours", "No excess", "No excess", "No excess"),
-    ("Option to buy higher cover", "Up to ₦50m", "Up to ₦150m", "Up to ₦500m, or custom"),
+    ("Option to buy higher cover", "Up to " + money(500_000, ngn=50e6), "Up to " + money(2_000_000, ngn=150e6), "Up to " + money(7_500_000, ngn=500e6) + ", or custom"),
 ]
 
 
@@ -631,7 +692,7 @@ def limits_table():
 rows = [
     ("Attackers took over an account, a system or an API key and stole money", "The money lost, up to your plan's limit"),
     ("Ransomware locked your systems", "Investigation, recovery and restoring your data"),
-    ("Customer or staff data was leaked", "Investigation, legal advice, notifying customers and the NDPC, and regulatory costs where the law allows"),
+    ("Customer or staff data was leaked", "Investigation, legal advice, notifying customers and data protection regulators, and regulatory costs where the law allows"),
     ("Your systems went down after an attack", "Income lost after the first 12 hours"),
     ("Any covered incident", "Incident responders from the first call"),
 ]
@@ -650,7 +711,7 @@ basics = [
     "Ogbon is connected to your websites, apps, APIs, cloud and code",
     "Two-step login is on for all admin and cloud accounts",
     "No critical issue is left open past its due date",
-    "Payouts above your set limit need two approvals",
+    "Payments above your set limit need two approvals",
     "Backups are kept where attackers can't change them, and tested every quarter",
     "Incidents are reported to us within 72 hours",
 ]
@@ -659,8 +720,8 @@ cover = f"""    <div class="frame">
       <section class="page-hero" aria-labelledby="page-title">
         <div class="wrap">
           <h1 id="page-title">Cyber cover, included in <span>every&nbsp;plan</span></h1>
-          <p>If an attack gets through while you're protected by Ogbon, we pay for the loss. Cover is a warranty from Ogbon, backed by Casava, an insurer licensed by&nbsp;NAICOM.</p>
-          <p class="backed backed-pill">Cover backed by <a href="https://casava.com/" target="_blank" rel="noopener" aria-label="Casava (opens in a new tab)"><img src="/assets/partners/casava.png" alt="Casava" width="112" height="27"></a></p>
+          <p>If an attack gets through while you're protected by Ogbon, we pay for the loss. Cover is a warranty from Ogbon, backed by a licensed insurer in each&nbsp;country.</p>
+          {BACKED.format(cls=" backed-pill")}
         </div>
       </section>
     </div>
@@ -698,6 +759,36 @@ cover = f"""    <div class="frame">
       </div>
     </section>
 
+    <section class="section section-tight" id="claims" aria-labelledby="claims-title">
+      <div class="wrap">
+        <div class="head head-left">
+          <h2 class="h2" id="claims-title">Claims, paid <span>fast</span></h2>
+          <p class="lead">We've been checking your systems every day, so we already hold most of the evidence a claim&nbsp;needs.</p>
+        </div>
+        <div class="cards cards-3">
+          <article class="card"><span class="badge">{icon("clock")}</span><h3>Same day for small claims</h3><p>{tbd("Incident response costs, and confirmed losses up to [$10,000], are paid the day you claim.")}</p></article>
+          <article class="card"><span class="badge badge-pink">{icon("file")}</span><h3>Larger claims in weeks</h3><p>A decision within 15 working days of getting all documents, and payment within 5 working days of&nbsp;approval.</p></article>
+          <article class="card"><span class="badge badge-lilac">{icon("chat")}</span><h3>Decided by people</h3><p>AI helps us gather the evidence. People decide every claim, and a person explains any refusal in&nbsp;writing.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-tight" id="giveback" aria-labelledby="giveback-title">
+      <div class="wrap split">
+        <div>
+          <h2 class="h2" id="giveback-title">The security <span>giveback</span></h2>
+          <p class="lead">{tbd("If the part of your price that pays for cover isn't used for claims during the year, we give [20%] of it back to you. We earn more when you stay safe, so we have no reason to refuse a fair claim.")}</p>
+        </div>
+        <div class="panel panel-pink">
+          <ul class="flow" aria-label="How the giveback can be used">
+            <li><span class="badge">{icon("shield")}</span><span>Extra pentests<small>On the systems you choose</small></span></li>
+            <li><span class="badge badge-blue">{icon("code")}</span><span>Fixes done for you<small>By our security team</small></span></li>
+            <li><span class="badge badge-lilac">{icon("money")}</span><span>A lower price<small>Taken off your renewal</small></span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
     <section class="section section-tight" aria-labelledby="basics-title">
       <div class="wrap">
         <div class="head head-left">
@@ -708,22 +799,79 @@ cover = f"""    <div class="frame">
 {basics_html}
         </ol>
         <div class="note"><span class="badge badge-blue">{icon("clock")}</span><p>If something falls behind, we'll tell you and give you time to fix it before it affects your&nbsp;cover.</p></div>
-        <p class="fine">Cover is a warranty under your Ogbon agreement, not an insurance policy. You'll get the full warranty terms before you&nbsp;sign.</p>
+        <p class="fine">Cover is a warranty under your Ogbon agreement, not an insurance policy. {region("For customers in Africa it is backed by Casava, an insurer licensed by NAICOM in Nigeria.", "In the US and UK it will be backed by insurers licensed in each country; contact sales for start dates.")} You'll get the full warranty terms before you&nbsp;sign.</p>
+        <p class="fine"><a class="link" href="/cover-terms">Read the cover terms in plain words {icon("arrow")}</a></p>
       </div>
     </section>
 {cta()}
 """
 
+# ---------------------------------------------------------------- Cover terms, in plain words
+COVER_TERMS_INTRO = (
+    "This is what your Ogbon cover promises, in plain words. Your Ogbon agreement has the full legal wording, and it "
+    "wins if the two ever differ. You'll get it before you sign."
+)
+COVER_TERMS = [
+    ("What the cover is", [
+        "Cover is a warranty from Ogbon Security Limited, included in every Ogbon plan. It is not an insurance policy, "
+        "and Ogbon is not an insurer.",
+        "For customers in Africa, our promise is backed by Casava, an insurer licensed by the National Insurance "
+        "Commission (NAICOM) in Nigeria. For customers in the US and UK, it will be backed by insurers licensed in those "
+        "countries. Contact sales for start dates.",
+    ]),
+    ("What we pay for", [[f"{a}: {b[0].lower() + b[1:]}." for a, b in rows]]),
+    ("How much we pay", [
+        "Each plan has a total limit for the year, and lower limits for stolen money and lost income. The limits for "
+        'each plan are on the <a class="link" href="/cover#limits">cover page</a>, in the currency your plan is billed in.',
+        "You pay the first part of each loss (the excess). There is no excess for incident response in the first 72 hours.",
+    ]),
+    ("What we don't pay for", [[e + "." for e in excl]]),
+    ("Staying covered", [
+        "Your cover depends on six basics. Each one shows as green or red on your dashboard:",
+        [b + "." for b in basics],
+        "If something falls behind, we'll tell you and give you time to fix it before it affects your cover.",
+    ]),
+    ("Making a claim", [
+        [
+            "Tell us within 72 hours of finding an attack, " + region("on WhatsApp, by phone", "by email") + " or from your dashboard.",
+            "We've been checking your systems every day, so we already hold most of the evidence. We only ask for what we don't have.",
+            "Small, clear claims are paid the same day: incident response costs, and confirmed losses up to [$10,000].",
+            "For larger claims we decide within 15 working days of getting all documents, and pay within 5 working days of approval.",
+            "People decide every claim. If we refuse all or part of a claim, a person explains why in writing.",
+            "If you disagree, someone who wasn't involved in the first decision reviews it. [Independent dispute route].",
+        ],
+    ]),
+    ("The security giveback", [
+        "If the part of your price that pays for cover isn't used for claims during the year, we give [20%] of it back "
+        "to you. You choose how to use it: extra pentests, fixes done by our security team, or money off your renewal.",
+    ]),
+    ("Your price", [
+        "Your price depends on your team size, industry and security score. Fix more, and you pay less at renewal. If "
+        "your score drops, we tell you first and give you time to fix things before it affects your renewal price.",
+    ]),
+    ("Changing or ending your cover", [
+        [
+            "You can move to a bigger plan at any time. Your new limits start the same day, and your score and history carry over.",
+            "You can cancel at the end of any billing period. Your cover ends when your plan ends.",
+            "Attacks that started before your cover began aren't covered.",
+        ],
+    ]),
+]
+
+
 # ---------------------------------------------------------------- Pricing
 YES = f'<span class="yes" aria-label="Included">{icon("check")}</span>'
 NO = '<span class="no" aria-label="Not included">·</span>'
 plan_rows = [
-    ("Total cover per year", "₦25m", "₦75m", "₦200m"),
+    ("Total cover per year", money(250_000, ngn=25e6), money(1_000_000, ngn=75e6), money(3_000_000, ngn=200e6)),
     ("Daily monitoring and fix list", YES, YES, YES),
     ("Website, app, API and cloud checks", YES, YES, YES),
     ("ogbon-1 and Ogbon Harness for engineering and IT teams", YES, YES, YES),
     ("Incident response, 24/7", YES, YES, YES),
-    ("Audit evidence for CBN and NDPA", NO, YES, YES),
+    ("Small claims paid the same day", YES, YES, YES),
+    ("Security giveback in years without a claim", YES, YES, YES),
+    ("Sign up online, no sales call", YES, YES, NO),
+    ("Audit evidence for SOC 2, ISO 27001, GDPR" + region(" and NDPA", ""), NO, YES, YES),
     ("Named security adviser", NO, NO, YES),
 ]
 plan_html = "\n".join(
@@ -764,7 +912,7 @@ pricing = f"""    <div class="frame">
             </tfoot>
           </table>
         </div>
-        <p class="fine">Your price depends on your team size, industry and security score. Companies that fix more pay less at&nbsp;renewal.</p>
+        <p class="fine">{tbd("Your price depends on your team size, industry and security score. Move up a plan as you grow: your score and history carry over, and your new limits start the same day.")}</p>
         <div class="note" style="margin-top:32px;align-items:center;justify-content:space-between;flex-wrap:wrap">
           <p>Have more than 500 staff or need a higher cover limit? Contact sales for a custom&nbsp;plan.</p>
           <a class="btn btn-primary btn-sm" data-email="Sales: custom plan" href="#contact">Contact sales</a>
@@ -787,7 +935,8 @@ timeline = [
     ("A responder calls you back", "Within 1 hour"),
     ("Investigators start work", "Within 4 hours"),
     ("You get the investigation report", "Within 10 working days"),
-    ("Claim decision", "Within 15 working days of full documents"),
+    ("Small, clear claims paid", "The same day"),
+    ("Larger claims decided", "Within 15 working days of full documents"),
     ("Payment", "Within 5 working days of approval"),
 ]
 tl_html = "\n".join(f"              <tr><th scope=\"row\">{a}</th><td>{b}</td></tr>" for a, b in timeline)
@@ -803,8 +952,9 @@ incident = f"""    <div class="frame">
     <section class="section">
       <div class="wrap">
         <div class="contact-row">
-          <div class="contact"><span class="badge">{icon("chat")}</span><p>WhatsApp</p><b><a href="https://wa.me/2347107144122">0710 714 4122</a></b></div>
-          <div class="contact"><span class="badge badge-pink">{icon("phone")}</span><p>Phone</p><b><a href="tel:+2347107144122">0710 714 4122</a></b></div>
+          <div class="contact r-africa"><span class="badge">{icon("chat")}</span><p>WhatsApp</p><b><a href="https://wa.me/2347107144122">+234 710 714 4122</a></b></div>
+          <div class="contact r-africa"><span class="badge badge-pink">{icon("phone")}</span><p>Phone</p><b><a href="tel:+2347107144122">+234 710 714 4122</a></b></div>
+          <div class="contact r-global"><span class="badge">{icon("chat")}</span><p>Email</p><b><a href="mailto:secure@ogbon.com?subject=Under%20attack">secure@ogbon.com</a></b></div>
           <div class="contact"><span class="badge badge-lilac">{icon("monitor")}</span><p>Or report it from your</p><b><a href="https://my.ogbon.com">Ogbon dashboard</a></b></div>
         </div>
         <p class="available">Available 24 hours a day, 7 days a week</p>
@@ -814,7 +964,7 @@ incident = f"""    <div class="frame">
     <section class="section section-tight">
       <div class="wrap cards" style="align-items:start">
         <article class="card">
-          <span class="badge badge-pink">{icon("naira")}</span>
+          <span class="badge badge-pink">{icon("money")}</span>
           <h2 class="h2" style="margin-top:18px;font-size:26px">If money has left your accounts</h2>
           <ol class="numbered" style="margin-top:24px">
             <li>Call your bank and ask them to freeze or recall the transfer.</li>
@@ -857,7 +1007,7 @@ about = f"""    <div class="frame">
       <section class="page-hero theme-deep" aria-labelledby="page-title">
         <div class="wrap">
           <h1 id="page-title">About <span>Ogbon</span></h1>
-          <p>We spent five years inside Africa's financial institutions. <br class="br-wide">Now we use what we learned to protect&nbsp;organisations.</p>
+          <p>We spent five years inside more than 100 financial institutions. <br class="br-wide">Now we use what we learned to protect digital&nbsp;businesses.</p>
         </div>
       </section>
     </div>
@@ -892,14 +1042,14 @@ about = f"""    <div class="frame">
             <div class="prose">
               <p class="eyebrow">Why Ogbon</p>
               <h2 class="h2">So we built the protection we <span>wished&nbsp;existed</span></h2>
-              <p>Most organisations buy security and insurance separately. The security vendor doesn't pay when something goes wrong, and the insurer doesn't know how you're set up. Ogbon does both. We check your systems every day, ogbon-1 helps your teams find and fix gaps, and if an attack still gets through, we pay for the loss, backed by&nbsp;Casava.</p>
-              <p>Ogbon is based in Lagos. Ogbon means wisdom in&nbsp;Yoruba.</p>
+              <p>Most organisations buy security and insurance separately. The security vendor doesn't pay when something goes wrong, and the insurer doesn't know how you're set up. Ogbon does both. We check your systems every day, ogbon-1 helps your teams find and fix gaps, and if an attack still gets through, we pay for the&nbsp;loss.</p>
+              <p>Ogbon started in Lagos and works with businesses in {region("the US, the UK and across Africa", "the US and the UK")}. Ogbon means wisdom in&nbsp;Yoruba.</p>
             </div>
           </li>
         </ol>
         <div class="facts">
-          <article class="card"><span class="badge">{icon("shield")}</span><h2 style="margin-top:18px">Partners</h2><p class="backed"><a href="https://casava.com/" target="_blank" rel="noopener" aria-label="Casava (opens in a new tab)"><img src="/assets/partners/casava.png" alt="Casava" width="112" height="27"></a></p><p>Our cover warranty is backed by Casava, an insurer licensed by NAICOM, and by a reinsurer. Investigations are carried out by our own experts.</p></article>
-          <article class="card"><span class="badge badge-lilac">{icon("chat")}</span><h2 style="margin-top:18px">Contact</h2><p><a class="link" href="mailto:secure@ogbon.com">secure@ogbon.com</a><br><a href="tel:+2347107144122">0710 714 4122</a><br>14B Grace Anjous Street, Lekki Phase 1, Lekki, Lagos&nbsp;State</p></article>
+          <article class="card r-africa"><span class="badge">{icon("shield")}</span><h2 style="margin-top:18px">Partners</h2><p class="backed"><a href="https://casava.com/" target="_blank" rel="noopener" aria-label="Casava (opens in a new tab)"><img src="/assets/partners/casava.png" alt="Casava" width="112" height="27"></a></p><p>In Africa, our cover warranty is backed by Casava, an insurer licensed by NAICOM in Nigeria, and by a reinsurer. In the US and UK it will be backed by insurers licensed there. Investigations are carried out by our own experts.</p></article>
+          <article class="card"><span class="badge badge-lilac">{icon("chat")}</span><h2 style="margin-top:18px">Contact</h2><p><a class="link" href="mailto:secure@ogbon.com">secure@ogbon.com</a><span class="r-africa"><br><a href="tel:+2347107144122">+234 710 714 4122</a></span><br>14B Grace Anjous Street, Lekki Phase 1, Lekki, Lagos&nbsp;State</p></article>
         </div>
       </div>
     </section>
@@ -910,8 +1060,8 @@ about = f"""    <div class="frame">
 # ---------------------------------------------------------------- Penetration testing
 pt_steps = [
     ("Map everything you expose", "Ogbon finds your websites, apps, APIs, cloud services and forgotten subdomains, including the ones your team no longer tracks. Each one goes on a live inventory."),
-    ("Attack it like a real attacker", "ogbon-1 runs the test: it explores each system, tries the ways in that attackers use in Nigeria and across Africa, and chains small flaws into real attack paths. It runs in hours, not weeks."),
-    ("Prove every finding", "Our security team checks each finding by hand before it reaches you. You get only real, exploitable issues, each with proof, the steps to reproduce it and the naira it puts at&nbsp;risk."),
+    ("Attack it like a real attacker", "ogbon-1 runs the test: it explores each system, tries the ways in that attackers use today, and chains small flaws into real attack paths. It runs in hours, not weeks."),
+    ("Prove every finding", "Our security team checks each finding by hand before it reaches you. You get only real, exploitable issues, each with proof, the steps to reproduce it and the money it puts at&nbsp;risk."),
     ("Fix, then retest", "ogbon-1 prepares the fix and your team approves it. We retest straight away and close the finding when the fix holds. Your report and score update on their&nbsp;own."),
 ]
 pt_steps_html = "\n".join(
@@ -932,7 +1082,7 @@ pentesting = f"""    <div class="frame">
       <section class="page-hero theme-ink" aria-labelledby="page-title">
         <div class="wrap">
           <h1 id="page-title">AI pentesting, <span>proven by&nbsp;people</span></h1>
-          <p>ogbon-1 attacks your websites, apps, APIs and cloud the way a real attacker would, every day. Our security team proves each finding is real before it reaches you, with the naira it puts at&nbsp;risk.</p>
+          <p>ogbon-1 attacks your websites, apps, APIs and cloud the way a real attacker would, every day. Our security team proves each finding is real before it reaches you, with the money it puts at&nbsp;risk.</p>
           <div class="hero-actions">
             <a class="btn btn-light" data-email="Book a demo: penetration testing" href="#contact">Get a demo</a>
             <a class="btn btn-ghost-light" href="/report">Get free security report</a>
@@ -978,7 +1128,7 @@ pentesting = f"""    <div class="frame">
             <ul class="checks" style="margin-top:18px">
               <li><span class="tick">{icon("check")}</span>Only real, exploitable findings</li>
               <li><span class="tick">{icon("check")}</span>Proof and steps to reproduce each one</li>
-              <li><span class="tick">{icon("check")}</span>Ranked by the naira each one puts at risk</li>
+              <li><span class="tick">{icon("check")}</span>Ranked by the money each one puts at risk</li>
               <li><span class="tick">{icon("check")}</span>A fix ready to approve, and a retest when it ships</li>
             </ul>
           </article>
@@ -1025,8 +1175,8 @@ pentesting = f"""    <div class="frame">
         <div class="head"><h2 class="h2" id="reports-title">Reports for your engineers, your board and your <span>regulators</span></h2></div>
         <div class="cards cards-3">
           <article class="card"><h3 style="margin-top:0">For engineers</h3><p>Each finding with proof, the steps to reproduce it and a fix ready to&nbsp;review.</p></article>
-          <article class="card"><h3 style="margin-top:0">For leadership</h3><p>Your risk in naira, how it is changing, and what your team fixed this&nbsp;month.</p></article>
-          <article class="card"><h3 style="margin-top:0">For auditors</h3><p>A record of every test, finding, fix and retest, ready for CBN, NDPC and PCI DSS&nbsp;reviews.</p></article>
+          <article class="card"><h3 style="margin-top:0">For leadership</h3><p>Your risk in {region("dollars, pounds or naira", "dollars or pounds")}, how it is changing, and what your team fixed this&nbsp;month.</p></article>
+          <article class="card"><h3 style="margin-top:0">For auditors</h3><p>A record of every test, finding, fix and retest, ready for SOC 2, ISO 27001, PCI DSS{region(", GDPR and NDPA&nbsp;reviews", " and GDPR&nbsp;reviews")}.</p></article>
         </div>
       </div>
     </section>
@@ -1035,10 +1185,10 @@ pentesting = f"""    <div class="frame">
       <div class="wrap split">
         <div>
           <h2 class="h2" id="pt-cover-title">The only pentest that comes with <span>cover</span></h2>
-          <p class="lead">Every Ogbon plan includes cover backed by Casava. If an attack still gets through while you're protected, we pay for the money lost, the investigation and the cost of getting back to work. Fix more, and you pay less at&nbsp;renewal.</p>
+          <p class="lead">Every Ogbon plan includes cover. If an attack still gets through while you're protected, we pay for the money lost, the investigation and the cost of getting back to work. Fix more, and you pay less at&nbsp;renewal.</p>
           <a class="link" href="/cover">How cover works {icon("arrow")}</a>
         </div>
-        <div class="card card-illus" style="width:100%">{art("cover")}<p style="margin-top:18px;color:var(--muted)">Cover up to ₦200m a year, depending on your&nbsp;plan.</p></div>
+        <div class="card card-illus" style="width:100%">{art("cover")}<p style="margin-top:18px;color:var(--muted)">Cover up to {money(3_000_000, ngn=200e6)} a year, depending on your&nbsp;plan.</p></div>
       </div>
     </section>
 
@@ -1139,16 +1289,16 @@ ogbon1 = f"""    <div class="frame">
       <div class="wrap split">
         <div>
           <h2 class="h2" id="score-title">Part of your <span>risk score</span></h2>
-          <p class="lead">What ogbon-1 finds goes on the same fix list as the rest of your security, with the naira it puts at risk. Your founders see the effect on the dashboard; your engineering and IT teams see the details in the Ogbon app.</p>
+          <p class="lead">What ogbon-1 finds goes on the same fix list as the rest of your security, with the money it puts at risk. Your founders see the effect on the dashboard; your engineering and IT teams see the details in the Ogbon app.</p>
         </div>
         <div class="panel">
           <figure class="dash" aria-label="Example Ogbon fix list">
             <div class="dash-top"><span class="dash-domain">Fix list</span><span class="status status-warn">3 open</span></div>
             <div class="dash-list" style="padding-top:12px">
               <ul>
-                <li><span>Missing access check on an endpoint<small>Code · ₦12,000,000 at risk</small></span><span class="status status-bad">Critical</span></li>
-                <li><span>Two-step login off for cloud admins<small>Cloud · ₦19,000,000 at risk</small></span><span class="status status-warn">Fix</span></li>
-                <li><span>Injection flaw in a search endpoint<small>Code · ₦8,500,000 at risk</small></span><span class="status status-warn">Fix</span></li>
+                <li><span>Missing access check on an endpoint<small>Code · {money(30_000, True, 12_000_000)} at risk</small></span><span class="status status-bad">Critical</span></li>
+                <li><span>Two-step login off for cloud admins<small>Cloud · {money(45_000, True, 19_000_000)} at risk</small></span><span class="status status-warn">Fix</span></li>
+                <li><span>Injection flaw in a search endpoint<small>Code · {money(20_000, True, 8_500_000)} at risk</small></span><span class="status status-warn">Fix</span></li>
               </ul>
             </div>
           </figure>
@@ -1212,6 +1362,7 @@ def legal_page(heading, intro, sections):
 
 
 privacy = legal_page("Privacy <span>policy</span>", legal.PRIVACY_INTRO, legal.PRIVACY)
+cover_terms = legal_page("Cover terms, <span>in plain words</span>", COVER_TERMS_INTRO, COVER_TERMS)
 terms = legal_page("Terms of <span>service</span>", legal.TERMS_INTRO, legal.TERMS)
 
 notfound = """    <div class="frame">
@@ -1226,8 +1377,8 @@ notfound = """    <div class="frame">
 """
 
 PAGES = [
-    ("index.html", "Ogbon · Cyber cover with cybersecurity built in, for Africa",
-     "Cyber cover for African organisations, with security built in. Ogbon pays for the loss if an attack gets through, and checks your systems every day so you know what to fix.",
+    ("index.html", "Ogbon · Cyber cover with cybersecurity built in",
+     "Cyber cover with security built in, for digital businesses. Ogbon pays for the loss if an attack gets through, and checks your systems every day so you know what to fix.",
      home, "index, follow", home_ld),
     ("report.html", "Free cybersecurity report for your company · Ogbon",
      "Find out what attackers can see about your company from the outside, and what it could cost you. It takes under 10 minutes and nothing gets installed.",
@@ -1247,17 +1398,20 @@ PAGES = [
     ("ogbon-1.html", "ogbon-1: AI security for engineering and IT teams · Ogbon",
      "ogbon-1 is Ogbon's 30B security model. It finds and fixes security gaps across your apps, cloud, servers and laptops, on Mac and Windows or through the Ogbon API.",
      ogbon1, "index, follow", ""),
+    ("cover-terms.html", "Cover terms in plain words · Ogbon",
+     "What Ogbon's cyber cover pays for, what it doesn't, how to stay covered and how claims work, in plain words.",
+     cover_terms, "index, follow", ""),
     ("privacy.html", "Privacy policy · Ogbon",
-     "How Ogbon Security Limited collects, uses and protects personal data, and your rights under the Nigeria Data Protection Act 2023.",
+     "How Ogbon Security Limited collects, uses and protects personal data, and your rights under data protection law, including the NDPA, UK GDPR and GDPR.",
      privacy, "index, follow", ""),
     ("terms.html", "Terms of service · Ogbon",
      "The terms for using ogbon.com, the free security report and Ogbon's services, from Ogbon Security Limited.",
      terms, "index, follow", ""),
     ("pentesting.html", "AI penetration testing, proven by people · Ogbon",
-     "Ogbon's AI pentesting tests your websites, apps, APIs and cloud every day. Our security team proves each finding, ranked by the naira it puts at risk.",
+     "Ogbon's AI pentesting tests your websites, apps, APIs and cloud every day. Our security team proves each finding, ranked by the money it puts at risk.",
      pentesting, "index, follow", ""),
-    ("about.html", "About Ogbon · Cybersecurity company in Lagos",
-     "Ogbon is a cybersecurity company in Lagos. We help organisations fix the weaknesses attackers use, and cover the loss if an attack still gets through.",
+    ("about.html", "About Ogbon · Cybersecurity with cyber cover built in",
+     "Ogbon protects digital businesses. We help you fix the weaknesses attackers use, and cover the loss if an attack still gets through.",
      about, "index, follow", ""),
     ("report-results.html", "Your security report · Ogbon",
      "Your Ogbon security report.", results, "noindex, nofollow", ""),

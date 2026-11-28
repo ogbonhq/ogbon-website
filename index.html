@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en-NG">
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -11,8 +11,11 @@
     gtag('js', new Date());
     dataLayer.push({'gtm.start': new Date().getTime(), event: 'gtm.js'});
   </script>
-  <title>Ogbon · Cyber cover with cybersecurity built in, for Africa</title>
-  <meta name="description" content="Cyber cover for African organisations, with security built in. Ogbon pays for the loss if an attack gets through, and checks your systems every day so you know what to fix.">
+  <script>
+    try { var rg = new URLSearchParams(location.search).get("region") || localStorage.getItem("ogbon-region"); if (rg !== "africa" && rg !== "global") rg = (Intl.DateTimeFormat().resolvedOptions().timeZone || "").indexOf("Africa/") === 0 ? "africa" : "global"; document.documentElement.dataset.region = rg; } catch (e) {}
+  </script>
+  <title>Ogbon · Cyber cover with cybersecurity built in</title>
+  <meta name="description" content="Cyber cover with security built in, for digital businesses. Ogbon pays for the loss if an attack gets through, and checks your systems every day so you know what to fix.">
   <meta name="robots" content="index, follow">
   <meta name="google-site-verification" content="TMQezal_UH2JRRQMls634qto7pwaackCmYipcE6Nakg">
   <link rel="canonical" href="https://ogbon.com/">
@@ -23,23 +26,23 @@
   <link rel="manifest" href="/site.webmanifest">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Ogbon">
-  <meta property="og:locale" content="en_NG">
+  <meta property="og:locale" content="en_GB">
   <meta property="og:url" content="https://ogbon.com/">
-  <meta property="og:title" content="Ogbon · Cyber cover with cybersecurity built in, for Africa">
-  <meta property="og:description" content="Cyber cover for African organisations, with security built in. Ogbon pays for the loss if an attack gets through, and checks your systems every day so you know what to fix.">
+  <meta property="og:title" content="Ogbon · Cyber cover with cybersecurity built in">
+  <meta property="og:description" content="Cyber cover with security built in, for digital businesses. Ogbon pays for the loss if an attack gets through, and checks your systems every day so you know what to fix.">
   <meta property="og:image" content="https://ogbon.com/assets/og.png?v=9">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta property="og:image:alt" content="The Ogbon logo">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:site" content="@ogbonhq">
-  <meta name="twitter:title" content="Ogbon · Cyber cover with cybersecurity built in, for Africa">
-  <meta name="twitter:description" content="Cyber cover for African organisations, with security built in. Ogbon pays for the loss if an attack gets through, and checks your systems every day so you know what to fix.">
+  <meta name="twitter:title" content="Ogbon · Cyber cover with cybersecurity built in">
+  <meta name="twitter:description" content="Cyber cover with security built in, for digital businesses. Ogbon pays for the loss if an attack gets through, and checks your systems every day so you know what to fix.">
   <meta name="twitter:image" content="https://ogbon.com/assets/og.png?v=9">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Manrope:wght@500;600&display=swap">
-  <link rel="stylesheet" href="/styles.css?v=20261127-3">
+  <link rel="stylesheet" href="/styles.css?v=20261128-6">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -49,7 +52,7 @@
         "@id": "https://ogbon.com/#website",
         "url": "https://ogbon.com/",
         "name": "Ogbon",
-        "inLanguage": "en-NG",
+        "inLanguage": "en",
         "publisher": { "@id": "https://ogbon.com/#organization" }
       },
       {
@@ -58,21 +61,21 @@
         "name": "Ogbon",
         "legalName": "Ogbon Security Limited",
         "url": "https://ogbon.com/",
-        "areaServed": "NG",
+        "areaServed": ["US", "GB", "Africa"],
         "sameAs": ["https://x.com/ogbonhq", "https://www.linkedin.com/company/ogbonhq", "https://github.com/ogbonhq", "https://www.instagram.com/ogbonhq"],
-        "contactPoint": { "@type": "ContactPoint", "contactType": "incident response", "telephone": "+234 710 714 4122", "email": "secure@ogbon.com", "areaServed": "NG", "availableLanguage": "en", "hoursAvailable": { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"], "opens": "00:00", "closes": "23:59" } },
+        "contactPoint": { "@type": "ContactPoint", "contactType": "incident response", "email": "secure@ogbon.com", "areaServed": ["US", "GB", "Africa"], "availableLanguage": "en", "hoursAvailable": { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"], "opens": "00:00", "closes": "23:59" } },
         "logo": "https://ogbon.com/assets/icons/icon-512.png",
         "slogan": "Cyber cover with security built in.",
-        "description": "Ogbon pays for the loss when a cyber attack gets through, and checks the systems of organisations in Nigeria every day to keep attackers out.",
+        "description": "Ogbon pays for the loss when a cyber attack gets through, and checks the systems of digital businesses every day to keep attackers out.",
         "email": "secure@ogbon.com",
-        "telephone": "+234 710 714 4122",
         "address": { "@type": "PostalAddress", "streetAddress": "14B Grace Anjous Street, Lekki Phase 1", "addressLocality": "Lekki", "addressRegion": "Lagos State", "addressCountry": "NG" }
       },
       {
         "@type": "FAQPage",
         "mainEntity": [
-          {"@type": "Question", "name": "Is Ogbon an insurance company?", "acceptedAnswer": {"@type": "Answer", "text": "No. Ogbon is a cybersecurity company. The cover in every plan is a warranty from Ogbon: if an attack gets through while you're protected, we pay for the loss, up to your plan's limit. Our promise is backed by Casava, an insurer licensed by NAICOM, and we manage your claim with you from start to finish."}},
-          {"@type": "Question", "name": "Is the cover an insurance policy?", "acceptedAnswer": {"@type": "Answer", "text": "No. It's a warranty from Ogbon, backed by Casava, an insurer licensed by NAICOM. You'll get the full warranty terms before you sign."}},
+          {"@type": "Question", "name": "Is Ogbon an insurance company?", "acceptedAnswer": {"@type": "Answer", "text": "No. Ogbon is a cybersecurity company. The cover in every plan is a warranty from Ogbon: if an attack gets through while you're protected, we pay for the loss, up to your plan's limit. We manage your claim with you from start to finish."}},
+          {"@type": "Question", "name": "Is the cover an insurance policy?", "acceptedAnswer": {"@type": "Answer", "text": "No. It's a warranty from Ogbon. In the US and UK it will be backed by insurers licensed in each country. You'll get the full warranty terms before you sign."}},
+          {"@type": "Question", "name": "Which countries does Ogbon work in?", "acceptedAnswer": {"@type": "Answer", "text": "The US and the UK. Security work, ogbon-1 and incident response start straight away. Cover will be backed by insurers licensed in each country. Contact sales for start dates."}},
           {"@type": "Question", "name": "Do you install anything on our laptops?", "acceptedAnswer": {"@type": "Answer", "text": "Only if you turn on endpoint protection for laptops and servers. Everything else connects read-only to your websites, apps, APIs, cloud and internal systems."}},
           {"@type": "Question", "name": "What data can Ogbon see?", "acceptedAnswer": {"@type": "Answer", "text": "Configuration and access settings from the cloud accounts and systems you connect, and the code repositories you choose. We don't read emails, chats or documents. Access is read-only and you can disconnect at any time."}},
           {"@type": "Question", "name": "How long does setup take?", "acceptedAnswer": {"@type": "Answer", "text": "About an hour of your IT team's time. Most companies are covered within a week."}},
@@ -80,8 +83,8 @@
           {"@type": "Question", "name": "Can we keep our code on our own servers?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. ogbon-1 runs on a single GPU, so you can host it yourself and your code never leaves your network. We never use customer code to train our models."}},
           {"@type": "Question", "name": "Do you cover money stolen through hacked accounts or leaked API keys?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, up to your plan's limit, on every plan."}},
           {"@type": "Question", "name": "What if we can't fix something in time?", "acceptedAnswer": {"@type": "Answer", "text": "Tell us before the due date and we'll agree a new date or another fix. Your cover is only affected if a critical issue is left open past its due date without telling us."}},
-          {"@type": "Question", "name": "How quickly are claims paid?", "acceptedAnswer": {"@type": "Answer", "text": "We aim to decide within 15 working days of getting all documents, and to pay within 5 working days of approval."}},
-          {"@type": "Question", "name": "Does Ogbon help with CBN and NDPA compliance?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Growth and Scale plans include audit evidence mapped to the CBN risk-based cybersecurity framework and the Nigeria Data Protection Act."}},
+          {"@type": "Question", "name": "Which currencies do you work in?", "acceptedAnswer": {"@type": "Answer", "text": "US dollars and pounds sterling. Your plan, cover limits and reports are set in the currency you choose."}},
+          {"@type": "Question", "name": "Does Ogbon help with compliance?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Growth and Scale plans include audit evidence mapped to SOC 2, ISO 27001, PCI DSS, GDPR and UK GDPR."}},
           {"@type": "Question", "name": "Can we cancel?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, at the end of any billing period. We don't refund cover you haven't used."}}
         ]
       }
@@ -105,10 +108,10 @@
             <a href="/cover"><b>Cover</b><span>We pay if an attack gets&nbsp;through</span></a>
             </div>
           </div>
-          <a href="/ogbon-1">Security LLM</a>
+          <a href="/ogbon-1">Security&nbsp;LLM</a>
           <a href="/pricing">Pricing</a>
           <a href="/about">About</a>
-          <a class="nav-incident" href="/incident"><svg class="nav-incident-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true"><path d="M12 2.5 20.5 7.25v9.5L12 21.5 3.5 16.75v-9.5Z"/><path d="M12 7.5v5.5"/><circle cx="12" cy="16.5" r="1" fill="currentColor" stroke="none"/></svg>Under attack?</a>
+          <a class="nav-incident" href="/incident"><svg class="nav-incident-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true"><path d="M12 2.5 20.5 7.25v9.5L12 21.5 3.5 16.75v-9.5Z"/><path d="M12 7.5v5.5"/><circle cx="12" cy="16.5" r="1" fill="currentColor" stroke="none"/></svg>Under&nbsp;attack?</a>
       </nav>
       <div class="nav-actions">
         <a class="btn btn-primary btn-sm" data-email="Book a demo" href="#contact">Get a&nbsp;demo</a>
@@ -122,19 +125,19 @@
       <section class="hero" aria-labelledby="hero-title">
         <div class="hero-main">
           <h1 id="hero-title">Cyber cover with <span>security&nbsp;built&nbsp;in</span></h1>
-          <p class="hero-sub">If an attacker gets through, we pay for the loss. To stop that happening, we check your websites, apps, APIs and cloud <br class="br-wide">every day and show your team what&nbsp;to&nbsp;fix.</p>
+          <p class="hero-sub">If an attacker gets through, we pay for the loss. To stop that happening, we check your websites, apps, APIs and cloud <br class="br-wide">every day and show your team&nbsp;what&nbsp;to&nbsp;fix.</p>
           <div class="hero-actions">
             <a class="btn btn-light" href="/report">Get free security&nbsp;report</a>
             <a class="btn btn-ghost-light" data-email="Sales" href="#contact">Contact&nbsp;sales</a>
           </div>
-          <p class="backed backed-pill">Cover backed by <a href="https://casava.com/" target="_blank" rel="noopener" aria-label="Casava (opens in a new tab)"><img src="/assets/partners/casava.png" alt="Casava" width="112" height="27"></a></p>
+          <p class="backed backed-pill r-africa">Cover in Africa backed by <a href="https://casava.com/" target="_blank" rel="noopener" aria-label="Casava (opens in a new tab)"><img src="/assets/partners/casava.png" alt="Casava" width="112" height="27"></a></p>
         </div>
         <div class="hero-side">
           <figure class="dash" aria-label="Example Ogbon dashboard">
             <div class="dash-top"><span class="dash-domain">yourcompany.com</span><span class="status status-ok">Cover&nbsp;active</span></div>
             <div class="dash-stats">
               <div class="dash-stat"><p>Security&nbsp;score</p><b>72 /&nbsp;100</b></div>
-              <div class="dash-stat"><p>Covered up&nbsp;to</p><b>₦75m</b></div>
+              <div class="dash-stat"><p>Covered up&nbsp;to</p><b><span class="money" data-usd="1e+06" data-ngn="7.5e+07">$1m</span></b></div>
             </div>
             <div class="dash-list">
               <p>Today's&nbsp;checks</p>
@@ -152,13 +155,13 @@
     </div>
 
     <!-- Customer logos: add once there are customers who agree to be named.
-         Line above the logos: "Used by fintechs, lenders and growing organisations across Nigeria" -->
+         Line above the logos: "Used by digital businesses" -->
 
     <section class="section" aria-labelledby="attacks-title">
       <div class="wrap">
         <div class="head">
           <h2 class="h2" id="attacks-title">Most attacks start with <span>something&nbsp;small</span></h2>
-          <p class="lead lead-split"><strong>Attackers start with your website and app.</strong> They look for one place that trusts them too much, then use it to reach customer data or move&nbsp;money.</p>
+          <p class="lead lead-split"><strong>Attackers start with your website and app.</strong> They look for one place that trusts them too much, then use it to reach customer data, money or the systems your business&nbsp;runs&nbsp;on.</p>
         </div>
         <ul class="cards cards-4" aria-label="Common ways in">
           <li class="card card-illus"><div class="card-art card-art-sm"><svg viewBox="0 0 240 140" fill="none" stroke="currentColor" stroke-width="1" stroke-linejoin="round" aria-hidden="true">
@@ -236,7 +239,7 @@
 <path class="soft" d="M20 150L118 104" stroke-dasharray="2 4"/>
 <circle cx="20" cy="150" r="4" fill="#fff"/>
 <circle cx="160" cy="90" r="14" fill="#1362DD" stroke="none"/>
-</svg></div><h3>Incident&nbsp;response</h3><p>Report a problem on WhatsApp or from your dashboard at any time. A responder calls you back within&nbsp;an&nbsp;hour.</p></article>
+</svg></div><h3>Incident&nbsp;response</h3><p>Report a problem <span class="r-africa">on&nbsp;WhatsApp</span><span class="r-global">by&nbsp;email</span> or from your dashboard at any time. A responder calls you back within&nbsp;an&nbsp;hour.</p></article>
           <article class="card card-illus"><div class="card-art"><svg viewBox="0 0 320 180" fill="none" stroke="currentColor" stroke-width="1" stroke-linejoin="round" aria-hidden="true">
 <path class="soft" d="M160 12c28 15 50 20 68 20v58c0 44-30 66-68 79-38-13-68-35-68-79V32c18 0 40-5 68-20z"/>
 <path class="soft" d="M160 28c22 12 40 16 54 16v46c0 35-24 52-54 62-30-10-54-27-54-62V44c14 0 32-4 54-16z"/>
@@ -251,7 +254,7 @@
 <g><path d="M254.0,44.0 L288.6,64.0 L254.0,84.0 L219.4,64.0Z" fill="#fff"/><path d="M219.4,64.0 L254.0,84.0 L254.0,104.0 L219.4,84.0Z" fill="#F7F5F8"/><path d="M254.0,84.0 L288.6,64.0 L288.6,84.0 L254.0,104.0Z" fill="#EFECF1"/></g>
 <path class="soft" d="M108 100L148 86M176 86L216 100" stroke-dasharray="2 4"/>
 <g class="float"><g><path d="M162.0,64.0 L181.1,75.0 L162.0,86.0 L142.9,75.0Z" fill="#5A95F2" stroke="none"/><path d="M142.9,75.0 L162.0,86.0 L162.0,108.0 L142.9,97.0Z" fill="#1362DD" stroke="none"/><path d="M162.0,86.0 L181.1,75.0 L181.1,97.0 L162.0,108.0Z" fill="#0E4CB0" stroke="none"/></g></g>
-</svg></div><h3>ogbon-1 security&nbsp;model</h3><p>Your engineering and IT teams get ogbon-1, our 30B security model. It finds and fixes gaps across your laptops, code, cloud&nbsp;and&nbsp;systems.</p><a class="link" href="/ogbon-1">About&nbsp;ogbon-1 <svg class="icon" aria-hidden="true"><use href="/assets/icons.svg?v=20261126-31#arrow"/></svg></a></article>
+</svg></div><h3>ogbon-1 security&nbsp;model</h3><p>Your engineering and IT teams get ogbon-1, our 30B security model. It finds and fixes gaps across your laptops, code, cloud&nbsp;and&nbsp;systems.</p><a class="link" href="/ogbon-1">About&nbsp;ogbon-1 <svg class="icon" aria-hidden="true"><use href="/assets/icons.svg?v=20261128-6#arrow"/></svg></a></article>
         </div>
       </div>
     </section>
@@ -259,19 +262,19 @@
     <section class="section section-tight" aria-labelledby="naira-title">
       <div class="wrap split">
         <div>
-          <h2 class="h2" id="naira-title">See your risk <span>in&nbsp;naira</span></h2>
-          <p class="lead">Every finding comes with a naira amount: what it could cost you this year, and how much fixing&nbsp;it&nbsp;saves.</p>
+          <h2 class="h2" id="naira-title">See your risk <span>as&nbsp;a&nbsp;cost</span></h2>
+          <p class="lead">Every finding comes with an amount in <span class="r-africa">dollars, pounds or&nbsp;naira</span><span class="r-global">dollars or&nbsp;pounds</span>: what it could cost you this year, and how much fixing&nbsp;it&nbsp;saves.</p>
           <a class="btn btn-primary" href="/report">Get your free&nbsp;report</a>
         </div>
         <div class="panel">
           <figure class="loss" aria-label="Example from an Ogbon report">
             <p class="loss-label">Expected loss this&nbsp;year</p>
-            <p class="loss-num">₦48,000,000</p>
+            <p class="loss-num"><span class="money" data-usd="120000" data-ngn="4.8e+07" data-fmt="full">$120,000</span></p>
             <div class="loss-fix">
-              <span class="badge"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg?v=20261126-31#lock"/></svg></span>
+              <span class="badge"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg?v=20261128-6#lock"/></svg></span>
               <div>
                 <p>Turn on two-step login for cloud and admin&nbsp;accounts</p>
-                <span class="loss-save">Reduces expected loss by&nbsp;₦19,000,000</span>
+                <span class="loss-save">Reduces expected loss by <span class="money" data-usd="45000" data-ngn="1.9e+07" data-fmt="full">$45,000</span></span>
               </div>
             </div>
           </figure>
@@ -283,23 +286,23 @@
       <div class="wrap split">
         <div class="panel panel-pink">
           <ul class="flow" aria-label="How cover works">
-            <li><span class="badge"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg?v=20261126-31#monitor"/></svg></span><span>Daily checks<small>Websites, apps, APIs, cloud and internal&nbsp;systems</small></span></li>
-            <li><span class="badge badge-blue"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg?v=20261126-31#code"/></svg></span><span>Every change reviewed<small>ogbon-1 on each pull&nbsp;request</small></span></li>
-            <li><span class="badge badge-pink"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg?v=20261126-31#phone"/></svg></span><span>Responder on the line<small>Within an hour of your&nbsp;report</small></span></li>
-            <li><span class="badge badge-lilac"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg?v=20261126-31#naira"/></svg></span><span>Loss paid<small>Up to your plan's&nbsp;limit</small></span></li>
+            <li><span class="badge"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg?v=20261128-6#monitor"/></svg></span><span>Daily checks<small>Websites, apps, APIs, cloud and internal&nbsp;systems</small></span></li>
+            <li><span class="badge badge-blue"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg?v=20261128-6#code"/></svg></span><span>Every change reviewed<small>ogbon-1 on each pull&nbsp;request</small></span></li>
+            <li><span class="badge badge-pink"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg?v=20261128-6#phone"/></svg></span><span>Responder on the line<small>Within an hour of your&nbsp;report</small></span></li>
+            <li><span class="badge badge-lilac"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg?v=20261128-6#money"/></svg></span><span>Loss paid<small>Small, clear claims the same&nbsp;day</small></span></li>
           </ul>
         </div>
         <div>
           <h2 class="h2" id="covered-title">What the cover <span>pays&nbsp;for</span></h2>
           <ul class="checks">
-            <li><span class="tick"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg?v=20261126-31#check"/></svg></span>Money stolen after attackers take over your accounts, systems or API&nbsp;keys</li>
-            <li><span class="tick"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg?v=20261126-31#check"/></svg></span>Ransomware investigation and&nbsp;recovery</li>
-            <li><span class="tick"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg?v=20261126-31#check"/></svg></span>Data breach response, including notifying customers and the&nbsp;NDPC</li>
-            <li><span class="tick"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg?v=20261126-31#check"/></svg></span>Income lost while your systems are&nbsp;down</li>
-            <li><span class="tick"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg?v=20261126-31#check"/></svg></span>Incident responders from the first&nbsp;call</li>
+            <li><span class="tick"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg?v=20261128-6#check"/></svg></span>Money stolen after attackers take over your accounts, systems or API&nbsp;keys</li>
+            <li><span class="tick"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg?v=20261128-6#check"/></svg></span>Ransomware investigation and&nbsp;recovery</li>
+            <li><span class="tick"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg?v=20261128-6#check"/></svg></span>Data breach response, including notifying customers and data protection&nbsp;regulators</li>
+            <li><span class="tick"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg?v=20261128-6#check"/></svg></span>Income lost while your systems are&nbsp;down</li>
+            <li><span class="tick"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg?v=20261128-6#check"/></svg></span>Incident responders from the first&nbsp;call</li>
           </ul>
-          <a class="link" href="/cover">See what's&nbsp;covered <svg class="icon" aria-hidden="true"><use href="/assets/icons.svg?v=20261126-31#arrow"/></svg></a>
-          <p class="backed">Cover backed by <a href="https://casava.com/" target="_blank" rel="noopener" aria-label="Casava (opens in a new tab)"><img src="/assets/partners/casava.png" alt="Casava" width="112" height="27"></a></p>
+          <a class="link" href="/cover">See what's&nbsp;covered <svg class="icon" aria-hidden="true"><use href="/assets/icons.svg?v=20261128-6#arrow"/></svg></a>
+          <p class="backed r-africa">Cover in Africa backed by <a href="https://casava.com/" target="_blank" rel="noopener" aria-label="Casava (opens in a new tab)"><img src="/assets/partners/casava.png" alt="Casava" width="112" height="27"></a></p>
         </div>
       </div>
     </section>
@@ -308,17 +311,17 @@
       <div class="wrap">
         <div class="cards">
           <article class="card">
-            <span class="badge badge-lilac"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg?v=20261126-31#naira"/></svg></span>
-            <h2 class="h2" id="who-title" style="margin-top:18px">Built for organisations that move&nbsp;money</h2>
-            <p class="lead">Ogbon is built for fintechs, banks, lenders, microfinance banks, payment companies, enterprises and government agencies. If you hold customer money or customer data, Ogbon is&nbsp;for&nbsp;you.</p>
+            <span class="badge badge-lilac"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg?v=20261128-6#money"/></svg></span>
+            <h2 class="h2" id="who-title" style="margin-top:18px">Built for businesses that run&nbsp;online</h2>
+            <p class="lead">Ogbon is for any business that would lose money if its website, app or systems were attacked: software companies, online shops, marketplaces, fintechs, and healthcare and logistics companies, in <span class="r-africa">the US, the UK and&nbsp;across&nbsp;Africa</span><span class="r-global">the US and&nbsp;the&nbsp;UK</span>.</p>
             <ul class="tags" aria-label="Who uses Ogbon">
-              <li>Banks</li><li>Fintechs</li><li>Lenders</li><li>Payment&nbsp;companies</li><li>Enterprises</li><li>Government</li>
+              <li>Software and&nbsp;SaaS</li><li>E-commerce</li><li>Marketplaces</li><li>Fintech</li><li>Healthcare</li><li>Logistics</li>
             </ul>
           </article>
           <article class="card">
-            <span class="badge badge-pink"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg?v=20261126-31#shield"/></svg></span>
+            <span class="badge badge-pink"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg?v=20261128-6#shield"/></svg></span>
             <h2 class="h2" style="margin-top:18px">Priced on how secure you&nbsp;are</h2>
-            <p class="lead">Insurers usually price cyber cover from a yearly questionnaire. We check your systems every day, so your price reflects how you're really set up. Fix more, and you pay less&nbsp;at&nbsp;renewal.</p>
+            <p class="lead">Insurers usually price cyber cover from a yearly questionnaire. We check your systems every day, so your price reflects how you're really set up. Fix more, and you pay less at renewal. If you don't claim, part of your cover money comes back as&nbsp;security&nbsp;work.</p>
           </article>
         </div>
       </div>
@@ -327,13 +330,14 @@
     <section class="section section-tight" aria-labelledby="audit-title">
       <div class="wrap split">
         <div>
-          <h2 class="h2" id="audit-title">Ready for CBN and <span>NDPA&nbsp;audits</span></h2>
-          <p class="lead">Download evidence mapped to the CBN risk-based cybersecurity framework and the Nigeria Data Protection Act whenever an auditor asks&nbsp;for&nbsp;it.</p>
+          <h2 class="h2" id="audit-title">Ready for SOC 2, ISO 27001 and <span>GDPR&nbsp;audits</span></h2>
+          <p class="lead">Download evidence mapped to the frameworks your customers, auditors and regulators ask for, whenever they ask&nbsp;for&nbsp;it.</p>
         </div>
         <div class="panel">
           <ul class="flow" aria-label="Audit evidence">
-            <li><span class="badge"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg?v=20261126-31#file"/></svg></span><span>CBN risk-based cybersecurity framework<small>Evidence pack, ready to&nbsp;download</small></span></li>
-            <li><span class="badge badge-pink"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg?v=20261126-31#file"/></svg></span><span>Nigeria Data Protection Act<small>Evidence pack, ready to&nbsp;download</small></span></li>
+            <li><span class="badge"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg?v=20261128-6#file"/></svg></span><span>SOC 2 and ISO 27001<small>Evidence pack, ready to&nbsp;download</small></span></li>
+            <li><span class="badge badge-pink"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg?v=20261128-6#file"/></svg></span><span><span class="r-africa">GDPR, UK GDPR and the Nigeria Data Protection&nbsp;Act</span><span class="r-global">GDPR and UK&nbsp;GDPR</span><small>Evidence pack, ready to&nbsp;download</small></span></li>
+            <li><span class="badge badge-lilac"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg?v=20261128-6#file"/></svg></span><span><span class="r-africa">PCI DSS and the CBN cybersecurity&nbsp;framework</span><span class="r-global">PCI&nbsp;DSS</span><small>Evidence pack, ready to&nbsp;download</small></span></li>
           </ul>
         </div>
       </div>
@@ -344,51 +348,63 @@
         <div class="head"><h2 class="h2" id="faq-title">Questions</h2></div>
         <div class="faq">
           <details>
-            <summary>Is Ogbon an insurance&nbsp;company?<svg class="icon" aria-hidden="true"><use href="/assets/icons.svg?v=20261126-31#plus"/></svg></summary>
-            <p>No. Ogbon is a cybersecurity company. The cover in every plan is a warranty from Ogbon: if an attack gets through while you're protected, we pay for the loss, up to your plan's limit. Our promise is backed by Casava, an insurer licensed by NAICOM, and we manage your claim with you from start to&nbsp;finish.</p>
+            <summary>Is Ogbon an insurance&nbsp;company?<svg class="icon" aria-hidden="true"><use href="/assets/icons.svg?v=20261128-6#plus"/></svg></summary>
+            <p>No. Ogbon is a cybersecurity company. The cover in every plan is a warranty from Ogbon: if an attack gets through while you're protected, we pay for the loss, up to your plan's limit. We manage your claim with you from start to&nbsp;finish.</p>
           </details>
           <details>
-            <summary>Is the cover an insurance&nbsp;policy?<svg class="icon" aria-hidden="true"><use href="/assets/icons.svg?v=20261126-31#plus"/></svg></summary>
-            <p>No. It's a warranty from Ogbon, backed by Casava, an insurer licensed by NAICOM. You'll get the full warranty terms before you&nbsp;sign.</p>
+            <summary>Is the cover an insurance&nbsp;policy?<svg class="icon" aria-hidden="true"><use href="/assets/icons.svg?v=20261128-6#plus"/></svg></summary>
+            <p><span class="r-africa">No. It's a warranty from Ogbon, backed by Casava, an insurer licensed by NAICOM in Nigeria. You'll get the full warranty terms before you&nbsp;sign.</span><span class="r-global">No. It's a warranty from Ogbon. In the US and UK it will be backed by insurers licensed in each country. You'll get the full warranty terms before you&nbsp;sign.</span></p>
           </details>
           <details>
-            <summary>Do you install anything on our&nbsp;laptops?<svg class="icon" aria-hidden="true"><use href="/assets/icons.svg?v=20261126-31#plus"/></svg></summary>
+            <summary>Which countries does Ogbon work&nbsp;in?<svg class="icon" aria-hidden="true"><use href="/assets/icons.svg?v=20261128-6#plus"/></svg></summary>
+            <p><span class="r-africa">The US, the UK and across Africa. Security work, ogbon-1 and incident response are the same everywhere. Cover for customers in Africa is backed by&nbsp;Casava.</span><span class="r-global">The US and the UK. Security work, ogbon-1 and incident response start straight away. Cover will be backed by insurers licensed in each country. Contact sales for start&nbsp;dates.</span></p>
+          </details>
+          <details>
+            <summary>Do you install anything on our&nbsp;laptops?<svg class="icon" aria-hidden="true"><use href="/assets/icons.svg?v=20261128-6#plus"/></svg></summary>
             <p>Only if you turn on endpoint protection for laptops and servers. Everything else connects read-only to your websites, apps, APIs, cloud and internal&nbsp;systems.</p>
           </details>
           <details>
-            <summary>What data can Ogbon&nbsp;see?<svg class="icon" aria-hidden="true"><use href="/assets/icons.svg?v=20261126-31#plus"/></svg></summary>
+            <summary>What data can Ogbon&nbsp;see?<svg class="icon" aria-hidden="true"><use href="/assets/icons.svg?v=20261128-6#plus"/></svg></summary>
             <p>Configuration and access settings from the cloud accounts and systems you connect, and the code repositories you choose. We don't read emails, chats or documents. Access is read-only and you can disconnect at any&nbsp;time.</p>
           </details>
           <details>
-            <summary>How long does setup&nbsp;take?<svg class="icon" aria-hidden="true"><use href="/assets/icons.svg?v=20261126-31#plus"/></svg></summary>
+            <summary>How long does setup&nbsp;take?<svg class="icon" aria-hidden="true"><use href="/assets/icons.svg?v=20261128-6#plus"/></svg></summary>
             <p>About an hour of your IT team's time. Most companies are covered within a&nbsp;week.</p>
           </details>
           <details>
-            <summary>What is&nbsp;ogbon-1?<svg class="icon" aria-hidden="true"><use href="/assets/icons.svg?v=20261126-31#plus"/></svg></summary>
+            <summary>What is&nbsp;ogbon-1?<svg class="icon" aria-hidden="true"><use href="/assets/icons.svg?v=20261128-6#plus"/></svg></summary>
             <p>ogbon-1 is Ogbon's own 30B security model. It finds and fixes security problems across your code, cloud and systems. Your engineering and IT teams use it through Ogbon Harness or the Ogbon API, and it's included in every&nbsp;plan.</p>
           </details>
           <details>
-            <summary>Can we keep our code on our own&nbsp;servers?<svg class="icon" aria-hidden="true"><use href="/assets/icons.svg?v=20261126-31#plus"/></svg></summary>
+            <summary>Can we keep our code on our own&nbsp;servers?<svg class="icon" aria-hidden="true"><use href="/assets/icons.svg?v=20261128-6#plus"/></svg></summary>
             <p>Yes. ogbon-1 runs on a single GPU, so you can host it yourself and your code never leaves your network. We never use customer code to train our&nbsp;models.</p>
           </details>
           <details>
-            <summary>Do you cover money stolen through hacked accounts or leaked API&nbsp;keys?<svg class="icon" aria-hidden="true"><use href="/assets/icons.svg?v=20261126-31#plus"/></svg></summary>
+            <summary>Do you cover money stolen through hacked accounts or leaked API&nbsp;keys?<svg class="icon" aria-hidden="true"><use href="/assets/icons.svg?v=20261128-6#plus"/></svg></summary>
             <p>Yes, up to your plan's limit, on every&nbsp;plan.</p>
           </details>
           <details>
-            <summary>What if we can't fix something in&nbsp;time?<svg class="icon" aria-hidden="true"><use href="/assets/icons.svg?v=20261126-31#plus"/></svg></summary>
+            <summary>What if we can't fix something in&nbsp;time?<svg class="icon" aria-hidden="true"><use href="/assets/icons.svg?v=20261128-6#plus"/></svg></summary>
             <p>Tell us before the due date and we'll agree a new date or another fix. Your cover is only affected if a critical issue is left open past its due date without telling&nbsp;us.</p>
           </details>
           <details>
-            <summary>How quickly are claims&nbsp;paid?<svg class="icon" aria-hidden="true"><use href="/assets/icons.svg?v=20261126-31#plus"/></svg></summary>
-            <p>We aim to decide within 15 working days of getting all documents, and to pay within 5 working days of&nbsp;approval.</p>
+            <summary>Which currencies do you work&nbsp;in?<svg class="icon" aria-hidden="true"><use href="/assets/icons.svg?v=20261128-6#plus"/></svg></summary>
+            <p><span class="r-africa">US dollars, pounds sterling and naira. Your plan, cover limits and reports are set in the currency you&nbsp;choose.</span><span class="r-global">US dollars and pounds sterling. Your plan, cover limits and reports are set in the currency you&nbsp;choose.</span></p>
           </details>
           <details>
-            <summary>Does Ogbon help with CBN and NDPA&nbsp;compliance?<svg class="icon" aria-hidden="true"><use href="/assets/icons.svg?v=20261126-31#plus"/></svg></summary>
-            <p>Yes. Growth and Scale plans include audit evidence mapped to the CBN risk-based cybersecurity framework and the Nigeria Data Protection&nbsp;Act.</p>
+            <summary>How quickly are claims&nbsp;paid?<svg class="icon" aria-hidden="true"><use href="/assets/icons.svg?v=20261128-6#plus"/></svg></summary>
+            <p>Small, clear claims are paid the same day: incident response costs, and confirmed losses up to <mark class="tbd">[$10,000]</mark>. For larger claims we decide within 15 working days of getting all documents, and pay within 5 working days of approval. People decide every claim, and a person explains any refusal in&nbsp;writing.</p>
           </details>
           <details>
-            <summary>Can we&nbsp;cancel?<svg class="icon" aria-hidden="true"><use href="/assets/icons.svg?v=20261126-31#plus"/></svg></summary>
+            <summary>What is the security&nbsp;giveback?<svg class="icon" aria-hidden="true"><use href="/assets/icons.svg?v=20261128-6#plus"/></svg></summary>
+            <p>If the part of your price that pays for cover isn't used for claims during the year, we give <mark class="tbd">[20%]</mark> of it back as extra pentests, fixes or a discount at renewal. We earn more when you stay safe, so we have no reason to refuse a fair&nbsp;claim.</p>
+          </details>
+          <details>
+            <summary>Does Ogbon help with&nbsp;compliance?<svg class="icon" aria-hidden="true"><use href="/assets/icons.svg?v=20261128-6#plus"/></svg></summary>
+            <p><span class="r-africa">Yes. Growth and Scale plans include audit evidence mapped to SOC 2, ISO 27001, PCI DSS, GDPR and UK GDPR, the Nigeria Data Protection Act and the CBN risk-based cybersecurity&nbsp;framework.</span><span class="r-global">Yes. Growth and Scale plans include audit evidence mapped to SOC 2, ISO 27001, PCI DSS, GDPR and UK&nbsp;GDPR.</span></p>
+          </details>
+          <details>
+            <summary>Can we&nbsp;cancel?<svg class="icon" aria-hidden="true"><use href="/assets/icons.svg?v=20261128-6#plus"/></svg></summary>
             <p>Yes, at the end of any billing period. We don't refund cover you haven't&nbsp;used.</p>
           </details>
         </div>
@@ -413,7 +429,7 @@
       <div class="footer-top">
         <div class="footer-brand">
           <p>Cyber cover with security built&nbsp;in.</p>
-          <p class="footer-contact"><a href="mailto:secure@ogbon.com">secure@ogbon.com</a><br><a href="tel:+2347107144122">0710 714&nbsp;4122</a></p>
+          <p class="footer-contact"><a href="mailto:secure@ogbon.com">secure@ogbon.com</a><span class="r-africa"><br><a href="tel:+2347107144122">+234 710 714&nbsp;4122</a></span></p>
           <ul class="footer-social">
           <li><a href="https://x.com/ogbonhq" target="_blank" rel="noopener noreferrer" aria-label="Ogbon on X"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a></li>
           <li><a href="https://www.linkedin.com/company/ogbonhq" target="_blank" rel="noopener noreferrer" aria-label="Ogbon on LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 1 1 0-4.125 2.062 2.062 0 0 1 0 4.125zM7.119 20.452H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a></li>
@@ -425,7 +441,7 @@
           <h2>Product</h2>
           <ul>
             <li><a href="/pentesting">Penetration&nbsp;testing</a></li>
-            <li><a href="/ogbon-1">Security LLM</a></li>
+            <li><a href="/ogbon-1">Security&nbsp;LLM</a></li>
             <li><a href="/cover">Cover</a></li>
             <li><a href="/how-it-works">How it&nbsp;works</a></li>
             <li><a href="/pricing">Pricing</a></li>
@@ -436,12 +452,13 @@
           <ul>
             <li><a href="/about">About</a></li>
             <li><a href="/report">Free security&nbsp;report</a></li>
-            <li><a href="/incident">Under attack?</a></li>
+            <li><a href="/incident">Under&nbsp;attack?</a></li>
           </ul>
         </nav>
         <nav class="footer-col" aria-label="Legal">
           <h2>Legal</h2>
           <ul>
+            <li><a href="/cover-terms">Cover&nbsp;terms</a></li>
             <li><a href="/privacy">Privacy</a></li>
             <li><a href="/terms">Terms</a></li>
           </ul>
@@ -449,12 +466,13 @@
       </div>
       <a class="footer-mark" href="/" aria-label="Ogbon home"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 21 5" shape-rendering="crispEdges" fill="currentColor" class="logo-svg" aria-hidden="true"><rect x="8" y="0" width="1" height="1"/><rect x="0" y="1" width="3" height="1"/><rect x="4" y="1" width="3" height="1"/><rect x="8" y="1" width="2" height="1"/><rect x="12" y="1" width="3" height="1"/><rect x="16" y="1" width="2" height="1"/><rect x="0" y="2" width="1" height="1"/><rect x="2" y="2" width="1" height="1"/><rect x="4" y="2" width="1" height="1"/><rect x="6" y="2" width="1" height="1"/><rect x="8" y="2" width="1" height="1"/><rect x="10" y="2" width="1" height="1"/><rect x="12" y="2" width="1" height="1"/><rect x="14" y="2" width="1" height="1"/><rect x="16" y="2" width="1" height="1"/><rect x="18" y="2" width="1" height="1"/><rect x="0" y="3" width="3" height="1"/><rect x="5" y="3" width="2" height="1"/><rect x="8" y="3" width="3" height="1"/><rect x="12" y="3" width="3" height="1"/><rect x="16" y="3" width="1" height="1"/><rect x="18" y="3" width="1" height="1"/><rect x="20" y="3" width="1" height="1"/><rect x="4" y="4" width="2" height="1"/></svg></a>
       <div class="footer-legal">
-        <p>Ogbon is not an insurer, and the cover in Ogbon plans is not an insurance policy. It is a warranty from Ogbon Security Limited, backed by Casava, an insurer licensed by the National Insurance Commission (NAICOM). Terms, limits and exclusions&nbsp;apply.</p>
-        <p>© 2026 Ogbon Security Limited. Lagos,&nbsp;Nigeria.</p>
+        <p class="r-africa">Ogbon is not an insurer, and the cover in Ogbon plans is not an insurance policy. It is a warranty from Ogbon Security Limited. For customers in Africa, the warranty is backed by Casava, an insurer licensed by the National Insurance Commission (NAICOM) in Nigeria. Terms, limits and exclusions&nbsp;apply.</p>
+        <p class="r-global">Ogbon is not an insurer, and the cover in Ogbon plans is not an insurance policy. It is a warranty from Ogbon Security Limited. In the US and UK, it will be backed by insurers licensed in those countries. Terms, limits and exclusions&nbsp;apply.</p>
+        <p>© 2026 Ogbon Security&nbsp;Limited.</p>
       </div>
     </div>
   </footer>
 
-  <script src="/script.js?v=20261127-2" defer></script>
+  <script src="/script.js?v=20261128-5" defer></script>
 </body>
 </html>

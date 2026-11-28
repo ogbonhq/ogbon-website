@@ -1,10 +1,10 @@
 # ogbon.com
 
-The website for Ogbon Security: cybersecurity with cover built in. Engineers build with ogbon-1, Ogbon checks websites, apps, APIs, cloud and internal systems every day, and a cover warranty backed by Casava pays for the loss if an attacker still gets through.
+The website for Ogbon Security: cyber cover with security built in, for digital businesses in the US, UK and Africa. Ogbon checks websites, apps, APIs, cloud and internal systems every day, engineers build with ogbon-1, and a cover warranty pays for the loss if an attacker still gets through (backed by Casava in Africa; US and UK insurers to follow).
 
-Copy rules: plain words, no em dashes, say organisations (not businesses), and call v1 cover a warranty, not an insurance policy.
+Copy rules: plain words, no em dashes, write for any digital business in the US, UK or Africa (not only fintechs), and call cover a warranty, not an insurance policy. Amounts are set in US dollars with `money()` in `tools/pages.py`; `script.js` shows them in the visitor's currency: GBP in the UK, NGN in Nigeria, USD elsewhere (GBP converted with `RATES`; naira amounts are set separately with `money(..., ngn=...)`, since Nigerian plans keep their own limits).
 
-- `tools/pages.py` · writes every HTML page (home, report, how it works, ogbon-1, cover, pricing, incident, about, privacy, terms, 404) from one place, so the head, nav and footer stay the same: `python3 tools/pages.py`. Legal text is in `tools/legal.py`. Edit these, not the HTML.
+- `tools/pages.py` · writes every HTML page (home, report, how it works, ogbon-1, cover, cover terms, pricing, incident, about, privacy, terms, 404) from one place, so the head, nav and footer stay the same: `python3 tools/pages.py`. Legal text is in `tools/legal.py`. Edit these, not the HTML.
 - `styles.css` · all styling; `script.js` · small interactions
 - `assets/` · logo, icons, glyphs, share image (`og.png`) and partner logos (`partners/`)
 - `favicon.ico` / `favicon.svg` / `apple-touch-icon.png`, `site.webmanifest`, `robots.txt`, `sitemap.xml`
